@@ -1,22 +1,31 @@
-var app = angular.module('inTouch2', ['ngRoute', 'ngCookies', 'pascalprecht.translate']);
+var app = angular.module('inTouch2', ['ngRoute',
+    'ngCookies', 'pascalprecht.translate']);
 
 app.config(function ($translateProvider, $routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
+    //TODO: fix the language switch button
+
     $translateProvider.translations('en-us', {
+        LOADING: "loading...",
         START_APP: 'Touch to Start',
+        START_APP_WITH_DEMO: 'Login with Demo Account',
+        SET_LANG: 'Switch language to 简体中文',
         NO_ACCOUNT_HINT: "Don't have an acccount? Try this.",
         PASSWORD: 'password',
         USERNAME: 'username',
-        LOGIN_ERROR : "Incorrect username or password, please try again."
+        LOGIN_ERROR: "Incorrect username or password, please try again."
 
     })
         .translations('zh-cn', {
+            LOADING: "读取中...",
             START_APP: '摸一下这里开始',
+            START_APP_WITH_DEMO: '用演示帐号登录',
+            SET_LANG: '切换到English版本',
             NO_ACCOUNT_HINT: '没有账户？ 试试这个。',
             PASSWORD: '输入密码',
             USERNAME: '账户名称',
-            LOGIN_ERROR : "用户名或密码不正确，请重新输入"
+            LOGIN_ERROR: "用户名或密码不正确，请重新输入"
 
         });
     $translateProvider.preferredLanguage('zh-cn');
@@ -40,12 +49,20 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http) {
     $scope.show_login_error = false;
     $scope.user = {"username": "", "password": ""};
 
-    $scope.dismiss_login_error = function (){
+    $scope.login_button_text = $translate('START_APP');
+
+    $scope.dismiss_login_error = function () {
         $scope.show_login_error = false;
+    }
+
+    $scope.toggleLang = function(){
+        $translate.uses() === 'en-us'? $translate.uses('zh-cn'):$translate.uses('en-us');
+        $scope.login_button_text = $translate('START_APP');
     }
 
     $scope.login = function () {
         $scope.loading++;
+        $scope.login_button_text = $translate('LOADING');
         Auth.setCredentials($scope.user.username, $scope.user.password);
 
         $http({method: 'POST', url: '/api/login'}).
@@ -53,12 +70,13 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http) {
                 $scope.status = status;
                 $scope.data = data;
                 $scope.loading--;
+                $scope.login_button_text = $translate('START_APP');
             }).
             error(function (data, status) {
                 $scope.loading--;
+                $scope.login_button_text = $translate('START_APP');
                 $scope.data = data || "Request failed";
                 $scope.status = status;
-                console.log(status)
                 $scope.show_login_error = true;
             });
 
