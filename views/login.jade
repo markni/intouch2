@@ -1,0 +1,14 @@
+div.row
+    div.col-md-4.col-md-offset-4
+
+        form(role="form")
+            div.form-group
+                input(class="form-control",placeholder="{{ 'USERNAME' | translate }}",ng-model="user.username")
+            div.form-group
+                input(type="password",class="form-control",placeholder="{{ 'PASSWORD' | translate }}",ng-model="user.password")
+            button.btn.btn-danger.btn-block(type="button",translate="START_APP",ng-click="login()")
+            div.alert.alert-warning.alert-dismissable.margin-top-10(ng-class="{hidden: !show_login_error}",translate='LOGIN_ERROR')
+                button(type='button',class='close',aria-hidden='true',ng-click="dismiss_login_error()") &times;
+                | wrong password
+
+            span.help-block.text-center.small.padding-top-10(translate="NO_ACCOUNT_HINT")
