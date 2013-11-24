@@ -7,10 +7,10 @@ div.row
             div.form-group
                 input(type="password",class="form-control",placeholder="{{ 'PASSWORD' | translate }}",ng-model="user.password")
             button.btn.btn-danger.btn-block(type="button",ng-click="login()") {{login_button_text}}
-            button.btn.btn-primary.btn-block(type="button",translate="START_APP_WITH_DEMO",ng-click="demo()")
-            div.alert.alert-warning.alert-dismissable.margin-top-10(ng-class="{hidden: !show_login_error}",translate='LOGIN_ERROR')
+            button.btn.btn-primary.btn-block(type="button",ng-click="demo()") {{demo_button_text}}
+            div.alert.alert-warning.alert-dismissable.margin-top-10(ng-class="{hidden: !show_login_error}")
                 button(type='button',class='close',aria-hidden='true',ng-click="dismiss_login_error()") &times;
-                | wrong password
+                p(translate='LOGIN_ERROR')
 
             span.help-block.text-center.small.padding-top-10
                 a.no-href-link(translate="SET_LANG",ng-click="toggleLang()")

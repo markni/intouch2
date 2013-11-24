@@ -39,6 +39,7 @@ app.get('/temp/home', user.home);
 
 app.all('/api/login',api.login);
 app.all('/api/user',api.user);
+app.all('/api/demo',api.demo);
 
 app.get('/login', routes.index);
 

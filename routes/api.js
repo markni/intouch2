@@ -56,6 +56,24 @@ exports.user = function(req,res){
 
 }
 
+exports.demo = function(req,res){
+    b.auth({username:'nodebangumi',password:'node-bangumi'},function(err,data){
+        console.log(JSON.stringify(data));
+        if (!err && data && data.code != "401"){
+            res.statusCode = 200;
+            data.auth = encrypt(data.auth,private_key);
+            data.username = encrypt(data.username,private_key);
+            res.json(data);
+        }
+        else{
+            res.statusCode = 401; // Force them to retry authentication
+            res.json({error_code: 401, error_msg: 'wrong pass'});
+
+        }
+    })
+
+}
+
 
 exports.login = function(req, res){
    //console.log(req.headers) ;

@@ -21,7 +21,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             LOADING: "读取中...",
             START_APP: '摸一下这里开始',
             START_APP_WITH_DEMO: '用演示帐号登录',
-            SET_LANG: '切换到English版本',
+            SET_LANG: '切换到 English 版本',
             NO_ACCOUNT_HINT: '没有账户？ 试试这个。',
             PASSWORD: '输入密码',
             USERNAME: '账户名称',
@@ -85,7 +85,9 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location
     $scope.show_login_error = false;
     $scope.user = {"username": "", "password": ""};
 
+
     $scope.login_button_text = $translate('START_APP');
+    $scope.demo_button_text = $translate('START_APP_WITH_DEMO');
 
     $scope.dismiss_login_error = function () {
         $scope.show_login_error = false;
@@ -94,6 +96,32 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location
     $scope.toggleLang = function(){
         $translate.uses() === 'en-us'? $translate.uses('zh-cn'):$translate.uses('en-us');
         $scope.login_button_text = $translate('START_APP');
+        $scope.demo_button_text = $translate('START_APP_WITH_DEMO');
+    }
+
+    $scope.demo = function(){
+        $scope.loading++;
+        $scope.demo_button_text = $translate('LOADING');
+        Auth.clearCredentials();
+        $http({method: 'POST', url: '/api/demo'}).
+            success(function (data, status) {
+                //$cookieStore.set('auth',data.auth);
+                localStorage.auth = data.auth;
+                localStorage.username = data.username;
+                $scope.status = status;
+                $scope.data = data;
+                $scope.loading--;
+                $scope.demo_button_text = $translate('START_APP');
+                $location.path('/');
+            }).
+            error(function (data, status) {
+                $scope.loading--;
+                $scope.demo_button_text = $translate('START_APP');
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+                $scope.show_login_error = true;
+            });
+
     }
 
     $scope.login = function () {
@@ -110,12 +138,12 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location
                 $scope.status = status;
                 $scope.data = data;
                 $scope.loading--;
-                $scope.login_button_text = $translate('START_APP');
+                $scope.login_button_text = $translate('START_APP_WITH_DEMO');
                 $location.path('/');
             }).
             error(function (data, status) {
                 $scope.loading--;
-                $scope.login_button_text = $translate('START_APP');
+                $scope.login_button_text = $translate('START_APP_WITH_DEMO');
                 $scope.data = data || "Request failed";
                 $scope.status = status;
                 $scope.show_login_error = true;
