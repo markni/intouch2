@@ -1,5 +1,5 @@
 var app = angular.module('inTouch2', ['ngRoute',
-    'ngCookies', 'pascalprecht.translate']);
+    'ngCookies','ngAnimate', 'pascalprecht.translate']);
 
 app.config(function ($translateProvider, $routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
@@ -63,17 +63,20 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
     })
 
 app.controller('homeCtrl',function($translate, $scope, Auth, $http, $location,$cookieStore){
+    $scope.avatar = {};
     $scope.loading = 0;
     console.log('homeCtrl');
     Auth.loadCredentials();
     $http({method: 'POST', url: '/api/user'}).
         success(function (data, status) {
+            $scope.avatar.large = data.avatar.large;
             //$cookieStore.set('auth',data.auth);
 
         }).
         error(function (data, status) {
 
         });
+
 
 
 })
