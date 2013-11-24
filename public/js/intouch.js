@@ -46,16 +46,11 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http) {
 
     $scope.login = function () {
         $scope.loading++;
-        console.log($scope.user);
         Auth.setCredentials($scope.user.username, $scope.user.password);
 
         $http({method: 'POST', url: '/api/login'}).
             success(function (data, status) {
                 $scope.status = status;
-                console.log(status)
-                console.log('!!!');
-
-
                 $scope.data = data;
                 $scope.loading--;
             }).
