@@ -34,16 +34,52 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
     $routeProvider.
         when('/', {
+            templateUrl: '/temp/home',
+            controller: 'homeCtrl'
+        }).
+        when('/login', {
             templateUrl: '/temp/login',
             controller: 'loginCtrl'
         }).
         otherwise({
             redirectTo: '/'
         });
-});
+}).run(function($rootScope,$location,$cookieStore){
 
 
-app.controller('loginCtrl', function ($translate, $scope, Auth, $http) {
+        $rootScope.$on("$locationChangeStart",function(event,next,current){
+            console.log(localStorage.atuh);
+            if ( localStorage.auth === undefined ) {
+                // no logged user, we should be going to #login
+                if ( next.templateUrl == "/temp/login" ) {
+                    // already going to #login, no redirect needed
+                } else {
+                    // not going to #login, we should redirect now
+                    $location.path( "/login" );
+                }
+            }
+        })
+
+    })
+
+app.controller('homeCtrl',function($translate, $scope, Auth, $http, $location,$cookieStore){
+    $scope.loading = 0;
+    console.log('homeCtrl');
+    Auth.loadCredentials();
+    $http({method: 'POST', url: '/api/user'}).
+        success(function (data, status) {
+            //$cookieStore.set('auth',data.auth);
+
+        }).
+        error(function (data, status) {
+
+        });
+
+
+})
+
+
+app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location,$cookieStore) {
     //$translate.uses(navigator.language.toLowerCase());
     $scope.loading = 0;
     $scope.show_login_error = false;
@@ -63,14 +99,19 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http) {
     $scope.login = function () {
         $scope.loading++;
         $scope.login_button_text = $translate('LOADING');
+        Auth.clearCredentials();
         Auth.setCredentials($scope.user.username, $scope.user.password);
 
         $http({method: 'POST', url: '/api/login'}).
             success(function (data, status) {
+                //$cookieStore.set('auth',data.auth);
+                localStorage.auth = data.auth;
+                localStorage.username = data.username;
                 $scope.status = status;
                 $scope.data = data;
                 $scope.loading--;
                 $scope.login_button_text = $translate('START_APP');
+                $location.path('/');
             }).
             error(function (data, status) {
                 $scope.loading--;
@@ -177,14 +218,23 @@ app.factory('Auth', ['Base64', '$cookieStore', '$http', function (Base64, $cooki
     $http.defaults.headers.common['Authorization'] = 'Basic ' + $cookieStore.get('authdata');
 
     return {
+        loadCredentials: function(){
+            if(localStorage.auth !== undefined){
+                var encoded = Base64.encode(localStorage.username  + ":" + localStorage.auth);
+                $http.defaults.headers.common.Authorization = 'Basic ' + encoded;
+            }
+
+        },
         setCredentials: function (username, password) {
             var encoded = Base64.encode(username + ':' + password);
             $http.defaults.headers.common.Authorization = 'Basic ' + encoded;
-            //$cookieStore.put('authdata', encoded);
+
         },
         clearCredentials: function () {
             document.execCommand("ClearAuthenticationCache");
-            //$cookieStore.remove('authdata');
+            //$cookieStore.remove('auth');
+            delete localStorage.auth;
+            delete localStorage.username;
             $http.defaults.headers.common.Authorization = 'Basic ';
         }
     };
