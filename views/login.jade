@@ -5,7 +5,7 @@ div.row
             div.form-group
                 input(class="form-control",placeholder="{{ 'USERNAME' | translate }}",ng-model="user.username")
             div.form-group
-                input(type="password",class="form-control",placeholder="{{ 'PASSWORD' | translate }}",ng-model="user.password")
+                input(type="password",class="form-control",placeholder="{{ 'PASSWORD' | translate }}",ng-model="user.password",ng-keyup="submitForm($event)")
             button.btn.btn-danger.btn-block(type="button",ng-click="login()") {{login_button_text}}
             button.btn.btn-primary.btn-block(type="button",ng-click="demo()") {{demo_button_text}}
             div.alert.alert-warning.alert-dismissable.margin-top-10(ng-class="{hidden: !show_login_error}")

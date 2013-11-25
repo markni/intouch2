@@ -1,5 +1,5 @@
 var app = angular.module('inTouch2', ['ngRoute',
-    'ngCookies','ngAnimate', 'pascalprecht.translate']);
+    'ngCookies', 'ngAnimate', 'pascalprecht.translate']);
 
 app.config(function ($translateProvider, $routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
@@ -14,7 +14,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         NO_ACCOUNT_HINT: "Don't have an acccount? Try this.",
         PASSWORD: 'password',
         USERNAME: 'username',
-        LOGIN_ERROR: "Incorrect username or password, please try again."
+        LOGIN_ERROR: "Incorrect username or password, please try again.",
+        SEARCH : "Search",
+        ENTER_TO_SEARCH: "Enter keywords to search"
 
     })
         .translations('zh-cn', {
@@ -25,7 +27,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             NO_ACCOUNT_HINT: '没有账户？ 试试这个。',
             PASSWORD: '输入密码',
             USERNAME: '账户名称',
-            LOGIN_ERROR: "用户名或密码不正确，请重新输入"
+            LOGIN_ERROR: "用户名或密码不正确，请重新输入",
+            SEARCH : "搜索",
+            ENTER_TO_SEARCH: "输入搜索关键字"
 
         });
     $translateProvider.preferredLanguage('zh-cn');
@@ -44,25 +48,25 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         otherwise({
             redirectTo: '/'
         });
-}).run(function($rootScope,$location,$cookieStore){
+}).run(function ($rootScope, $location, $cookieStore) {
 
 
-        $rootScope.$on("$locationChangeStart",function(event,next,current){
+        $rootScope.$on("$locationChangeStart", function (event, next, current) {
             console.log(localStorage.atuh);
-            if ( localStorage.auth === undefined ) {
+            if (localStorage.auth === undefined) {
                 // no logged user, we should be going to #login
-                if ( next.templateUrl == "/temp/login" ) {
+                if (next.templateUrl == "/temp/login") {
                     // already going to #login, no redirect needed
                 } else {
                     // not going to #login, we should redirect now
-                    $location.path( "/login" );
+                    $location.path("/login");
                 }
             }
         })
 
     })
 
-app.controller('homeCtrl',function($translate, $scope, Auth, $http, $location,$cookieStore){
+app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore) {
     $scope.avatar = {};
     $scope.loading = 0;
     console.log('homeCtrl');
@@ -78,11 +82,20 @@ app.controller('homeCtrl',function($translate, $scope, Auth, $http, $location,$c
         });
 
 
+    $http({method: 'POST', url: '/api/user'}).
+        success(function (data, status) {
+            $scope.avatar.large = data.avatar.large;
+            //$cookieStore.set('auth',data.auth);
+
+        }).
+        error(function (data, status) {
+
+        });
 
 })
 
 
-app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location,$cookieStore) {
+app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore) {
     //$translate.uses(navigator.language.toLowerCase());
     $scope.loading = 0;
     $scope.show_login_error = false;
@@ -96,13 +109,19 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location
         $scope.show_login_error = false;
     }
 
-    $scope.toggleLang = function(){
-        $translate.uses() === 'en-us'? $translate.uses('zh-cn'):$translate.uses('en-us');
+    $scope.toggleLang = function () {
+        $translate.uses() === 'en-us' ? $translate.uses('zh-cn') : $translate.uses('en-us');
         $scope.login_button_text = $translate('START_APP');
         $scope.demo_button_text = $translate('START_APP_WITH_DEMO');
     }
 
-    $scope.demo = function(){
+    $scope.submitForm = function (e){
+        if(e.keyCode === 13){
+            $scope.login();
+        }
+    }
+
+    $scope.demo = function () {
         $scope.loading++;
         $scope.demo_button_text = $translate('LOADING');
         Auth.clearCredentials();
@@ -249,9 +268,9 @@ app.factory('Auth', ['Base64', '$cookieStore', '$http', function (Base64, $cooki
     $http.defaults.headers.common['Authorization'] = 'Basic ' + $cookieStore.get('authdata');
 
     return {
-        loadCredentials: function(){
-            if(localStorage.auth !== undefined){
-                var encoded = Base64.encode(localStorage.username  + ":" + localStorage.auth);
+        loadCredentials: function () {
+            if (localStorage.auth !== undefined) {
+                var encoded = Base64.encode(localStorage.username + ":" + localStorage.auth);
                 $http.defaults.headers.common.Authorization = 'Basic ' + encoded;
             }
 

@@ -1,13 +1,20 @@
 body {
-  padding: 30px;
+  padding: 0 15px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 
+.padding-bottom-70{
+    padding-bottom: 70px;
+}
+
+.padding-right-0 {
+    padding-right: 0px;
+}
 
 .padding-top-10 {
-    padding-top: 10px;
-}
+     padding-top: 10px;
+ }
 
 .margin-top-10 {
     margin-top: 10px;
@@ -16,3 +23,16 @@ body {
 .no-href-link{
     cursor: pointer;
 }
+
+.red-bg {
+    background-color: red;
+}
+
+.blue-bg {
+    background-color: blue;
+}
+
+.yellow-bg{
+    background-color: #ffff00;
+}
+

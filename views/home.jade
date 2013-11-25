@@ -3,3 +3,20 @@ div.row
 
         div.avatar.text-center
             img.img-circle.btn(src="{{avatar.large}}")
+
+        div.row
+            form(role="search")
+                div.form-group.col-md-10.col-xs-8.padding-right-0
+                    input.form-control(type='text',placeholder="{{ 'ENTER_TO_SEARCH' | translate }}")
+                div.form-group.col-md-2.col-xs-4
+                    button.btn.btn-block.btn-primary.btn- {{ 'SEARCH' | translate }}
+        button.btn.btn-block.btn-primary test btn
+
+
+nav.navbar.navbar-default.navbar-fixed-bottom(role="navigation")
+    button.btn.btn-block.btn-danger sticky bottom nav menu bar test
+
+
+
+
+
