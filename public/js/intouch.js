@@ -48,7 +48,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         otherwise({
             redirectTo: '/'
         });
-}).run(function ($rootScope, $location, $cookieStore) {
+}).run(function ($rootScope, $location, $cookieStore,Auth) {
 
 
         $rootScope.$on("$locationChangeStart", function (event, next, current) {
@@ -61,6 +61,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
                     // not going to #login, we should redirect now
                     $location.path("/login");
                 }
+            }
+            else{
+                Auth.loadCredentials();
             }
         })
 
@@ -84,9 +87,15 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
         });
 
 
-    $http({method: 'POST', url: '/api/user'}).
+    $http({method: 'POST', url: '/api/collection'}).
         success(function (data, status) {
-            $scope.avatar.large = data.avatar.large;
+
+            console.log(JSON.stringify(data));
+            for (var i=0;i<data.length;i++){
+                console.log(data[i].name);
+            }
+
+            $scope.items = data;
             //$cookieStore.set('auth',data.auth);
 
         }).

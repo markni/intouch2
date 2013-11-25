@@ -36,10 +36,11 @@ app.get('/', routes.index);
 app.get('/temp/login', user.login);
 app.get('/temp/home', user.home);
 
-
+//TODO: change these to post in production
 app.all('/api/login',api.login);
 app.all('/api/user',api.user);
 app.all('/api/demo',api.demo);
+app.all('/api/collection',api.getCollection);
 
 app.get('/login', routes.index);
 
