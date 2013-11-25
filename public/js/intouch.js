@@ -16,7 +16,8 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         USERNAME: 'username',
         LOGIN_ERROR: "Incorrect username or password, please try again.",
         SEARCH : "Search",
-        ENTER_TO_SEARCH: "Enter keywords to search"
+        ENTER_TO_SEARCH: "Enter keywords to search",
+        WATCHED:"watched"
 
     })
         .translations('zh-cn', {
@@ -29,7 +30,8 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             USERNAME: '账户名称',
             LOGIN_ERROR: "用户名或密码不正确，请重新输入",
             SEARCH : "搜索",
-            ENTER_TO_SEARCH: "输入搜索关键字"
+            ENTER_TO_SEARCH: "输入搜索关键字",
+            WATCHED: "看到"
 
         });
     $translateProvider.preferredLanguage('zh-cn');
@@ -72,6 +74,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 
 app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore) {
+    $scope.msg = '欢迎使用 intouch 2! ~ ☆';
     $scope.avatar = {};
     $scope.loading = 0;
     console.log('homeCtrl');

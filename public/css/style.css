@@ -113,6 +113,7 @@ body {
     background: white;
     padding-top: 15px;
     padding-bottom: 15px;
+    box-shadow: rgba(80,80,80,0.1) 2px 4px;
 }
 
 .triangle-left {
@@ -132,4 +133,34 @@ body {
 
 .tag .glyphicon {
     padding-right: 17px;
+}
+
+
+.tooltips{
+    display: inline;
+    position: relative;
+}
+
+.tooltips:after{
+    background: #428bca;
+    border-radius: 5px;
+    bottom: 46px;
+    color: #fff;
+    content: attr(title);
+    left: -60%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+
+}
+
+.tooltips:before{
+    border: solid;
+    border-color: #428bca transparent;
+    border-width: 15px 15px 0 15px;
+    bottom: 40px;
+    content: "";
+    left: 50%;
+    position: absolute;
+    z-index: 99;
 }
