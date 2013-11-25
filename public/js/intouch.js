@@ -66,6 +66,8 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
     })
 
+
+
 app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore) {
     $scope.avatar = {};
     $scope.loading = 0;
@@ -115,11 +117,7 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location
         $scope.demo_button_text = $translate('START_APP_WITH_DEMO');
     }
 
-    $scope.submitForm = function (e){
-        if(e.keyCode === 13){
-            $scope.login();
-        }
-    }
+
 
     $scope.demo = function () {
         $scope.loading++;

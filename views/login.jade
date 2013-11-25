@@ -1,12 +1,12 @@
 div.row
     div.col-md-4.col-md-offset-4
 
-        form(role="form")
+        form(role="form",ng-submit='login()')
             div.form-group
                 input(class="form-control",placeholder="{{ 'USERNAME' | translate }}",ng-model="user.username")
             div.form-group
-                input(type="password",class="form-control",placeholder="{{ 'PASSWORD' | translate }}",ng-model="user.password",ng-keyup="submitForm($event)")
-            button.btn.btn-danger.btn-block(type="button",ng-click="login()") {{login_button_text}}
+                input(type="password",class="form-control",placeholder="{{ 'PASSWORD' | translate }}",ng-model="user.password")
+            button.btn.btn-danger.btn-block(type="submit") {{login_button_text}}
             button.btn.btn-primary.btn-block(type="button",ng-click="demo()") {{demo_button_text}}
             div.alert.alert-warning.alert-dismissable.margin-top-10(ng-class="{hidden: !show_login_error}")
                 button(type='button',class='close',aria-hidden='true',ng-click="dismiss_login_error()") &times;
