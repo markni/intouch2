@@ -34,8 +34,16 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             WATCHED: "看到"
 
         });
-    $translateProvider.preferredLanguage('zh-cn');
-    //$translateProvider.preferredLanguage('en-us');
+
+    if(localStorage.config_lang !== undefined){
+        $translateProvider.preferredLanguage(localStorage.config_lang);
+    }
+    else{
+        $translateProvider.preferredLanguage('en-us');
+        localStorage.config_lang = 'en-us';
+    }
+
+
 
 
     $routeProvider.
@@ -124,7 +132,10 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location
     }
 
     $scope.toggleLang = function () {
-        $translate.uses() === 'en-us' ? $translate.uses('zh-cn') : $translate.uses('en-us');
+
+        var lang = $translate.uses() === 'en-us' ? 'zh-cn':'en-us';
+        $translate.uses(lang);
+        localStorage.config_lang= lang;
         $scope.login_button_text = $translate('START_APP');
         $scope.demo_button_text = $translate('START_APP_WITH_DEMO');
     }
