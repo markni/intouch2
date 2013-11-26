@@ -1,5 +1,5 @@
 body {
-    padding: 35px 25px 0 25px;
+    padding: 35px 25px 100px 25px;
     font: 14px Microsoft YaHei, Helvetica, Arial, sans-serif;
     background: rgba(124, 204, 229, 1);
 }
@@ -170,7 +170,7 @@ body {
 
 .left-triangle {
     -moz-transition: border-right-width 200ms;
-    -o-transition: width 200ms;
+    -o-transition: border-right-width 200ms;
     -webkit-transition: border-right-width 200ms; /* Safari */
     transition: border-right-width 200ms;
 
@@ -221,4 +221,55 @@ body {
     left: 46px;
     bottom: 0px;
 
+}
+
+.navbar-menu-btn {
+    position: absolute;
+    right: -100px;
+    font-size: x-large;
+    display: inline-block;
+
+}
+
+.icon-flipped {
+    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+}
+
+.side-menu {
+    width: 120px;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding-top: 35px;
+
+    -moz-transition: margin-right 200ms;
+    -o-transition: margin-right 200ms;
+    -webkit-transition: margin-right 200ms; /* Safari */
+    transition: margin-right 200ms;
+    margin-right: -100px;
+}
+
+.side-menu:hover {
+    margin-right: 0;
+
+}
+
+.side-menu.show {
+    margin-right: 0;
+
+}
+
+.main-content {
+
+}
+
+@media (max-width: 767px) {
+    .push-aside {
+        margin-left: -100px;
+        margin-right: 100px;
+    }
 }

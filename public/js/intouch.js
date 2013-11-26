@@ -83,6 +83,12 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore,Helpers) {
     $scope.paddy = Helpers.paddy;
+    $scope.showSideMenu = false;
+
+    $scope.toggleSideMenu = function(){
+        $scope.showSideMenu = !$scope.showSideMenu;
+    }
+
     $scope.msg = '欢迎使用 intouch 2! ~ ☆';
     $scope.avatar = {};
     $scope.loading = 0;

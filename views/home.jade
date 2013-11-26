@@ -1,5 +1,5 @@
 div.row
-    div.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3
+    div.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3.main-content(ng-class="{'push-aside':showSideMenu}")
 
 
 
@@ -46,7 +46,7 @@ div.row
 
 
 
-nav(role="navigation",style="width:100px;height:100%;position:fixed;right:0;top:0;padding-top:35px;")
+nav.side-menu(role="navigation",style="",ng-class="{show:showSideMenu}")
     div.left-triangle.pull-right.red-bg
         span.side_menu_btn Home
     div.left-triangle.pull-right.margin-top-10.pink-bg
@@ -62,10 +62,11 @@ nav(role="navigation",style="width:100px;height:100%;position:fixed;right:0;top:
 
 
 nav.navbar.navbar-default.navbar-fixed-bottom(role="navigation")
-    button.btn.btn-block.btn-danger
+    div.btn.btn-block.btn-danger
         div.avatar.tooltips.text-center(title="欢迎使用intouch 2哦！",style="position:relative")
             span(title="more")
             img.img-circle.btn(src="{{avatar.large}}")
+            span.navbar-menu-btn.glyphicon.glyphicon-list.icon-flipped(ng-click="toggleSideMenu()")
 
 
 
