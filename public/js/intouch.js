@@ -7,6 +7,10 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
     //TODO: fix the language switch button
 
     $translateProvider.translations('en-us', {
+        HOME:'Home',
+        RETURN_TO_HOME:'Return to Home',
+        LOGOUT:"Logout",
+        LOGOUT_SUCCESS:"You have successfully logout out",
         LOADING: "loading...",
         START_APP: 'Touch to Start',
         START_APP_WITH_DEMO: 'Login with Demo Account',
@@ -23,6 +27,10 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
     })
         .translations('zh-cn', {
+            'HOME':'首页',
+            'RETURN_TO_HOME':'回到首页',
+            'LOGOUT':"登出",
+            LOGOUT_SUCCESS:"你已经成功登出",
             LOADING: "读取中...",
             START_APP: '摸一下这里开始',
             START_APP_WITH_DEMO: '用演示帐号登录',
@@ -67,11 +75,12 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 }).run(function ($rootScope, $location, $cookieStore, Auth) {
 
 
-        $rootScope.$on("$locationChangeStart", function (event, next, current) {
-            console.log(localStorage.atuh);
+        $rootScope.$on("$routeChangeStart", function (event, next, current) {
+
             if (localStorage.auth === undefined) {
+
                 // no logged user, we should be going to #login
-                if (next.templateUrl == "/temp/login") {
+                if (next.templateUrl == "/temp/login" || next.templateUrl == "/temp/logout") {
                     // already going to #login, no redirect needed
                 } else {
                     // not going to #login, we should redirect now

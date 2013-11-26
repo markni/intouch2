@@ -3,10 +3,12 @@ body {
     font: 14px;
 
     background: rgba(124, 204, 229, 1);
+    -webkit-font-smoothing: antialiased;
 }
 
 h1,h2,h3,h4,h5{
     font-family: Microsoft YaHei, 'Lato', Helvetica, Arial, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
 }
 
 .padding-bottom-70 {
@@ -228,7 +230,7 @@ h1,h2,h3,h4,h5{
 }
 
 .side_menu_btn {
-
+    letter-spacing:2px;
     position: absolute;
     color: white;
     transform: rotate(-14deg);
@@ -236,6 +238,8 @@ h1,h2,h3,h4,h5{
     -webkit-transform: rotate(-14deg);
     left: 46px;
     bottom: 0px;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
 
 }
 
@@ -323,3 +327,15 @@ h1,h2,h3,h4,h5{
     right:0;
 }
 
+ .large-quote{
+     color:white;
+ }
+
+.navbar-fixed-bottom .large-quote{
+    padding: 20px;
+
+}
+
+.white-text{
+    color:white;
+}
