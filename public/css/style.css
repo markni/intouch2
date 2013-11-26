@@ -142,25 +142,29 @@ body {
 .tooltips {
     display: inline;
     position: relative;
+
 }
 
-.tooltips:after {
+.tooltips .inner {
+
     background: #428bca;
-    border-radius: 5px;
-    bottom: 46px;
+
+    bottom: 55px;
     color: #fff;
-    content: attr(title);
-    left: -60%;
+    min-width: 300px;
+    left: -100px;
     padding: 5px 15px;
     position: absolute;
     z-index: 98;
+    max-width: 300px;
+
 
 }
 
 .tooltips:before {
     border: solid;
     border-color: #428bca transparent;
-    border-width: 15px 15px 0 15px;
+    border-width: 19px 1px 0 13px;
     bottom: 40px;
     content: "";
     left: 50%;
@@ -213,6 +217,7 @@ body {
 }
 
 .side_menu_btn {
+
     position: absolute;
     color: white;
     transform: rotate(-14deg);
@@ -224,8 +229,12 @@ body {
 }
 
 .navbar-menu-btn {
+
+    cursor: pointer;
+    color: white;
     position: absolute;
-    right: -100px;
+    top: 35%;
+    right: 40%;
     font-size: x-large;
     display: inline-block;
 
@@ -239,6 +248,12 @@ body {
 }
 
 .side-menu {
+    -moz-transition: margin-right 200ms;
+    -o-transition: margin-right 200ms;
+    -webkit-transition: margin-right 200ms; /* Safari */
+    transition: margin-right 200ms;
+
+
     width: 120px;
     height: 100%;
     position: fixed;
@@ -246,10 +261,7 @@ body {
     top: 0;
     padding-top: 35px;
 
-    -moz-transition: margin-right 200ms;
-    -o-transition: margin-right 200ms;
-    -webkit-transition: margin-right 200ms; /* Safari */
-    transition: margin-right 200ms;
+
     margin-right: -100px;
 }
 
@@ -267,7 +279,19 @@ body {
 
 }
 
-@media (max-width: 767px) {
+.progress-total {
+    width:100%;
+}
+
+.progress-current {
+    -moz-transition: width 200ms;
+    -o-transition: width 200ms;
+    -webkit-transition: width 200ms; /* Safari */
+    transition: width 200ms;
+    height:5px;
+}
+
+@media (max-width: 991px) {
     .push-aside {
         margin-left: -100px;
         margin-right: 100px;

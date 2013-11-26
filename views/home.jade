@@ -23,8 +23,8 @@ div.row
 
                 div.padding-left-120
                     h4 {{item.subject.name || item.subject.name_cn}}
-                    div.blue-bg(style='width:100%;')
-                        div.red-bg(style='width:{{(item.ep_status / item.subject.eps)*100}}%;height:5px')
+                    div.blue-bg.progress-total
+                        div.red-bg.progress-current(style='width:{{(item.ep_status / item.subject.eps)*100}}%;')
 
                     div.padding-top-10
                         span.tag
@@ -33,15 +33,10 @@ div.row
                         span.tag
                             span.glyphicon.glyphicon-heart
                             | {{item.subject.collection.doing * 172}}
-                        botton.btn.btn-danger.btn-sm.pull-right {{ 'WATCHED' | translate }} EP. {{paddy(item.ep_status+1,2)}}
+                        botton.btn.btn-danger.btn-sm.pull-right(ng-click="updateTo($index)") {{ 'WATCHED' | translate }} EP. {{paddy(item.ep_status+1,2)}}
 
             div.col-md-2.col-xs-2.col-lg-2
-                //button.btn.btn-sm.btn-primary(type='submit')
-                    span.glyphicon.glyphicon-ok 看到
-        //div.row(ng-repeat-end)
-            div.form-group.col-md-12
-                div.light-gray-bg(style='width:100%;')
-                    div.dark-gray-bg(style='width:70%;height:5px')
+            //TODO:do we need the space? if not should use offset instead
 
 
 
@@ -62,9 +57,11 @@ nav.side-menu(role="navigation",style="",ng-class="{show:showSideMenu}")
 
 
 nav.navbar.navbar-default.navbar-fixed-bottom(role="navigation")
-    div.btn.btn-block.btn-danger
-        div.avatar.tooltips.text-center(title="欢迎使用intouch 2哦！",style="position:relative")
-            span(title="more")
+    div.red-bg.text-center
+        div.avatar(style="position:relative")
+            div.tooltips(title="{{msg}}",ng-class="{hidden:msg==''}")
+                span.inner.text-left{{msg}}
+                //span(title="more")
             img.img-circle.btn(src="{{avatar.large}}")
             span.navbar-menu-btn.glyphicon.glyphicon-list.icon-flipped(ng-click="toggleSideMenu()")
 

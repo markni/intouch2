@@ -112,6 +112,52 @@ exports.demo = function (req, res) {
 }
 
 
+exports.updateTo = function (req, res) {
+
+    //TODO: repeative parts, need wrap in a seperated function
+    console.log(req.params);
+    if (req.params['id'] && req.params['epnum']) {
+
+
+        var auth = req.headers['authorization'];
+        if (!auth) {
+            console.warn('no auth in header');
+            res.statusCode = 401; // Force them to retry authentication
+            res.json({error_code: 401, error_msg: 'wrong pass'});
+        }
+        else {
+            var encoded = auth.split(' ');
+            var buf = new Buffer(encoded[1], 'base64')
+            var plain_auth = buf.toString();
+            console.log("Decoded Authorization ", plain_auth);
+            var creds = plain_auth.split(':');      // split on a ':'
+            var username = decrypt(creds[0], private_key);
+            var a = decrypt(creds[1], private_key);
+            b.updateEps(req.params['id'], {auth: a, watched_eps: req.params['epnum']}, function (err, data) {
+                console.log(err);
+                console.log(data);
+                if (!err && data && data.code == "202") {
+                    res.statusCode = 200;
+                    res.json(data);
+                }
+                else {
+                    console.warn('no auth in header');
+                    res.statusCode = 401; // Force them to retry authentication
+                    res.json({error_code: 401, error_msg: 'wrong pass'});
+                }
+
+
+            })
+
+        }
+    }
+    else {
+        res.statusCode = 404; // Force them to retry authentication
+        res.json({error_code: 404, error_msg: 'invalid url'});
+    }
+
+}
+
 exports.login = function (req, res) {
     //console.log(req.headers) ;
 

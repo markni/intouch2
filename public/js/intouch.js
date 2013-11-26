@@ -15,9 +15,10 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         PASSWORD: 'password',
         USERNAME: 'username',
         LOGIN_ERROR: "Incorrect username or password, please try again.",
-        SEARCH : "Search",
+        SEARCH: "Search",
         ENTER_TO_SEARCH: "Enter keywords to search",
-        WATCHED:"watched"
+        WATCHED: "watched",
+        FINISHED_UPDATE_WATCHED_TO:"EP. {{x}} of {{y}} has been marked as watched."
 
     })
         .translations('zh-cn', {
@@ -29,21 +30,20 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             PASSWORD: '输入密码',
             USERNAME: '账户名称',
             LOGIN_ERROR: "用户名或密码不正确，请重新输入",
-            SEARCH : "搜索",
+            SEARCH: "搜索",
             ENTER_TO_SEARCH: "输入搜索关键字",
-            WATCHED: "看到"
+            WATCHED: "看到",
+            FINISHED_UPDATE_WATCHED_TO:"你已成功看过了 {{y}} 的EP. {{x}}"
 
         });
 
-    if(localStorage.config_lang !== undefined){
+    if (localStorage.config_lang !== undefined) {
         $translateProvider.preferredLanguage(localStorage.config_lang);
     }
-    else{
+    else {
         $translateProvider.preferredLanguage('en-us');
         localStorage.config_lang = 'en-us';
     }
-
-
 
 
     $routeProvider.
@@ -58,7 +58,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         otherwise({
             redirectTo: '/'
         });
-}).run(function ($rootScope, $location, $cookieStore,Auth) {
+}).run(function ($rootScope, $location, $cookieStore, Auth) {
 
 
         $rootScope.$on("$locationChangeStart", function (event, next, current) {
@@ -72,7 +72,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
                     $location.path("/login");
                 }
             }
-            else{
+            else {
                 Auth.loadCredentials();
             }
         })
@@ -80,20 +80,56 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
     })
 
 
-
-app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore,Helpers) {
+app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers,$timeout) {
     $scope.paddy = Helpers.paddy;
     $scope.showSideMenu = false;
+    $scope.msg = '';
 
-    $scope.toggleSideMenu = function(){
+
+    $scope.toggleSideMenu = function () {
         $scope.showSideMenu = !$scope.showSideMenu;
     }
 
-    $scope.msg = '欢迎使用 intouch 2! ~ ☆';
+
     $scope.avatar = {};
     $scope.loading = 0;
+    $scope.displayMsg = function(msg){
+        $scope.msg = msg;
+        $timeout(function(){
+
+                $scope.msg = '';
+                $scope.$apply();
+
+        },3000)
+
+    }
+
+
+
+    $scope.updateTo = function(index){
+        var ep_num = $scope.items[index].ep_status +1;
+        var subject_id = $scope.items[index].subject.id;
+
+        $http({method: 'POST', url: '/api/subject/'+subject_id+'/watchedto/'+ep_num}).
+            success(function (data, status) {
+                $scope.displayMsg($translate('FINISHED_UPDATE_WATCHED_TO',{x:$scope.items[index].ep_status +1,y:$scope.items[index].subject.name}));
+                $scope.items[index].ep_status = $scope.items[index].ep_status +1;
+
+                //$cookieStore.set('auth',data.auth);
+
+            }).
+            error(function (data, status) {
+
+            });
+    }
+
+
+
     console.log('homeCtrl');
     Auth.loadCredentials();
+
+
+
     $http({method: 'POST', url: '/api/user'}).
         success(function (data, status) {
             $scope.avatar.large = data.avatar.large;
@@ -109,7 +145,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
         success(function (data, status) {
 
             console.log(JSON.stringify(data));
-            for (var i=0;i<data.length;i++){
+            for (var i = 0; i < data.length; i++) {
                 console.log(data[i].name);
             }
 
@@ -140,12 +176,13 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location
 
     $scope.toggleLang = function () {
 
-        var lang = $translate.uses() === 'en-us' ? 'zh-cn':'en-us';
+        var lang = $translate.uses() === 'en-us' ? 'zh-cn' : 'en-us';
         $translate.uses(lang);
-        localStorage.config_lang= lang;
+        localStorage.config_lang = lang;
         $scope.login_button_text = $translate('START_APP');
         $scope.demo_button_text = $translate('START_APP_WITH_DEMO');
     }
+
 
 
 
@@ -321,7 +358,7 @@ app.factory('Auth', ['Base64', '$cookieStore', '$http', function (Base64, $cooki
 app.factory('Helpers', function () {
 
     return {
-        paddy: function(n,p,c){
+        paddy: function (n, p, c) {
             var pad_char = typeof c !== 'undefined' ? c : '0';
             var pad = new Array(1 + p).join(pad_char);
             return (pad + n).slice(-pad.length);
