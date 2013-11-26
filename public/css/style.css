@@ -234,9 +234,10 @@ body {
     color: white;
     position: absolute;
     top: 35%;
-    right: 40%;
+
     font-size: x-large;
     display: inline-block;
+    left: 150px;
 
 }
 
@@ -296,4 +297,9 @@ body {
         margin-left: -100px;
         margin-right: 100px;
     }
+}
+
+
+.navbar-bottom-avatar {
+    width: 100px;
 }

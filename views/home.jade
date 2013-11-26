@@ -56,9 +56,9 @@ nav.side-menu(role="navigation",style="",ng-class="{show:showSideMenu}")
 
 
 
-nav.navbar.navbar-default.navbar-fixed-bottom(role="navigation")
-    div.red-bg.text-center
-        div.avatar(style="position:relative")
+nav.navbar.red-bg.navbar-default.navbar-fixed-bottom(role="navigation")
+    div.navbar-bottom-avatar.center-block
+        div(style="position:relative")
             div.tooltips(title="{{msg}}",ng-class="{hidden:msg==''}")
                 span.inner.text-left{{msg}}
                 //span(title="more")
