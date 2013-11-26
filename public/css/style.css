@@ -1,7 +1,12 @@
 body {
     padding: 35px 25px 100px 25px;
-    font: 14px Microsoft YaHei, Helvetica, Arial, sans-serif;
+    font: 14px;
+
     background: rgba(124, 204, 229, 1);
+}
+
+h1,h2,h3,h4,h5{
+    font-family: Microsoft YaHei, 'Lato', Helvetica, Arial, sans-serif !important;
 }
 
 .padding-bottom-70 {

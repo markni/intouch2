@@ -57,6 +57,10 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             templateUrl: '/temp/login',
             controller: 'loginCtrl'
         }).
+        when('/logout', {
+            templateUrl: '/temp/logout',
+            controller: 'logoutCtrl'
+        }).
         otherwise({
             redirectTo: '/'
         });
@@ -81,6 +85,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
     })
 
+app.controller('logoutCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers,$timeout) {
+    Auth.clearCredentials();
+})
 
 app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers,$timeout) {
     $scope.timeouts = [];

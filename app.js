@@ -47,6 +47,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 
 app.get('/temp/login', user.login);
+app.get('/temp/logout', user.logout);
 app.get('/temp/home', user.home);
 
 //TODO: change these to post in production
@@ -57,6 +58,7 @@ app.all('/api/collection',api.getCollection);
 app.all('/api/subject/:id/watchedto/:epnum',api.updateTo);
 
 app.get('/login', routes.index);
+app.get('/logout',routes.index);
 
 
 http.createServer(app).listen(app.get('port'), function(){
