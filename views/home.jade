@@ -33,7 +33,7 @@ div.row
                         span.tag
                             span.glyphicon.glyphicon-heart
                             | {{item.subject.collection.doing * 172}}
-                        botton.btn.btn-danger.btn-sm.pull-right {{ 'WATCHED' | translate }} EP.{{item.ep_status+1}}
+                        botton.btn.btn-danger.btn-sm.pull-right {{ 'WATCHED' | translate }} EP. {{paddy(item.ep_status+1,2)}}
 
             div.col-md-2.col-xs-2.col-lg-2
                 //button.btn.btn-sm.btn-primary(type='submit')
@@ -46,6 +46,18 @@ div.row
 
 
 
+nav(role="navigation",style="width:100px;height:100%;position:fixed;right:0;top:0;padding-top:35px;")
+    div.left-triangle.pull-right.red-bg
+        span.side_menu_btn Home
+    div.left-triangle.pull-right.margin-top-10.pink-bg
+        span.side_menu_btn Schedule
+    div.left-triangle.pull-right.margin-top-10.orange-bg
+        span.side_menu_btn Profile
+    div.left-triangle.pull-right.margin-top-10.blue-bg
+        span.side_menu_btn Settings
+    div.left-triangle.pull-right.margin-top-10.cyan-bg
+        span.side_menu_btn Logout
+
 
 
 
@@ -54,6 +66,7 @@ nav.navbar.navbar-default.navbar-fixed-bottom(role="navigation")
         div.avatar.tooltips.text-center(title="欢迎使用intouch 2哦！",style="position:relative")
             span(title="more")
             img.img-circle.btn(src="{{avatar.large}}")
+
 
 
 

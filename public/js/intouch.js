@@ -81,7 +81,8 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 
 
-app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore) {
+app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore,Helpers) {
+    $scope.paddy = Helpers.paddy;
     $scope.msg = '欢迎使用 intouch 2! ~ ☆';
     $scope.avatar = {};
     $scope.loading = 0;
@@ -311,6 +312,16 @@ app.factory('Auth', ['Base64', '$cookieStore', '$http', function (Base64, $cooki
     };
 }]);
 
+app.factory('Helpers', function () {
+
+    return {
+        paddy: function(n,p,c){
+            var pad_char = typeof c !== 'undefined' ? c : '0';
+            var pad = new Array(1 + p).join(pad_char);
+            return (pad + n).slice(-pad.length);
+        }
+    }
+})
 
 
 
