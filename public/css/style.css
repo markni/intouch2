@@ -142,8 +142,14 @@ body {
 .tooltips {
     display: inline;
     position: relative;
+    opacity: 1;
+    -moz-transition:opacity 800ms;
+    -o-transition: opacity 800ms;
+    -webkit-transition:aopacity 800ms; /* Safari */
+    transition:opacity 800ms;
 
 }
+
 
 .tooltips .inner {
 
@@ -303,3 +309,12 @@ body {
 .navbar-bottom-avatar {
     width: 100px;
 }
+
+.absolute-center-block{
+    /* must set width */
+    display: block;
+    position:absolute;
+    left:0;
+    right:0;
+}
+

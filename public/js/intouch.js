@@ -18,7 +18,8 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         SEARCH: "Search",
         ENTER_TO_SEARCH: "Enter keywords to search",
         WATCHED: "watched",
-        FINISHED_UPDATE_WATCHED_TO:"EP. {{x}} of {{y}} has been marked as watched."
+        FINISHED_UPDATE_WATCHED_TO:"EP. {{x}} of {{y}} has been marked as watched.",
+        RAN_MSG_1: "The weather is nice today!"
 
     })
         .translations('zh-cn', {
@@ -33,7 +34,8 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             SEARCH: "搜索",
             ENTER_TO_SEARCH: "输入搜索关键字",
             WATCHED: "看到",
-            FINISHED_UPDATE_WATCHED_TO:"你已成功看过了 {{y}} 的EP. {{x}}"
+            FINISHED_UPDATE_WATCHED_TO:"你已成功看过了 {{y}} 的EP. {{x}}",
+            RAN_MSG_1: "今天天气真好啊 ~☆"
 
         });
 
@@ -81,6 +83,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 
 app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers,$timeout) {
+    $scope.timeouts = [];
     $scope.paddy = Helpers.paddy;
     $scope.showSideMenu = false;
     $scope.msg = '';
@@ -94,17 +97,28 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
     $scope.avatar = {};
     $scope.loading = 0;
     $scope.displayMsg = function(msg){
+        for (var i=0;i<$scope.timeouts.length;i++){
+            $timeout.cancel($scope.timeouts[i]);
+        }
         $scope.msg = msg;
-        $timeout(function(){
+        var hide = $timeout(function(){
 
                 $scope.msg = '';
                 $scope.$apply();
 
-        },3000)
+        },3000);
+        $scope.timeouts.push(hide);
 
     }
 
 
+    $scope.showRandomMsg = function(){
+        var msg_list = ["RAN_MSG_1"];
+        var selected_index = Math.floor(Math.random()*(msg_list.length));
+        if(msg_list[selected_index]){
+            $scope.displayMsg($translate(msg_list[selected_index]));
+        }
+    }
 
     $scope.updateTo = function(index){
         var ep_num = $scope.items[index].ep_status +1;
