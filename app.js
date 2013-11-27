@@ -36,8 +36,9 @@ app.use(function(req, res, next) {
     res.cookie('XSRF-TOKEN', req.csrfToken());
     next();
 });
-app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(app.router);
+
 
 // development only
 if ('development' == app.get('env')) {
@@ -63,6 +64,9 @@ app.all('/api/subject/:id/watchedto/:epnum',api.updateTo);
 app.get('/login', routes.index);
 app.get('/logout',routes.index);
 app.get('/settings',routes.index);
+
+app.get('*',routes.index);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
