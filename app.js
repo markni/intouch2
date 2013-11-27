@@ -66,7 +66,7 @@ app.get('/logout',routes.index);
 app.get('/settings',routes.index);
 
 app.get('/cat',function(req,res){
-    res.redirect('http://k.netaba.re');
+    res.redirect('http://k.netaba.re/cat');
 
 })
 
