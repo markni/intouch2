@@ -12,13 +12,13 @@ var path = require('path');
 
 var app = express();
 
-var csrfValue = function(req) {
-    var token = (req.body && req.body._csrf)
-        || (req.query && req.query._csrf)
-        || (req.headers['x-csrf-token'])
-        || (req.headers['x-xsrf-token']);
-    return token;
-};
+//var csrfValue = function(req) {
+//    var token = (req.body && req.body._csrf)
+//        || (req.query && req.query._csrf)
+//        || (req.headers['x-csrf-token'])
+//        || (req.headers['x-xsrf-token']);
+//    return token;
+//};
 
 // all environments
 app.set('port', process.env.PORT || 8004);
@@ -31,11 +31,11 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser('nyancat'));
 app.use(express.session());
-app.use(express.csrf({value: csrfValue}));
-app.use(function(req, res, next) {
-    res.cookie('XSRF-TOKEN', req.csrfToken());
-    next();
-});
+//app.use(express.csrf({value: csrfValue}));
+//app.use(function(req, res, next) {
+//    res.cookie('XSRF-TOKEN', req.csrfToken());
+//    next();
+//});
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
