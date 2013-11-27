@@ -116,6 +116,7 @@ app.controller('settingsCtrl',function($translate, $scope, Auth, $http, $locatio
 
     $scope.setLang = function(lang){
         localStorage.config_lang = $scope.lang = lang;
+        $translate.uses(lang);
     }
 
     $scope.setBot = function(bot){
@@ -189,7 +190,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
 
 
-    console.log('homeCtrl');
+
     Auth.loadCredentials();
 
 
@@ -208,9 +209,9 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
     $http({method: 'POST', url: '/api/collection'}).
         success(function (data, status) {
 
-            console.log(JSON.stringify(data));
+
             for (var i = 0; i < data.length; i++) {
-                console.log(data[i].name);
+
             }
 
             $scope.items = data;
