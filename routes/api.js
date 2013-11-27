@@ -25,7 +25,7 @@ function decrypt(text, key) {
 exports.user = function (req, res) {
     var auth = req.headers['authorization'];
     if (!auth) {
-        console.warn('no auth in header');
+
         res.statusCode = 401; // Force them to retry authentication
         res.json({error_code: 401, error_msg: 'wrong pass'});
     }
@@ -33,20 +33,19 @@ exports.user = function (req, res) {
         var encoded = auth.split(' ');
         var buf = new Buffer(encoded[1], 'base64')
         var plain_auth = buf.toString();
-        console.log("Decoded Authorization ", plain_auth);
+
         var creds = plain_auth.split(':');      // split on a ':'
         var username = decrypt(creds[0], private_key);
         var a = decrypt(creds[1], private_key);
         //get user profile
         b.user(username, function (err, data) {
-            console.log(username);
-            console.log(JSON.stringify(data));
+
             if (!err && data && data.code != "401") {
                 res.statusCode = 200;
                 res.json(data);
             }
             else {
-                console.warn('data corrupt or something');
+
                 res.statusCode = 401; // Force them to retry authentication
                 res.json({error_code: 401, error_msg: 'wrong pass'});
             }
@@ -58,7 +57,7 @@ exports.user = function (req, res) {
 exports.getCollection = function (req, res) {
     var auth = req.headers['authorization'];
     if (!auth) {
-        console.warn('no auth in header');
+
         res.statusCode = 401; // Force them to retry authentication
         res.json({error_code: 401, error_msg: 'wrong pass'});
     }
@@ -66,13 +65,12 @@ exports.getCollection = function (req, res) {
         var encoded = auth.split(' ');
         var buf = new Buffer(encoded[1], 'base64')
         var plain_auth = buf.toString();
-        console.log("Decoded Authorization ", plain_auth);
+
         var creds = plain_auth.split(':');      // split on a ':'
         var username = decrypt(creds[0], private_key);
         if (username) {
             b.collectionByUser(username, {cat: 'watching'}, function (err, data) {
-                console.log(err);
-                console.log(data);
+
                 if (!err && data && data.code != "401") {
                     res.statusCode = 200;
                     res.json(data);
@@ -95,7 +93,7 @@ exports.getCollection = function (req, res) {
 
 exports.demo = function (req, res) {
     b.auth({username: 'nodebangumi', password: 'node-bangumi'}, function (err, data) {
-        console.log(JSON.stringify(data));
+
         if (!err && data && data.code != "401") {
             res.statusCode = 200;
             data.auth = encrypt(data.auth, private_key);
@@ -115,13 +113,13 @@ exports.demo = function (req, res) {
 exports.updateTo = function (req, res) {
 
     //TODO: repeative parts, need wrap in a seperated function
-    console.log(req.params);
+
     if (req.params['id'] && req.params['epnum']) {
 
 
         var auth = req.headers['authorization'];
         if (!auth) {
-            console.warn('no auth in header');
+
             res.statusCode = 401; // Force them to retry authentication
             res.json({error_code: 401, error_msg: 'wrong pass'});
         }
@@ -129,19 +127,18 @@ exports.updateTo = function (req, res) {
             var encoded = auth.split(' ');
             var buf = new Buffer(encoded[1], 'base64')
             var plain_auth = buf.toString();
-            console.log("Decoded Authorization ", plain_auth);
+
             var creds = plain_auth.split(':');      // split on a ':'
             var username = decrypt(creds[0], private_key);
             var a = decrypt(creds[1], private_key);
             b.updateEps(req.params['id'], {auth: a, watched_eps: req.params['epnum']}, function (err, data) {
-                console.log(err);
-                console.log(data);
+
                 if (!err && data && data.code == "202") {
                     res.statusCode = 200;
                     res.json(data);
                 }
                 else {
-                    console.warn('no auth in header');
+
                     res.statusCode = 401; // Force them to retry authentication
                     res.json({error_code: 401, error_msg: 'wrong pass'});
                 }
@@ -159,7 +156,7 @@ exports.updateTo = function (req, res) {
 }
 
 exports.login = function (req, res) {
-    //console.log(req.headers) ;
+
 
     var auth = req.headers['authorization'];
     if (!auth) {
@@ -170,19 +167,18 @@ exports.login = function (req, res) {
         var encoded = auth.split(' ');
         var buf = new Buffer(encoded[1], 'base64');
         var plain_auth = buf.toString();
-        console.log("Decoded Authorization ", plain_auth);
+
         var creds = plain_auth.split(':');      // split on a ':'
         var username = creds[0];
         var password = creds[1];
 
         b.auth({username: username, password: password}, function (err, data) {
-            console.log(JSON.stringify(data));
+
             if (!err && data && data.code != "401") {
                 res.statusCode = 200;
                 data.auth = encrypt(data.auth, private_key);
                 data.username = encrypt(data.username, private_key);
-                console.log('!!!!!!')
-                console.log(data);
+
                 res.json(data);
             }
             else {
