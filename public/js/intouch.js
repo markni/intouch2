@@ -9,6 +9,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
     $translateProvider.translations('en-us', {
         SETTINGS:'Settings',
         HOME:'Home',
+        PROFILE:'Profile',
+        SCHEDULE:'Schedule',
+
         RETURN_TO_HOME:'Return to Home',
         LOGOUT:"Logout",
         LOGOUT_SUCCESS:"You have successfully logout out",
@@ -30,11 +33,14 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         .translations('zh-cn', {
             SETTINGS:'设置',
             'HOME':'首页',
+            PROFILE:'个人',
+            SCHEDULE:'日历',
+
             'RETURN_TO_HOME':'回到首页',
             'LOGOUT':"登出",
             LOGOUT_SUCCESS:"你已经成功登出",
             LOADING: "读取中...",
-            START_APP: '摸一下这里开始',
+            START_APP: '摸摸这里登录',
             START_APP_WITH_DEMO: '用演示帐号登录',
             SET_LANG: '切换到 English 版本',
             NO_ACCOUNT_HINT: '没有账户？ 试试这个。',

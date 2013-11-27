@@ -43,11 +43,12 @@ div.row
 
 nav.side-menu(role="navigation",style="",ng-class="{show:showSideMenu}")
     div.left-triangle.pull-right.red-bg
-        span.side_menu_btn Home
+        a(href='/')
+            span.side_menu_btn {{ 'HOME' | translate }}
     div.left-triangle.pull-right.margin-top-10.pink-bg
-        span.side_menu_btn Schedule
+        span.side_menu_btn {{ 'SCHEDULE' | translate }}
     div.left-triangle.pull-right.margin-top-10.orange-bg
-        span.side_menu_btn Profile
+        span.side_menu_btn {{ 'PROFILE' | translate }}
     div.left-triangle.pull-right.margin-top-10.blue-bg
         a(href='/settings')
             span.side_menu_btn {{ 'SETTINGS' | translate }}
