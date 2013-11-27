@@ -14,7 +14,11 @@ div.row
                 div.col-sm-6.col-lg-6.col-md-6.col-xs-6
                     button.btn.btn-danger.btn-block(ng-class='{faded:bot!="x"}',ng-click='setBot("x")') X-BOT
 
-
+            div.card.row.form-group
+                div.col-sm-6.col-lg-6.col-md-6.col-xs-6
+                    button.btn.btn-danger.btn-block(ng-class='{faded:title!="o"}',ng-click='setTitle("o")') {{ 'ORIGINAL_TITLE' | translate}}
+                div.col-sm-6.col-lg-6.col-md-6.col-xs-6
+                    button.btn.btn-danger.btn-block(ng-class='{faded:title!="cn"}',ng-click='setTitle("cn")') {{ 'TRANSLATED_TITLE' | translate}}
 
 
             div.card.row.form-group

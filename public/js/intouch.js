@@ -11,6 +11,8 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         HOME:'Home',
         PROFILE:'Profile',
         SCHEDULE:'Schedule',
+        TRANSLATED_TITLE:"Translated Titles",
+        ORIGINAL_TITLE:"Original Titles",
 
         RETURN_TO_HOME:'Return to Home',
         LOGOUT:"Logout",
@@ -35,6 +37,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             'HOME':'首页',
             PROFILE:'个人',
             SCHEDULE:'日历',
+            TRANSLATED_TITLE:"显示条目中文名",
+            ORIGINAL_TITLE:"显示条目原名",
+
 
             'RETURN_TO_HOME':'回到首页',
             'LOGOUT':"登出",
@@ -67,6 +72,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         localStorage.config_bot = 'x';
     }
 
+    if(localStorage.config_title ===undefined ){
+        localStorage.config_title = 'o';
+    }
 
     $routeProvider.
         when('/', {
@@ -113,6 +121,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 app.controller('settingsCtrl',function($translate, $scope, Auth, $http, $location, $cookieStore, Helpers,$timeout) {
     $scope.lang = localStorage.config_lang;
     $scope.bot =  localStorage.config_bot;
+    $scope.title =  localStorage.config_title;
 
     $scope.setLang = function(lang){
         localStorage.config_lang = $scope.lang = lang;
@@ -123,6 +132,12 @@ app.controller('settingsCtrl',function($translate, $scope, Auth, $http, $locatio
         localStorage.config_bot = $scope.bot = bot;
 
     }
+
+    $scope.setTitle = function(title){
+        localStorage.config_title = $scope.title = title;
+
+    }
+
 
 })
 
@@ -146,7 +161,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
     $scope.avatar = {};
     $scope.loading = 0;
     $scope.displayMsg = function(msg){
-        $scope.bot =  $scope.bot + "?hack=" + new Date(); //reload bot gif animation
+        $scope.bot =  $scope.bot + "?hack=" + 1; //reload bot gif animation
         for (var i=0;i<$scope.timeouts.length;i++){
             $timeout.cancel($scope.timeouts[i]);
         }
