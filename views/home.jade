@@ -24,8 +24,8 @@ div.row
                 div.padding-left-120
                     h4 {{item.subject.name || item.subject.name_cn}}
                     div.blue-bg.progress-total
-                        div.red-bg.progress-current(style='width:{{(item.ep_status / item.subject.eps)*100}}%;')
-
+                        //div.red-bg.progress-current(style='width:{{(item.ep_status / item.subject.eps)*100}}%;')
+                        div.red-bg.progress-current(ng-style="{width:(item.ep_status / item.subject.eps)*100 +'%'}")
                     div.padding-top-10
                         span.tag
                             span.glyphicon.glyphicon-ok-circle
