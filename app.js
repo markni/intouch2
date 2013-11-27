@@ -33,7 +33,7 @@ app.use(express.cookieParser('nyancat'));
 app.use(express.session());
 app.use(express.csrf({value: csrfValue}));
 app.use(function(req, res, next) {
-    res.cookie('XSRF-TOKEN', req.session._csrf);
+    res.cookie('XSRF-TOKEN', req.csrfToken());
     next();
 });
 app.use(app.router);
@@ -49,17 +49,20 @@ app.get('/', routes.index);
 app.get('/temp/login', user.login);
 app.get('/temp/logout', user.logout);
 app.get('/temp/home', user.home);
+app.get('/temp/settings', user.settings);
+
 
 //TODO: change these to post in production
 app.all('/api/login',api.login);
 app.all('/api/user',api.user);
 app.all('/api/demo',api.demo);
+
 app.all('/api/collection',api.getCollection);
 app.all('/api/subject/:id/watchedto/:epnum',api.updateTo);
 
 app.get('/login', routes.index);
 app.get('/logout',routes.index);
-
+app.get('/settings',routes.index);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

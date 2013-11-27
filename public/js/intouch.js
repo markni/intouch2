@@ -7,6 +7,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
     //TODO: fix the language switch button
 
     $translateProvider.translations('en-us', {
+        SETTINGS:'Settings',
         HOME:'Home',
         RETURN_TO_HOME:'Return to Home',
         LOGOUT:"Logout",
@@ -27,6 +28,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
     })
         .translations('zh-cn', {
+            SETTINGS:'设置',
             'HOME':'首页',
             'RETURN_TO_HOME':'回到首页',
             'LOGOUT':"登出",
@@ -55,6 +57,10 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         localStorage.config_lang = 'en-us';
     }
 
+    if(localStorage.config_bot ===undefined ){
+        localStorage.config_bot = 'x';
+    }
+
 
     $routeProvider.
         when('/', {
@@ -68,6 +74,10 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         when('/logout', {
             templateUrl: '/temp/logout',
             controller: 'logoutCtrl'
+        }).
+        when('/settings', {
+            templateUrl: '/temp/settings',
+            controller: 'settingsCtrl'
         }).
         otherwise({
             redirectTo: '/'
@@ -94,12 +104,28 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
     })
 
+app.controller('settingsCtrl',function($translate, $scope, Auth, $http, $location, $cookieStore, Helpers,$timeout) {
+    $scope.lang = localStorage.config_lang;
+    $scope.bot =  localStorage.config_bot;
+
+    $scope.setLang = function(lang){
+        localStorage.config_lang = $scope.lang = lang;
+    }
+
+    $scope.setBot = function(bot){
+        localStorage.config_bot = $scope.bot = bot;
+
+    }
+
+})
+
 app.controller('logoutCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers,$timeout) {
     Auth.clearCredentials();
 })
 
 app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers,$timeout) {
     $scope.timeouts = [];
+    $scope.bot = '/img/shells/'+localStorage.config_bot+'.gif';
     $scope.paddy = Helpers.paddy;
     $scope.showSideMenu = false;
     $scope.msg = '';
@@ -113,6 +139,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
     $scope.avatar = {};
     $scope.loading = 0;
     $scope.displayMsg = function(msg){
+        $scope.bot =  $scope.bot + "?hack=" + new Date(); //reload bot gif animation
         for (var i=0;i<$scope.timeouts.length;i++){
             $timeout.cancel($scope.timeouts[i]);
         }
@@ -129,6 +156,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
 
     $scope.showRandomMsg = function(){
+
         var msg_list = ["RAN_MSG_1"];
         var selected_index = Math.floor(Math.random()*(msg_list.length));
         if(msg_list[selected_index]){

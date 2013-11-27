@@ -14,3 +14,7 @@ exports.logout = function(req, res){
 exports.home = function(req, res){
     res.render('home');
 };
+
+exports.settings = function(req, res){
+    res.render('settings');
+};

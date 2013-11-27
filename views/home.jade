@@ -49,7 +49,8 @@ nav.side-menu(role="navigation",style="",ng-class="{show:showSideMenu}")
     div.left-triangle.pull-right.margin-top-10.orange-bg
         span.side_menu_btn Profile
     div.left-triangle.pull-right.margin-top-10.blue-bg
-        span.side_menu_btn Settings
+        a(href='/settings')
+            span.side_menu_btn {{ 'SETTINGS' | translate }}
     div.left-triangle.pull-right.margin-top-10.cyan-bg
         a(href='/logout')
             span.side_menu_btn {{ 'LOGOUT' | translate }}
@@ -63,8 +64,8 @@ nav.navbar.red-bg.navbar-default.navbar-fixed-bottom(role="navigation")
             div.tooltips(title="{{msg}}",ng-class="{'hidden':msg==''}")
                 span.inner.text-left{{msg}}
                 //span(title="more")
-            img.img-circle.btn(src="{{avatar.large}}",ng-click="showRandomMsg()")
-            span.navbar-menu-btn.glyphicon.glyphicon-list.icon-flipped(ng-click="toggleSideMenu()")
+            img.img-circle.btn(src='{{bot}}',ng-click="showRandomMsg()")
+            span.navbar-menu-btn.glyphicon.glyphicon-list.icon-flipped(ng-click="toggleSideMenu()",ng-class="{'icon-rotated-90-right':showSideMenu}")
 
 
 

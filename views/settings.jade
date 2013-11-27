@@ -1,0 +1,22 @@
+div.row
+    div.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3.main-content
+        div.settings
+            div.card.row.form-group
+                div.col-sm-6.col-lg-6.col-md-6.col-xs-6
+                    button.btn.btn-danger.btn-block(ng-class='{faded:lang!="en-us"}',ng-click='setLang("en-us")') English
+                div.col-sm-6.col-lg-6.col-md-6.col-xs-6
+                    button.btn.btn-danger.btn-block(ng-class='{faded:lang!="zh-cn"}',ng-click='setLang("zh-cn")') 简体中文
+
+
+            div.card.row.form-group
+                div.col-sm-6.col-lg-6.col-md-6.col-xs-6
+                    button.btn.btn-danger.btn-block(ng-class='{faded:bot!="bgm"}',ng-click='setBot("bgm")') Bangumi Chan
+                div.col-sm-6.col-lg-6.col-md-6.col-xs-6
+                    button.btn.btn-danger.btn-block(ng-class='{faded:bot!="x"}',ng-click='setBot("x")') X-BOT
+
+
+
+
+            div.card.row.form-group
+                div.col-md-12
+                    a.btn.btn-danger.btn-block(href="/"){{ 'RETURN_TO_HOME' | translate}}
