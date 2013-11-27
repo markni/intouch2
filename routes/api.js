@@ -73,6 +73,7 @@ exports.getCollection = function (req, res) {
 
                 if (!err && data && data.code != "401") {
                     res.statusCode = 200;
+                    //console.log(JSON.stringify(data));
                     res.json(data);
                 }
                 else {

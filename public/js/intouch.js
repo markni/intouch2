@@ -11,7 +11,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         HOME:'Home',
         PROFILE:'Profile',
         SCHEDULE:'Schedule',
-        TRANSLATED_TITLE:"Translated Titles",
+        TRANSLATED_TITLE:"Chinese Titles",
         ORIGINAL_TITLE:"Original Titles",
 
         RETURN_TO_HOME:'Return to Home',
@@ -146,6 +146,8 @@ app.controller('logoutCtrl', function ($translate, $scope, Auth, $http, $locatio
 })
 
 app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers,$timeout) {
+    Auth.loadCredentials();
+
     $scope.timeouts = [];
     $scope.bot = '/img/shells/'+localStorage.config_bot+'.gif';
     $scope.paddy = Helpers.paddy;
@@ -204,10 +206,19 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
     }
 
 
+    $scope.getTitle= function(item){
+        if (localStorage.config_title && localStorage.config_title === 'cn' && item.subject.name_cn) {
+            //return item.subject.cn
+            return item.subject.name_cn;
+        }
+        return item.name;
+
+    }
 
 
-    Auth.loadCredentials();
 
+
+    //run right away
 
 
     $http({method: 'POST', url: '/api/user'}).

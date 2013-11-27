@@ -22,7 +22,7 @@ div.row
                 //div.height-100.pull-left(style='width:100%;background-position:50% 50%;background-image:url("{{item.subject.images.large}}");background-size: cover; background-repeat:no-repeat')
 
                 div.padding-left-120
-                    h4 {{item.subject.name || item.subject.name_cn}}
+                    h4 {{getTitle(item)}}
                     div.blue-bg.progress-total
                         //div.red-bg.progress-current(style='width:{{(item.ep_status / item.subject.eps)*100}}%;')
                         div.red-bg.progress-current(ng-style="{width:(item.ep_status / item.subject.eps)*100 +'%'}")
