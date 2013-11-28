@@ -18,7 +18,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         LOGOUT:"Logout",
         LOGOUT_SUCCESS:"You have successfully logout out",
         LOADING: "loading...",
-        START_APP: 'Touch to Start',
+        START_APP: 'Login',
         START_APP_WITH_DEMO: 'Login with Demo Account',
         SET_LANG: 'Switch language to 简体中文',
         NO_ACCOUNT_HINT: "Don't have an acccount? Try this.",
@@ -289,12 +289,12 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location
                 $scope.status = status;
                 $scope.data = data;
                 $scope.loading--;
-                $scope.demo_button_text = $translate('START_APP');
+                $scope.demo_button_text = $translate('START_APP_WITH_DEMO');
                 $location.path('/');
             }).
             error(function (data, status) {
                 $scope.loading--;
-                $scope.demo_button_text = $translate('START_APP');
+                $scope.demo_button_text = $translate('START_APP_WITH_DEMO');
                 $scope.data = data || "Request failed";
                 $scope.status = status;
                 $scope.show_login_error = true;
@@ -316,12 +316,12 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location
                 $scope.status = status;
                 $scope.data = data;
                 $scope.loading--;
-                $scope.login_button_text = $translate('START_APP_WITH_DEMO');
+                $scope.login_button_text = $translate('START_APP');
                 $location.path('/');
             }).
             error(function (data, status) {
                 $scope.loading--;
-                $scope.login_button_text = $translate('START_APP_WITH_DEMO');
+                $scope.login_button_text = $translate('START_APP');
                 $scope.data = data || "Request failed";
                 $scope.status = status;
                 $scope.show_login_error = true;
