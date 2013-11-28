@@ -336,6 +336,13 @@ h1,h2,h3,h4,h5{
         margin-left: -100px;
         margin-right: 100px;
     }
+
+    .mobile-btn-lg {
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.33;
+    }
+
 }
 
 

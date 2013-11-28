@@ -35,7 +35,7 @@ div.row
                         span.tag
                             span.glyphicon.glyphicon-heart
                             | {{item.subject.collection.doing * 172}}
-                        botton.btn.btn-danger.btn-sm.pull-right(ng-click="updateTo($index)") {{ 'WATCHED' | translate }} EP. {{paddy(item.ep_status+1,2)}}
+                        botton.btn.btn-danger.pull-right(ng-click="updateTo($index)") {{ 'WATCHED' | translate }} EP. {{paddy(item.ep_status+1,2)}}
 
             div.col-md-2.col-xs-2.col-lg-2
             //TODO:do we need the space? if not should use offset instead
