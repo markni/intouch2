@@ -266,11 +266,11 @@ h1,h2,h3,h4,h5{
     -ms-transform: scaleX(-1);
 }
 
-.icon-flipped.icon-rotated-90-right{
-    transform:  rotate(90deg) scaleX(-1);
-    -moz-transform: rotate(90deg) scaleX(-1);;
-    -webkit-transform: rotate(90deg) scaleX(-1);
-    -ms-transform: rotate(90deg) scaleX(-1);
+.icon-flipped.icon-rotated-180-right{
+    transform:  rotate(180deg) scaleX(-1);
+    -moz-transform: rotate(180deg) scaleX(-1);;
+    -webkit-transform: rotate(180deg) scaleX(-1);
+    -ms-transform: rotate(180deg) scaleX(-1);
 }
 
 .side-menu {
