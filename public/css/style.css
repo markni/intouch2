@@ -357,3 +357,9 @@ h1,h2,h3,h4,h5{
 .faded{
     opacity: 0.5;
 }
+
+.search-icon{
+    width:14px !important;
+    line-height: inherit;
+    margin:auto;
+}

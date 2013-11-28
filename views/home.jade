@@ -7,10 +7,12 @@ div.row
 
         div.row.card.form-group
             form(role="search")
-                div.form-group.col-md-10.col-xs-8.col-lg-8.padding-right-0
+                div.form-group.col-md-10.col-xs-10.col-lg-10.padding-right-0
                     input.form-control(type='text',placeholder="{{ 'ENTER_TO_SEARCH' | translate }}")
-                div.form-group.col-md-2.col-xs-4.col-lg-4
-                    button.btn.btn-block.btn-danger(type='submit') {{ 'SEARCH' | translate }}
+                div.form-group.col-md-2.col-xs-2.col-lg-2
+                    button.btn.btn-block.btn-danger.text-center(type='submit')
+                        span.glyphicon.glyphicon-search.visible-xs.search-icon
+                        span.hidden-xs {{ 'SEARCH' | translate }}
 
 
 
