@@ -44,19 +44,16 @@ div.row
 
 
 nav.side-menu(role="navigation",style="",ng-class="{show:showSideMenu}")
-    div.left-triangle.pull-right.red-bg
-        a(href='http://netaba.re')
-            span.side_menu_btn {{ 'HOME' | translate }}
-    div.left-triangle.pull-right.margin-top-10.pink-bg
-        span.side_menu_btn {{ 'SCHEDULE' | translate }}
-    div.left-triangle.pull-right.margin-top-10.orange-bg
-        span.side_menu_btn {{ 'PROFILE' | translate }}
-    div.left-triangle.pull-right.margin-top-10.blue-bg
-        a(href='/settings')
-            span.side_menu_btn {{ 'SETTINGS' | translate }}
-    div.left-triangle.pull-right.margin-top-10.cyan-bg
-        a(href='/logout')
-            span.side_menu_btn {{ 'LOGOUT' | translate }}
+    a.left-triangle.pull-right.red-bg(href='http://netaba.re')
+        p.side_menu_btn {{ 'HOME' | translate }}
+    a.left-triangle.pull-right.margin-top-10.pink-bg
+        p.side_menu_btn {{ 'SCHEDULE' | translate }}
+    a.left-triangle.pull-right.margin-top-10.orange-bg
+        p.side_menu_btn {{ 'PROFILE' | translate }}
+    a.left-triangle.pull-right.margin-top-10.blue-bg(href='/settings')
+        p.side_menu_btn {{ 'SETTINGS' | translate }}
+    a.left-triangle.pull-right.margin-top-10.cyan-bg(href='/logout')
+        p.side_menu_btn {{ 'LOGOUT' | translate }}
 
 
 

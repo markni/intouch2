@@ -236,10 +236,14 @@ h1,h2,h3,h4,h5{
     transform: rotate(-14deg);
     -ms-transform: rotate(-14deg);
     -webkit-transform: rotate(-14deg);
-    left: 46px;
-    bottom: 0px;
+    left: 40px;
+    bottom: -9px;
     white-space: nowrap;
     -webkit-font-smoothing: antialiased;
+
+
+
+
 
 }
 
