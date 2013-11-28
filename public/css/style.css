@@ -11,6 +11,7 @@ h1,h2,h3,h4,h5{
     -webkit-font-smoothing: antialiased;
 }
 
+
 .padding-bottom-70 {
     padding-bottom: 70px;
 }
@@ -248,6 +249,7 @@ h1,h2,h3,h4,h5{
 }
 
 .navbar-menu-btn {
+
     -moz-transition: all 500ms;
     -o-transition: all 500ms;
     -webkit-transition: all 500ms; /* Safari */
@@ -374,4 +376,11 @@ h1,h2,h3,h4,h5{
     width:14px !important;
     line-height: inherit;
     margin:auto;
+}
+
+a,span,div,button{
+
+    outline : none !important;
+
+
 }
