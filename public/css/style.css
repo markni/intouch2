@@ -390,7 +390,12 @@ a, span, div, button {
     font-size: 20px;
 }
 
-.row.action_btns .btn:hover {
+.row.action_btns .btn:focus{
+    color:white;
+}
+
+.row.action_btns .btn:hover{
     color: rgba(217, 83, 79, 1);
     background-color: white;
 }
+

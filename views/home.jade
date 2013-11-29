@@ -60,12 +60,12 @@ nav.side-menu(role="navigation",style="",ng-class="{show:showSideMenu}")
 
 
 nav.navbar.red-bg.navbar-default.navbar-fixed-bottom(role="navigation")
-    div.row.action_btns(ng-class='{hidden:selected_items.length === 0}')
+    div.row.action_btns(ng-class='{hidden:!isAnythingSelected()}')
         button.btn.col-lg-3.col-xs-3.white-text.red-bg 搁置
         button.btn.col-lg-3.col-xs-3.white-text.red-bg 抛弃
         button.btn.col-lg-3.col-xs-3.white-text.red-bg 撤销
         button.btn.col-lg-3.col-xs-3.white-text.red-bg 想看
-    div.navbar-bottom-avatar.center-block(ng-class='{hidden:selected_items.length !== 0}')
+    div.navbar-bottom-avatar.center-block(ng-class='{hidden:isAnythingSelected()}')
         div.wrapper(style="position:relative")
             div.tooltips(title="{{msg}}",ng-class="{'hidden':msg==''}")
                 span.inner.text-left{{msg}}

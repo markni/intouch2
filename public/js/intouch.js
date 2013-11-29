@@ -5,18 +5,17 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
 
-
     $translateProvider.translations('en-us', {
-        SETTINGS:'Settings',
-        HOME:'Home',
-        PROFILE:'Profile',
-        SCHEDULE:'Schedule',
-        TRANSLATED_TITLE:"Chinese Titles",
-        ORIGINAL_TITLE:"Original Titles",
+        SETTINGS: 'Settings',
+        HOME: 'Home',
+        PROFILE: 'Profile',
+        SCHEDULE: 'Schedule',
+        TRANSLATED_TITLE: "Chinese Titles",
+        ORIGINAL_TITLE: "Original Titles",
 
-        RETURN_TO_HOME:'Return to Home',
-        LOGOUT:"Logout",
-        LOGOUT_SUCCESS:"You have successfully logout out",
+        RETURN_TO_HOME: 'Return to Home',
+        LOGOUT: "Logout",
+        LOGOUT_SUCCESS: "You have successfully logout out",
         LOADING: "loading...",
         START_APP: 'Login',
         START_APP_WITH_DEMO: 'Login with Demo Account',
@@ -28,22 +27,22 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         SEARCH: "Search",
         ENTER_TO_SEARCH: "Enter keywords to search",
         WATCHED: "watched",
-        FINISHED_UPDATE_WATCHED_TO:"EP. {{x}} of {{y}} has been marked as watched.",
+        FINISHED_UPDATE_WATCHED_TO: "EP. {{x}} of {{y}} has been marked as watched.",
         RAN_MSG_1: "The weather is nice today!"
 
     })
         .translations('zh-cn', {
-            SETTINGS:'设置',
-            'HOME':'首页',
-            PROFILE:'个人',
-            SCHEDULE:'日历',
-            TRANSLATED_TITLE:"显示条目中文名",
-            ORIGINAL_TITLE:"显示条目原名",
+            SETTINGS: '设置',
+            'HOME': '首页',
+            PROFILE: '个人',
+            SCHEDULE: '日历',
+            TRANSLATED_TITLE: "显示条目中文名",
+            ORIGINAL_TITLE: "显示条目原名",
 
 
-            'RETURN_TO_HOME':'回到首页',
-            'LOGOUT':"登出",
-            LOGOUT_SUCCESS:"你已经成功登出",
+            'RETURN_TO_HOME': '回到首页',
+            'LOGOUT': "登出",
+            LOGOUT_SUCCESS: "你已经成功登出",
             LOADING: "读取中...",
             START_APP: '摸摸这里登录',
             START_APP_WITH_DEMO: '用演示帐号登录',
@@ -55,7 +54,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             SEARCH: "搜索",
             ENTER_TO_SEARCH: "输入搜索关键字",
             WATCHED: "看到",
-            FINISHED_UPDATE_WATCHED_TO:"你已成功看过了 {{y}} 的EP. {{x}}",
+            FINISHED_UPDATE_WATCHED_TO: "你已成功看过了 {{y}} 的EP. {{x}}",
             RAN_MSG_1: "今天天气真好啊 ~☆"
 
         });
@@ -68,11 +67,11 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         localStorage.config_lang = 'en-us';
     }
 
-    if(localStorage.config_bot ===undefined ){
+    if (localStorage.config_bot === undefined) {
         localStorage.config_bot = 'x';
     }
 
-    if(localStorage.config_title ===undefined ){
+    if (localStorage.config_title === undefined) {
         localStorage.config_title = 'o';
     }
 
@@ -118,22 +117,22 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
     })
 
-app.controller('settingsCtrl',function($translate, $scope, Auth, $http, $location, $cookieStore, Helpers,$timeout) {
+app.controller('settingsCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout) {
     $scope.lang = localStorage.config_lang;
-    $scope.bot =  localStorage.config_bot;
-    $scope.title =  localStorage.config_title;
+    $scope.bot = localStorage.config_bot;
+    $scope.title = localStorage.config_title;
 
-    $scope.setLang = function(lang){
+    $scope.setLang = function (lang) {
         localStorage.config_lang = $scope.lang = lang;
         $translate.uses(lang);
     }
 
-    $scope.setBot = function(bot){
+    $scope.setBot = function (bot) {
         localStorage.config_bot = $scope.bot = bot;
 
     }
 
-    $scope.setTitle = function(title){
+    $scope.setTitle = function (title) {
         localStorage.config_title = $scope.title = title;
 
     }
@@ -141,21 +140,19 @@ app.controller('settingsCtrl',function($translate, $scope, Auth, $http, $locatio
 
 })
 
-app.controller('logoutCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers,$timeout) {
+app.controller('logoutCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout) {
     Auth.clearCredentials();
 })
 
-app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers,$timeout) {
+app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout) {
     Auth.loadCredentials();
 
     $scope.timeouts = [];
-    $scope.bot = '/img/shells/'+localStorage.config_bot+'.gif?v=0';
+    $scope.bot = '/img/shells/' + localStorage.config_bot + '.gif?v=0';
     $scope.paddy = Helpers.paddy;
     $scope.showSideMenu = false;
     $scope.msg = '';
-    $scope.selected_items = [];
-
-
+    $scope.selected_items = {};
 
 
     $scope.avatar = {};
@@ -166,62 +163,77 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
     }
 
 
-    $scope.select = function(i){
+    $scope.select = function (i) {
 
-        if ($scope.items[i].selected ){
+
+
+        if ($scope.items[i].selected) {
+
             $scope.items[i].selected = !$scope.items[i].selected;
+
+
+
         }
-        else{
+        else {
             $scope.items[i].selected = true;
         }
 
 
+        if ($scope.items[i].selected ) {
+
+            $scope.selected_items[i] = $scope.items[i];
+
+        }
+        else{
+            delete $scope.selected_items[i];
+
+        }
+
     }
 
 
+    $scope.displayMsg = function (msg) {
 
-    $scope.displayMsg = function(msg){
 
-
-        $scope.bot =  $scope.bot.replace(/\?v=(.)/,function(match,p1){
-            return '?v='+ (parseInt(p1)===1?0:1);
+        $scope.bot = $scope.bot.replace(/\?v=(.)/, function (match, p1) {
+            return '?v=' + (parseInt(p1) === 1 ? 0 : 1);
         });  //reload bot gif animation by hacking src.
         //the original gif src will be xx.gif?v=0; after hack will be xx.gif?v=1; and continue to toggle.
         //in this way, further requests will all get 304 not modified
 
 
-        for (var i=0;i<$scope.timeouts.length;i++){
+        for (var i = 0; i < $scope.timeouts.length; i++) {
             $timeout.cancel($scope.timeouts[i]);
         }
         $scope.msg = msg;
-        var hide = $timeout(function(){
+        var hide = $timeout(function () {
 
-                $scope.msg = '';
-                $scope.$apply();
+            $scope.msg = '';
+            $scope.$apply();
 
-        },3000);
+        }, 3000);
         $scope.timeouts.push(hide);
 
     }
 
 
-    $scope.showRandomMsg = function(){
+    $scope.showRandomMsg = function () {
 
         var msg_list = ["RAN_MSG_1"];
-        var selected_index = Math.floor(Math.random()*(msg_list.length));
-        if(msg_list[selected_index]){
+        var selected_index = Math.floor(Math.random() * (msg_list.length));
+        if (msg_list[selected_index]) {
             $scope.displayMsg($translate(msg_list[selected_index]));
         }
     }
 
-    $scope.updateTo = function(index){
-        var ep_num = $scope.items[index].ep_status +1;
+    $scope.updateTo = function (index) {
+        var ep_num = $scope.items[index].ep_status + 1;
         var subject_id = $scope.items[index].subject.id;
 
-        $http({method: 'POST', url: '/api/subject/'+subject_id+'/watchedto/'+ep_num}).
+        $http({method: 'POST', url: '/api/subject/' + subject_id + '/watchedto/' + ep_num}).
             success(function (data, status) {
-                $scope.displayMsg($translate('FINISHED_UPDATE_WATCHED_TO',{x:$scope.items[index].ep_status +1,y:$scope.items[index].subject.name}));
-                $scope.items[index].ep_status = $scope.items[index].ep_status +1;
+                $scope.displayMsg($translate('FINISHED_UPDATE_WATCHED_TO', {x: $scope.items[index].ep_status + 1, y: $scope.items[index].subject.name}));
+                $scope.items[index].ep_status = $scope.items[index].ep_status + 1;
 
                 //$cookieStore.set('auth',data.auth);
 
@@ -232,7 +244,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
     }
 
 
-    $scope.getTitle= function(item){
+    $scope.getTitle = function (item) {
         if (localStorage.config_title && localStorage.config_title === 'cn' && item.subject.name_cn) {
             //return item.subject.cn
             return item.subject.name_cn;
@@ -241,7 +253,14 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
     }
 
+    $scope.isAnythingSelected = function(){
 
+        var result = Helpers.isEmpty($scope.selected_items);
+
+        return !Helpers.isEmpty($scope.selected_items);
+
+
+    }
 
 
     //run right away
@@ -292,6 +311,9 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location
         $scope.show_login_error = false;
     }
 
+
+
+
     $scope.toggleLang = function () {
 
         var lang = $translate.uses() === 'en-us' ? 'zh-cn' : 'en-us';
@@ -300,8 +322,6 @@ app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location
         $scope.login_button_text = $translate('START_APP');
         $scope.demo_button_text = $translate('START_APP_WITH_DEMO');
     }
-
-
 
 
     $scope.demo = function () {
@@ -480,6 +500,13 @@ app.factory('Helpers', function () {
             var pad_char = typeof c !== 'undefined' ? c : '0';
             var pad = new Array(1 + p).join(pad_char);
             return (pad + n).slice(-pad.length);
+        },
+        isEmpty: function (object) {
+            //console.log(object);
+            for (var i in object) {
+                return false;
+            }
+            return true;
         }
     }
 })
