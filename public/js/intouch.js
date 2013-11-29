@@ -149,12 +149,17 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
     Auth.loadCredentials();
 
     $scope.timeouts = [];
-    $scope.bot = '/img/shells/'+localStorage.config_bot+'.gif';
+    $scope.bot = '/img/shells/'+localStorage.config_bot+'.gif?v=0';
     $scope.paddy = Helpers.paddy;
     $scope.showSideMenu = false;
     $scope.msg = '';
     $scope.selected_items = [];
 
+
+
+
+    $scope.avatar = {};
+    $scope.loading = 0;
 
     $scope.toggleSideMenu = function () {
         $scope.showSideMenu = !$scope.showSideMenu;
@@ -173,10 +178,18 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
     }
 
-    $scope.avatar = {};
-    $scope.loading = 0;
+
+
     $scope.displayMsg = function(msg){
-        $scope.bot =  $scope.bot + "?hack=" + 1; //reload bot gif animation
+
+
+        $scope.bot =  $scope.bot.replace(/\?v=(.)/,function(match,p1){
+            return '?v='+ (parseInt(p1)===1?0:1);
+        });  //reload bot gif animation by hacking src.
+        //the original gif src will be xx.gif?v=0; after hack will be xx.gif?v=1; and continue to toggle.
+        //in this way, further requests will all get 304 not modified
+
+
         for (var i=0;i<$scope.timeouts.length;i++){
             $timeout.cancel($scope.timeouts[i]);
         }

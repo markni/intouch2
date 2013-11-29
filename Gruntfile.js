@@ -2,6 +2,17 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        bump: {
+            files: [ 'package.json']
+        },
+
+        version: {
+            // options: {},
+            defaults: {
+                src: ['routes/index.js']
+            }
+        },
+
         concat: {
             options: {
                 separator: ';'
@@ -45,11 +56,14 @@ module.exports = function(grunt) {
 
     });
 
+
+    grunt.loadNpmTasks('grunt-bumpx');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-version');
 
-    grunt.registerTask('default', ['copy','concat', 'uglify',]);
+    grunt.registerTask('default', ['bump','version','copy','concat', 'uglify']);
 
 };
