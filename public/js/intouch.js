@@ -4,7 +4,7 @@ var app = angular.module('inTouch2', ['ngRoute',
 app.config(function ($translateProvider, $routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
-    //TODO: fix the language switch button
+
 
     $translateProvider.translations('en-us', {
         SETTINGS:'Settings',
@@ -153,12 +153,25 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
     $scope.paddy = Helpers.paddy;
     $scope.showSideMenu = false;
     $scope.msg = '';
+    $scope.selected_items = [];
 
 
     $scope.toggleSideMenu = function () {
         $scope.showSideMenu = !$scope.showSideMenu;
     }
 
+
+    $scope.select = function(i){
+
+        if ($scope.items[i].selected ){
+            $scope.items[i].selected = !$scope.items[i].selected;
+        }
+        else{
+            $scope.items[i].selected = true;
+        }
+
+
+    }
 
     $scope.avatar = {};
     $scope.loading = 0;
@@ -237,6 +250,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
 
             for (var i = 0; i < data.length; i++) {
+                data[i].selected = false;
 
             }
 
