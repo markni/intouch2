@@ -411,19 +411,26 @@ a, span, div, button {
 
 }
 
-.row.action_btns .btn {
-    height: 75px;
+.super-nav-bar-bottom .action_btns .btn {
+    border-right: 1px solid rgba(80,80,80,0.7);
+    height: 91px;
+    text-shadow: 1px 1px rgba(80,80,80,0.8);
 
 }
 
-.row.action_btns .btn:focus{
+.super-nav-bar-bottom .action_btns .btn:last-child{
+    border-right: 0;
+}
+
+.super-nav-bar-bottom .action_btns .btn:focus{
     color:white;
 }
 
-.row.action_btns .btn:hover{
+.super-nav-bar-bottom .action_btns .btn:hover{
     color: rgba(217, 83, 79, 1);
     background-color: white;
     margin-top: -5px;
     box-shadow: 0px 2px rgba(80,80,80,0.8);
+    border-right: 0;
 }
 
