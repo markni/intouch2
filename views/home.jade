@@ -21,7 +21,9 @@ div.row
             div.col-md-10.col-xs-10.col-lg-10.no-href-link.padding-right-0(style="position:relative")
 
                 div.div-circle.square-150.pull-left.list-item-thumb(ng-click="select($index)",style='background-image:url("{{item.subject.images.large}}")')
-                //div.height-100.pull-left(style='width:100%;background-position:50% 50%;background-image:url("{{item.subject.images.large}}");background-size: cover; background-repeat:no-repeat')
+                    div.square-150(ng-class="{'white-mask':items[$index].selected}")
+                        span.glyphicon.glyphicon-ok.checked
+
 
                 div.list-item-info
                     h3 {{getTitle(item)}}
