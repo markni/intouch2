@@ -6,6 +6,10 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 
     $translateProvider.translations('en-us', {
+        HOLD: 'Hold',
+        TRASH : 'Trash',
+        WISHLIST: 'Wishlist',
+        UNFOLLOW : 'Unfollow',
         SETTINGS: 'Settings',
         HOME: 'Home',
         PROFILE: 'Profile',
@@ -32,6 +36,10 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
     })
         .translations('zh-cn', {
+            HOLD: '搁置',
+            TRASH : '抛弃',
+            WISHLIST: '想看',
+            UNFOLLOW : '取消',
             SETTINGS: '设置',
             'HOME': '首页',
             PROFILE: '个人',
