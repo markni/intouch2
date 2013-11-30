@@ -64,11 +64,12 @@ nav.side-menu(role="navigation",style="",ng-class="{show:showSideMenu}")
 nav.navbar.red-bg.navbar-default.navbar-fixed-bottom.super-nav-bar-bottom(role="navigation")
     div.action_btns.input-append(ng-class='{hidden:!isAnythingSelected()}')
         button.btn.col-lg-3.col-xs-3.white-text.red-bg
+            h4 {{ 'FINISH' | translate }}
+        button.btn.col-lg-3.col-xs-3.white-text.red-bg
             h4 {{ 'HOLD' | translate }}
         button.btn.col-lg-3.col-xs-3.white-text.red-bg
             h4 {{ 'TRASH' | translate }}
-        button.btn.col-lg-3.col-xs-3.white-text.red-bg
-            h4 {{ 'UNFOLLOW' | translate }}
+
         button.btn.col-lg-3.col-xs-3.white-text.red-bg
             h4 {{ 'WISHLIST' | translate }}
     div.navbar-bottom-avatar.center-block(ng-class='{hidden:isAnythingSelected()}')
