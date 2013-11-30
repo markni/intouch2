@@ -52,9 +52,21 @@ h1, h2, h3, h4, h5 {
     background-origin: content-box;
 }
 
+.list-item-info {
+    padding-left: 170px;
+
+}
+
 .square-100 {
     width: 100px;
     height: 100px;
+
+}
+
+
+.square-150 {
+    width: 150px;
+    height: 150px;
 
 }
 
@@ -144,6 +156,7 @@ h1, h2, h3, h4, h5 {
     color: rgba(80, 80, 80, 0.7);
     padding: 3px 5px 3px 5px;
     font-size: smaller;
+    display: inline-block;
 }
 
 .tag .glyphicon {

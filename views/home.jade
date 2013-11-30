@@ -20,23 +20,23 @@ div.row
 
             div.col-md-10.col-xs-10.col-lg-10.no-href-link.padding-right-0(style="position:relative")
 
-                div.div-circle.square-100.pull-left(ng-click="select($index)",style='background-position:50% 50%;background-image:url("{{item.subject.images.large}}");background-size: cover; background-repeat:no-repeat')
+                div.div-circle.square-150.pull-left(ng-click="select($index)",style='background-position:50% 50%;background-image:url("{{item.subject.images.large}}");background-size: cover; background-repeat:no-repeat')
                 //div.height-100.pull-left(style='width:100%;background-position:50% 50%;background-image:url("{{item.subject.images.large}}");background-size: cover; background-repeat:no-repeat')
 
-                div.padding-left-120
-                    h4 {{getTitle(item)}}
+                div.list-item-info
+                    h3 {{getTitle(item)}}
 
                     div.blue-bg.progress-total
                         //div.red-bg.progress-current(style='width:{{(item.ep_status / item.subject.eps)*100}}%;')
                         div.red-bg.progress-current(ng-style="{width:(item.ep_status / item.subject.eps)*100 +'%'}")
                     div.padding-top-10
-                        span.tag
+                        span.tag.hidden-xs
                             span.glyphicon.glyphicon-ok-circle
                             | EP.{{item.ep_status}}
                         span.tag
                             span.glyphicon.glyphicon-heart
                             | {{item.subject.collection.doing * 172}}
-                        botton.btn.btn-danger.btn-sm.pull-right(ng-click="updateTo($index)") {{ 'WATCHED' | translate }} EP. {{paddy(item.ep_status+1,2)}}
+                        botton.btn.btn-danger.pull-right(ng-click="updateTo($index)") {{ 'WATCHED' | translate }} EP. {{paddy(item.ep_status+1,2)}}
 
             div.col-md-2.col-xs-2.col-lg-2
             //TODO:do we need the space? if not should use offset instead
