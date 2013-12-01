@@ -311,13 +311,14 @@ h1, h2, h3, h4, h5 {
     transition: all 500ms;
     cursor: pointer;
     color: white;
-    position: absolute;
-    top: 0;
+
+
     padding-top: 30px;
+    padding-bottom: 30px;
 
     font-size: x-large;
     display: inline-block;
-    left: 150px;
+
     height: 100%;
     width: 100px !important;
 

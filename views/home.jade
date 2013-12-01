@@ -71,17 +71,17 @@ nav.navbar.red-bg.navbar-default.navbar-fixed-bottom.super-nav-bar-bottom(role="
 
         button.btn.col-lg-3.col-xs-3.white-text.red-bg
             h4 {{ 'CANCEL' | translate }}
-    div.navbar-bottom-avatar.center-block(ng-class='{hidden:isAnythingSelected()}')
-        div.wrapper(style="position:relative")
+
+
+
+    div(ng-class='{hidden:isAnythingSelected()}')
+        div.col-lg-4.col-xs-4
+        div.col-lg-4.col-xs-4.text-center.padding-right-0.padding-left-0(style="position:relative")
             div.tooltips(title="{{msg}}",ng-class="{'hidden':msg==''}")
                 span.inner.text-left{{msg}}
-                //span(title="more")
+
             img.img-circle.btn(src='{{bot}}',ng-click="showRandomMsg()")
-            span.navbar-menu-btn.btn.glyphicon.icon-flipped(ng-click="toggleSideMenu()",ng-class="{'icon-rotated-180-right':showSideMenu,'glyphicon-align-justify':showSideMenu,'glyphicon-list':!showSideMenu}")
-
-
-
-
-
-
+        div.col-lg-4.col-xs-4
+            div.col-lg-4.col-xs-4(style="position:relative")
+                span.navbar-menu-btn.btn.glyphicon.icon-flipped(ng-click="toggleSideMenu()",ng-class="{'icon-rotated-180-right':showSideMenu,'glyphicon-align-justify':showSideMenu,'glyphicon-list':!showSideMenu}")
 
