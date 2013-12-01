@@ -91,16 +91,17 @@ h1, h2, h3, h4, h5 {
     display: none;
 }
 
-.white-mask .checked, .square-150:hover .checked {
+.white-mask .checked, .square-100:hover .checked {
     display: block;
     color: white;
     position: absolute;
-    top: 59px;
-    left: 60px;
-    font-size: 31px;
+
+    left: 40%;
+    font-size: 21px;
+    line-height: 100px;
 }
 
-.white-mask, .square-150:hover{
+.white-mask, .square-100:hover{
     background-color: rgba(255,255,255,0.5);
 }
 
