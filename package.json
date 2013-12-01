@@ -8,7 +8,8 @@
     "dependencies": {
         "express": "3.4.4",
         "jade": "*",
-        "bangumi": "*"
+        "bangumi": "*",
+        "async":"~0.2.9"
     },
     "devDependencies": {
         "grunt": "~0.4.2",

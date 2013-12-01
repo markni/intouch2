@@ -1,3 +1,4 @@
+var async = require('async');
 var crypto = require('crypto');
 var Bangumi = require('bangumi');
 var options = {
@@ -113,7 +114,7 @@ exports.demo = function (req, res) {
 
 exports.updateTo = function (req, res) {
 
-    //TODO: repeative parts, need wrap in a seperated function
+    //TODO: repeating parts, need wrap in a seperated function
 
     if (req.params['id'] && req.params['epnum']) {
 
@@ -146,6 +147,72 @@ exports.updateTo = function (req, res) {
 
 
             })
+
+        }
+    }
+    else {
+        res.statusCode = 404; // Force them to retry authentication
+        res.json({error_code: 404, error_msg: 'invalid url'});
+    }
+
+}
+
+exports.updateStatus = function(req,res){
+
+    if (req.body && req.body.subjects && req.params['status'] ) {
+
+
+        var auth = req.headers['authorization'];
+        if (!auth) {
+
+            res.statusCode = 401; // Force them to retry authentication
+            res.json({error_code: 401, error_msg: 'wrong pass'});
+        }
+        else {
+            var encoded = auth.split(' ');
+            var buf = new Buffer(encoded[1], 'base64')
+            var plain_auth = buf.toString();
+
+            var creds = plain_auth.split(':');      // split on a ':'
+            var username = decrypt(creds[0], private_key);
+            var a = decrypt(creds[1], private_key);
+
+            var subjects = req.body.subjects; //array
+            var status = req.params['status'];
+
+            //do multiple async http requests here, once for each subject
+
+            async.map(subjects,function(item,callback){
+
+                b.createCollection(item, {status:status,auth:a}, function(err,data){
+
+                    if (!err && data && data.code != "401") {
+                        callback(err,data);
+                    }
+                    else {
+                        err = '401';
+                        callback(err,data);
+
+                    }
+                })
+
+
+            },function(err,data){
+
+
+                if (!err ) {
+                    res.statusCode = 200;
+                    res.json(data);
+                }
+                else {
+                    console.log(err);
+                    res.statusCode = 401; // Force them to retry authentication
+                    res.json({error_code: 401, error_msg: 'wrong pass'});
+                }
+
+            })
+
+
 
         }
     }

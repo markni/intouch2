@@ -242,6 +242,39 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
         }
     }
 
+    $scope.updateStatus = function(status){
+        var targets = $scope.selected_items;
+        var ids = [];
+        for (var key in targets){
+            ids.push (targets[key].subject.id);
+        }
+        console.log('ids:________________________');
+        console.log(ids);
+        console.log('status:________________________');
+        console.log(status);
+
+        $http({method: 'POST', url: '/api/subjects/update_status/'+status,data:{"subjects":ids}}).
+            success(function (data, status) {
+                $scope.selected_items = {};
+
+                for (var key in targets){
+                    $scope.items.splice(key,1);
+
+
+                }
+
+
+
+
+            }).
+            error(function (data, status) {
+
+            });
+
+
+
+    }
+
     $scope.updateTo = function (index) {
         var ep_num = $scope.items[index].ep_status + 1;
         var subject_id = $scope.items[index].subject.id;
