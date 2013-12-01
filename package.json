@@ -1,6 +1,6 @@
 {
     "name": "intouch2",
-    "version": "0.1.3-5",
+    "version": "0.1.3-6",
     "private": true,
     "scripts": {
         "start": "node app.js"

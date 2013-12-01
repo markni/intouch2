@@ -18,7 +18,15 @@ module.exports = function(grunt) {
                 separator: ';'
             },
             dist: {
-                src: ['public/js/jquery-1.10.2.js','public/js/bootstrap.js','public/js/angular.js','public/js/angular-route.js','public/js/angular-cookies.js','public/js/angular-animate.js','public/js/angular-translate.js','public/js/intouch.js'],
+                src: ['public/js/jquery-1.10.2.js'
+                    ,'public/js/bootstrap.js'
+                    ,'public/js/angular.js'
+                    ,'public/js/angular-route.js'
+                    ,'public/js/angular-cookies.js'
+                    ,'public/js/angular-animate.js'
+                    ,'public/js/angular-translate.js'
+                    ,'public/js/intouch.js'
+                    ,'public/js/controllers/login.js'],
                 dest: 'dist/public/js/<%= pkg.name %>.js'
             }
         },
