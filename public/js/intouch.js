@@ -264,6 +264,8 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
                 }
 
 
+                $scope.displayMsg('Action completed!!!');
+
 
 
             }).
@@ -279,16 +281,19 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
         var ep_num = $scope.items[index].ep_status + 1;
         var subject_id = $scope.items[index].subject.id;
 
+        $scope.loading++;
+
         $http({method: 'POST', url: '/api/subject/' + subject_id + '/watchedto/' + ep_num}).
             success(function (data, status) {
                 $scope.displayMsg($translate('FINISHED_UPDATE_WATCHED_TO', {x: $scope.items[index].ep_status + 1, y: $scope.items[index].subject.name}));
                 $scope.items[index].ep_status = $scope.items[index].ep_status + 1;
 
                 //$cookieStore.set('auth',data.auth);
+                $scope.loading--;
 
             }).
             error(function (data, status) {
-
+                $scope.loading--;
             });
     }
 

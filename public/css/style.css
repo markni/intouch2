@@ -56,7 +56,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .list-item-info {
-    padding-left: 170px;
+    padding-left: 110px;
 
 }
 
@@ -75,6 +75,7 @@ h1, h2, h3, h4, h5 {
 .square-100 {
     width: 100px;
     height: 100px;
+    position: relative;
 
 }
 
@@ -352,7 +353,7 @@ h1, h2, h3, h4, h5 {
     position: fixed;
     right: 0;
     top: 0;
-    padding-top: 35px;
+    padding-top: 15px;
 
     margin-right: -100px;
 }
@@ -383,19 +384,6 @@ h1, h2, h3, h4, h5 {
     height: 5px;
 }
 
-@media (max-width: 991px) {
-    .push-aside {
-        margin-left: -100px;
-        margin-right: 100px;
-    }
-
-    .mobile-btn-lg {
-        padding: 10px 16px;
-        font-size: 18px;
-        line-height: 1.33;
-    }
-
-}
 
 .navbar-bottom-avatar {
     width: 100px;
@@ -465,3 +453,25 @@ a, span, div, button {
     border-right: 0;
 }
 
+
+/*xs screen only css*/
+@media (max-width:767px) {
+
+
+
+}
+
+/*push if it's tablet or phone*/
+@media (max-width: 991px) {
+    .push-aside {
+        margin-left: -100px;
+        margin-right: 100px;
+    }
+
+    .mobile-btn-lg {
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.33;
+    }
+
+}

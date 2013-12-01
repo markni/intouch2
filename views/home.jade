@@ -9,7 +9,7 @@ div.row
             form(role="search")
                 div.form-group.col-md-10.col-xs-10.col-lg-10.padding-right-0
                     input.form-control(type='text',placeholder="{{ 'ENTER_TO_SEARCH' | translate }}")
-                div.form-group.col-md-2.col-xs-2.col-lg-2
+                div.form-group.col-md-2.col-xs-2.col-lg-2.padding-right-0
                     button.btn.btn-block.btn-danger.text-center(type='submit')
                         span.glyphicon.glyphicon-search.visible-xs.search-icon
                         span.hidden-xs {{ 'SEARCH' | translate }}
@@ -20,13 +20,13 @@ div.row
 
             div.col-md-10.col-xs-10.col-lg-10.no-href-link.padding-right-0(style="position:relative")
 
-                div.div-circle.square-150.pull-left.list-item-thumb(ng-click="select($index)",style='background-image:url("{{item.subject.images.large}}")')
-                    div.square-150(ng-class="{'white-mask':items[$index].selected}")
+                div.div-circle.square-100.pull-left.list-item-thumb(ng-click="select($index)",style='background-image:url("{{item.subject.images.large}}")')
+                    div.square-100(ng-class="{'white-mask':items[$index].selected}")
                         span.glyphicon.glyphicon-ok.checked
 
 
                 div.list-item-info
-                    h3 {{getTitle(item)}}
+                    h5 {{getTitle(item)}}
 
                     div.blue-bg.progress-total
                         div.red-bg.progress-current(ng-style="{width:(item.ep_status / item.subject.eps)*100 +'%'}")
@@ -37,7 +37,9 @@ div.row
                         span.tag
                             span.glyphicon.glyphicon-heart
                             | {{item.subject.collection.doing * 172}}
-                        botton.btn.btn-danger.pull-right(ng-click="updateTo($index)") {{ 'WATCHED' | translate }} EP. {{paddy(item.ep_status+1,2)}}
+                        botton.btn.btn-danger.btn-sm.pull-right(ng-click="updateTo($index)")
+                            span.hidden-xs {{ 'WATCHED' | translate }}
+                            | EP. {{paddy(item.ep_status+1,2)}}
 
             div.col-md-2.col-xs-2.col-lg-2
             //TODO:do we need the space? if not should use offset instead
@@ -46,11 +48,9 @@ div.row
 
 
 nav.side-menu(role="navigation",style="",ng-class="{show:showSideMenu}")
-    a.left-triangle.pull-right.red-bg(href='http://netaba.re')
-        p.side_menu_btn {{ 'HOME' | translate }}
-    a.left-triangle.pull-right.margin-top-10.pink-bg
+    a.left-triangle.pull-right.margin-top-10.red-bg
         p.side_menu_btn {{ 'SCHEDULE' | translate }}
-    a.left-triangle.pull-right.margin-top-10.orange-bg
+    a.left-triangle.pull-right.margin-top-10.pink-bg
         p.side_menu_btn {{ 'PROFILE' | translate }}
     a.left-triangle.pull-right.margin-top-10.blue-bg(href='/settings')
         p.side_menu_btn {{ 'SETTINGS' | translate }}
