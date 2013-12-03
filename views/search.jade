@@ -1,7 +1,9 @@
-//
-   Created with JetBrains WebStorm.
-   User: Mark
-   Date: 12/2/13
-   Time: 11:03 PM
-   To change this template use File | Settings | File Templates.
+div.row
+    div.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3.main-content
 
+        div.row.form-group
+            a.btn.btn-danger.btn-block(href="/"){{ 'RETURN_TO_HOME' | translate}}
+
+        div.row.card.form-group(ng-repeat="result in results")
+            div.col-md-10.col-xs-10.col-lg-10.no-href-link.padding-right-0(style="position:relative")
+                p {{result.name}}

@@ -18,3 +18,7 @@ exports.home = function(req, res){
 exports.settings = function(req, res){
     res.render('settings');
 };
+
+exports.search = function(req, res){
+    res.render('search');
+};

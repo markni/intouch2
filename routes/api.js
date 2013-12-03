@@ -226,23 +226,23 @@ exports.search = function (req, res) {
 
     if (req.params['q']) {
         var keywords = decodeURI(req.params['q']);
+        console.log(keywords);
         async.series([
             //search only anime and drama, then combine the two results.
             function (callback) {
                 b.search(keywords, {'type': 2, 'max_results': 10}, function (err, data) {
-                    callback(err, data);
+                    callback(null, data);    //TODO: fix bug in bangumi API where empty search result in not returned in json. Use null for error for now
                 })
 
             },
             function (callback) {
                 b.search(keywords, {'type': 6, 'max_results': 10}, function (err, data) {
-                    callback(err, data);
+                    callback(null, data);
                 })
             }
         ],
 
             function (err, results) {
-
                 if (!err) {
                     var result = '';
                     var count = 0;
@@ -256,6 +256,7 @@ exports.search = function (req, res) {
                         result = results[1].list;
                     }
 
+                    console.log(JSON.stringify(result));
                     res.statusCode = 200;
                     res.json({list: result});
                 }

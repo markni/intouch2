@@ -104,6 +104,10 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             templateUrl: '/temp/settings',
             controller: 'settingsCtrl'
         }).
+        when('/search/:q',{
+            templateUrl: '/temp/search',
+            controller: 'searchCtrl'
+        }).
         otherwise({
             redirectTo: '/'
         });
@@ -156,11 +160,24 @@ app.controller('logoutCtrl', function ($translate, $scope, Auth, $http, $locatio
     Auth.clearCredentials();
 })
 
+app.controller('searchCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout,$routeParams){
+    $http({method: 'GET', url: '/api/search/'+ $routeParams.q}).
+        success(function (data, status) {
+
+
+            $scope.results = data.list;
+
+
+
+
+        }).
+        error(function (data, status) {
+
+        });
+
+})
+
 app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout) {
-    $scope.$on('$viewContentLoaded', function()
-    {
-        console.log("blah");
-    });
 
 
     Auth.loadCredentials();
@@ -180,6 +197,13 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
         $scope.showSideMenu = !$scope.showSideMenu;
     }
 
+
+    $scope.search = function(){
+
+        if ($scope.keywords){
+            $location.path('/search/'+encodeURI($scope.keywords));
+        }
+    }
 
     $scope.cancelSelected = function(){
         for (var key in $scope.selected_items){
