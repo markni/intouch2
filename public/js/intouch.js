@@ -181,6 +181,13 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
     }
 
 
+    $scope.cancelSelected = function(){
+        for (var key in $scope.selected_items){
+            $scope.items[key].selected = false;
+        }
+        $scope.selected_items = {};
+    }
+
     $scope.select = function (i) {
 
 
