@@ -61,6 +61,7 @@ app.all('/api/demo',api.demo);
 app.all('/api/collection',api.getCollection);
 app.all('/api/subject/:id/watchedto/:epnum',api.updateTo);
 app.all('/api/subjects/update_status/:status',api.updateStatus);
+app.all('/api/search/:q',api.search);
 
 app.get('/login', routes.index);
 app.get('/logout',routes.index);

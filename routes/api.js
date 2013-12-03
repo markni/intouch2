@@ -9,15 +9,15 @@ var b = new Bangumi(options);
 var private_key = 'noblesseoblige';   //TODO: move the to config file
 
 function encrypt(text, key) {
-    var cipher = crypto.createCipher('aes-256-cbc', key)
-    var crypted = cipher.update(text, 'utf8', 'hex')
+    var cipher = crypto.createCipher('aes-256-cbc', key);
+    var crypted = cipher.update(text, 'utf8', 'hex');
     crypted += cipher.final('hex');
     return crypted;
 }
 
 function decrypt(text, key) {
-    var decipher = crypto.createDecipher('aes-256-cbc', key)
-    var dec = decipher.update(text, 'hex', 'utf8')
+    var decipher = crypto.createDecipher('aes-256-cbc', key);
+    var dec = decipher.update(text, 'hex', 'utf8');
     dec += decipher.final('utf8');
     return dec;
 }
@@ -32,7 +32,7 @@ exports.user = function (req, res) {
     }
     else {
         var encoded = auth.split(' ');
-        var buf = new Buffer(encoded[1], 'base64')
+        var buf = new Buffer(encoded[1], 'base64');
         var plain_auth = buf.toString();
 
         var creds = plain_auth.split(':');      // split on a ':'
@@ -53,7 +53,7 @@ exports.user = function (req, res) {
         })
     }
 
-}
+};
 
 exports.getCollection = function (req, res) {
     var auth = req.headers['authorization'];
@@ -64,7 +64,7 @@ exports.getCollection = function (req, res) {
     }
     else {
         var encoded = auth.split(' ');
-        var buf = new Buffer(encoded[1], 'base64')
+        var buf = new Buffer(encoded[1], 'base64');
         var plain_auth = buf.toString();
 
         var creds = plain_auth.split(':');      // split on a ':'
@@ -91,7 +91,7 @@ exports.getCollection = function (req, res) {
     }
 
 
-}
+};
 
 exports.demo = function (req, res) {
     b.auth({username: 'nodebangumi', password: 'node-bangumi'}, function (err, data) {
@@ -109,7 +109,7 @@ exports.demo = function (req, res) {
         }
     })
 
-}
+};
 
 
 exports.updateTo = function (req, res) {
@@ -127,7 +127,7 @@ exports.updateTo = function (req, res) {
         }
         else {
             var encoded = auth.split(' ');
-            var buf = new Buffer(encoded[1], 'base64')
+            var buf = new Buffer(encoded[1], 'base64');
             var plain_auth = buf.toString();
 
             var creds = plain_auth.split(':');      // split on a ':'
@@ -155,11 +155,11 @@ exports.updateTo = function (req, res) {
         res.json({error_code: 404, error_msg: 'invalid url'});
     }
 
-}
+};
 
-exports.updateStatus = function(req,res){
+exports.updateStatus = function (req, res) {
 
-    if (req.body && req.body.subjects && req.params['status'] ) {
+    if (req.body && req.body.subjects && req.params['status']) {
 
 
         var auth = req.headers['authorization'];
@@ -170,7 +170,7 @@ exports.updateStatus = function(req,res){
         }
         else {
             var encoded = auth.split(' ');
-            var buf = new Buffer(encoded[1], 'base64')
+            var buf = new Buffer(encoded[1], 'base64');
             var plain_auth = buf.toString();
 
             var creds = plain_auth.split(':');      // split on a ':'
@@ -182,25 +182,25 @@ exports.updateStatus = function(req,res){
 
             //do multiple async http requests here, once for each subject
 
-            async.map(subjects,function(item,callback){
+            async.map(subjects, function (item, callback) {
 
-                b.createCollection(item, {status:status,auth:a}, function(err,data){
+                b.createCollection(item, {status: status, auth: a}, function (err, data) {
 
                     if (!err && data && data.code != "401") {
-                        callback(err,data);
+                        callback(err, data);
                     }
                     else {
                         err = '401';
-                        callback(err,data);
+                        callback(err, data);
 
                     }
                 })
 
 
-            },function(err,data){
+            }, function (err, data) {
 
 
-                if (!err ) {
+                if (!err) {
                     res.statusCode = 200;
                     res.json(data);
                 }
@@ -213,7 +213,6 @@ exports.updateStatus = function(req,res){
             })
 
 
-
         }
     }
     else {
@@ -221,7 +220,61 @@ exports.updateStatus = function(req,res){
         res.json({error_code: 404, error_msg: 'invalid url'});
     }
 
-}
+};
+
+exports.search = function (req, res) {
+
+    if (req.params['q']) {
+        var keywords = decodeURI(req.params['q']);
+        async.series([
+            //search only anime and drama, then combine the two results.
+            function (callback) {
+                b.search(keywords, {'type': 2, 'max_results': 10}, function (err, data) {
+                    callback(err, data);
+                })
+
+            },
+            function (callback) {
+                b.search(keywords, {'type': 6, 'max_results': 10}, function (err, data) {
+                    callback(err, data);
+                })
+            }
+        ],
+
+            function (err, results) {
+
+                if (!err) {
+                    var result = '';
+                    var count = 0;
+                    if (results[0].list && results[1].list) {
+                        result = results[0].list.concat(results[1].list);
+                    }
+                    else if (results[0].list) {
+                        result = results[0].list;
+                    }
+                    else if (results[1].list) {
+                        result = results[1].list;
+                    }
+
+                    res.statusCode = 200;
+                    res.json({list: result});
+                }
+                else {
+                    res.statusCode = 404;
+                    res.json({error_code: 404, error_msg: 'invalid url'});
+                }
+
+            });
+
+    }
+    else {
+
+        res.statusCode = 404;
+        res.json({error_code: 404, error_msg: 'invalid url'});
+
+    }
+
+};
 
 exports.login = function (req, res) {
 
