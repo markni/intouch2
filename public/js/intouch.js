@@ -6,6 +6,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 
     $translateProvider.translations('en-us', {
+        ALL:'All',
+        DRAMA: 'Drama',
+        ANIME: 'Anime',
         HOLD: 'Hold',
         TRASH : 'Trash',
         FINISH: 'Finish',
@@ -38,6 +41,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
     })
         .translations('zh-cn', {
+            ALL:'全部分类',
+            DRAMA: '电视剧',
+            ANIME: '动画',
             HOLD: '搁置',
             FINISH: '看完',
             TRASH : '抛弃',
@@ -161,6 +167,28 @@ app.controller('logoutCtrl', function ($translate, $scope, Auth, $http, $locatio
 })
 
 app.controller('searchCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout,$routeParams){
+    $scope.type = -1;
+
+
+    $scope.setType = function(type){
+        $scope.type = type;
+
+    }
+
+    $scope.typeFilter = function(result)
+    {
+        // Do some tests
+
+        if($scope.type === -1 || result.type === $scope.type)
+        {
+            return true; // this will be listed in the results
+        }
+
+        return false; // otherwise it won't be within the results
+    };
+
+
+
     $http({method: 'GET', url: '/api/search/'+ $routeParams.q}).
         success(function (data, status) {
 

@@ -455,6 +455,15 @@ a, span, div, button {
     border-right: 0;
 }
 
+.switch-btn{
+    cursor: pointer;
+    line-height: 40px;
+}
+
+.switch-btn:hover, .switch-btn.active{
+    color:rgba(124, 204, 229, 1);
+}
+
 
 /*xs screen only css*/
 @media (max-width:767px) {

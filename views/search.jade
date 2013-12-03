@@ -4,6 +4,13 @@ div.row
         div.row.form-group
             a.btn.btn-danger.btn-block(href="/"){{ 'RETURN_TO_HOME' | translate}}
 
-        div.row.card.form-group(ng-repeat="result in results")
-            div.col-md-10.col-xs-10.col-lg-10.no-href-link.padding-right-0(style="position:relative")
-                p {{result.name}}
+        div.row.form-group.card.text-center(style="padding-top:0;padding-bottom:0")
+            div.col-xs-4.col-lg-4.switch-btn(ng-click="setType(-1)",ng-class="{active:type===-1}") {{ 'ALL' | translate}}
+            div.col-xs-4.col-lg-4.switch-btn(ng-click="setType(2)",ng-class="{active:type===2}") {{ 'ANIME' | translate}}
+            div.col-xs-4.col-lg-4.switch-btn(ng-click="setType(6)",ng-class="{active:type===6}") {{ 'DRAMA' | translate}}
+
+
+
+        div.row.card.form-group(ng-repeat="result in results | filter:typeFilter")
+                div.col-md-10.col-xs-10.col-lg-10.no-href-link.padding-right-0(style="position:relative")
+                    h4 {{result.name}}
