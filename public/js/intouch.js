@@ -339,12 +339,23 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
         $http({method: 'POST', url: '/api/subjects/update_status/' + status, data: {"subjects": ids}}).
             success(function (data, status) {
+
                 $scope.selected_items = {};
 
+
+
+                var temp_key_array = [];
                 for (var key in targets) {
-                    $scope.items.splice(key, 1);
+                    temp_key_array.push(parseInt(key));
+                }
+                //get the keys sorted, larger key in the front
+                temp_key_array.sort(function(a,b){return b - a});
 
+                console.log(temp_key_array);
 
+                for (var i =0; i<temp_key_array.length; i++){
+                    console.log(temp_key_array[i]);
+                    $scope.items.splice(temp_key_array[i], 1);
                 }
 
 
