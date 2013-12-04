@@ -246,15 +246,33 @@ exports.search = function (req, res) {
                 if (!err) {
                     var result = '';
                     var count = 0;
+                    // if both anime and drama has results, concat the results
                     if (results[0].list && results[1].list) {
                         result = results[0].list.concat(results[1].list);
                     }
+
+                    //otherwise if either one has results, use it
                     else if (results[0].list) {
                         result = results[0].list;
                     }
                     else if (results[1].list) {
                         result = results[1].list;
                     }
+
+                    //resort the result since the API search is horrible,
+                    // if the original title has a direct word match, give it higher rank
+                    result.sort(function(a,b){
+
+                        var num_of_match_a = a.name.search(new RegExp(req.params['q'],'gi'));
+                        var num_of_match_b = b.name.search(new RegExp(req.params['q'],'gi'));
+                        console.log( num_of_match_a, num_of_match_b);
+                        // if two titles have even amount of matches, compare their translated titles
+                        if (num_of_match_a === num_of_match_b && a.name_cn && b.name_cn){
+                            return b.name_cn.search(new RegExp(req.params['q'],'gi')) - a.name_cn.search(new RegExp(req.params['q'],'gi'));
+                        }
+                        return num_of_match_b - num_of_match_a;
+
+                    });
 
                     console.log(JSON.stringify(result));
                     res.statusCode = 200;

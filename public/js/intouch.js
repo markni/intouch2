@@ -386,6 +386,8 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
             $scope.avatar.large = data.avatar.large;
             //$cookieStore.set('auth',data.auth);
 
+            //$scope.displayMsg(data.nickname);
+
         }).
         error(function (data, status) {
 
