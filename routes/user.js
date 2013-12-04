@@ -22,3 +22,11 @@ exports.settings = function(req, res){
 exports.search = function(req, res){
     res.render('search');
 };
+
+exports.bottomMenu = function(req, res){
+    res.render('bottom-menu');
+};
+
+exports.sideMenu = function(req, res){
+    res.render('side-menu');
+};

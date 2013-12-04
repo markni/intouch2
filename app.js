@@ -52,8 +52,8 @@ app.get('/temp/logout', user.logout);
 app.get('/temp/home', user.home);
 app.get('/temp/settings', user.settings);
 app.get('/temp/search', user.search);
-
-
+app.get('/temp/bottom-menu', user.bottomMenu);
+app.get('/temp/side-menu', user.sideMenu);
 
 //TODO: change these to post in production
 app.all('/api/login',api.login);

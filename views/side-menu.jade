@@ -1,0 +1,10 @@
+nav.side-menu(role="navigation",style="",ng-class="{show:showSideMenu}")
+    a.left-triangle.pull-right.margin-top-10.red-bg
+        p.side_menu_btn {{ 'SCHEDULE' | translate }}
+    a.left-triangle.pull-right.margin-top-10.pink-bg
+        p.side_menu_btn {{ 'PROFILE' | translate }}
+    a.left-triangle.pull-right.margin-top-10.blue-bg(href='/settings')
+        p.side_menu_btn {{ 'SETTINGS' | translate }}
+    a.left-triangle.pull-right.margin-top-10.cyan-bg(href='/logout')
+        p.side_menu_btn {{ 'LOGOUT' | translate }}
+
