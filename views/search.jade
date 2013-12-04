@@ -14,3 +14,7 @@ div.row
         div.row.card.form-group(ng-repeat="result in results | filter:typeFilter")
                 div.col-md-10.col-xs-10.col-lg-10.no-href-link.padding-right-0(style="position:relative",ng-class='{"orange-border-left":result.type === 2,"cyan-border-left":result.type !== 2}')
                     h4 {{result.name}}
+
+
+div(side-menu)
+
