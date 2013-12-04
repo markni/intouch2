@@ -258,6 +258,9 @@ exports.search = function (req, res) {
                     else if (results[1].list) {
                         result = results[1].list;
                     }
+                    else {
+                        result = [];
+                    }
 
                     //resort the result since the API search is horrible,
                     // if the original title has a direct word match, give it higher rank

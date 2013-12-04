@@ -332,10 +332,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
         for (var key in targets) {
             ids.push(targets[key].subject.id);
         }
-        console.log('ids:________________________');
-        console.log(ids);
-        console.log('status:________________________');
-        console.log(status);
+
 
         $http({method: 'POST', url: '/api/subjects/update_status/' + status, data: {"subjects": ids}}).
             success(function (data, status) {
@@ -351,10 +348,10 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
                 //get the keys sorted, larger key in the front
                 temp_key_array.sort(function(a,b){return b - a});
 
-                console.log(temp_key_array);
+
 
                 for (var i =0; i<temp_key_array.length; i++){
-                    console.log(temp_key_array[i]);
+
                     $scope.items.splice(temp_key_array[i], 1);
                 }
 
@@ -567,7 +564,7 @@ app.factory('Helpers', function () {
             return (pad + n).slice(-pad.length);
         },
         isEmpty: function (object) {
-            //console.log(object);
+
             for (var i in object) {
                 return false;
             }
