@@ -6,15 +6,15 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 
     $translateProvider.translations('en-us', {
-        ALL:'All',
+        ALL: 'All',
         DRAMA: 'Drama',
         ANIME: 'Anime',
         HOLD: 'Hold',
-        TRASH : 'Trash',
+        TRASH: 'Trash',
         FINISH: 'Finish',
-        CANCEL : 'Cancel',
+        CANCEL: 'Cancel',
         WISHLIST: 'Wishlist',
-        UNFOLLOW : 'Unfollow',
+        UNFOLLOW: 'Unfollow',
         SETTINGS: 'Settings',
         HOME: 'Home',
         PROFILE: 'Profile',
@@ -41,16 +41,16 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
     })
         .translations('zh-cn', {
-            ALL:'全部分类',
+            ALL: '全部分类',
             DRAMA: '电视剧',
             ANIME: '动画',
             HOLD: '搁置',
             FINISH: '看完',
-            TRASH : '抛弃',
+            TRASH: '抛弃',
             WISHLIST: '想看',
-            UNFOLLOW : '取消',
+            UNFOLLOW: '取消',
             SETTINGS: '设置',
-            CANCEL : '取消',
+            CANCEL: '取消',
             'HOME': '首页',
             PROFILE: '个人',
             SCHEDULE: '日历',
@@ -110,7 +110,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             templateUrl: '/temp/settings',
             controller: 'settingsCtrl'
         }).
-        when('/search/:q',{
+        when('/search/:q', {
             templateUrl: '/temp/search',
             controller: 'searchCtrl'
         }).
@@ -166,40 +166,65 @@ app.controller('logoutCtrl', function ($translate, $scope, Auth, $http, $locatio
     Auth.clearCredentials();
 })
 
-app.controller('searchCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout,$routeParams){
+app.controller('searchCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout, $routeParams) {
     $scope.type = -1;
+    $scope.loading = 0;
 
 
-    $scope.setType = function(type){
+    $scope.setType = function (type) {
         $scope.type = type;
 
     }
 
-    $scope.typeFilter = function(result)
-    {
+    $scope.typeFilter = function (result) {
         // Do some tests
 
-        if($scope.type === -1 || result.type === $scope.type)
-        {
+        if ($scope.type === -1 || result.type === $scope.type) {
             return true; // this will be listed in the results
         }
 
         return false; // otherwise it won't be within the results
     };
 
+    $scope.toggleCollection = function (index) {
 
 
-    $http({method: 'GET', url: '/api/search/'+ $routeParams.q}).
+        var ids = [$scope.results[index].id];
+        var action = 'do';
+
+        if ($scope.results[index].added) {
+            action = 'dropped';
+        }
+
+        $scope.loading++;
+
+        $http({method: 'POST', url: '/api/subjects/update_status/' + action, data: {"subjects": ids}}).
+            success(function (data, status) {
+
+                $scope.results[index].added = (action === 'do' ? true : false);
+                $scope.loading--;
+            }).
+            error(function (data, status) {
+                $scope.loading--;
+
+            });
+
+    }
+
+    //TODO: check local cache of user's collection, if already in collection, display '-' instead of '+'
+
+    $scope.loading++;
+
+    $http({method: 'GET', url: '/api/search/' + $routeParams.q}).
         success(function (data, status) {
 
-
+            $scope.loading--;
             $scope.results = data.list;
-
-
 
 
         }).
         error(function (data, status) {
+            $scope.loading++;
 
         });
 
@@ -226,15 +251,15 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
     }
 
 
-    $scope.search = function(){
+    $scope.search = function () {
 
-        if ($scope.keywords){
-            $location.path('/search/'+encodeURI($scope.keywords));
+        if ($scope.keywords) {
+            $location.path('/search/' + encodeURI($scope.keywords));
         }
     }
 
-    $scope.cancelSelected = function(){
-        for (var key in $scope.selected_items){
+    $scope.cancelSelected = function () {
+        for (var key in $scope.selected_items) {
             $scope.items[key].selected = false;
         }
         $scope.selected_items = {};
@@ -243,11 +268,9 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
     $scope.select = function (i) {
 
 
-
         if ($scope.items[i].selected) {
 
             $scope.items[i].selected = !$scope.items[i].selected;
-
 
 
         }
@@ -256,12 +279,12 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
         }
 
 
-        if ($scope.items[i].selected ) {
+        if ($scope.items[i].selected) {
 
             $scope.selected_items[i] = $scope.items[i];
 
         }
-        else{
+        else {
             delete $scope.selected_items[i];
 
         }
@@ -303,23 +326,23 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
         }
     }
 
-    $scope.updateStatus = function(status){
+    $scope.updateStatus = function (status) {
         var targets = $scope.selected_items;
         var ids = [];
-        for (var key in targets){
-            ids.push (targets[key].subject.id);
+        for (var key in targets) {
+            ids.push(targets[key].subject.id);
         }
         console.log('ids:________________________');
         console.log(ids);
         console.log('status:________________________');
         console.log(status);
 
-        $http({method: 'POST', url: '/api/subjects/update_status/'+status,data:{"subjects":ids}}).
+        $http({method: 'POST', url: '/api/subjects/update_status/' + status, data: {"subjects": ids}}).
             success(function (data, status) {
                 $scope.selected_items = {};
 
-                for (var key in targets){
-                    $scope.items.splice(key,1);
+                for (var key in targets) {
+                    $scope.items.splice(key, 1);
 
 
                 }
@@ -328,12 +351,10 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
                 $scope.displayMsg('Action completed!!!');
 
 
-
             }).
             error(function (data, status) {
 
             });
-
 
 
     }
@@ -368,7 +389,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
     }
 
-    $scope.isAnythingSelected = function(){
+    $scope.isAnythingSelected = function () {
 
         var result = Helpers.isEmpty($scope.selected_items);
 
@@ -412,9 +433,6 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
         });
 
 })
-
-
-
 
 
 app.factory('Base64', function () {
@@ -548,22 +566,21 @@ app.factory('Helpers', function () {
 });
 
 
-
-app.directive('bottomMenu',function(){
+app.directive('bottomMenu', function () {
     return {
         restrict: 'AE',
-        templateUrl : '/temp/bottom-menu',
-        replace:true
+        templateUrl: '/temp/bottom-menu',
+        replace: true
 
     };
 
 });
 
-app.directive('sideMenu',function(){
+app.directive('sideMenu', function () {
     return {
         restrict: 'AE',
-        templateUrl : '/temp/side-menu',
-        replace:true
+        templateUrl: '/temp/side-menu',
+        replace: true
 
     };
 
