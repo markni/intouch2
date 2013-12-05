@@ -1,9 +1,16 @@
 inTouch 2
 -------------
 
-rewriting my old applications 'inTouch' with angularjs and bootstrap.
+inTouch 2 is the latest version of popular mobile web app "inTouch", which helps user keep tracking the progress of their favorite TV shows, dramas and animations. 
 
-[<img src="http://d13yacurqjgara.cloudfront.net/users/361483/screenshots/1327697/white_1x.png">](http://google.com.au/)
+
+[<img src="http://d13yacurqjgara.cloudfront.net/users/361483/screenshots/1327697/white_1x.png">](http://netaba.re/)
+
+### Features
+
+- responsive design that works on *almost* every *modern* device (tested on PS vita, Windows Phone 8)
+- powered by angularjs and node.js with REST api in between to ensure fast performance 
+- i18n support that can easily configured to support multiple languages (English and Chinese build-in)
 
 
 ### Installation
@@ -15,6 +22,10 @@ rewriting my old applications 'inTouch' with angularjs and bootstrap.
 
     node dist/app.js
     
+    
+### demo
+
+http://netaba.re
     
     
 ### License
