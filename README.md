@@ -23,7 +23,7 @@ inTouch 2 is the latest version of popular mobile web app "inTouch", which helps
     node dist/app.js
     
     
-### demo
+### Demo
 
 http://netaba.re
     
