@@ -26,6 +26,8 @@ module.exports = function(grunt) {
                     ,'public/js/angular-animate.js'
                     ,'public/js/angular-translate.js'
                     ,'public/js/intouch.js'
+                    ,'public/js/directive.js'
+                    ,'public/js/factory.js'
                     ,'public/js/controllers/*.js'],
                 dest: 'dist/public/js/<%= pkg.name %>.js'
             }
