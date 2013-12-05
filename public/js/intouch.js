@@ -113,6 +113,10 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             templateUrl: '/temp/search',
             controller: 'searchCtrl'
         }).
+        when('/profile', {
+            templateUrl: '/temp/profile',
+            controller: 'profileCtrl'
+        }).
         otherwise({
             redirectTo: '/'
         });

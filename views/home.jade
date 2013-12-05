@@ -11,7 +11,7 @@ div.row
 
         div.row.card.form-group(ng-repeat="item in items",ng-class="{selected:items[$index].selected}")
 
-            div.col-md-10.col-xs-10.col-lg-10.no-href-link.padding-right-0(style="position:relative")
+            div.col-md-10.col-xs-10.col-lg-10.no-href-link.padding-right-0.inner
 
                 div.div-circle.square-100.pull-left.list-item-thumb(ng-click="select($index)",style='background-image:url("{{item.subject.images.medium}}")')
                     div.square-100(ng-class="{'white-mask':items[$index].selected}")

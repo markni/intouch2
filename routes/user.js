@@ -23,6 +23,18 @@ exports.search = function(req, res){
     res.render('search');
 };
 
+exports.profile = function(req, res){
+    res.render('profile');
+};
+
+exports.schedule = function(req, res){
+    res.render('schedule');
+};
+
+exports.subject = function(req, res){
+    res.render('subject');
+};
+
 exports.bottomMenu = function(req, res){
     res.render('bottom-menu');
 };

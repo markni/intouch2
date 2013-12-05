@@ -7,10 +7,10 @@ body {
 
 }
 
-h1, h2, h3, h4, h5, button, a {
-    font-family: Microsoft YaHei, 'Lato', Helvetica, Arial, sans-serif !important;
-    -webkit-font-smoothing: antialiased;
-}
+/*h1, h2, h3, h4, h5, button, a,blockquote,p {*/
+    /*font-family: 'Lato',Microsoft YaHei, Helvetica, Arial, sans-serif ;*/
+    /*-webkit-font-smoothing: antialiased;*/
+/*}*/
 
 .padding-bottom-70 {
     padding-bottom: 70px;
@@ -58,16 +58,15 @@ h1, h2, h3, h4, h5, button, a {
 
 }
 
-.list-item-thumb {
+
+
+.list-item-thumb, .avatar {
 
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: none;
-    -moz-transition: background-image 800ms;
-    -o-transition: background-image 800ms;
-    -webkit-transition: background-image 800ms; /* Safari */
-    transition: background-image 800ms;
+
 }
 
 .square-100 {
@@ -173,11 +172,15 @@ h1, h2, h3, h4, h5, button, a {
     background: white;
     padding-top: 15px;
     padding-bottom: 15px;
-    box-shadow: rgba(80, 80, 80, 0.1) 2px 4px;
+    box-shadow: rgba(80, 80, 80, 0.1) 1px 2px;
 }
 
 .card.selected {
-    box-shadow: rgba(217, 83, 79, 0.8) 2px 4px;
+    box-shadow: rgba(217, 83, 79, 0.8) 1px 2px;
+}
+
+.card .inner {
+    position: relative;
 }
 
 .triangle-left {
@@ -519,4 +522,15 @@ a, span, div, button {
         width: 100px;
     }
 
+}
+
+blockquote {
+    border-left: white 5px solid;
+    padding: 20px;
+    width:80%;
+    margin: 0 auto;
+}
+
+blockquote p{
+    font-size: 24px;
 }

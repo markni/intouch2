@@ -178,17 +178,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
     //run right away
 
 
-    $http({method: 'POST', url: '/api/user'}).
-        success(function (data, status) {
-            $scope.avatar.large = data.avatar.large;
-            //$cookieStore.set('auth',data.auth);
 
-            //$scope.displayMsg(data.nickname);
-
-        }).
-        error(function (data, status) {
-
-        });
 
 
     $http({method: 'POST', url: '/api/collection'}).
