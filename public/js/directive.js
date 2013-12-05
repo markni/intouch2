@@ -17,3 +17,15 @@ app.directive('sideMenu', function () {
     };
 
 });
+
+
+
+app.directive('searchBar', function () {
+    return {
+        restrict: 'AE',
+        templateUrl: '/temp/search-bar',
+        replace: true
+
+    };
+
+});

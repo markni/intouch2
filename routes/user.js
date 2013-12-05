@@ -30,3 +30,7 @@ exports.bottomMenu = function(req, res){
 exports.sideMenu = function(req, res){
     res.render('side-menu');
 };
+
+exports.searchBar = function(req,res){
+    res.render('search-bar');
+}

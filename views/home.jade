@@ -5,14 +5,7 @@ div.row
 
 
 
-        div.row.card.form-group
-            form(role="search",ng-submit="search()")
-                div.form-group.col-md-10.col-xs-10.col-lg-10.padding-right-0
-                    input.form-control(type='text',placeholder="{{ 'ENTER_TO_SEARCH' | translate }}",ng-model="keywords")
-                div.form-group.col-md-2.col-xs-2.col-lg-2.padding-right-0
-                    button.btn.btn-block.btn-danger.text-center(type='submit')
-                        span.glyphicon.glyphicon-search.visible-xs.search-icon
-                        span.hidden-xs {{ 'SEARCH' | translate }}
+        div(search-bar)
 
 
 
