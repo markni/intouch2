@@ -19,6 +19,10 @@ inTouch 2 is the latest version of popular mobile web app "inTouch", which helps
     npm install
 
     grunt
+    
+    cd dist
+    
+    npm install
 
     node dist/app.js
     
