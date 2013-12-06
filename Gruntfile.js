@@ -6,7 +6,7 @@ module.exports = function(grunt) {
             all: {
                 options: {
                     mode: 0766,
-                    create: ['dist/cache']
+                    create: ['cache']
                 }
             }
         },

@@ -147,12 +147,13 @@ exports.index = function (req, response) {
                     var average = total / rated;
                     var json_result = {username: username, nickname: nickname, avatar: avatar, wished: wished, held: held,
                         watching: watching, trashed: trashed, watched: counter, rated: rated, average: (average).toFixed(4),
-                        median: calculate_median(ratings), deviation: calculate_std(ratings, average), distribution: distribution}
+                        median: calculate_median(ratings), deviation: calculate_std(ratings, average), distribution: distribution};
 
                     //json_result.watched_subjects = watched_subjects;
 
                     fs.writeFile(directory + '/' + filename + '.json', JSON.stringify(json_result), function (err) {
-                        if (err) return console.log(err);
+
+                        return console.log(err);
                     });
                     response.json(json_result)
 
