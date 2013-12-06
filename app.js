@@ -7,6 +7,7 @@ var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
 var api = require('./routes/api');
+var stats = require('./routes/stats');
 var http = require('http');
 var path = require('path');
 
@@ -73,6 +74,8 @@ app.all('/api/subjects/update_status/:status',api.updateStatus);
 
 
 app.all('/api/search/:q',api.search);
+app.all('/api/user/:username/stats',stats.index);
+
 
 app.get('/login', routes.index);
 app.get('/logout',routes.index);

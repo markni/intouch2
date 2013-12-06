@@ -7,6 +7,8 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
     $translateProvider.translations('en-us', {
         ALL: 'All',
+        AVERAGE:'Average',
+        RATED:'Rated',
         DRAMA: 'Drama',
         ANIME: 'Anime',
         HOLD: 'Hold',
@@ -35,12 +37,15 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         SEARCH: "Search",
         ENTER_TO_SEARCH: "Enter keywords to search",
         WATCHED: "watched",
+        WATCHED2: "Watched",
         FINISHED_UPDATE_WATCHED_TO: "EP. {{x}} of {{y}} has been marked as watched.",
         RAN_MSG_1: "The weather is nice today!"
 
     })
         .translations('zh-cn', {
             ALL: '全部分类',
+            AVERAGE:'平均分',
+            RATED:'已评分',
             DRAMA: '电视剧',
             ANIME: '动画',
             HOLD: '搁置',
@@ -71,6 +76,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             SEARCH: "搜索",
             ENTER_TO_SEARCH: "输入搜索关键字",
             WATCHED: "看到",
+            WATCHED2: "看过",
             FINISHED_UPDATE_WATCHED_TO: "你已成功看过了 {{y}} 的EP. {{x}}",
             RAN_MSG_1: "今天天气真好啊 ~☆"
 

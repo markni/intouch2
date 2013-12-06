@@ -2,6 +2,16 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        mkdir:{
+            all: {
+                options: {
+                    mode: 0700,
+                    create: ['dist/cache']
+                }
+            }
+        },
+
+
         bump: {
             files: [ 'package.json']
         },
@@ -25,6 +35,7 @@ module.exports = function(grunt) {
                     ,'public/js/angular-cookies.js'
                     ,'public/js/angular-animate.js'
                     ,'public/js/angular-translate.js'
+                    ,'public/js/canvasjs.js'
                     ,'public/js/intouch.js'
                     ,'public/js/directive.js'
                     ,'public/js/factory.js'
@@ -67,6 +78,7 @@ module.exports = function(grunt) {
     });
 
 
+    grunt.loadNpmTasks('grunt-mkdir');
     grunt.loadNpmTasks('grunt-bumpx');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
@@ -74,6 +86,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-version');
 
-    grunt.registerTask('default', ['bump','version','copy','concat', 'uglify']);
+    grunt.registerTask('default', ['bump','version','copy','concat', 'uglify','mkdir']);
 
 };
