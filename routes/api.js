@@ -43,7 +43,7 @@ exports.user = function (req, res) {
 
             if (!err && data && data.code != "401") {
                 res.statusCode = 200;
-                console.log(JSON.stringify(data));
+
                 res.json(data);
             }
             else {
@@ -298,6 +298,41 @@ exports.search = function (req, res) {
     }
 
 };
+
+exports.schedule = function(req,res){
+    b.calendar(function(err,data){
+        if(!err && data){
+
+            var items = [];
+            for (var i=0;i<data.length;i++){
+                for (var x=0; x<data[i].items.length;x++){
+
+                    //use 0 for sunday instead of 7, matches getDay() format
+
+                     if (data[i].items[x].air_weekday === 7){
+                         data[i].items[x].air_weekday = 0;
+                     }
+
+                     items.push(data[i].items[x]);
+
+
+                }
+            }
+
+
+
+            res.json(items);
+
+        }
+
+        else {
+            res.statusCode = 404;
+            res.json({error_code: 404, error_msg: 'invalid url'});
+        }
+
+
+    })
+}
 
 exports.login = function (req, res) {
 
