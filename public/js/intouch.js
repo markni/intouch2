@@ -23,6 +23,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         SCHEDULE: 'Schedule',
         TRANSLATED_TITLE: "Chinese Titles",
         ORIGINAL_TITLE: "Original Titles",
+        TODAY:'Today',
+        YESTERDAY:'Yesterday',
+        TOMORROW:'Tomorrow',
         RETURN_TO_HOME: 'Return to Home',
         LOGOUT: "Logout",
         LOGOUT_SUCCESS: "You have successfully logout out",
@@ -60,7 +63,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             SCHEDULE: '日历',
             TRANSLATED_TITLE: "显示条目中文名",
             ORIGINAL_TITLE: "显示条目原名",
-
+            TODAY:'今天',
+            YESTERDAY:'昨天',
+            TOMORROW:'明天',
 
             'RETURN_TO_HOME': '回到首页',
             'LOGOUT': "登出",

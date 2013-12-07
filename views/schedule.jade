@@ -1,9 +1,9 @@
 div.row
     div.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3
-        div.row.form-group.card.text-center.switch-btn-group(style="padding-top:0;")
-            div.col-xs-4.col-lg-4.switch-btn.pink-border-top(ng-click="setDay(-1)",ng-class="{active:day===-1}") Yesterday
-            div.col-xs-4.col-lg-4.switch-btn.orange-border-top(ng-click="setDay(0)",ng-class="{active:day===0}") Today
-            div.col-xs-4.col-lg-4.switch-btn.cyan-border-top(ng-click="setDay(1)",ng-class="{active:day===1}")  Tommorw
+        div.row.form-group.card.text-center.switch-btn-group(style="padding-top:0;padding-bottom:0")
+            div.col-xs-4.col-lg-4.switch-btn.pink-border-top(ng-click="setDay(-1)",ng-class="{active:day===-1}") {{ 'YESTERDAY' | translate}}
+            div.col-xs-4.col-lg-4.switch-btn.orange-border-top(ng-click="setDay(0)",ng-class="{active:day===0}") {{ 'TODAY' | translate}}
+            div.col-xs-4.col-lg-4.switch-btn.cyan-border-top(ng-click="setDay(1)",ng-class="{active:day===1}")  {{ 'TOMORROW' | translate}}
 
 
 
@@ -17,4 +17,4 @@ div.row
 
 
         div.row.form-group
-            a.btn.btn-danger.btn-block(href="/"){{ 'RETURN_TO_HOME' | translate}}
+            a.btn.btn-danger.btn-block(href="/") {{ 'RETURN_TO_HOME' | translate}}
