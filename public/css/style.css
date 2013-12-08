@@ -59,11 +59,11 @@ body {
 }
 
 .subject-cover {
-    background-image: url('http://lain.bgm.tv/pic/cover/l/ab/1f/77471_0F4s4.jpg');
+
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
-    box-shadow: rgba(80, 80, 80, 0.3) 1px 2px;
+
 
 }
 
@@ -558,7 +558,46 @@ blockquote p {
 
 /* generated from SASS http://codepen.io/geedmo/pen/InFfd */
 
+.progress-0 {
+    background-image: linear-gradient(90deg, #f0f0f0 50%, transparent 50%, transparent), linear-gradient(90deg, #7ccce5 50%, #f0f0f0 50%, #f0f0f0);
+}
 
-.progress-85 {
-    background-image: linear-gradient(36deg,  rgba(124, 204, 229, 1)  50%, transparent 50%, transparent), linear-gradient(270deg,  rgba(124, 204, 229, 1) 50%, rgba(240,240,240,0.5) 50%, rgba(240,240,240,0.5));
+.progress-10 {
+    background-image: linear-gradient(90deg, #f0f0f0 50%, transparent 50%, transparent), linear-gradient(126deg, #7ccce5 50%, #f0f0f0 50%, #f0f0f0);
+}
+
+.progress-20 {
+    background-image: linear-gradient(90deg, #f0f0f0 50%, transparent 50%, transparent), linear-gradient(162deg, #7ccce5 50%, #f0f0f0 50%, #f0f0f0);
+}
+
+.progress-30 {
+    background-image: linear-gradient(90deg, #f0f0f0 50%, transparent 50%, transparent), linear-gradient(198deg, #7ccce5 50%, #f0f0f0 50%, #f0f0f0);
+}
+
+.progress-40 {
+    background-image: linear-gradient(90deg, #f0f0f0 50%, transparent 50%, transparent), linear-gradient(234deg, #7ccce5 50%, #f0f0f0 50%, #f0f0f0);
+}
+
+.progress-50 {
+    background-image: linear-gradient(-90deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #f0f0f0 50%, #f0f0f0);
+}
+
+.progress-60 {
+    background-image: linear-gradient(-54deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #f0f0f0 50%, #f0f0f0);
+}
+
+.progress-70 {
+    background-image: linear-gradient(-18deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #f0f0f0 50%, #f0f0f0);
+}
+
+.progress-80 {
+    background-image: linear-gradient(18deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #f0f0f0 50%, #f0f0f0);
+}
+
+.progress-90 {
+    background-image: linear-gradient(54deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #f0f0f0 50%, #f0f0f0);
+}
+
+.progress-100 {
+    background-image: linear-gradient(90deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #f0f0f0 50%, #f0f0f0);
 }
