@@ -79,6 +79,8 @@ app.all('/api/search/:q',api.search);
 app.all('/api/user/:username/stats',stats.index);
 
 
+app.all('/api/subject/:id',api.subject);
+
 app.get('/login', routes.index);
 app.get('/logout',routes.index);
 app.get('/settings',routes.index);

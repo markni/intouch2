@@ -227,7 +227,7 @@ exports.search = function (req, res) {
 
     if (req.params['q']) {
         var keywords = decodeURI(req.params['q']);
-        console.log(keywords);
+//        console.log(keywords);
         async.series([
             //search only anime and drama, then combine the two results.
             function (callback) {
@@ -269,7 +269,7 @@ exports.search = function (req, res) {
 
                         var num_of_match_a = a.name.search(new RegExp(req.params['q'],'gi'));
                         var num_of_match_b = b.name.search(new RegExp(req.params['q'],'gi'));
-                        console.log( num_of_match_a, num_of_match_b);
+//                        console.log( num_of_match_a, num_of_match_b);
                         // if two titles have even amount of matches, compare their translated titles
                         if (num_of_match_a === num_of_match_b && a.name_cn && b.name_cn){
                             return b.name_cn.search(new RegExp(req.params['q'],'gi')) - a.name_cn.search(new RegExp(req.params['q'],'gi'));
@@ -278,7 +278,7 @@ exports.search = function (req, res) {
 
                     });
 
-                    console.log(JSON.stringify(result));
+//                    console.log(JSON.stringify(result));
                     res.statusCode = 200;
                     res.json({list: result});
                 }
@@ -332,6 +332,24 @@ exports.schedule = function(req,res){
 
 
     })
+}
+
+exports.subject = function(req,res){
+
+    if (req.params['id']) {
+
+        b.subject(req.params['id'],{responseGroup:'large'},function(err,data){
+            console.log(data);
+            res.statusCode = 200;
+            res.json(data);
+
+        })
+
+
+
+
+    }
+
 }
 
 exports.login = function (req, res) {
