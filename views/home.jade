@@ -34,8 +34,8 @@ div.row
                             span.hidden-xs {{ 'WATCHED' | translate }}
                             | EP. {{paddy(item.ep_status+1,2)}}
 
-            div.col-md-2.col-xs-2.col-lg-2
-            //TODO:do we need the space? if not should use offset instead
+            a.col-md-2.col-xs-2.col-lg-2.no-href-link.subject-link-btn(href="/subject/{{item.subject.id}}")
+                    span.glyphicon.glyphicon-chevron-right.pull-right
 
 
 

@@ -8,8 +8,8 @@ body {
 }
 
 /*h1, h2, h3, h4, h5, button, a,blockquote,p {*/
-    /*font-family: 'Lato',Microsoft YaHei, Helvetica, Arial, sans-serif ;*/
-    /*-webkit-font-smoothing: antialiased;*/
+/*font-family: 'Lato',Microsoft YaHei, Helvetica, Arial, sans-serif ;*/
+/*-webkit-font-smoothing: antialiased;*/
 /*}*/
 
 .padding-bottom-70 {
@@ -58,7 +58,14 @@ body {
 
 }
 
+.subject-cover {
+    background-image: url('http://lain.bgm.tv/pic/cover/l/ab/1f/77471_0F4s4.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: rgba(80, 80, 80, 0.3) 1px 2px;
 
+}
 
 .list-item-thumb, .avatar {
 
@@ -413,7 +420,7 @@ body {
     border-top: 3px solid #62AFB5;
 }
 
-.orange-border-top{
+.orange-border-top {
     border-top: 3px solid #F79B57;
 
 }
@@ -431,7 +438,7 @@ body {
     border-left: 3px solid #62AFB5;
 }
 
-.orange-border-left{
+.orange-border-left {
     border-left: 3px solid #F79B57;
 
 }
@@ -440,7 +447,6 @@ body {
     border-left: 3px solid rgba(217, 83, 79, 1);
 
 }
-
 
 .white-text {
     color: white;
@@ -516,7 +522,6 @@ a, span, div, button {
         line-height: 1.33;
     }
 
-
     /*no hover quick fly out side menu for mobile devices*/
     .side-menu {
         width: 100px;
@@ -527,10 +532,33 @@ a, span, div, button {
 blockquote {
     border-left: white 5px solid;
     padding: 20px;
-    width:80%;
+    width: 80%;
     margin: 0 auto;
 }
 
-blockquote p{
+blockquote p {
     font-size: 24px;
+}
+
+.subject-link-btn {
+    height: 100px;
+    /*color: rgba(124, 204, 229, 1);*/
+    color: rgba(80, 80, 80, 0.1);
+
+}
+
+.subject-link-btn:hover {
+    color: rgba(80, 80, 80, 0.5);
+}
+
+.subject-link-btn .glyphicon {
+    line-height: 100px;
+}
+
+
+/* generated from SASS http://codepen.io/geedmo/pen/InFfd */
+
+
+.progress-85 {
+    background-image: linear-gradient(36deg,  rgba(124, 204, 229, 1)  50%, transparent 50%, transparent), linear-gradient(270deg,  rgba(124, 204, 229, 1) 50%, rgba(240,240,240,0.5) 50%, rgba(240,240,240,0.5));
 }

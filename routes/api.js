@@ -341,6 +341,7 @@ exports.subject = function(req,res){
         b.subject(req.params['id'],{responseGroup:'large'},function(err,data){
             console.log(data);
             res.statusCode = 200;
+
             res.json(data);
 
         })
