@@ -1,15 +1,19 @@
+
+
 div.row
     div.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3.main-content
 
         div(search-bar)
 
-        div.row.form-group
-            a.btn.btn-danger.btn-block(href="/"){{ 'RETURN_TO_HOME' | translate}}
+        div.loading-bar(ng-class="{hidden:loading<1}")
 
-        div.row.form-group.card.text-center.switch-btn-group(style="padding-top:0;padding-bottom:0")
+
+        div.row.form-group.card.text-center.switch-btn-group(style="padding-top:0;padding-bottom:0")(ng-class="{hidden:loading>0}")
             div.col-xs-4.col-lg-4.switch-btn.pink-border-top(ng-click="setType(-1)",ng-class="{active:type===-1}") {{ 'ALL' | translate}}
             div.col-xs-4.col-lg-4.switch-btn.orange-border-top(ng-click="setType(2)",ng-class="{active:type===2}") {{ 'ANIME' | translate}}
             div.col-xs-4.col-lg-4.switch-btn.cyan-border-top(ng-click="setType(6)",ng-class="{active:type===6}") {{ 'DRAMA' | translate}}
+
+
 
 
 
@@ -19,6 +23,9 @@ div.row
                 div.col-md-2.col-xs-2.col-lg-2
                     button.btn.btn-danger(ng-click="toggleCollection($index)")
                         span.glyphicon(ng-class="{'glyphicon-minus':results[$index].added === true,'glyphicon-plus': results[$index].added !== true}")
+
+        div.row.form-group(ng-class="{hidden:loading>0}")
+            a.btn.btn-danger.btn-block(href="/"){{ 'RETURN_TO_HOME' | translate}}
 
 
 div(side-menu)

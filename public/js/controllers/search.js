@@ -56,7 +56,7 @@ app.controller('searchCtrl', function ($translate, $scope, Auth, $http, $locatio
 
         }).
         error(function (data, status) {
-            $scope.loading++;
+            $scope.loading--;
 
         });
 

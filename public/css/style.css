@@ -555,6 +555,29 @@ blockquote p {
     line-height: 100px;
 }
 
+.loading-bar {
+
+    height: 35px;
+    background-color: rgba(124, 204, 229, 1);
+    background-image: url('/img/loading.png');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+
+
+    -webkit-animation: loading-animation 1s infinite steps(1);
+    -moz-animation: loading-animation 1s infinite steps(1);
+    -o-animation: loading-animation 1s infinite steps(1);
+    animation: loading-animation 1s infinite steps(1);
+
+    width:100%;
+
+
+}
+
+
+.visually-hidden{
+    opacity: 0;
+}
 
 /* generated from SASS http://codepen.io/geedmo/pen/InFfd */
 
