@@ -3,6 +3,16 @@ app.controller('searchCtrl', function ($translate, $scope, Auth, $http, $locatio
     $scope.loading = 0;
 
 
+    //TODO: fix this repetitive function also appear in home.js
+    $scope.search = function () {
+
+        if ($scope.keywords) {
+            $location.path('/search/' + encodeURI($scope.keywords));
+        }
+    }
+
+
+
     $scope.setType = function (type) {
         $scope.type = type;
 
