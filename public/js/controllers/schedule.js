@@ -46,16 +46,19 @@ app.controller('scheduleCtrl', function ($translate, $scope, Auth, $http, $locat
             action = 'dropped';
         }
 
-        $scope.loading++;
+        //$scope.loading++;
+
+        $scope.results[index].added = (action === 'do' ? true : false);
 
         $http({method: 'POST', url: '/api/subjects/update_status/' + action, data: {"subjects": ids}}).
             success(function (data, status) {
 
-                $scope.results[index].added = (action === 'do' ? true : false);
-                $scope.loading--;
+
+                //$scope.loading--;
             }).
             error(function (data, status) {
-                $scope.loading--;
+                //$scope.loading--;
+                $scope.results[index].added = (action === 'do' ? false : true);
 
             });
 
