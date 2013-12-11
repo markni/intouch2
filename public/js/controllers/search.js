@@ -38,16 +38,19 @@ app.controller('searchCtrl', function ($translate, $scope, Auth, $http, $locatio
             action = 'dropped';
         }
 
-        $scope.loading++;
+        $scope.results[index].added = (action === 'do' ? true : false);
+        //$scope.loading++;
 
         $http({method: 'POST', url: '/api/subjects/update_status/' + action, data: {"subjects": ids}}).
             success(function (data, status) {
 
-                $scope.results[index].added = (action === 'do' ? true : false);
-                $scope.loading--;
+
+                //$scope.loading--;
             }).
             error(function (data, status) {
-                $scope.loading--;
+                //$scope.loading--;
+                //reverse action icon if error happens, it usually won't
+                $scope.results[index].added = (action === 'do' ? false : true);
 
             });
 
