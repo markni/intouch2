@@ -624,3 +624,78 @@ blockquote p {
 .progress-100 {
     background-image: linear-gradient(90deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #f0f0f0 50%, #f0f0f0);
 }
+
+
+/*logo for 404 page*/
+
+.logospin {
+	margin: auto;
+	height: 100px;
+	width: 100px;
+	position: relative;
+	margin-top: 200px;
+	margin-bottom: 100px;
+}
+
+.logospin .segment {
+	position: absolute;
+	top: 0;
+	left: 50px;
+	width: 0;
+	height: 0;
+	-webkit-animation: logospin 3s infinite ease-out;
+	-moz-animation: logospin 3s infinite ease-out;
+	animation: logospin 3s infinite ease-out;
+}
+.logospin .segment:nth-of-type(1) {
+	border-width: 100px 25px 50px 33.33333px;
+	border-style: solid;
+	border-color: #62afb5 transparent transparent transparent;
+	-webkit-animation-delay: 0.3s;
+	-moz-animation-delay: 0.3s;
+	animation-delay: 0.3s;
+	-webkit-transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	-o-transform-origin: 0 0;
+	transform-origin: 0 0;
+}
+.logospin .segment:nth-of-type(2) {
+	border-width: 100px 25px 50px 33.33333px;
+	border-style: solid;
+	border-color: #428bca transparent transparent transparent;
+	-webkit-animation-delay: 0.6s;
+	-moz-animation-delay: 0.6s;
+	animation-delay: 0.6s;
+	-webkit-transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	-o-transform-origin: 0 0;
+	transform-origin: 0 0;
+}
+.logospin .segment:nth-of-type(3) {
+	border-width: 100px 25px 50px 33.33333px;
+	border-style: solid;
+	border-color: #f96790 transparent transparent transparent;
+	-webkit-animation-delay: 0.9s;
+	-moz-animation-delay: 0.9s;
+	animation-delay: 0.9s;
+	-webkit-transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	-o-transform-origin: 0 0;
+	transform-origin: 0 0;
+}
+.logospin .segment:nth-of-type(4) {
+	border-width: 100px 25px 50px 33.33333px;
+	border-style: solid;
+	border-color: #d9534f transparent transparent transparent;
+	-webkit-animation-delay: 1.2s;
+	-moz-animation-delay: 1.2s;
+	animation-delay: 1.2s;
+	-webkit-transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	-o-transform-origin: 0 0;
+	transform-origin: 0 0;
+}

@@ -62,6 +62,7 @@ app.get('/temp/subject', user.subject);
 app.get('/temp/bottom-menu', user.bottomMenu);
 app.get('/temp/side-menu', user.sideMenu);
 app.get('/temp/search-bar', user.searchBar);
+app.get('/temp/404', user.fourofour);
 
 //TODO: change these to post in production
 app.all('/api/login',api.login);

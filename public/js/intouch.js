@@ -26,6 +26,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         TODAY:'Today',
         YESTERDAY:'Yesterday',
         TOMORROW:'Tomorrow',
+		PAGE_NOT_FOUND: 'Page not found, return to home.',
         RETURN_TO_HOME: 'Return to Home',
         LOGOUT: "Logout",
         LOGOUT_SUCCESS: "You have successfully logout out",
@@ -67,7 +68,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             TODAY:'今天',
             YESTERDAY:'昨天',
             TOMORROW:'明天',
-
+			PAGE_NOT_FOUND: '没有找到要访问的页面，点击这里返回首页',
             'RETURN_TO_HOME': '回到首页',
             'LOGOUT': "登出",
             LOGOUT_SUCCESS: "你已经成功登出",
@@ -138,8 +139,11 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             templateUrl: '/temp/subject',
             controller: 'subjectCtrl'
         }).
+		when('/404', {
+			templateUrl: '/temp/404'
+		}).
         otherwise({
-            redirectTo: '/'
+            redirectTo: '/404'
         });
 }).run(function ($rootScope, $location, $cookieStore, Auth) {
 

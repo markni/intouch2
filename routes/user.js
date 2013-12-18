@@ -46,3 +46,7 @@ exports.sideMenu = function(req, res){
 exports.searchBar = function(req,res){
     res.render('search-bar');
 }
+
+exports.fourofour = function(req,res){
+	res.render('404');
+}
