@@ -43,7 +43,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         WATCHED: "watched",
         WATCHED2: "Watched",
         FINISHED_UPDATE_WATCHED_TO: "EP. {{x}} of {{y}} has been marked as watched.",
-        ACTION_COMPLETED: "You have marked {{x}} subjects as {{y}}, they will be removed from your watching queue.",
+        ACTION_COMPLETED: "You have marked {{x}} subjects, they will be removed from your watching queue.",
         RAN_MSG_1: "The weather is nice today!"
 
     })
@@ -85,7 +85,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             WATCHED: "看到",
             WATCHED2: "看过",
             FINISHED_UPDATE_WATCHED_TO: "你已成功看过了 {{y}} 的EP. {{x}} ～☆",
-            ACTION_COMPLETED: "你已经成功{{y}}了{{x}}部作品，它们将不再出现在首页列表中 ～☆",
+            ACTION_COMPLETED: "你已经成功标记了{{x}}部作品，它们将不再出现在首页列表中 ～☆",
             RAN_MSG_1: "今天天气真好啊 ～☆"
 
         });

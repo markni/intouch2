@@ -118,13 +118,15 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
 
 
+				var len = temp_key_array.length;
+
                 for (var i =0; i<temp_key_array.length; i++){
 
                     $scope.items.splice(temp_key_array[i], 1);
                 }
 
 
-                $scope.displayMsg('Action completed!!!');
+                $scope.displayMsg($translate('ACTION_COMPLETED',{x:len}));
 
 
             }).
