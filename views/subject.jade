@@ -13,7 +13,7 @@ div.row
 			div.no-href-link(ng-click='toggleEdit()')
 				h1(style="padding-top:10px") {{subject.name}}
 				h4 {{subject.name_cn}}
-			div.col-sm-10.col-lg-10.col-lg-offset-1.col-sm-offset-1(ng-class="{hide:editing===0}")
+			div.col-sm-12(ng-class="{hide:editing===0}")
 				form
 					div.form-group.action_btns.input-append
 						button.btn.col-lg-2.col-xs-2.white-text.btn-info(ng-click='updateStatus("collect")',ng-class="{'btn-danger':status==='collect','btn-info':status!=='collect'}")
