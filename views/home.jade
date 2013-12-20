@@ -1,41 +1,42 @@
 div.row
-    div.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3.main-content(ng-class="{'push-aside':showSideMenu}")
+	div.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3.main-content(ng-class="{'push-aside':showSideMenu}")
 
 
 
 
 
-        div(search-bar)
+		div(search-bar)
+
+		div(ng-class="{hidden:server_offline == 0}")
+			h4.white-text.text-center Server Offline
+
+		div.row.card.form-group(ng-repeat="item in items",ng-class="{selected:items[$index].selected}")
+
+			div.col-md-10.col-xs-10.col-lg-10.no-href-link.padding-right-0.inner
+
+				div.div-circle.square-100.pull-left.list-item-thumb(ng-click="select($index)",style='background-image:url("{{item.subject.images.medium}}")')
+					div.square-100(ng-class="{'white-mask':items[$index].selected}")
+						span.glyphicon.glyphicon-ok.checked
 
 
+				div.list-item-info
+					h5 {{getTitle(item)}}
 
-        div.row.card.form-group(ng-repeat="item in items",ng-class="{selected:items[$index].selected}")
+					div.blue-bg.progress-total
+						div.red-bg.progress-current(ng-style="{width:(item.ep_status / item.subject.eps)*100 +'%'}")
+					div.padding-top-10
+						span.tag.hidden-xs
+							span.glyphicon.glyphicon-ok-circle
+							| EP.{{item.ep_status}}
+						span.tag
+							span.glyphicon.glyphicon-heart
+							| {{item.subject.collection.doing * 172}}
+						botton.btn.btn-danger.btn-sm.pull-right(ng-click="updateTo($index)")
+							span.hidden-xs {{ 'WATCHED' | translate }}
+							| EP. {{paddy(item.ep_status+1,2)}}
 
-            div.col-md-10.col-xs-10.col-lg-10.no-href-link.padding-right-0.inner
-
-                div.div-circle.square-100.pull-left.list-item-thumb(ng-click="select($index)",style='background-image:url("{{item.subject.images.medium}}")')
-                    div.square-100(ng-class="{'white-mask':items[$index].selected}")
-                        span.glyphicon.glyphicon-ok.checked
-
-
-                div.list-item-info
-                    h5 {{getTitle(item)}}
-
-                    div.blue-bg.progress-total
-                        div.red-bg.progress-current(ng-style="{width:(item.ep_status / item.subject.eps)*100 +'%'}")
-                    div.padding-top-10
-                        span.tag.hidden-xs
-                            span.glyphicon.glyphicon-ok-circle
-                            | EP.{{item.ep_status}}
-                        span.tag
-                            span.glyphicon.glyphicon-heart
-                            | {{item.subject.collection.doing * 172}}
-                        botton.btn.btn-danger.btn-sm.pull-right(ng-click="updateTo($index)")
-                            span.hidden-xs {{ 'WATCHED' | translate }}
-                            | EP. {{paddy(item.ep_status+1,2)}}
-
-            a.col-md-2.col-xs-2.col-lg-2.no-href-link.subject-link-btn(href="/subject/{{item.subject.id}}")
-                    span.glyphicon.glyphicon-chevron-right.pull-right
+			a.col-md-2.col-xs-2.col-lg-2.no-href-link.subject-link-btn(href="/subject/{{item.subject.id}}")
+				span.glyphicon.glyphicon-chevron-right.pull-right
 
 
 

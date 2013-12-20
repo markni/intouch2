@@ -1,5 +1,5 @@
 app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout) {
-
+	$scope.server_offline = 0;
 
     Auth.loadCredentials();
 
@@ -193,10 +193,12 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
             }
 
             $scope.items = data;
+			$scope.server_offline = 0;
             //$cookieStore.set('auth',data.auth);
 
         }).
         error(function (data, status) {
+			$scope.server_offline = 1;
 
         });
 

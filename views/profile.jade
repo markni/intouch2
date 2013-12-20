@@ -1,26 +1,30 @@
 nav.navbar.red-bg.navbar-default.navbar-fixed-top
-    div
-        div.col-lg-4.col-xs-4
-        div.col-lg-4.col-xs-4.text-center
-            img.img-circle(src='{{avatar}}',style="margin-bottom:-80px;border:white 3px solid")
-        div.col-lg-4.col-xs-4
+	div
+		div.col-lg-4.col-xs-4
+		div.col-lg-4.col-xs-4.text-center
+			img.img-circle(src='{{avatar}}',style="margin-bottom:-80px;border:white 3px solid")
+		div.col-lg-4.col-xs-4
 
 div.row
-    div.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3
-        div.row.form-group.card.text-center.switch-btn-group(style="padding-top:80px;padding-bottom:0")
-            div.col-xs-4.col-lg-4
-                p {{ 'WATCHED2' | translate}}
-                h2 {{watched}}
-            div.col-xs-4.col-lg-4
-                p {{ 'RATED' | translate}}
-                h2 {{rated}}
-            div.col-xs-4.col-lg-4
-                p {{ 'AVERAGE' | translate}}
-                h2 {{avg}}
-        div.row.card.form-group
+	div.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3
 
-            div#chart(style="height:300px;width:100%;max-width:500px;margin:0 auto")
+		div.row.form-group.card.text-center.switch-btn-group(style="padding-top:80px;padding-bottom:0")
+			div.col-xs-4.col-lg-4
+				p {{ 'WATCHED2' | translate}}
+				h2 {{watched}}
+			div.col-xs-4.col-lg-4
+				p {{ 'RATED' | translate}}
+				h2 {{rated}}
+			div.col-xs-4.col-lg-4
+				p {{ 'AVERAGE' | translate}}
+				h2 {{avg}}
+
+		div.loading-bar(ng-class="{hidden:loading<1}")
+
+		div.row.card.form-group(ng-class="{hidden:loading>0}")
+
+			div#chart(style="height:300px;width:100%;max-width:500px;margin:0 auto")
 
 
-        div.row.form-group
-            a.btn.btn-danger.btn-block(href="/"){{ 'RETURN_TO_HOME' | translate}}
+		div.row.form-group
+			a.btn.btn-danger.btn-block(href="/"){{ 'RETURN_TO_HOME' | translate}}
