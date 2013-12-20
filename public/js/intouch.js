@@ -18,7 +18,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         FINISH: 'Finish',
 		WATCHING: 'Watching',
         CANCEL: 'Cancel',
-        WISHLIST: 'Wishlist',
+        WISHLIST: 'Want',
         UNFOLLOW: 'Unfollow',
         SETTINGS: 'Settings',
         HOME: 'Home',
