@@ -53,7 +53,20 @@ app.controller('profileCtrl', function ($translate, $scope, Auth, $http, $locati
 	};
 
 	if($routeParams.username !== undefined){
-		$scope.getUserStats($routeParams.username);
+		$http({method: 'POST', url: '/api/user/'+$routeParams.username}).
+			success(function (data, status) {
+				$scope.avatar = data.avatar.large;
+				$scope.sign = data.sign || "When life gives you lemons, make lemonade";
+				$scope.nickname = data.nickname;
+				$scope.getUserStats(data.username);
+
+
+
+
+			}).
+			error(function (data, status) {
+
+			});
 	}
 	else{
 		$http({method: 'POST', url: '/api/user'}).

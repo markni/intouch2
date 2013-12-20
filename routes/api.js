@@ -25,19 +25,26 @@ function decrypt(text, key) {
 
 exports.user = function (req, res) {
     var auth = req.headers['authorization'];
-    if (!auth) {
+    if (!auth && !req.params['username']) {
 
         res.statusCode = 401; // Force them to retry authentication
         res.json({error_code: 401, error_msg: 'wrong pass'});
     }
     else {
-        var encoded = auth.split(' ');
-        var buf = new Buffer(encoded[1], 'base64');
-        var plain_auth = buf.toString();
+		var username;
+		if(req.params['username']){
+			username = req.params['username'];
+		}
+		else{
+			var encoded = auth.split(' ');
+			var buf = new Buffer(encoded[1], 'base64');
+			var plain_auth = buf.toString();
 
-        var creds = plain_auth.split(':');      // split on a ':'
-        var username = decrypt(creds[0], private_key);
-        var a = decrypt(creds[1], private_key);
+			var creds = plain_auth.split(':');      // split on a ':'
+			username = decrypt(creds[0], private_key);
+
+		}
+
         //get user profile
         b.user(username, function (err, data) {
 

@@ -66,6 +66,7 @@ app.get('/temp/404', user.fourofour);
 
 //TODO: change these to post in production
 app.all('/api/login',api.login);
+app.all('/api/user/:username',api.user);
 app.all('/api/user',api.user);
 app.all('/api/demo',api.demo);
 
