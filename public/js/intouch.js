@@ -8,12 +8,15 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
     $translateProvider.translations('en-us', {
         ALL: 'All',
         AVERAGE:'Average',
+		COMMENT_PLACEHOLDER:'Leave a short comment/review (200 words max).',
+		TAGS_PLACEHOLDER:'Add tags (use comma or space to seperate).',
         RATED:'Rated',
         DRAMA: 'Drama',
         ANIME: 'Anime',
         HOLD: 'Hold',
         TRASH: 'Trash',
         FINISH: 'Finish',
+		WATCHING: 'Watching',
         CANCEL: 'Cancel',
         WISHLIST: 'Wishlist',
         UNFOLLOW: 'Unfollow',
@@ -44,17 +47,21 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
         WATCHED2: "Watched",
         FINISHED_UPDATE_WATCHED_TO: "EP. {{x}} of {{y}} has been marked as watched.",
         ACTION_COMPLETED: "You have marked {{x}} subjects, they will be removed from your watching queue.",
-        RAN_MSG_1: "The weather is nice today!"
+        APPLY_CHANGES:"Apply changes",
+		RAN_MSG_1: "The weather is nice today!"
 
     })
         .translations('zh-cn', {
             ALL: '全部分类',
             AVERAGE:'平均分',
+			COMMENT_PLACEHOLDER:'吐槽一下吧 （最多200字）',
+			TAGS_PLACEHOLDER:'添加标签 (用空格或半角逗号分隔).',
             RATED:'已评分',
             DRAMA: '电视剧',
             ANIME: '动画',
             HOLD: '搁置',
             FINISH: '看完',
+			WATCHING: '在看',
             TRASH: '抛弃',
             WISHLIST: '想看',
             UNFOLLOW: '取消',
@@ -86,6 +93,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             WATCHED2: "看过",
             FINISHED_UPDATE_WATCHED_TO: "你已成功看过了 {{y}} 的EP. {{x}} ～☆",
             ACTION_COMPLETED: "你已经成功标记了{{x}}部作品，它们将不再出现在首页列表中 ～☆",
+			APPLY_CHANGES:"保存收藏状态",
             RAN_MSG_1: "今天天气真好啊 ～☆"
 
         });

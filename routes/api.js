@@ -94,6 +94,86 @@ exports.getCollection = function (req, res) {
 
 };
 
+exports.progress = function (req, res) {
+	var auth = req.headers['authorization'];
+	if (!auth || req.params['id'] === undefined  ) {
+
+		res.statusCode = 401; // Force them to retry authentication
+		res.json({error_code: 401, error_msg: 'wrong pass'});
+	}
+	else {
+		var encoded = auth.split(' ');
+		var buf = new Buffer(encoded[1], 'base64');
+		var plain_auth = buf.toString();
+
+		var creds = plain_auth.split(':');      // split on a ':'
+		var username = decrypt(creds[0], private_key);
+		var a = decrypt(creds[1], private_key);
+		if (username) {
+			b.progress(username,{auth:a}, function (err, data) {
+
+				if (!err && data && data.code != "401") {
+					res.statusCode = 200;
+					//console.log(JSON.stringify(data));
+					res.json(data);
+				}
+				else {
+					res.statusCode = 401; // Force them to retry authentication
+					res.json({error_code: 401, error_msg: 'wrong pass'});
+
+				}
+			})
+		}
+		else {
+			res.statusCode = 401; // Force them to retry authentication
+			res.json({error_code: 401, error_msg: 'need login'});
+		}
+	}
+
+
+};
+
+
+exports.getCollectionSubject = function (req, res) {
+	var auth = req.headers['authorization'];
+	if (!auth || req.params['id'] === undefined  ) {
+
+		res.statusCode = 401; // Force them to retry authentication
+		res.json({error_code: 401, error_msg: 'wrong pass'});
+	}
+	else {
+		var encoded = auth.split(' ');
+		var buf = new Buffer(encoded[1], 'base64');
+		var plain_auth = buf.toString();
+
+		var creds = plain_auth.split(':');      // split on a ':'
+		var username = decrypt(creds[0], private_key);
+		var a = decrypt(creds[1], private_key);
+		if (username) {
+			b.collectionBySubject(req.params['id'],{auth:a}, function (err, data) {
+
+				if (!err && data && data.code != "401") {
+					res.statusCode = 200;
+					//console.log(JSON.stringify(data));
+					res.json(data);
+				}
+				else {
+					res.statusCode = 401; // Force them to retry authentication
+					res.json({error_code: 401, error_msg: 'wrong pass'});
+
+				}
+			})
+		}
+		else {
+			res.statusCode = 401; // Force them to retry authentication
+			res.json({error_code: 401, error_msg: 'need login'});
+		}
+	}
+
+
+};
+
+
 exports.demo = function (req, res) {
     b.auth({username: 'nodebangumi', password: 'node-bangumi'}, function (err, data) {
 
@@ -185,7 +265,22 @@ exports.updateStatus = function (req, res) {
 
             async.map(subjects, function (item, callback) {
 
-                b.createCollection(item, {status: status, auth: a}, function (err, data) {
+				var options = {status: status, auth: a};
+
+				if (req.body.comment !== undefined){
+					options['comment'] = req.body.comment;
+				}
+				if (req.body.tags !== undefined){
+					options['tags'] = req.body.tags;
+				}
+				if (req.body.rating !== undefined){
+					options['rating'] = req.body.rating;
+				}
+
+
+
+				b.createCollection(item, options, function (err, data) {
+
 
                     if (!err && data && data.code != "401") {
                         callback(err, data);
@@ -206,7 +301,7 @@ exports.updateStatus = function (req, res) {
                     res.json(data);
                 }
                 else {
-                    console.log(err);
+
                     res.statusCode = 401; // Force them to retry authentication
                     res.json({error_code: 401, error_msg: 'wrong pass'});
                 }
@@ -339,7 +434,7 @@ exports.subject = function(req,res){
     if (req.params['id']) {
 
         b.subject(req.params['id'],{responseGroup:'large'},function(err,data){
-            console.log(data);
+//            console.log(data);
             res.statusCode = 200;
 
             res.json(data);

@@ -69,6 +69,7 @@ app.all('/api/login',api.login);
 app.all('/api/user',api.user);
 app.all('/api/demo',api.demo);
 
+app.all('/api/collection/subject/:id',api.getCollectionSubject);
 app.all('/api/collection',api.getCollection);
 app.all('/api/schedule',api.schedule);
 
@@ -89,7 +90,7 @@ app.get('/settings',routes.index);
 app.get('/cat',function(req,res){
     res.redirect('http://k.netaba.re/cat');
 
-})
+});
 
 app.get('*',routes.index);
 
