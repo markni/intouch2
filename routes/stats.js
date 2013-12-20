@@ -132,9 +132,9 @@ exports.index = function (req, response) {
             loadPage(1, function (err, pages) {
 
                 finish.ordered(function (async) {
-                    // for (var p = 2; p < pages + 1; p++) {
+                     for (var p = 2; p < pages + 1; p++) {
 
-                    for (var p = 2; p < 3; p++) {
+                    //for (var p = 2; p < 3; p++) {
                         async(function (done) {
                             loadPage(p, done);
                         })
