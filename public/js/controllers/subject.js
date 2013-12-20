@@ -2,7 +2,7 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 	$scope.loading = 0;
 	$scope.editing = 0;
 	$scope.ratings = [
-		{ "value": 0, "text": "no rating" },
+		{ "value": 0, "text": "n/a" },
 		{ "value": 1, "text": "★" },
 		{ "value": 2, "text": "★★" },
 		{ "value": 3, "text": "★★★" },
