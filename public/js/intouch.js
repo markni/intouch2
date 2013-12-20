@@ -139,6 +139,11 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
             templateUrl: '/temp/profile',
             controller: 'profileCtrl'
         }).
+		when('/profile/:username', {
+			templateUrl: '/temp/profile',
+			controller: 'profileCtrl'
+		}).
+
         when('/schedule', {
             templateUrl: '/temp/schedule',
             controller: 'scheduleCtrl'
