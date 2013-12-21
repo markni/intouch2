@@ -1,5 +1,5 @@
 app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $routeParams) {
-	$scope.loading = 0;
+	$scope.loading = 1;
 	$scope.editing = 0;
 	$scope.ratings = [
 		{ "value": 0, "text": "n/a" },

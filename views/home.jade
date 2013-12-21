@@ -7,15 +7,17 @@ div.row
 
 		div(search-bar)
 
+		div.loading-bar(ng-class="{hidden:loading<1}")
+
 		div(ng-class="{hidden:server_offline == 0}")
 			h4.white-text.text-center Server Offline
 
-		div.row.card.form-group(ng-repeat="item in items",ng-class="{selected:items[$index].selected}")
+		div.row.card.form-group(ng-repeat="item in items",ng-class="{selected:items[$index].selected,hidden:loading>0}")
 
-			div.col-md-10.col-xs-10.col-lg-10.no-href-link.padding-right-0.inner
+			div.col-md-10.col-xs-10.col-lg-10.padding-right-0.inner
 
 				div.div-circle.square-100.pull-left.list-item-thumb(ng-click="select($index)",style='background-image:url("{{item.subject.images.medium}}")')
-					div.square-100(ng-class="{'white-mask':items[$index].selected}")
+					div.square-100.no-href-link(ng-class="{'white-mask':items[$index].selected}")
 						span.glyphicon.glyphicon-ok.checked
 
 

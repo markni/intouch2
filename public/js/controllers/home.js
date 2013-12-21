@@ -12,7 +12,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
 
     $scope.avatar = {};
-    $scope.loading = 0;
+    $scope.loading = 1;
 
     $scope.toggleSideMenu = function () {
         $scope.showSideMenu = !$scope.showSideMenu;
@@ -194,11 +194,13 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
             $scope.items = data;
 			$scope.server_offline = 0;
+			$scope.loading--;
             //$cookieStore.set('auth',data.auth);
 
         }).
         error(function (data, status) {
 			$scope.server_offline = 1;
+			$scope.loading--;
 
         });
 
