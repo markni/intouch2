@@ -6,65 +6,70 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 31, style.scss */
+/* line 33, style.scss */
 h1, h2, h3, h4, h5, button, a, blockquote, p {
   font-family: 'Lato', Microsoft YaHei, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 36, style.scss */
+/* line 38, style.scss */
+a, span, div, button {
+  outline: none !important;
+}
+
+/* line 44, style.scss */
 .padding-bottom-70 {
   padding-bottom: 70px;
 }
 
-/* line 40, style.scss */
+/* line 48, style.scss */
 .padding-right-0 {
   padding-right: 0px;
 }
 
-/* line 44, style.scss */
+/* line 52, style.scss */
 .padding-left-0 {
   padding-left: 0;
 }
 
-/* line 48, style.scss */
+/* line 56, style.scss */
 .padding-left-120 {
   padding-left: 120px;
 }
 
-/* line 52, style.scss */
+/* line 60, style.scss */
 .padding-top-10 {
   padding-top: 10px;
 }
 
-/* line 56, style.scss */
+/* line 64, style.scss */
 .margin-top-10 {
   margin-top: 10px;
 }
 
-/* line 60, style.scss */
+/* line 68, style.scss */
 .no-href-link {
   cursor: pointer;
 }
 
-/* line 64, style.scss */
+/* line 72, style.scss */
 .red-bg {
   background-color: #d9534f;
 }
 
-/* line 68, style.scss */
+/* line 76, style.scss */
 .list-item-info {
   padding-left: 110px;
 }
 
-/* line 72, style.scss */
+/* line 80, style.scss */
 .subject-cover {
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-/* line 78, style.scss */
+/* line 86, style.scss */
 .list-item-thumb, .avatar {
   background-position: 50% 50%;
   background-size: cover;
@@ -72,26 +77,26 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   background-image: none;
 }
 
-/* line 85, style.scss */
+/* line 93, style.scss */
 .square-100 {
   width: 100px;
   height: 100px;
   position: relative;
 }
 
-/* line 91, style.scss */
+/* line 99, style.scss */
 .square-150 {
   width: 150px;
   height: 150px;
   position: relative;
 }
 
-/* line 97, style.scss */
+/* line 105, style.scss */
 .checked {
   display: none;
 }
 
-/* line 101, style.scss */
+/* line 109, style.scss */
 .white-mask .checked, .square-100:hover .checked {
   display: block;
   color: white;
@@ -101,42 +106,42 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   line-height: 100px;
 }
 
-/* line 110, style.scss */
+/* line 118, style.scss */
 .white-mask, .square-100:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* line 114, style.scss */
+/* line 122, style.scss */
 .blue-mask {
   background-color: rgba(124, 204, 229, 0.5);
 }
 
-/* line 118, style.scss */
+/* line 126, style.scss */
 .height-100 {
   height: 100px;
 }
 
-/* line 122, style.scss */
+/* line 130, style.scss */
 .white-border-5 {
   border: 5px solid white;
 }
 
-/* line 126, style.scss */
+/* line 134, style.scss */
 .cyan-bg {
   background-color: #62afb5;
 }
 
-/* line 130, style.scss */
+/* line 138, style.scss */
 .pink-bg {
   background-color: #f96790;
 }
 
-/* line 134, style.scss */
+/* line 142, style.scss */
 .blue-bg {
   background-color: #7ccce5;
 }
 
-/* line 139, style.scss */
+/* line 147, style.scss */
 .diamond.square {
   width: 100px;
   height: 100px;
@@ -146,7 +151,7 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   transform: rotate(-45deg);
   overflow: hidden;
 }
-/* line 148, style.scss */
+/* line 156, style.scss */
 .diamond.pic {
   background: url("http://lain.bgm.tv/pic/user/l/000/00/28/2813.jpg?r=1377940764");
   width: 75px;
@@ -157,50 +162,50 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   transform: rotate(45deg);
 }
 
-/* line 159, style.scss */
+/* line 167, style.scss */
 .div-circle {
   border-radius: 50%;
 }
-/* line 161, style.scss */
+/* line 169, style.scss */
 .div-circle.responsive {
   padding-bottom: 95%;
   width: 100%;
 }
 
-/* line 167, style.scss */
+/* line 175, style.scss */
 .card {
   background: white;
   padding-top: 15px;
   padding-bottom: 15px;
   box-shadow: rgba(80, 80, 80, 0.1) 1px 2px;
 }
-/* line 172, style.scss */
+/* line 180, style.scss */
 .card.selected {
   box-shadow: rgba(217, 83, 79, 0.8) 1px 2px;
 }
-/* line 175, style.scss */
+/* line 183, style.scss */
 .card .inner {
   position: relative;
 }
 
-/* line 180, style.scss */
+/* line 188, style.scss */
 .tag {
   color: rgba(80, 80, 80, 0.7);
   padding: 3px 5px 3px 5px;
   font-size: smaller;
   float: left;
 }
-/* line 185, style.scss */
+/* line 193, style.scss */
 .tag .glyphicon {
   padding-right: 17px;
 }
 
-/* line 190, style.scss */
+/* line 198, style.scss */
 .super-nav-bar-bottom {
   border-top: 1px solid #ac2925;
 }
 
-/* line 194, style.scss */
+/* line 202, style.scss */
 .tooltips {
   display: inline;
   position: relative;
@@ -211,7 +216,7 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   /* Safari */
   transition: opacity 800ms;
 }
-/* line 203, style.scss */
+/* line 211, style.scss */
 .tooltips .inner {
   background: #428bca;
   bottom: 55px;
@@ -223,7 +228,7 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   z-index: 98;
   max-width: 300px;
 }
-/* line 214, style.scss */
+/* line 222, style.scss */
 .tooltips:before {
   border: solid;
   border-color: #428bca transparent;
@@ -235,7 +240,7 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   z-index: 99;
 }
 
-/* line 226, style.scss */
+/* line 234, style.scss */
 .left-triangle {
   -webkit-transition: border-right-width 200ms;
   -moz-transition: border-right-width 200ms;
@@ -249,32 +254,32 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   border-bottom: 25px solid transparent;
   position: relative;
 }
-/* line 236, style.scss */
+/* line 244, style.scss */
 .left-triangle:hover {
   border-right-width: 130px;
 }
-/* line 239, style.scss */
+/* line 247, style.scss */
 .left-triangle.cyan-bg {
   background-color: transparent;
   border-right-color: #62afb5;
 }
-/* line 243, style.scss */
+/* line 251, style.scss */
 .left-triangle.red-bg {
   background-color: transparent;
   border-right-color: #d9534f;
 }
-/* line 247, style.scss */
+/* line 255, style.scss */
 .left-triangle.blue-bg {
   border-right-color: #428bca;
   background-color: transparent;
 }
-/* line 251, style.scss */
+/* line 259, style.scss */
 .left-triangle.pink-bg {
   border-right-color: #f96790;
   background-color: transparent;
 }
 
-/* line 257, style.scss */
+/* line 265, style.scss */
 .side_menu_btn {
   letter-spacing: 2px;
   position: absolute;
@@ -288,7 +293,7 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 270, style.scss */
+/* line 278, style.scss */
 .navbar-menu-btn {
   -webkit-transition: all 500ms;
   -moz-transition: all 500ms;
@@ -303,12 +308,12 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   height: 100%;
   width: 100px !important;
 }
-/* line 281, style.scss */
+/* line 289, style.scss */
 .navbar-menu-btn:hover, .navbar-menu-btn:focus {
   color: white;
 }
 
-/* line 286, style.scss */
+/* line 294, style.scss */
 .icon-flipped {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -316,7 +321,7 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   -o-transform: scaleX(-1);
   transform: scaleX(-1);
 }
-/* line 289, style.scss */
+/* line 297, style.scss */
 .icon-flipped.icon-rotated-180-right {
   -webkit-transform: rotate(180deg) scaleX(-1);
   -moz-transform: rotate(180deg) scaleX(-1);
@@ -325,7 +330,7 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   transform: rotate(180deg) scaleX(-1);
 }
 
-/* line 294, style.scss */
+/* line 302, style.scss */
 .side-menu {
   -webkit-transition: margin-right 200ms;
   -moz-transition: margin-right 200ms;
@@ -339,17 +344,17 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   padding-top: 15px;
   margin-right: -100px;
 }
-/* line 304, style.scss */
+/* line 312, style.scss */
 .side-menu:hover, .side-menu.show {
   margin-right: 0;
 }
 
-/* line 309, style.scss */
+/* line 317, style.scss */
 .progress-total {
   width: 100%;
 }
 
-/* line 313, style.scss */
+/* line 321, style.scss */
 .progress-current {
   -webkit-transition: width 200ms;
   -moz-transition: width 200ms;
@@ -358,12 +363,12 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   height: 5px;
 }
 
-/* line 319, style.scss */
+/* line 327, style.scss */
 .navbar-bottom-avatar {
   width: 100px;
 }
 
-/* line 323, style.scss */
+/* line 331, style.scss */
 .absolute-center-block {
   /* must set width */
   display: block;
@@ -372,97 +377,92 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   right: 0;
 }
 
-/* line 331, style.scss */
+/* line 339, style.scss */
 .large-quote {
   color: white;
 }
 
-/* line 335, style.scss */
+/* line 343, style.scss */
 .navbar-fixed-bottom .large-quote {
   padding: 20px;
 }
 
-/* line 339, style.scss */
+/* line 347, style.scss */
 .pink-border-top {
   border-top: 3px solid #f96790;
 }
 
-/* line 343, style.scss */
+/* line 351, style.scss */
 .cyan-border-top {
   border-top: 3px solid #62afb5;
 }
 
-/* line 347, style.scss */
+/* line 355, style.scss */
 .orange-border-top {
   border-top: 3px solid #F79B57;
 }
 
-/* line 351, style.scss */
+/* line 359, style.scss */
 .red-border-top {
   border-top: 3px solid #d9534f;
 }
 
-/* line 355, style.scss */
+/* line 363, style.scss */
 .pink-border-left {
   border-left: 3px solid #f96790;
 }
 
-/* line 359, style.scss */
+/* line 367, style.scss */
 .cyan-border-left {
   border-left: 3px solid #62afb5;
 }
 
-/* line 363, style.scss */
+/* line 371, style.scss */
 .orange-border-left {
   border-left: 3px solid #F79B57;
 }
 
-/* line 367, style.scss */
+/* line 375, style.scss */
 .red-border-left {
   border-left: 3px solid #d9534f;
 }
 
-/* line 371, style.scss */
+/* line 379, style.scss */
 .white-text {
   color: white;
 }
 
-/* line 375, style.scss */
+/* line 383, style.scss */
 .faded {
   opacity: 0.5;
 }
-/* line 376, style.scss */
+/* line 384, style.scss */
 .faded:hover {
   opacity: 1;
 }
 
-/* line 382, style.scss */
+/* line 390, style.scss */
 .search-icon {
   width: 14px !important;
   line-height: inherit;
   margin: auto;
 }
 
-/* line 388, style.scss */
-a, span, div, button {
-  outline: none !important;
-}
-
-/* line 392, style.scss */
+/* line 398, style.scss */
 .super-nav-bar-bottom .action_btns .btn {
   border-right: 1px solid rgba(80, 80, 80, 0.7);
   height: 89px;
   text-shadow: 1px 1px rgba(80, 80, 80, 0.8);
 }
-/* line 396, style.scss */
+/* line 402, style.scss */
 .super-nav-bar-bottom .action_btns .btn:last-child {
   border-right: 0;
 }
-/* line 399, style.scss */
+/* line 405, style.scss */
 .super-nav-bar-bottom .action_btns .btn:focus {
   color: white;
 }
-/* line 402, style.scss */
+/* line 408, style.scss */
 .super-nav-bar-bottom .action_btns .btn:hover {
   color: #d9534f;
   background-color: white;
@@ -471,44 +471,44 @@ a, span, div, button {
   border-right: 0;
 }
 
-/* line 411, style.scss */
+/* line 417, style.scss */
 .switch-btn {
   cursor: pointer;
   line-height: 40px;
 }
-/* line 414, style.scss */
+/* line 420, style.scss */
 .switch-btn:hover, .switch-btn.active {
   color: #7ccce5;
 }
 
-/* line 420, style.scss */
+/* line 426, style.scss */
 blockquote {
   border-left: white 5px solid;
   padding: 20px;
   width: 80%;
   margin: 0 auto;
 }
-/* line 425, style.scss */
+/* line 431, style.scss */
 blockquote p {
   font-size: 24px;
 }
 
-/* line 430, style.scss */
+/* line 436, style.scss */
 .subject-link-btn {
   height: 100px;
   /*color: $c-blue;*/
   color: rgba(80, 80, 80, 0.1);
 }
-/* line 434, style.scss */
+/* line 440, style.scss */
 .subject-link-btn:hover {
   color: rgba(80, 80, 80, 0.5);
 }
-/* line 437, style.scss */
+/* line 443, style.scss */
 .subject-link-btn .glyphicon {
   line-height: 100px;
 }
 
-/* line 442, style.scss */
+/* line 448, style.scss */
 .loading-bar {
   height: 35px;
   background-color: #7ccce5;
@@ -522,113 +522,113 @@ blockquote p {
   width: 100%;
 }
 
-/* line 454, style.scss */
+/* line 460, style.scss */
 .visually-hidden {
   opacity: 0;
 }
 
-/* line 459, style.scss */
+/* line 465, style.scss */
 .subject-title:hover h1, .subject-title:hover h4 {
   color: #7ccce5;
 }
 
-/* line 464, style.scss */
+/* line 470, style.scss */
 a:link.search-title {
   color: #505050;
 }
-/* line 468, style.scss */
+/* line 474, style.scss */
 a.search-title {
   text-decoration: none;
   color: #505050;
 }
-/* line 471, style.scss */
+/* line 477, style.scss */
 a.search-title h4, a.search-title h6 {
   display: inline-block;
 }
-/* line 474, style.scss */
+/* line 480, style.scss */
 a.search-title h6 {
   line-height: 19px;
   padding-left: 20px;
   color: rgba(80, 80, 80, 0.3);
 }
-/* line 479, style.scss */
+/* line 485, style.scss */
 a.search-title:hover {
   color: #7ccce5;
 }
 
-/* line 486, style.scss */
+/* line 492, style.scss */
 .aired {
   border-left: #62afb5 solid 3px;
 }
 
-/* line 492, style.scss */
+/* line 498, style.scss */
 .onair {
   border-left: #d9534f solid 3px;
 }
 
-/* line 496, style.scss */
+/* line 502, style.scss */
 .watched {
   border-left: #428bca solid 3px;
 }
 
 /* adpoted from http://codepen.io/geedmo/pen/InFfd */
-/* line 512, style.scss */
+/* line 518, style.scss */
 .progress-0 {
-  background-image: linear-gradient(90deg, rgba(80, 80, 80, 0.1) 50%, transparent 50%, transparent), linear-gradient(90deg, #7ccce5 50%, rgba(80, 80, 80, 0.1) 50%, rgba(80, 80, 80, 0.1));
+  background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(90deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 512, style.scss */
+/* line 518, style.scss */
 .progress-10 {
-  background-image: linear-gradient(90deg, rgba(80, 80, 80, 0.1) 50%, transparent 50%, transparent), linear-gradient(126deg, #7ccce5 50%, rgba(80, 80, 80, 0.1) 50%, rgba(80, 80, 80, 0.1));
+  background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(126deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 512, style.scss */
+/* line 518, style.scss */
 .progress-20 {
-  background-image: linear-gradient(90deg, rgba(80, 80, 80, 0.1) 50%, transparent 50%, transparent), linear-gradient(162deg, #7ccce5 50%, rgba(80, 80, 80, 0.1) 50%, rgba(80, 80, 80, 0.1));
+  background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(162deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 512, style.scss */
+/* line 518, style.scss */
 .progress-30 {
-  background-image: linear-gradient(90deg, rgba(80, 80, 80, 0.1) 50%, transparent 50%, transparent), linear-gradient(198deg, #7ccce5 50%, rgba(80, 80, 80, 0.1) 50%, rgba(80, 80, 80, 0.1));
+  background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(198deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 512, style.scss */
+/* line 518, style.scss */
 .progress-40 {
-  background-image: linear-gradient(90deg, rgba(80, 80, 80, 0.1) 50%, transparent 50%, transparent), linear-gradient(234deg, #7ccce5 50%, rgba(80, 80, 80, 0.1) 50%, rgba(80, 80, 80, 0.1));
+  background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(234deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 512, style.scss */
+/* line 518, style.scss */
 .progress-50 {
-  background-image: linear-gradient(-90deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, rgba(80, 80, 80, 0.1) 50%, rgba(80, 80, 80, 0.1));
+  background-image: linear-gradient(-90deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 512, style.scss */
+/* line 518, style.scss */
 .progress-60 {
-  background-image: linear-gradient(-54deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, rgba(80, 80, 80, 0.1) 50%, rgba(80, 80, 80, 0.1));
+  background-image: linear-gradient(-54deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 512, style.scss */
+/* line 518, style.scss */
 .progress-70 {
-  background-image: linear-gradient(-18deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, rgba(80, 80, 80, 0.1) 50%, rgba(80, 80, 80, 0.1));
+  background-image: linear-gradient(-18deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 512, style.scss */
+/* line 518, style.scss */
 .progress-80 {
-  background-image: linear-gradient(18deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, rgba(80, 80, 80, 0.1) 50%, rgba(80, 80, 80, 0.1));
+  background-image: linear-gradient(18deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 512, style.scss */
+/* line 518, style.scss */
 .progress-90 {
-  background-image: linear-gradient(54deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, rgba(80, 80, 80, 0.1) 50%, rgba(80, 80, 80, 0.1));
+  background-image: linear-gradient(54deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 512, style.scss */
+/* line 518, style.scss */
 .progress-100 {
-  background-image: linear-gradient(90deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, rgba(80, 80, 80, 0.1) 50%, rgba(80, 80, 80, 0.1));
+  background-image: linear-gradient(90deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
 /*logo for 404 page*/
-/* line 532, style.scss */
+/* line 538, style.scss */
 .logospin {
   margin: auto;
   height: 100px;
@@ -637,7 +637,7 @@ a.search-title:hover {
   margin-top: 200px;
   margin-bottom: 100px;
 }
-/* line 539, style.scss */
+/* line 545, style.scss */
 .logospin .segment {
   position: absolute;
   top: 0;
@@ -648,7 +648,7 @@ a.search-title:hover {
   -moz-animation: logospin 3s infinite ease-out;
   animation: logospin 3s infinite ease-out;
 }
-/* line 548, style.scss */
+/* line 554, style.scss */
 .logospin .segment:nth-of-type(1) {
   border-width: 100px 25px 50px 33.33333px;
   border-style: solid;
@@ -662,7 +662,7 @@ a.search-title:hover {
   -o-transform-origin: 0 0;
   transform-origin: 0 0;
 }
-/* line 561, style.scss */
+/* line 567, style.scss */
 .logospin .segment:nth-of-type(2) {
   border-width: 100px 25px 50px 33.33333px;
   border-style: solid;
@@ -676,7 +676,7 @@ a.search-title:hover {
   -o-transform-origin: 0 0;
   transform-origin: 0 0;
 }
-/* line 574, style.scss */
+/* line 580, style.scss */
 .logospin .segment:nth-of-type(3) {
   border-width: 100px 25px 50px 33.33333px;
   border-style: solid;
@@ -690,7 +690,7 @@ a.search-title:hover {
   -o-transform-origin: 0 0;
   transform-origin: 0 0;
 }
-/* line 587, style.scss */
+/* line 593, style.scss */
 .logospin .segment:nth-of-type(4) {
   border-width: 100px 25px 50px 33.33333px;
   border-style: solid;
@@ -708,13 +708,13 @@ a.search-title:hover {
 /*xs screen only css*/
 /*push if it's tablet or phone*/
 @media (max-width: 991px) {
-  /* line 612, style.scss */
+  /* line 618, style.scss */
   .push-aside {
     margin-left: -100px;
     margin-right: 100px;
   }
 
-  /* line 616, style.scss */
+  /* line 622, style.scss */
   .mobile-btn-lg {
     padding: 10px 16px;
     font-size: 18px;
@@ -722,7 +722,7 @@ a.search-title:hover {
   }
 
   /*no hover quick fly out side menu for mobile devices*/
-  /* line 622, style.scss */
+  /* line 628, style.scss */
   .side-menu {
     width: 100px;
   }

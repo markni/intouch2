@@ -28,10 +28,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+//reset
+
 h1, h2, h3, h4, h5, button, a, blockquote, p {
   font-family: 'Lato', Microsoft YaHei, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+
+a, span, div, button {
+  outline: none !important;
+}
+
+
 
 .padding-bottom-70 {
   padding-bottom: 70px;
@@ -385,9 +393,7 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
   margin: auto;
 }
 
-a, span, div, button {
-  outline: none !important;
-}
+
 
 .super-nav-bar-bottom .action_btns .btn {
   border-right: 1px solid rgba($c-gray, 0.7);
@@ -500,7 +506,7 @@ a{
 
 /* adpoted from http://codepen.io/geedmo/pen/InFfd */
 $barColor: $c-blue;
-$backColor: rgba($c-gray, 0.1);
+$backColor: lighten($c-blue, 20%) ;
 
 $step: 10 ; // step of % for created classes
 

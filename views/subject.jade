@@ -44,8 +44,9 @@ div.row
 
 
 		div.card.form-group.row(ng-repeat="ep in subject.eps",ng-class="{aired: ep.status==='Air', onair: ep.status==='Today', watched:ep.watched === 1}")
-			div.col-xs-2.col-lg-2  EP.{{ep.sort}}
-			div.col-xs-10.col-lg-10  {{ep.name}}
+			div
+				div.col-xs-2.col-lg-2  EP.{{ep.sort}}
+				div.col-xs-10.col-lg-10  {{epNameFormat(ep.name)}}
 
 
 		div.row.form-group(ng-class="{hidden:loading>0}")

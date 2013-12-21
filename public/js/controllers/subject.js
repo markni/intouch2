@@ -34,6 +34,11 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 		$scope.status = status;
 	}
 
+	$scope.epNameFormat = function(name){
+		return name.replace(/&quot;/g,'"');
+
+	}
+
 	$scope.reset = function () {
 
 		if ($scope.old_data && $scope.old_data.status){
