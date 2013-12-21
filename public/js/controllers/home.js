@@ -141,7 +141,6 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
         var ep_num = $scope.items[index].ep_status + 1;
         var subject_id = $scope.items[index].subject.id;
 
-        $scope.loading++;
 
         $http({method: 'POST', url: '/api/subject/' + subject_id + '/watchedto/' + ep_num}).
             success(function (data, status) {
@@ -149,11 +148,11 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
                 $scope.items[index].ep_status = $scope.items[index].ep_status + 1;
 
                 //$cookieStore.set('auth',data.auth);
-                $scope.loading--;
+
 
             }).
             error(function (data, status) {
-                $scope.loading--;
+
             });
     }
 
