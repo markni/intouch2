@@ -1,4 +1,4 @@
-app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout) {
+app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout,$rootScope) {
 	$scope.server_offline = 0;
 
     Auth.loadCredentials();
@@ -196,11 +196,35 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 			$scope.loading--;
             //$cookieStore.set('auth',data.auth);
 
+			$http({method: 'POST', url: '/api/progress'}).
+				success(function (data, status) {
+
+					var progress = {};
+					for (var key in data) {
+						var eps = {};
+						var _eps = data[key].eps;
+						for (var i in _eps ){
+							eps[_eps[i].id] = '1';
+						}
+						progress[data[key].subject_id] = eps;
+					}
+
+
+					$rootScope.progress = progress;
+
+				}).
+				error(function (data, status) {
+
+
+				});
+
         }).
         error(function (data, status) {
 			$scope.server_offline = 1;
 			$scope.loading--;
 
         });
+
+
 
 });

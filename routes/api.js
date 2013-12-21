@@ -103,7 +103,7 @@ exports.getCollection = function (req, res) {
 
 exports.progress = function (req, res) {
 	var auth = req.headers['authorization'];
-	if (!auth || req.params['id'] === undefined  ) {
+	if (!auth  ) {
 
 		res.statusCode = 401; // Force them to retry authentication
 		res.json({error_code: 401, error_msg: 'wrong pass'});

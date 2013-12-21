@@ -38,12 +38,12 @@ div.row
 
 
 					div.form-group
-						button.btn.btn-block.btn-danger(ng-click="save()") {{ 'APPLY_CHANGES' | translate }}
+						button.btn.btn-block.btn-danger(ng-click="save()",ng-disabled="!status") {{ 'APPLY_CHANGES' | translate }}
 						button.btn.btn-block.btn-default(ng-click="reset()") {{ 'CANCEL' | translate }}
 
 
 
-		div.card.form-group.row(ng-repeat="ep in subject.eps")
+		div.card.form-group.row(ng-repeat="ep in subject.eps",ng-class="{aired: ep.status==='Air', onair: ep.status==='Today', watched:ep.watched === 1}")
 			div.col-xs-2.col-lg-2  EP.{{ep.sort}}
 			div.col-xs-10.col-lg-10  {{ep.name}}
 

@@ -483,6 +483,20 @@ a{
 
 }
 
+.aired {
+  border-left: $c-cyan solid 3px;
+}
+
+
+
+.onair {
+  border-left: $c-red solid 3px;
+}
+
+.watched {
+  border-left: $c-dk-blue solid 3px;
+}
+
 
 /* adpoted from http://codepen.io/geedmo/pen/InFfd */
 $barColor: $c-blue;
