@@ -160,11 +160,11 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
 	if ($rootScope.progress && $rootScope.items) {
 		$scope.items = $rootScope.items;
-
 		$scope.loading--;
+
 	}
 
-	else {
+
 		$http({method: 'POST', url: '/api/collection'}).
 			success(function (data, status) {
 
@@ -176,7 +176,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 				$scope.items = $rootScope.items = data;
 
 				$scope.server_offline = 0;
-				$scope.loading--;
+				if($scope.loading) $scope.loading--;
 				//$cookieStore.set('auth',data.auth);
 
 				$http({method: 'POST', url: '/api/progress'}).
@@ -202,10 +202,10 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 			}).
 			error(function (data, status) {
 				$scope.server_offline = 1;
-				$scope.loading--;
+				if($scope.loading)  $scope.loading--;
 
 			});
 
-	}
+
 
 });
