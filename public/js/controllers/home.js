@@ -165,12 +165,17 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 	}
 
 
+
 		$http({method: 'POST', url: '/api/collection'}).
 			success(function (data, status) {
 
 				for (var i = 0; i < data.length; i++) {
 					data[i].selected = false;
 
+				}
+
+				if(!$rootScope.items){
+					$scope.displayMsg($translate('WELCOME'));
 				}
 
 				$scope.items = $rootScope.items = data;
