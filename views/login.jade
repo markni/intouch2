@@ -1,16 +1,16 @@
 div.row(style='margin-top:100px')
-    div.col-md-4.col-md-offset-4
+	div.col-md-4.col-md-offset-4
 
-        form(role="form",ng-submit='login()')
-            div.form-group
-                input(class="form-control",placeholder="{{ 'USERNAME' | translate }}",ng-model="user.username")
-            div.form-group
-                input(type="password",class="form-control",placeholder="{{ 'PASSWORD' | translate }}",ng-model="user.password")
-            button.form-group.mobile-btn-lg.btn.btn-danger.btn-block(type="submit") {{login_button_text}}
-            button.form-group.mobile-btn-lg.btn.btn-primary.btn-block(type="button",ng-click="demo()") {{demo_button_text}}
-            div.form-group.alert.alert-warning.alert-dismissable.margin-top-10(ng-class="{hidden: !show_login_error}")
-                button(type='button',class='close',aria-hidden='true',ng-click="dismiss_login_error()") &times;
-                p(translate='LOGIN_ERROR')
+		form(role="form",ng-submit='login()')
+			div.form-group
+				input(class="form-control",placeholder="{{ 'USERNAME' | translate }}",ng-model="user.username")
+			div.form-group
+				input(type="password",class="form-control",placeholder="{{ 'PASSWORD' | translate }}",ng-model="user.password")
+			button.form-group.btn.btn-danger.btn-block(type="submit") {{login_button_text}}
+			button.form-group.btn.btn-primary.btn-block(type="button",ng-click="demo()") {{demo_button_text}}
+			div.form-group.alert.alert-warning.alert-dismissable.margin-top-10(ng-class="{hidden: !show_login_error}")
+				button(type='button',class='close',aria-hidden='true',ng-click="dismiss_login_error()") &times;
+				p(translate='LOGIN_ERROR')
 
-            span.form-group.help-block.text-center.small.padding-top-10
-                a.no-href-link(translate="SET_LANG",ng-click="toggleLang()")
+			span.form-group.help-block.text-center.small.padding-top-10
+				a.no-href-link(translate="SET_LANG",ng-click="toggleLang()")
