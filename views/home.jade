@@ -12,7 +12,7 @@ div.row
 		div(ng-class="{hidden:server_offline == 0}")
 			h4.white-text.text-center Server Offline
 
-		div.row.card.form-group(ng-repeat="item in items",ng-class="{selected:items[$index].selected,hidden:(loading>0||(show_all===false&&$index>6))}")
+		div.row.card.form-group(ng-repeat="item in items",ng-class="{selected:items[$index].selected,hidden:(loading>0||(show_all===false&&$index>6)),onair:item.onair===true}")
 
 			div.col-md-10.col-xs-10.col-lg-10.padding-right-0.inner
 

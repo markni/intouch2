@@ -177,11 +177,27 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 			success(function (data, status) {
 
 
+				var d = (new Date()).getDay();
 
 				for (var i = 0; i < data.length; i++) {
 					data[i].selected = false;
+					data[i].onair = function(){
+
+						var airday = data[i].subject.air_weekday;
+
+						if (airday === 7){
+							airday=0;
+						}
+
+
+						return airday === d;
+
+
+					}();
 
 				}
+
+
 
 				if(!$rootScope.items){
 					$scope.displayMsg($translate('WELCOME'));

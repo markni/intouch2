@@ -13,6 +13,7 @@ $c-red: rgba(217, 83, 79, 1);
 
 $c-blue: rgba(124, 204, 229, 1);
 $c-dk-blue: rgba(66, 139, 202, 1);
+$c-green: rgb(139,182,91);
 
 $c-cyan: rgba(98, 175, 181, 1);
 $c-pink: rgba(249, 103, 144, 1);
@@ -513,7 +514,15 @@ a {
 }
 
 .onair {
-  border-left: $c-red solid 3px;
+  border-left: $c-green solid 3px;
+}
+
+.onairtag {
+  display: inline-block;
+  background-color: rgba($c-green,0.9);
+  color:white;
+  padding: 3px 5px;
+
 }
 
 .watched {
