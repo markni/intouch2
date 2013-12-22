@@ -720,7 +720,7 @@ a.search-title:hover {
   }
 }
 /*xs screen only css*/
-@media (max-width: 767px) {
+@media (max-width: 767px), (max-height: 450px) {
   /* line 637, style.scss */
   .navbar-menu-bot {
     height: 40px;

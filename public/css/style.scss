@@ -630,7 +630,7 @@ $half: round($loops / 2);
 }
 
 /*xs screen only css*/
-@media (max-width: 767px) {
+@media (max-width: 767px), (max-height: 450px) {
   $bot-height: 40px;
   $bot-margin: 5px;
 
