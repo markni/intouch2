@@ -1,5 +1,6 @@
 @import "compass";
 
+
 @mixin animation($animation) {
 
   -webkit-animation: $animation;
