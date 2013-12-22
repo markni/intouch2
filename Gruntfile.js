@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 
         concat: {
             options: {
-                separator: ';'
+                separator: ''
             },
             dist: {
                 src: ['public/js/jquery-1.10.2.js'
@@ -41,7 +41,13 @@ module.exports = function(grunt) {
                     ,'public/js/factory.js'
                     ,'public/js/controllers/*.js'],
                 dest: 'dist/public/js/<%= pkg.name %>.js'
-            }
+            },
+			css: {
+				src: ['public/css/animations.css'
+					,'public/css/bootstrap.css'
+					,'public/css/style.css'],
+				dest: 'dist/public/css/<%= pkg.name %>.css'
+			}
         },
         uglify: {
             options: {
