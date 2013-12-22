@@ -2,6 +2,7 @@ app.controller('profileCtrl', function ($translate, $scope, Auth, $http, $locati
 	$scope.loading = 1;
 
 	$scope.getUserStats = function (username) {
+		$scope.loading++;
 		$http({method: 'POST', url: '/api/user/' + username + '/stats'}).
 			success(function (data, status) {
 
@@ -41,10 +42,11 @@ app.controller('profileCtrl', function ($translate, $scope, Auth, $http, $locati
 				});
 
 				chart.render();
+				$scope.loading--;
 
 			}).
 			error(function (data, status) {
-
+				$scope.loading--;
 			});
 	};
 

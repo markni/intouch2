@@ -21,7 +21,7 @@ div.row
 
 		div.loading-bar(ng-class="{hidden:loading<1}")
 
-		div.row.card.form-group(ng-class="{hidden:loading>0}")
+		div.row.card.form-group(ng-class="{'visually-hidden':loading>0}")
 
 			div#chart(style="height:300px;width:100%;max-width:500px;margin:0 auto")
 
