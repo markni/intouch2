@@ -1,4 +1,6 @@
 app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore) {
+	Auth.clearCredentials();
+
     $scope.loading = 0;
     $scope.show_login_error = false;
     $scope.user = {"username": "", "password": ""};

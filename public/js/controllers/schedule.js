@@ -59,8 +59,12 @@ app.controller('scheduleCtrl', function ($translate, $scope, Auth, $http, $locat
             error(function (data, status) {
                 //$scope.loading--;
                 $scope.results[index].added = (action === 'do' ? false : true);
+				if (status === 401){
+					$location.path("/login");
+				}
 
-            });
+
+			});
 
     }
 
@@ -75,8 +79,12 @@ app.controller('scheduleCtrl', function ($translate, $scope, Auth, $http, $locat
         }).
         error(function (data, status) {
             $scope.loading--;
+			if (status === 401){
+				$location.path("/login");
+			}
 
-        });
+
+		});
 
 
 

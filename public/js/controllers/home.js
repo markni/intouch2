@@ -117,7 +117,9 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
 			}).
 			error(function (data, status) {
-
+				if (status === 401){
+					$location.path("/login");
+				}
 			});
 
 	}
@@ -135,7 +137,9 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
 			}).
 			error(function (data, status) {
-
+				if (status === 401){
+					$location.path("/login");
+				}
 			});
 	}
 
@@ -203,7 +207,9 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
 					}).
 					error(function (data, status) {
-
+						if (status === 401){
+							$location.path("/login");
+						}
 
 					});
 
@@ -211,6 +217,10 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 			error(function (data, status) {
 				$scope.server_offline = 1;
 				if($scope.loading)  $scope.loading--;
+
+				if (status === 401){
+					$location.path("/login");
+				}
 
 			});
 

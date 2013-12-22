@@ -51,8 +51,12 @@ app.controller('searchCtrl', function ($translate, $scope, Auth, $http, $locatio
                 //$scope.loading--;
                 //reverse action icon if error happens, it usually won't
                 $scope.results[index].added = (action === 'do' ? false : true);
+				if (status === 401){
+					$location.path("/login");
+				}
 
-            });
+
+			});
 
     }
 
@@ -70,7 +74,11 @@ app.controller('searchCtrl', function ($translate, $scope, Auth, $http, $locatio
         }).
         error(function (data, status) {
             $scope.loading--;
+			if (status === 401){
+				$location.path("/login");
+			}
 
-        });
+
+		});
 
 });

@@ -62,7 +62,9 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 				$scope.editing = 0;
 			}).
 			error(function (data, status) {
-
+				if (status === 401){
+					$location.path("/logout");
+				}
 			});
 
 	}
@@ -91,7 +93,9 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 
 				}).
 				error(function (data, status) {
-
+					if (status === 401){
+						$location.path("/login");
+					}
 				});
 
 			if (!$rootScope.progress){
@@ -116,7 +120,9 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 					}).
 					error(function (data, status) {
 
-
+						if (status === 401){
+							$location.path("/login");
+						}
 
 					});
 			}

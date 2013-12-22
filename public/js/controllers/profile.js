@@ -46,7 +46,11 @@ app.controller('profileCtrl', function ($translate, $scope, Auth, $http, $locati
 
 			}).
 			error(function (data, status) {
+
 				$scope.loading--;
+				if (status === 401){
+					$location.path("/login");
+				}
 			});
 	};
 
@@ -66,6 +70,9 @@ app.controller('profileCtrl', function ($translate, $scope, Auth, $http, $locati
 			}).
 			error(function (data, status) {
 				$scope.loading--;
+				if (status === 401){
+					$location.path("/login");
+				}
 
 			});
 	}
@@ -82,6 +89,9 @@ app.controller('profileCtrl', function ($translate, $scope, Auth, $http, $locati
 			}).
 			error(function (data, status) {
 				$scope.loading--;
+				if (status === 401){
+					$location.path("/login");
+				}
 
 			});
 	}
