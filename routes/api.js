@@ -2,7 +2,7 @@ var async = require('async');
 var crypto = require('crypto');
 var Bangumi = require('bangumi');
 var options = {
-    app_id: "itouch"
+    app_id: "intouch"
 };
 var b = new Bangumi(options);
 
