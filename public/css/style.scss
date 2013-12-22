@@ -1,13 +1,12 @@
 @import "compass";
 
-@mixin animation ($animation) {
+@mixin animation($animation) {
 
   -webkit-animation: $animation;
   -moz-animation: $animation;
   -o-animation: $animation;
   animation: $animation;
 }
-
 
 $c-red: rgba(217, 83, 79, 1);
 
@@ -38,8 +37,6 @@ h1, h2, h3, h4, h5, button, a, blockquote, p {
 a, span, div, button {
   outline: none !important;
 }
-
-
 
 .padding-bottom-70 {
   padding-bottom: 70px;
@@ -178,7 +175,7 @@ a, span, div, button {
   padding-bottom: 15px;
   box-shadow: rgba($c-gray, 0.1) 1px 2px;
   &.selected {
-	box-shadow: rgba($c-red,0.8) 1px 2px;
+	box-shadow: rgba($c-red, 0.8) 1px 2px;
   }
   .inner {
 	position: relative;
@@ -195,41 +192,7 @@ a, span, div, button {
   }
 }
 
-.super-nav-bar-bottom {
-  border-top: 1px solid #ac2925;
-}
-
-.tooltips {
-  display: inline;
-  position: relative;
-  opacity: 1;
-  -moz-transition: opacity 800ms;
-  -o-transition: opacity 800ms;
-  -webkit-transition: opacity 800ms;
-  /* Safari */
-  transition: opacity 800ms;
-  .inner {
-	background: $c-dk-blue;
-	bottom: 55px;
-	color: #fff;
-	min-width: 300px;
-	left: -100px;
-	padding: 5px 15px;
-	position: absolute;
-	z-index: 98;
-	max-width: 300px;
-  }
-  &:before {
-	border: solid;
-	border-color: $c-dk-blue transparent;
-	border-width: 19px 1px 0 13px;
-	bottom: 40px;
-	content: "";
-	left: 50%;
-	position: absolute;
-	z-index: 99;
-  }
-}
+//SIDE NAV MENU STYLES
 
 .left-triangle {
 
@@ -262,6 +225,8 @@ a, span, div, button {
   }
 }
 
+
+
 .side_menu_btn {
   letter-spacing: 2px;
   position: absolute;
@@ -275,19 +240,58 @@ a, span, div, button {
   -webkit-font-smoothing: antialiased;
 }
 
+
+//BOTTOM NAV MENU STYLES
+
+$bot-height: 75px;
+$bot-margin: 5px;
+
+.navbar-menu-bot {
+  height: $bot-height;
+  width: $bot-height;
+  margin-top: $bot-margin;
+  margin-bottom: $bot-margin;
+}
+
 .navbar-menu-btn {
   @include transition(all 500ms);
+  line-height: $bot-height + 2 * $bot-margin;
 
   cursor: pointer;
   color: white;
-  padding-top: 30px;
-  padding-bottom: 30px;
+
   font-size: x-large;
   display: inline-block;
-  height: 100%;
-  width: 100px !important;
+
   &:hover, &:focus {
 	color: white;
+  }
+}
+
+.super-nav-bar-bottom .action_btns .btn {
+  border-right: 1px solid rgba($c-gray, 0.7);
+  height: $bot-height + 2 * $bot-margin;
+  text-shadow: 1px 1px rgba($c-gray, 0.8);
+  &:last-child {
+	border-right: 0;
+  }
+  &:focus {
+	color: white;
+  }
+  &:hover {
+	color: $c-red;
+	background-color: white;
+	margin-top: -5px;
+	box-shadow: 0px 2px rgba($c-gray, 0.8);
+	border-right: 0;
+  }
+}
+
+.switch-btn {
+  cursor: pointer;
+  line-height: 40px;
+  &:hover, &.active {
+	color: $c-blue;
   }
 }
 
@@ -298,6 +302,44 @@ a, span, div, button {
 	@include transform(rotate(180deg) scaleX(-1));
   }
 }
+
+.super-nav-bar-bottom {
+  border-top: 1px solid #ac2925;
+}
+
+.tooltips {
+  display: inline;
+  position: relative;
+  opacity: 1;
+  -moz-transition: opacity 800ms;
+  -o-transition: opacity 800ms;
+  -webkit-transition: opacity 800ms;
+  /* Safari */
+  transition: opacity 800ms;
+  .inner {
+	background: $c-dk-blue;
+	bottom: $bot-height - 20px;
+	color: #fff;
+	min-width: 300px;
+	max-width: 300px;
+	left: -100px;
+	padding: 5px 15px;
+	position: absolute;
+	z-index: 98;
+
+  }
+  &:before {
+	border: solid;
+	border-color: $c-dk-blue transparent;
+	border-width: 19px 1px 0 13px;
+	bottom: $bot-height - 35px;
+	content: "";
+	left: 50%;
+	position: absolute;
+	z-index: 99;
+  }
+}
+
 
 .side-menu {
   @include transition(margin-right 200ms);
@@ -393,46 +435,6 @@ a, span, div, button {
   margin: auto;
 }
 
-
-
-.super-nav-bar-bottom .action_btns .btn {
-  border-right: 1px solid rgba($c-gray, 0.7);
-  height: 89px;
-  text-shadow: 1px 1px rgba($c-gray, 0.8);
-  &:last-child {
-	border-right: 0;
-  }
-  &:focus {
-	color: white;
-  }
-  &:hover {
-	color: $c-red;
-	background-color: white;
-	margin-top: -5px;
-	box-shadow: 0px 2px rgba($c-gray, 0.8);
-	border-right: 0;
-  }
-}
-
-.switch-btn {
-  cursor: pointer;
-  line-height: 40px;
-  &:hover, &.active {
-	color: $c-blue;
-  }
-}
-
-
-blockquote {
-  border-left: white 5px solid;
-  padding: 20px;
-  width: 80%;
-  margin: 0 auto;
-  p {
-	font-size: 24px;
-  }
-}
-
 .subject-link-btn {
   height: 100px;
   /*color: $c-blue;*/
@@ -453,7 +455,6 @@ blockquote {
   background-position: 50% 0;
   @include animation(loading-animation 1s infinite steps(1));
 
-
   width: 100%;
 }
 
@@ -461,39 +462,36 @@ blockquote {
   opacity: 0;
 }
 
-
-.subject-title:hover h1,.subject-title:hover h4{
-	color:$c-blue;
+.subject-title:hover h1, .subject-title:hover h4 {
+  color: $c-blue;
 }
 
-a{
-    &:link.search-title{
-	  color:$c-gray;
-	}
+a {
+  &:link.search-title {
+	color: $c-gray;
+  }
 
-    &.search-title{
-	  text-decoration: none;
-	  color:$c-gray;
-	  h4,h6{
-		display: inline-block;
-	  }
-	  h6 {
-		line-height: 19px;
-		padding-left: 20px;
-		color:rgba($c-gray,0.3);
-	  }
-	  &:hover{
-		color:$c-blue;
-	  }
+  &.search-title {
+	text-decoration: none;
+	color: $c-gray;
+	h4, h6 {
+	  display: inline-block;
 	}
+	h6 {
+	  line-height: 19px;
+	  padding-left: 20px;
+	  color: rgba($c-gray, 0.3);
+	}
+	&:hover {
+	  color: $c-blue;
+	}
+  }
 
 }
 
 .aired {
   border-left: $c-cyan solid 3px;
 }
-
-
 
 .onair {
   border-left: $c-red solid 3px;
@@ -503,36 +501,28 @@ a{
   border-left: $c-dk-blue solid 3px;
 }
 
-
-
 /* adpoted from http://codepen.io/geedmo/pen/InFfd */
 $barColor: $c-blue;
-$backColor: lighten($c-blue, 20%) ;
+$backColor: lighten($c-blue, 20%);
 
-$step: 10 ; // step of % for created classes
+$step: 10;
+// step of % for created classes
 
 $loops: round(100 / $step);
 $increment: round(360 / $loops);
 $half: round($loops / 2);
 
 @for $i from 0 through $loops {
-	.progress-#{$i*$step} {
-		@if $i < $half {
-			$nextdeg: 90deg + ( $increment * $i );
-			background-image: linear-gradient(90deg, $backColor 50%, transparent 50%, transparent), linear-gradient($nextdeg, $barColor 50%, $backColor 50%, $backColor)
-		}
-		@else{
-			$nextdeg: -90deg + ( $increment * ( $i - $half ) );
-			background-image: linear-gradient($nextdeg, $barColor 50%, transparent 50%, transparent), linear-gradient(270deg, $barColor 50%, $backColor 50%, $backColor)
-		}
+  .progress-#{$i*$step} {
+	@if $i < $half {
+	  $nextdeg: 90deg + ( $increment * $i );
+	  background-image: linear-gradient(90deg, $backColor 50%, transparent 50%, transparent), linear-gradient($nextdeg, $barColor 50%, $backColor 50%, $backColor)
+	} @else {
+	  $nextdeg: -90deg + ( $increment * ( $i - $half ) );
+	  background-image: linear-gradient($nextdeg, $barColor 50%, transparent 50%, transparent), linear-gradient(270deg, $barColor 50%, $backColor 50%, $backColor)
 	}
+  }
 }
-
-
-
-
-
-
 
 /*logo for 404 page*/
 
@@ -607,11 +597,40 @@ $half: round($loops / 2);
   }
 }
 
-
-
-
 /*xs screen only css*/
 @media (max-width: 767px) {
+  $bot-height: 40px;
+  $bot-margin: 5px;
+
+  .navbar-menu-bot {
+	height: $bot-height;
+	width: $bot-height;
+	margin-top: $bot-margin;
+	margin-bottom: $bot-margin;
+  }
+
+  .navbar-menu-btn {
+
+	line-height: $bot-height + 2 * $bot-margin;
+
+  }
+
+  .super-nav-bar-bottom .action_btns .btn {
+	height: $bot-height;
+  }
+
+  .tooltips {
+	.inner {
+	  bottom: $bot-height - 10px;
+	  min-width: 200px;
+	  max-width: 250px;
+	}
+	&:before {
+	  bottom: $bot-height - 10px - 15px;
+
+	}
+  }
+
 }
 
 /*push if it's tablet or phone*/
