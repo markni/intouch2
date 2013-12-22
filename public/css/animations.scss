@@ -1,0 +1,892 @@
+.animate-items.ng-leave { -webkit-transition:1s linear all; transition:1s linear all; }
+.animate-items.ng-leave { opacity: 1; }
+.animate-items.ng-leave.ng-leaver-active { opacity: 0; }
+
+
+
+@-webkit-keyframes loading-animation {
+  0% {
+	background-position: 50% 0px;
+  }
+
+  4% {
+	background-position: 50% -35px;
+  }
+
+  8% {
+	background-position: 50% -70px;
+  }
+
+  12% {
+	background-position: 50% -105px;
+  }
+
+  16% {
+	background-position: 50% -140px;
+  }
+
+  20% {
+	background-position: 50% -175px;
+  }
+
+  24% {
+	background-position: 50% -210px;
+  }
+
+  28% {
+	background-position: 50% -245px;
+  }
+
+  32% {
+	background-position: 50% -280px;
+  }
+
+  36% {
+	background-position: 50% -315px;
+  }
+
+  40% {
+	background-position: 50% -350px;
+  }
+
+  44% {
+	background-position: 50% -385px;
+  }
+
+  48% {
+	background-position: 50% -420px;
+  }
+
+  52% {
+	background-position: 50% -455px;
+  }
+
+  56% {
+	background-position: 50% -490px;
+  }
+
+  60% {
+	background-position: 50% -525px;
+  }
+
+  64% {
+	background-position: 50% -560px;
+  }
+
+  68% {
+	background-position: 50% -595px;
+  }
+
+  72% {
+	background-position: 50% -630px;
+  }
+
+  76% {
+	background-position: 50% -665px;
+  }
+
+  80% {
+	background-position: 50% -700px;
+  }
+
+  84% {
+	background-position: 50% -735px;
+  }
+
+  88% {
+	background-position: 50% -770px;
+  }
+
+  92% {
+	background-position: 50% -805px;
+  }
+
+  96% {
+	background-position: 50% -840px;
+  }
+
+  100% {
+	background-position: 50% -875px;
+  }
+}
+
+@-moz-keyframes loading-animation {
+  0% {
+	background-position: 50% 0px;
+  }
+
+  4% {
+	background-position: 50% -35px;
+  }
+
+  8% {
+	background-position: 50% -70px;
+  }
+
+  12% {
+	background-position: 50% -105px;
+  }
+
+  16% {
+	background-position: 50% -140px;
+  }
+
+  20% {
+	background-position: 50% -175px;
+  }
+
+  24% {
+	background-position: 50% -210px;
+  }
+
+  28% {
+	background-position: 50% -245px;
+  }
+
+  32% {
+	background-position: 50% -280px;
+  }
+
+  36% {
+	background-position: 50% -315px;
+  }
+
+  40% {
+	background-position: 50% -350px;
+  }
+
+  44% {
+	background-position: 50% -385px;
+  }
+
+  48% {
+	background-position: 50% -420px;
+  }
+
+  52% {
+	background-position: 50% -455px;
+  }
+
+  56% {
+	background-position: 50% -490px;
+  }
+
+  60% {
+	background-position: 50% -525px;
+  }
+
+  64% {
+	background-position: 50% -560px;
+  }
+
+  68% {
+	background-position: 50% -595px;
+  }
+
+  72% {
+	background-position: 50% -630px;
+  }
+
+  76% {
+	background-position: 50% -665px;
+  }
+
+  80% {
+	background-position: 50% -700px;
+  }
+
+  84% {
+	background-position: 50% -735px;
+  }
+
+  88% {
+	background-position: 50% -770px;
+  }
+
+  92% {
+	background-position: 50% -805px;
+  }
+
+  96% {
+	background-position: 50% -840px;
+  }
+
+  100% {
+	background-position: 50% -875px;
+  }
+}
+
+@-o-keyframes loading-animation {
+  0% {
+	background-position: 50% 0px;
+  }
+
+  4% {
+	background-position: 50% -35px;
+  }
+
+  8% {
+	background-position: 50% -70px;
+  }
+
+  12% {
+	background-position: 50% -105px;
+  }
+
+  16% {
+	background-position: 50% -140px;
+  }
+
+  20% {
+	background-position: 50% -175px;
+  }
+
+  24% {
+	background-position: 50% -210px;
+  }
+
+  28% {
+	background-position: 50% -245px;
+  }
+
+  32% {
+	background-position: 50% -280px;
+  }
+
+  36% {
+	background-position: 50% -315px;
+  }
+
+  40% {
+	background-position: 50% -350px;
+  }
+
+  44% {
+	background-position: 50% -385px;
+  }
+
+  48% {
+	background-position: 50% -420px;
+  }
+
+  52% {
+	background-position: 50% -455px;
+  }
+
+  56% {
+	background-position: 50% -490px;
+  }
+
+  60% {
+	background-position: 50% -525px;
+  }
+
+  64% {
+	background-position: 50% -560px;
+  }
+
+  68% {
+	background-position: 50% -595px;
+  }
+
+  72% {
+	background-position: 50% -630px;
+  }
+
+  76% {
+	background-position: 50% -665px;
+  }
+
+  80% {
+	background-position: 50% -700px;
+  }
+
+  84% {
+	background-position: 50% -735px;
+  }
+
+  88% {
+	background-position: 50% -770px;
+  }
+
+  92% {
+	background-position: 50% -805px;
+  }
+
+  96% {
+	background-position: 50% -840px;
+  }
+
+  100% {
+	background-position: 50% -875px;
+  }
+}
+
+@keyframes loading-animation {
+  0% {
+	background-position: 50% 0px;
+  }
+
+  4% {
+	background-position: 50% -35px;
+  }
+
+  8% {
+	background-position: 50% -70px;
+  }
+
+  12% {
+	background-position: 50% -105px;
+  }
+
+  16% {
+	background-position: 50% -140px;
+  }
+
+  20% {
+	background-position: 50% -175px;
+  }
+
+  24% {
+	background-position: 50% -210px;
+  }
+
+  28% {
+	background-position: 50% -245px;
+  }
+
+  32% {
+	background-position: 50% -280px;
+  }
+
+  36% {
+	background-position: 50% -315px;
+  }
+
+  40% {
+	background-position: 50% -350px;
+  }
+
+  44% {
+	background-position: 50% -385px;
+  }
+
+  48% {
+	background-position: 50% -420px;
+  }
+
+  52% {
+	background-position: 50% -455px;
+  }
+
+  56% {
+	background-position: 50% -490px;
+  }
+
+  60% {
+	background-position: 50% -525px;
+  }
+
+  64% {
+	background-position: 50% -560px;
+  }
+
+  68% {
+	background-position: 50% -595px;
+  }
+
+  72% {
+	background-position: 50% -630px;
+  }
+
+  76% {
+	background-position: 50% -665px;
+  }
+
+  80% {
+	background-position: 50% -700px;
+  }
+
+  84% {
+	background-position: 50% -735px;
+  }
+
+  88% {
+	background-position: 50% -770px;
+  }
+
+  92% {
+	background-position: 50% -805px;
+  }
+
+  96% {
+	background-position: 50% -840px;
+  }
+
+  100% {
+	background-position: 50% -875px;
+  }
+}
+
+
+
+
+@-webkit-keyframes logospin {
+  0% {
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+  }
+
+  80% {
+	-webkit-transform: rotate(-360deg);
+	-moz-transform: rotate(-360deg);
+	-ms-transform: rotate(-360deg);
+	-o-transform: rotate(-360deg);
+	transform: rotate(-360deg);
+  }
+
+  100% {
+	-webkit-transform: rotate(-360deg);
+	-moz-transform: rotate(-360deg);
+	-ms-transform: rotate(-360deg);
+	-o-transform: rotate(-360deg);
+	transform: rotate(-360deg);
+  }
+}
+
+@-moz-keyframes logospin {
+  0% {
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+  }
+
+  80% {
+	-webkit-transform: rotate(-360deg);
+	-moz-transform: rotate(-360deg);
+	-ms-transform: rotate(-360deg);
+	-o-transform: rotate(-360deg);
+	transform: rotate(-360deg);
+  }
+
+  100% {
+	-webkit-transform: rotate(-360deg);
+	-moz-transform: rotate(-360deg);
+	-ms-transform: rotate(-360deg);
+	-o-transform: rotate(-360deg);
+	transform: rotate(-360deg);
+  }
+}
+
+@-o-keyframes logospin {
+  0% {
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+  }
+
+  80% {
+	-webkit-transform: rotate(-360deg);
+	-moz-transform: rotate(-360deg);
+	-ms-transform: rotate(-360deg);
+	-o-transform: rotate(-360deg);
+	transform: rotate(-360deg);
+  }
+
+  100% {
+	-webkit-transform: rotate(-360deg);
+	-moz-transform: rotate(-360deg);
+	-ms-transform: rotate(-360deg);
+	-o-transform: rotate(-360deg);
+	transform: rotate(-360deg);
+  }
+}
+
+@keyframes logospin {
+  0% {
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+  }
+
+  80% {
+	-webkit-transform: rotate(-360deg);
+	-moz-transform: rotate(-360deg);
+	-ms-transform: rotate(-360deg);
+	-o-transform: rotate(-360deg);
+	transform: rotate(-360deg);
+  }
+
+  100% {
+	-webkit-transform: rotate(-360deg);
+	-moz-transform: rotate(-360deg);
+	-ms-transform: rotate(-360deg);
+	-o-transform: rotate(-360deg);
+	transform: rotate(-360deg);
+  }
+}
+
+
+
+//let it snow!
+
+@media (min-width: 992px) {
+
+
+
+@-webkit-keyframes letitsnow {
+  0% {
+	top: 90%;
+  }
+
+  100% {
+	top: 5%;
+  }
+}
+
+@-moz-keyframes letitsnow {
+  0% {
+	top: 90%;
+  }
+
+  100% {
+	top: 5%;
+  }
+}
+
+@-o-keyframes letitsnow {
+  0% {
+	top: 90%;
+  }
+
+  100% {
+	top: 5%;
+  }
+}
+
+@keyframes letitsnow {
+  0% {
+	top: 90%;
+  }
+
+  100% {
+	top: 5%;
+  }
+}
+
+.snow {
+  position: absolute;
+  border-radius: 50%;
+  background-color: white;
+  top: -9999px;
+}
+
+#snow0 {
+  -webkit-animation: letitsnow 16s infinite linear 13.55s;
+  -moz-animation: letitsnow 16s infinite linear 13.55s;
+  -o-animation: letitsnow 16s infinite linear 13.55s;
+  animation: letitsnow 16s infinite linear 13.55s;
+  left: 11%;
+  height: 3px;
+  width: 3px;
+}
+
+#snow1 {
+  -webkit-animation: letitsnow 18s infinite linear 4.7s;
+  -moz-animation: letitsnow 18s infinite linear 4.7s;
+  -o-animation: letitsnow 18s infinite linear 4.7s;
+  animation: letitsnow 18s infinite linear 4.7s;
+  left: 85%;
+  height: 2px;
+  width: 2px;
+}
+
+#snow2 {
+  -webkit-animation: letitsnow 19s infinite linear 5.25s;
+  -moz-animation: letitsnow 19s infinite linear 5.25s;
+  -o-animation: letitsnow 19s infinite linear 5.25s;
+  animation: letitsnow 19s infinite linear 5.25s;
+  left: 82%;
+  height: 2px;
+  width: 2px;
+}
+
+#snow3 {
+  -webkit-animation: letitsnow 14s infinite linear 21.35s;
+  -moz-animation: letitsnow 14s infinite linear 21.35s;
+  -o-animation: letitsnow 14s infinite linear 21.35s;
+  animation: letitsnow 14s infinite linear 21.35s;
+  left: 78%;
+  height: 4px;
+  width: 4px;
+}
+
+#snow4 {
+  -webkit-animation: letitsnow 13s infinite linear 4.4s;
+  -moz-animation: letitsnow 13s infinite linear 4.4s;
+  -o-animation: letitsnow 13s infinite linear 4.4s;
+  animation: letitsnow 13s infinite linear 4.4s;
+  left: 98%;
+  height: 6px;
+  width: 6px;
+}
+
+#snow5 {
+  -webkit-animation: letitsnow 17s infinite linear 5.4s;
+  -moz-animation: letitsnow 17s infinite linear 5.4s;
+  -o-animation: letitsnow 17s infinite linear 5.4s;
+  animation: letitsnow 17s infinite linear 5.4s;
+  left: 3%;
+  height: 3px;
+  width: 3px;
+}
+
+#snow6 {
+  -webkit-animation: letitsnow 11s infinite linear 22.75s;
+  -moz-animation: letitsnow 11s infinite linear 22.75s;
+  -o-animation: letitsnow 11s infinite linear 22.75s;
+  animation: letitsnow 11s infinite linear 22.75s;
+  left: 88%;
+  height: 3px;
+  width: 3px;
+}
+
+#snow7 {
+  -webkit-animation: letitsnow 17s infinite linear 18.5s;
+  -moz-animation: letitsnow 17s infinite linear 18.5s;
+  -o-animation: letitsnow 17s infinite linear 18.5s;
+  animation: letitsnow 17s infinite linear 18.5s;
+  left: 42%;
+  height: 3px;
+  width: 3px;
+}
+
+#snow8 {
+  -webkit-animation: letitsnow 14s infinite linear 3.7s;
+  -moz-animation: letitsnow 14s infinite linear 3.7s;
+  -o-animation: letitsnow 14s infinite linear 3.7s;
+  animation: letitsnow 14s infinite linear 3.7s;
+  left: 57%;
+  height: 2px;
+  width: 2px;
+}
+
+#snow9 {
+  -webkit-animation: letitsnow 12s infinite linear 23.25s;
+  -moz-animation: letitsnow 12s infinite linear 23.25s;
+  -o-animation: letitsnow 12s infinite linear 23.25s;
+  animation: letitsnow 12s infinite linear 23.25s;
+  left: 0%;
+  height: 4px;
+  width: 4px;
+}
+
+#snow10 {
+  -webkit-animation: letitsnow 11s infinite linear 19.75s;
+  -moz-animation: letitsnow 11s infinite linear 19.75s;
+  -o-animation: letitsnow 11s infinite linear 19.75s;
+  animation: letitsnow 11s infinite linear 19.75s;
+  left: 15%;
+  height: 3px;
+  width: 3px;
+}
+
+#snow11 {
+  -webkit-animation: letitsnow 10s infinite linear 3.8s;
+  -moz-animation: letitsnow 10s infinite linear 3.8s;
+  -o-animation: letitsnow 10s infinite linear 3.8s;
+  animation: letitsnow 10s infinite linear 3.8s;
+  left: 87%;
+  height: 6px;
+  width: 6px;
+}
+
+#snow12 {
+  -webkit-animation: letitsnow 13s infinite linear 3.6s;
+  -moz-animation: letitsnow 13s infinite linear 3.6s;
+  -o-animation: letitsnow 13s infinite linear 3.6s;
+  animation: letitsnow 13s infinite linear 3.6s;
+  left: 64%;
+  height: 5px;
+  width: 5px;
+}
+
+#snow13 {
+  -webkit-animation: letitsnow 10s infinite linear 1.15s;
+  -moz-animation: letitsnow 10s infinite linear 1.15s;
+  -o-animation: letitsnow 10s infinite linear 1.15s;
+  animation: letitsnow 10s infinite linear 1.15s;
+  left: 54%;
+  height: 5px;
+  width: 5px;
+}
+
+#snow14 {
+  -webkit-animation: letitsnow 14s infinite linear 18.6s;
+  -moz-animation: letitsnow 14s infinite linear 18.6s;
+  -o-animation: letitsnow 14s infinite linear 18.6s;
+  animation: letitsnow 14s infinite linear 18.6s;
+  left: 41%;
+  height: 5px;
+  width: 5px;
+}
+
+#snow15 {
+  -webkit-animation: letitsnow 11s infinite linear 4.85s;
+  -moz-animation: letitsnow 11s infinite linear 4.85s;
+  -o-animation: letitsnow 11s infinite linear 4.85s;
+  animation: letitsnow 11s infinite linear 4.85s;
+  left: 60%;
+  height: 4px;
+  width: 4px;
+}
+
+#snow16 {
+  -webkit-animation: letitsnow 14s infinite linear 21.1s;
+  -moz-animation: letitsnow 14s infinite linear 21.1s;
+  -o-animation: letitsnow 14s infinite linear 21.1s;
+  animation: letitsnow 14s infinite linear 21.1s;
+  left: 76%;
+  height: 3px;
+  width: 3px;
+}
+
+#snow17 {
+  -webkit-animation: letitsnow 17s infinite linear 1.5s;
+  -moz-animation: letitsnow 17s infinite linear 1.5s;
+  -o-animation: letitsnow 17s infinite linear 1.5s;
+  animation: letitsnow 17s infinite linear 1.5s;
+  left: 21%;
+  height: 6px;
+  width: 6px;
+}
+
+#snow18 {
+  -webkit-animation: letitsnow 16s infinite linear 19.15s;
+  -moz-animation: letitsnow 16s infinite linear 19.15s;
+  -o-animation: letitsnow 16s infinite linear 19.15s;
+  animation: letitsnow 16s infinite linear 19.15s;
+  left: 54%;
+  height: 6px;
+  width: 6px;
+}
+
+#snow19 {
+  -webkit-animation: letitsnow 10s infinite linear 12.4s;
+  -moz-animation: letitsnow 10s infinite linear 12.4s;
+  -o-animation: letitsnow 10s infinite linear 12.4s;
+  animation: letitsnow 10s infinite linear 12.4s;
+  left: 65%;
+  height: 3px;
+  width: 3px;
+}
+
+#snow20 {
+  -webkit-animation: letitsnow 14s infinite linear 8.05s;
+  -moz-animation: letitsnow 14s infinite linear 8.05s;
+  -o-animation: letitsnow 14s infinite linear 8.05s;
+  animation: letitsnow 14s infinite linear 8.05s;
+  left: 85%;
+  height: 6px;
+  width: 6px;
+}
+
+#snow21 {
+  -webkit-animation: letitsnow 17s infinite linear 5.7s;
+  -moz-animation: letitsnow 17s infinite linear 5.7s;
+  -o-animation: letitsnow 17s infinite linear 5.7s;
+  animation: letitsnow 17s infinite linear 5.7s;
+  left: 66%;
+  height: 6px;
+  width: 6px;
+}
+
+#snow22 {
+  -webkit-animation: letitsnow 11s infinite linear 14.1s;
+  -moz-animation: letitsnow 11s infinite linear 14.1s;
+  -o-animation: letitsnow 11s infinite linear 14.1s;
+  animation: letitsnow 11s infinite linear 14.1s;
+  left: 67%;
+  height: 4px;
+  width: 4px;
+}
+
+#snow23 {
+  -webkit-animation: letitsnow 12s infinite linear 1.95s;
+  -moz-animation: letitsnow 12s infinite linear 1.95s;
+  -o-animation: letitsnow 12s infinite linear 1.95s;
+  animation: letitsnow 12s infinite linear 1.95s;
+  left: 19%;
+  height: 6px;
+  width: 6px;
+}
+
+#snow24 {
+  -webkit-animation: letitsnow 14s infinite linear 10.45s;
+  -moz-animation: letitsnow 14s infinite linear 10.45s;
+  -o-animation: letitsnow 14s infinite linear 10.45s;
+  animation: letitsnow 14s infinite linear 10.45s;
+  left: 16%;
+  height: 3px;
+  width: 3px;
+}
+
+#snow25 {
+  -webkit-animation: letitsnow 19s infinite linear 15.15s;
+  -moz-animation: letitsnow 19s infinite linear 15.15s;
+  -o-animation: letitsnow 19s infinite linear 15.15s;
+  animation: letitsnow 19s infinite linear 15.15s;
+  left: 57%;
+  height: 4px;
+  width: 4px;
+}
+
+#snow26 {
+  -webkit-animation: letitsnow 12s infinite linear 7.8s;
+  -moz-animation: letitsnow 12s infinite linear 7.8s;
+  -o-animation: letitsnow 12s infinite linear 7.8s;
+  animation: letitsnow 12s infinite linear 7.8s;
+  left: 53%;
+  height: 4px;
+  width: 4px;
+}
+
+#snow27 {
+  -webkit-animation: letitsnow 14s infinite linear 0.8s;
+  -moz-animation: letitsnow 14s infinite linear 0.8s;
+  -o-animation: letitsnow 14s infinite linear 0.8s;
+  animation: letitsnow 14s infinite linear 0.8s;
+  left: 5%;
+  height: 6px;
+  width: 6px;
+}
+
+#snow28 {
+  -webkit-animation: letitsnow 16s infinite linear 21.85s;
+  -moz-animation: letitsnow 16s infinite linear 21.85s;
+  -o-animation: letitsnow 16s infinite linear 21.85s;
+  animation: letitsnow 16s infinite linear 21.85s;
+  left: 53%;
+  height: 4px;
+  width: 4px;
+}
+
+#snow29 {
+  -webkit-animation: letitsnow 12s infinite linear 1.95s;
+  -moz-animation: letitsnow 12s infinite linear 1.95s;
+  -o-animation: letitsnow 12s infinite linear 1.95s;
+  animation: letitsnow 12s infinite linear 1.95s;
+  left: 36%;
+  height: 6px;
+  width: 6px;
+}
+}
