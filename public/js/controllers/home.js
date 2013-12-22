@@ -4,6 +4,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 	Auth.loadCredentials();
 
 	$scope.timeouts = [];
+	$scope.show_all = false;
 	$scope.bot = '/img/shells/' + localStorage.config_bot + '.gif?v=0';
 	$scope.paddy = Helpers.paddy;
 	$scope.showSideMenu = false;
@@ -159,6 +160,8 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 		return !Helpers.isEmpty($scope.selected_items);
 
 	}
+
+
 
 	//run right away
 

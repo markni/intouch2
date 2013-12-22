@@ -177,7 +177,8 @@ a, span, div, button {
   padding-bottom: 15px;
   box-shadow: rgba($c-gray, 0.1) 1px 2px;
   &.selected {
-	box-shadow: rgba($c-red, 0.8) 1px 2px;
+	box-shadow: rgba($c-dk-blue, 0.8) 1px 2px;
+
   }
   .inner {
 	position: relative;

@@ -12,7 +12,7 @@ div.row
 		div(ng-class="{hidden:server_offline == 0}")
 			h4.white-text.text-center Server Offline
 
-		div.row.card.form-group(ng-repeat="item in items",ng-class="{selected:items[$index].selected,hidden:loading>0}")
+		div.row.card.form-group(ng-repeat="item in items",ng-class="{selected:items[$index].selected,hidden:(loading>0||(show_all===false&&$index>6))}")
 
 			div.col-md-10.col-xs-10.col-lg-10.padding-right-0.inner
 
@@ -40,7 +40,8 @@ div.row
 			a.col-md-2.col-xs-2.col-lg-2.no-href-link.subject-link-btn(href="/subject/{{item.subject.id}}")
 				span.glyphicon.glyphicon-chevron-right.pull-right
 
-
+		div.row.form-group(ng-class="{hidden:loading>0||show_all===true}")
+			a.btn.btn-info.btn-block(ng-click="show_all=true"){{ 'LOAD_ALL' | translate}}
 
 div(side-menu)
 

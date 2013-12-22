@@ -48,6 +48,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 		FINISHED_UPDATE_WATCHED_TO: "EP. {{x}} of {{y}} has been marked as watched.",
 		ACTION_COMPLETED: "You have marked {{x}} subjects, they will be removed from your watching queue.",
 		APPLY_CHANGES: "Apply changes",
+		LOAD_ALL: 'Load all items',
 		RAN_MSG_1: "The weather is nice today!"
 
 	})
@@ -95,6 +96,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			FINISHED_UPDATE_WATCHED_TO: "你已成功看过了 {{y}} 的EP. {{x}} ～☆",
 			ACTION_COMPLETED: "你已经成功标记了{{x}}部作品，它们将不再出现在首页列表中 ～☆",
 			APPLY_CHANGES: "保存收藏状态",
+			LOAD_ALL: '显示剩余的条目',
 			RAN_MSG_1: "今天天气真好啊 ～☆",
 			RAN_MSG_2: "今天天气真好啊 ～☆"
 
@@ -166,8 +168,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 			if (localStorage.auth === undefined) {
 
+				console.log(next.templateUrl);
 				// no logged user, we should be going to #login
-				if (next.templateUrl == "/temp/login" || next.templateUrl == "/temp/logout") {
+				if (next.templateUrl == "/temp/login" || next.templateUrl == "/temp/logout" || next.templateUrl == "/temp/profile" ) {
 					// already going to #login, no redirect needed
 				} else {
 					// not going to #login, we should redirect now
