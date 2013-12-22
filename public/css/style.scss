@@ -614,7 +614,9 @@ $half: round($loops / 2);
 }
 
 
-@media (max-height: 321px) {
+
+//not enough height to display full side menu
+@media (max-height: 450px) {
 
   .side-menu{
 	.red-bg, .pink-bg{

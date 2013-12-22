@@ -713,15 +713,15 @@ a.search-title:hover {
   transform-origin: 0 0;
 }
 
-@media (max-height: 321px) {
-  /* line 620, style.scss */
+@media (max-height: 450px) {
+  /* line 622, style.scss */
   .side-menu .red-bg, .side-menu .pink-bg {
     display: none;
   }
 }
 /*xs screen only css*/
 @media (max-width: 767px) {
-  /* line 635, style.scss */
+  /* line 637, style.scss */
   .navbar-menu-bot {
     height: 40px;
     width: 40px;
@@ -729,36 +729,36 @@ a.search-title:hover {
     margin-bottom: 5px;
   }
 
-  /* line 642, style.scss */
+  /* line 644, style.scss */
   .navbar-menu-btn {
     line-height: 50px;
   }
 
-  /* line 648, style.scss */
+  /* line 650, style.scss */
   .super-nav-bar-bottom .action_btns .btn {
     height: 40px;
   }
 
-  /* line 653, style.scss */
+  /* line 655, style.scss */
   .tooltips .inner {
     bottom: 30px;
     min-width: 200px;
     max-width: 250px;
   }
-  /* line 658, style.scss */
+  /* line 660, style.scss */
   .tooltips:before {
     bottom: 15px;
   }
 }
 /*push if it's tablet or phone*/
 @media (max-width: 991px) {
-  /* line 668, style.scss */
+  /* line 670, style.scss */
   .push-aside {
     margin-left: -100px;
     margin-right: 100px;
   }
 
-  /* line 672, style.scss */
+  /* line 674, style.scss */
   .mobile-btn-lg {
     padding: 10px 16px;
     font-size: 18px;
@@ -766,7 +766,7 @@ a.search-title:hover {
   }
 
   /*no hover quick fly out side menu for mobile devices*/
-  /* line 678, style.scss */
+  /* line 680, style.scss */
   .side-menu {
     width: 100px;
   }
