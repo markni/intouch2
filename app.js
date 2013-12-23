@@ -77,6 +77,7 @@ app.all('/api/collection',api.getCollection);
 app.all('/api/schedule',api.schedule);
 
 app.all('/api/subject/:id/watchedto/:epnum',api.updateTo);
+app.all('/api/subject/:id/eps/:cmd',api.updateEps);
 app.all('/api/subjects/update_status/:status',api.updateStatus);
 
 

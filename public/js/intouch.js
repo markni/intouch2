@@ -37,7 +37,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 		START_APP: 'Login',
 		START_APP_WITH_DEMO: 'Login with Demo Account',
 		SET_LANG: 'Switch language to 简体中文',
-		NO_ACCOUNT_HINT: "Don't have an acccount? Try this.",
+		NO_ACCOUNT_HINT: "Don't have an account? Try this.",
 		PASSWORD: 'password',
 		USERNAME: 'username',
 		LOGIN_ERROR: "Incorrect username or password, please try again.",
@@ -53,6 +53,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 		LOW_QUALITY_IMAGE:"Low Quality Image",
 		BOT1:'Default Bot',
 		BOT2:'Bangumi Chan',
+		LOAD_ALL_EPS: 'Show already watched episodes.',
+		WATCHED_TO: 'Watched to',
+		REMOVE: 'Reset',
 		RAN_MSG_1: "The weather is nice today!"
 
 	})
@@ -101,6 +104,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			ACTION_COMPLETED: "你已经成功标记了{{x}}部作品，它们将不再出现在首页列表中 ～☆",
 			APPLY_CHANGES: "保存收藏状态",
 			LOAD_ALL: '显示剩余的条目',
+			LOAD_ALL_EPS: '显示已经看过的章节',
+			WATCHED_TO: '看到',
+			REMOVE: '撤销',
 			HIGH_QUALITY_IMAGE:'使用高清图片',
 		    LOW_QUALITY_IMAGE:"使用低清图片",
 			BOT1:'默认机器人(圈圈)',

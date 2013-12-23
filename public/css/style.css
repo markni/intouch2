@@ -180,28 +180,40 @@ a, span, div, button {
   padding-bottom: 15px;
   box-shadow: rgba(80, 80, 80, 0.1) 1px 2px;
 }
-/* line 180, style.scss */
+/* line 181, style.scss */
+.card.ep {
+  -webkit-transition: all 200ms;
+  -moz-transition: all 200ms;
+  -o-transition: all 200ms;
+  transition: all 200ms;
+}
+/* line 184, style.scss */
 .card.selected {
   box-shadow: rgba(66, 139, 202, 0.8) 1px 2px;
 }
-/* line 184, style.scss */
+/* line 188, style.scss */
+.card.ep.selected {
+  background-color: #428bca;
+  color: white;
+}
+/* line 193, style.scss */
 .card .inner {
   position: relative;
 }
 
-/* line 189, style.scss */
+/* line 198, style.scss */
 .tag {
   color: rgba(80, 80, 80, 0.7);
   padding: 3px 5px 3px 5px;
   font-size: smaller;
   float: left;
 }
-/* line 194, style.scss */
+/* line 203, style.scss */
 .tag .glyphicon {
   padding-right: 17px;
 }
 
-/* line 201, style.scss */
+/* line 210, style.scss */
 .left-triangle {
   -webkit-transition: border-right-width 200ms;
   -moz-transition: border-right-width 200ms;
@@ -215,32 +227,32 @@ a, span, div, button {
   border-bottom: 25px solid transparent;
   position: relative;
 }
-/* line 211, style.scss */
+/* line 220, style.scss */
 .left-triangle:hover {
   border-right-width: 130px;
 }
-/* line 214, style.scss */
+/* line 223, style.scss */
 .left-triangle.cyan-bg {
   background-color: transparent;
   border-right-color: #62afb5;
 }
-/* line 218, style.scss */
+/* line 227, style.scss */
 .left-triangle.red-bg {
   background-color: transparent;
   border-right-color: #d9534f;
 }
-/* line 222, style.scss */
+/* line 231, style.scss */
 .left-triangle.blue-bg {
   border-right-color: #428bca;
   background-color: transparent;
 }
-/* line 226, style.scss */
+/* line 235, style.scss */
 .left-triangle.pink-bg {
   border-right-color: #f96790;
   background-color: transparent;
 }
 
-/* line 234, style.scss */
+/* line 243, style.scss */
 .side_menu_btn {
   letter-spacing: 2px;
   position: absolute;
@@ -254,7 +266,7 @@ a, span, div, button {
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 253, style.scss */
+/* line 262, style.scss */
 .navbar-menu-bot {
   height: 75px;
   width: 75px;
@@ -262,7 +274,7 @@ a, span, div, button {
   margin-bottom: 5px;
 }
 
-/* line 260, style.scss */
+/* line 269, style.scss */
 .navbar-menu-btn {
   -webkit-transition: all 500ms;
   -moz-transition: all 500ms;
@@ -274,26 +286,26 @@ a, span, div, button {
   font-size: x-large;
   display: inline-block;
 }
-/* line 270, style.scss */
+/* line 279, style.scss */
 .navbar-menu-btn:hover, .navbar-menu-btn:focus {
   color: white;
 }
 
-/* line 275, style.scss */
+/* line 284, style.scss */
 .super-nav-bar-bottom .action_btns .btn {
   border-right: 1px solid rgba(80, 80, 80, 0.7);
   height: 85px;
   text-shadow: 1px 1px rgba(80, 80, 80, 0.8);
 }
-/* line 279, style.scss */
+/* line 288, style.scss */
 .super-nav-bar-bottom .action_btns .btn:last-child {
   border-right: 0;
 }
-/* line 282, style.scss */
+/* line 291, style.scss */
 .super-nav-bar-bottom .action_btns .btn:focus {
   color: white;
 }
-/* line 285, style.scss */
+/* line 294, style.scss */
 .super-nav-bar-bottom .action_btns .btn:hover {
   color: #d9534f;
   background-color: white;
@@ -302,17 +314,17 @@ a, span, div, button {
   border-right: 0;
 }
 
-/* line 294, style.scss */
+/* line 303, style.scss */
 .switch-btn {
   cursor: pointer;
   line-height: 40px;
 }
-/* line 297, style.scss */
+/* line 306, style.scss */
 .switch-btn:hover, .switch-btn.active {
   color: #7ccce5;
 }
 
-/* line 302, style.scss */
+/* line 311, style.scss */
 .icon-flipped {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -320,7 +332,7 @@ a, span, div, button {
   -o-transform: scaleX(-1);
   transform: scaleX(-1);
 }
-/* line 305, style.scss */
+/* line 314, style.scss */
 .icon-flipped.icon-rotated-180-right {
   -webkit-transform: rotate(180deg) scaleX(-1);
   -moz-transform: rotate(180deg) scaleX(-1);
@@ -329,12 +341,12 @@ a, span, div, button {
   transform: rotate(180deg) scaleX(-1);
 }
 
-/* line 310, style.scss */
+/* line 319, style.scss */
 .super-nav-bar-bottom {
   border-top: 1px solid #ac2925;
 }
 
-/* line 314, style.scss */
+/* line 323, style.scss */
 .tooltips {
   display: inline;
   position: relative;
@@ -345,7 +357,7 @@ a, span, div, button {
   /* Safari */
   transition: opacity 800ms;
 }
-/* line 323, style.scss */
+/* line 332, style.scss */
 .tooltips .inner {
   background: #428bca;
   bottom: 55px;
@@ -357,7 +369,7 @@ a, span, div, button {
   position: absolute;
   z-index: 98;
 }
-/* line 335, style.scss */
+/* line 344, style.scss */
 .tooltips:before {
   border: solid;
   border-color: #428bca transparent;
@@ -369,7 +381,7 @@ a, span, div, button {
   z-index: 99;
 }
 
-/* line 348, style.scss */
+/* line 357, style.scss */
 .side-menu {
   -webkit-transition: margin-right 200ms;
   -moz-transition: margin-right 200ms;
@@ -383,17 +395,17 @@ a, span, div, button {
   padding-top: 15px;
   margin-right: -100px;
 }
-/* line 358, style.scss */
+/* line 367, style.scss */
 .side-menu:hover, .side-menu.show {
   margin-right: 0;
 }
 
-/* line 363, style.scss */
+/* line 372, style.scss */
 .progress-total {
   width: 100%;
 }
 
-/* line 367, style.scss */
+/* line 376, style.scss */
 .progress-current {
   -webkit-transition: width 200ms;
   -moz-transition: width 200ms;
@@ -402,12 +414,12 @@ a, span, div, button {
   height: 5px;
 }
 
-/* line 373, style.scss */
+/* line 382, style.scss */
 .navbar-bottom-avatar {
   width: 100px;
 }
 
-/* line 377, style.scss */
+/* line 386, style.scss */
 .absolute-center-block {
   /* must set width */
   display: block;
@@ -416,108 +428,108 @@ a, span, div, button {
   right: 0;
 }
 
-/* line 385, style.scss */
+/* line 394, style.scss */
 .large-quote {
   color: white;
 }
 
-/* line 389, style.scss */
+/* line 398, style.scss */
 .navbar-fixed-bottom .large-quote {
   padding: 20px;
 }
 
-/* line 393, style.scss */
+/* line 402, style.scss */
 .gray-border-top {
   border-top: 3px solid #9d9d9d;
 }
 
-/* line 399, style.scss */
+/* line 408, style.scss */
 .pink-border-top {
   border-top: 3px solid #f96790;
 }
 
-/* line 403, style.scss */
+/* line 412, style.scss */
 .cyan-border-top {
   border-top: 3px solid #62afb5;
 }
 
-/* line 407, style.scss */
+/* line 416, style.scss */
 .blue-border-top {
   border-top: 3px solid #428bca;
 }
 
-/* line 412, style.scss */
+/* line 421, style.scss */
 .orange-border-top {
   border-top: 3px solid #F79B57;
 }
 
-/* line 416, style.scss */
+/* line 425, style.scss */
 .red-border-top {
   border-top: 3px solid #d9534f;
 }
 
-/* line 420, style.scss */
+/* line 429, style.scss */
 .pink-border-left {
   border-left: 3px solid #f96790;
 }
 
-/* line 424, style.scss */
+/* line 433, style.scss */
 .cyan-border-left {
   border-left: 3px solid #62afb5;
 }
 
-/* line 428, style.scss */
+/* line 437, style.scss */
 .blue-border-left {
   border-left: 3px solid #428bca;
 }
 
-/* line 433, style.scss */
+/* line 442, style.scss */
 .orange-border-left {
   border-left: 3px solid #F79B57;
 }
 
-/* line 437, style.scss */
+/* line 446, style.scss */
 .red-border-left {
   border-left: 3px solid #d9534f;
 }
 
-/* line 441, style.scss */
+/* line 450, style.scss */
 .white-text {
   color: white;
 }
 
-/* line 445, style.scss */
+/* line 454, style.scss */
 .faded {
   opacity: 0.5;
 }
-/* line 446, style.scss */
+/* line 455, style.scss */
 .faded:hover {
   opacity: 1;
 }
 
-/* line 452, style.scss */
+/* line 461, style.scss */
 .search-icon {
   width: 14px !important;
   line-height: inherit;
   margin: auto;
 }
 
-/* line 458, style.scss */
+/* line 467, style.scss */
 .subject-link-btn {
   height: 100px;
   /*color: $c-blue;*/
   color: rgba(80, 80, 80, 0.1);
 }
-/* line 462, style.scss */
+/* line 471, style.scss */
 .subject-link-btn:hover {
   color: rgba(80, 80, 80, 0.5);
 }
-/* line 465, style.scss */
+/* line 474, style.scss */
 .subject-link-btn .glyphicon {
   line-height: 100px;
 }
 
-/* line 470, style.scss */
+/* line 479, style.scss */
 .loading-bar {
   height: 35px;
   background-color: #7ccce5;
@@ -531,51 +543,51 @@ a, span, div, button {
   width: 100%;
 }
 
-/* line 481, style.scss */
+/* line 490, style.scss */
 .visually-hidden {
   opacity: 0;
 }
 
-/* line 485, style.scss */
+/* line 494, style.scss */
 .subject-title:hover h1, .subject-title:hover h4 {
   color: #7ccce5;
 }
 
-/* line 490, style.scss */
+/* line 499, style.scss */
 a:link.search-title {
   color: #505050;
 }
-/* line 494, style.scss */
+/* line 503, style.scss */
 a.search-title {
   text-decoration: none;
   color: #505050;
 }
-/* line 497, style.scss */
+/* line 506, style.scss */
 a.search-title h4, a.search-title h6 {
   display: inline-block;
 }
-/* line 500, style.scss */
+/* line 509, style.scss */
 a.search-title h6 {
   line-height: 19px;
   padding-left: 20px;
   color: rgba(80, 80, 80, 0.3);
 }
-/* line 505, style.scss */
+/* line 514, style.scss */
 a.search-title:hover {
   color: #7ccce5;
 }
 
-/* line 512, style.scss */
+/* line 521, style.scss */
 .aired {
   border-left: #62afb5 solid 3px;
 }
 
-/* line 516, style.scss */
+/* line 525, style.scss */
 .onair {
   border-left: #8bb65b solid 3px;
 }
 
-/* line 520, style.scss */
+/* line 529, style.scss */
 .onairtag {
   display: inline-block;
   background-color: rgba(139, 182, 91, 0.9);
@@ -583,69 +595,69 @@ a.search-title:hover {
   padding: 3px 5px;
 }
 
-/* line 528, style.scss */
+/* line 537, style.scss */
 .watched {
   border-left: #428bca solid 3px;
 }
 
 /* adpoted from http://codepen.io/geedmo/pen/InFfd */
-/* line 544, style.scss */
+/* line 553, style.scss */
 .progress-0 {
   background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(90deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 544, style.scss */
+/* line 553, style.scss */
 .progress-10 {
   background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(126deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 544, style.scss */
+/* line 553, style.scss */
 .progress-20 {
   background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(162deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 544, style.scss */
+/* line 553, style.scss */
 .progress-30 {
   background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(198deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 544, style.scss */
+/* line 553, style.scss */
 .progress-40 {
   background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(234deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 544, style.scss */
+/* line 553, style.scss */
 .progress-50 {
   background-image: linear-gradient(-90deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 544, style.scss */
+/* line 553, style.scss */
 .progress-60 {
   background-image: linear-gradient(-54deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 544, style.scss */
+/* line 553, style.scss */
 .progress-70 {
   background-image: linear-gradient(-18deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 544, style.scss */
+/* line 553, style.scss */
 .progress-80 {
   background-image: linear-gradient(18deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 544, style.scss */
+/* line 553, style.scss */
 .progress-90 {
   background-image: linear-gradient(54deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 544, style.scss */
+/* line 553, style.scss */
 .progress-100 {
   background-image: linear-gradient(90deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
 /*logo for 404 page*/
-/* line 557, style.scss */
+/* line 566, style.scss */
 .logospin {
   margin: auto;
   height: 100px;
@@ -654,7 +666,7 @@ a.search-title:hover {
   margin-top: 200px;
   margin-bottom: 100px;
 }
-/* line 564, style.scss */
+/* line 573, style.scss */
 .logospin .segment {
   position: absolute;
   top: 0;
@@ -665,7 +677,7 @@ a.search-title:hover {
   -moz-animation: logospin 3s infinite ease-out;
   animation: logospin 3s infinite ease-out;
 }
-/* line 573, style.scss */
+/* line 582, style.scss */
 .logospin .segment:nth-of-type(1) {
   border-width: 100px 25px 50px 33.33333px;
   border-style: solid;
@@ -679,7 +691,7 @@ a.search-title:hover {
   -o-transform-origin: 0 0;
   transform-origin: 0 0;
 }
-/* line 586, style.scss */
+/* line 595, style.scss */
 .logospin .segment:nth-of-type(2) {
   border-width: 100px 25px 50px 33.33333px;
   border-style: solid;
@@ -693,7 +705,7 @@ a.search-title:hover {
   -o-transform-origin: 0 0;
   transform-origin: 0 0;
 }
-/* line 599, style.scss */
+/* line 608, style.scss */
 .logospin .segment:nth-of-type(3) {
   border-width: 100px 25px 50px 33.33333px;
   border-style: solid;
@@ -707,7 +719,7 @@ a.search-title:hover {
   -o-transform-origin: 0 0;
   transform-origin: 0 0;
 }
-/* line 612, style.scss */
+/* line 621, style.scss */
 .logospin .segment:nth-of-type(4) {
   border-width: 100px 25px 50px 33.33333px;
   border-style: solid;
@@ -723,14 +735,14 @@ a.search-title:hover {
 }
 
 @media (max-height: 450px) {
-  /* line 634, style.scss */
+  /* line 643, style.scss */
   .side-menu .red-bg, .side-menu .pink-bg {
     display: none;
   }
 }
 /*xs screen only css*/
 @media (max-width: 767px), (max-height: 450px) {
-  /* line 649, style.scss */
+  /* line 658, style.scss */
   .navbar-menu-bot {
     height: 40px;
     width: 40px;
@@ -738,36 +750,36 @@ a.search-title:hover {
     margin-bottom: 5px;
   }
 
-  /* line 657, style.scss */
+  /* line 666, style.scss */
   .navbar-menu-btn {
     line-height: 50px;
   }
 
-  /* line 664, style.scss */
+  /* line 673, style.scss */
   .super-nav-bar-bottom .action_btns .btn {
     height: 40px;
   }
 
-  /* line 669, style.scss */
+  /* line 678, style.scss */
   .tooltips .inner {
     bottom: 30px;
     min-width: 200px;
     max-width: 250px;
   }
-  /* line 674, style.scss */
+  /* line 683, style.scss */
   .tooltips:before {
     bottom: 15px;
   }
 }
 /*push if it's tablet or phone*/
 @media (max-width: 991px) {
-  /* line 684, style.scss */
+  /* line 693, style.scss */
   .push-aside {
     margin-left: -100px;
     margin-right: 100px;
   }
 
-  /* line 688, style.scss */
+  /* line 697, style.scss */
   .mobile-btn-lg {
     padding: 10px 16px;
     font-size: 18px;
@@ -775,7 +787,7 @@ a.search-title:hover {
   }
 
   /*no hover quick fly out side menu for mobile devices*/
-  /* line 694, style.scss */
+  /* line 703, style.scss */
   .side-menu {
     width: 100px;
   }

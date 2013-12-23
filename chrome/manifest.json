@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
-	"name": "inTouch",
-	"version": "0.1.2",
+	"name": "inTouch Express",
+	"version": "0.1.3",
 	"description": "Quick access to http://netaba.re, a web app designed for mobile.",
 	"icons": {
 		"16": "icon16.png",

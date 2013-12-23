@@ -42,9 +42,11 @@ div.row
 						button.btn.btn-block.btn-default(ng-click="reset()") {{ 'CANCEL' | translate }}
 
 
+		div.row.form-group(ng-class="{hidden:loading>0||show_all===true}")
+			a.btn.btn-info.btn-block(ng-click="showAll()"){{ 'LOAD_ALL_EPS' | translate}}
 
-		div.card.form-group.row(ng-repeat="ep in subject.eps",ng-class="{aired: ep.status==='Air', onair: ep.status==='Today', watched:ep.watched === 1}")
-			div
+		div.card.ep.form-group.row(ng-repeat="ep in subject.eps",ng-class="{aired: ep.status==='Air', onair: ep.status==='Today',hidden:(ep.watched === 1&&show_all===false), watched:ep.watched === 1, selected:isSelected(ep)}")
+			div.no-href-link(ng-click="addToSelected(ep)")
 				div.col-xs-2.col-lg-2  EP.{{ep.sort}}
 				div.col-xs-10.col-lg-10  {{epNameFormat(ep.name)}}
 
@@ -53,3 +55,16 @@ div.row
 			a.btn.btn-danger.btn-block(href="/"){{ 'RETURN_TO_HOME' | translate}}
 
 div(side-menu)
+
+
+nav.navbar.red-bg.navbar-default.navbar-fixed-bottom.super-nav-bar-bottom(ng-class='{hidden:isAnythingSelected()}')
+	div.action_btns.input-append
+		button.btn.col-lg-3.col-xs-3.white-text.red-bg(ng-click='updateEpStatus("watched")')
+			h4 {{ 'FINISH' | translate }}
+		button.btn.col-lg-3.col-xs-3.white-text.red-bg(ng-click='updateEpStatus("batch_update")')
+			h4 {{ 'WATCHED_TO' | translate }}
+		button.btn.col-lg-3.col-xs-3.white-text.red-bg(ng-click='updateEpStatus("remove")')
+			h4 {{ 'REMOVE' | translate }}
+		button.btn.col-lg-3.col-xs-3.white-text.red-bg(ng-click='cancelSelected()')
+			h4 {{ 'CANCEL' | translate }}
+

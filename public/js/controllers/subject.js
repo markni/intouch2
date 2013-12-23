@@ -2,6 +2,8 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 	$scope.loading = 1;
 	$scope.editing = 0;
 	$scope.rating = 0;
+	$scope.show_all = false;
+
 	$scope.ratings = [
 		{ "value": 0, "text": "n/a" },
 		{ "value": 1, "text": "★" },
@@ -16,6 +18,8 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 		{ "value": 10, "text": "★★★★★★★★★★" }
 
 	];
+
+	$scope.selected_eps = {};
 
 	$scope.toggleEdit = function(){
 
@@ -36,7 +40,92 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 	}
 
 	$scope.epNameFormat = function(name){
+		if (!name){
+			return 'TBA';
+		}
 		return name.replace(/&quot;/g,'"');
+
+	}
+
+	$scope.addToSelected = function(ep){
+		console.log(ep);
+		//if already have it , toggle selection
+		if(typeof $scope.selected_eps[ep.id] != "undefined"){
+			delete $scope.selected_eps[ep.id];
+		}
+		else{
+			$scope.selected_eps[ep.id] = ep.sort;
+		}
+
+	}
+
+	$scope.showAll = function(){
+		$scope.show_all = true;
+	}
+
+	$scope.isSelected = function(ep){
+		if(typeof $scope.selected_eps[ep.id] != "undefined"){
+			return true;
+		}
+		else {
+			return false;
+		}
+
+	}
+
+	$scope.cancelSelected = function(){
+		console.log($scope.selected_eps);
+		$scope.selected_eps = {};
+	}
+
+	$scope.isAnythingSelected = function(){
+		var result = Helpers.isEmpty($scope.selected_eps);
+
+		return Helpers.isEmpty($scope.selected_eps);
+
+	}
+
+	$scope.updateEpStatus = function(cmd){
+		var id = $scope.subject.id;
+		var eps = $scope.selected_eps;
+		console.log(id);
+		var d = {eps:eps};
+		$http({method: 'POST', url: '/api/subject/'+id+'/eps/'+cmd,data:d}).
+			success(function (data, status) {
+
+				if (cmd === "batch_update"){
+					var max =-1;
+					for (var key in eps){
+						if (eps[key]>=max){
+							max=eps[key];
+						}
+					}
+					for (var i=0;i<$scope.subject.eps.length;i++){
+						if ($scope.subject.eps[i].sort <=max){
+							$scope.subject.eps[i].watched = 1;
+						}
+					}
+				}
+				else{
+					for (var i=0;i<$scope.subject.eps.length;i++){
+						if(typeof eps[$scope.subject.eps[i].id] != "undefined"){
+							$scope.subject.eps[i].watched = cmd === "remove" ? 0 : 1;
+						}
+					}
+
+				}
+
+				$scope.selected_eps = {};
+
+
+
+			}).
+			error(function (data, status) {
+				if (status === 401){
+					$location.path("/login");
+				}
+			});
+
 
 	}
 
