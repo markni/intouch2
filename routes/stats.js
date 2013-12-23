@@ -42,7 +42,7 @@ exports.index = function (req, response) {
 
         var options = {
             host: 'bgm.tv',
-            path: '/anime/list/' + username + '/collect?page=' + page_number
+            path: '/anime/list/' + username + '/collect?orderby=rate&page=' + page_number
         };
 
 
@@ -149,7 +149,7 @@ exports.index = function (req, response) {
                         watching: watching, trashed: trashed, watched: counter, rated: rated, average: (average).toFixed(4),
                         median: calculate_median(ratings), deviation: calculate_std(ratings, average), distribution: distribution};
 
-                    //json_result.watched_subjects = watched_subjects;
+                    json_result.watched_subjects = watched_subjects;
 
                     fs.writeFile(directory + '/' + filename + '.json', JSON.stringify(json_result), function (err) {
 

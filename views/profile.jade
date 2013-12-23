@@ -25,6 +25,12 @@ div.row
 
 			div#chart(style="height:300px;width:100%;max-width:500px;margin:0 auto")
 
+		div.row.form-group(ng-class="{hidden:loading>0}")
+			a.btn.btn-info.btn-block(ng-click="getShareCode()"){{ 'SHARE' | translate}}
+
+		div.row.form-group(ng-class="{hidden:code===''}")
+			textarea(rows="5",style="width:100%") {{code}}
+
 
 		div.row.form-group
 			a.btn.btn-danger.btn-block(href="/"){{ 'RETURN_TO_HOME' | translate}}

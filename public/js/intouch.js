@@ -56,6 +56,8 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 		LOAD_ALL_EPS: 'Show already watched episodes.',
 		WATCHED_TO: 'Watched to',
 		REMOVE: 'Reset',
+		DEVIATION: 'Deviation',
+		SHARE:'Share your collection',
 		RAN_MSG_1: "The weather is nice today!"
 
 	})
@@ -111,6 +113,8 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 		    LOW_QUALITY_IMAGE:"使用低清图片",
 			BOT1:'默认机器人(圈圈)',
 			BOT2:'Bangumi娘',
+			DEVIATION: '标准差',
+			SHARE:'向朋友分享你的收藏',
 			RAN_MSG_1: "今天天气真好啊 ～☆",
 			RAN_MSG_2: "今天天气真好啊 ～☆"
 
@@ -165,6 +169,11 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			templateUrl: '/temp/profile',
 			controller: 'profileCtrl'
 		}).
+		when('/p/:username', {
+			templateUrl: '/temp/profile',
+			controller: 'profileCtrl'
+		}).
+
 
 		when('/schedule', {
 			templateUrl: '/temp/schedule',

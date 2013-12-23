@@ -1,14 +1,40 @@
 app.controller('profileCtrl', function ($translate, $scope, Auth, $http, $location, Helpers, $timeout, $routeParams) {
 	$scope.loading = 1;
 
+	$scope.code = '';
+
+	$scope.getShareCode = function(){
+		$scope.code = $translate('WATCHED2') + ': ' + $scope.watched + '\n';
+		$scope.code += $translate('RATED') + ': ' + $scope.rated + '\n';
+		$scope.code += $translate('AVERAGE') + ': ' + $scope.avg + '\n';
+		$scope.code += $translate('DEVIATION') + ': ' + $scope.deviation + '\n';
+		$scope.code += '-------------\n';
+
+		for(var i=0;i<$scope.watched_subjects.length;i++){
+			var rate;
+			if($scope.watched_subjects[i].rate == null){
+				rate = 'n/a'
+			}
+			else{
+				rate = $scope.watched_subjects[i].rate
+			}
+			$scope.code += $scope.watched_subjects[i].name + ' '+ rate + '\n';
+		}
+		$scope.code += '-------------\n';
+		$scope.code += $location.absUrl()+'/'+$scope.username;
+	};
+
 	$scope.getUserStats = function (username) {
+		$scope.username = username
 		$scope.loading++;
 		$http({method: 'POST', url: '/api/user/' + username + '/stats'}).
 			success(function (data, status) {
-
 				$scope.avg = parseFloat(data.average).toFixed(1);
 				$scope.watched = data.watched;
 				$scope.rated = data.rated;
+				$scope.deviation = data.deviation;
+				$scope.distribution = data.distribution;
+				$scope.watched_subjects = data.watched_subjects;
 
 				var d = [];
 				for (var i = 0; i < data.distribution.length; i++) {
