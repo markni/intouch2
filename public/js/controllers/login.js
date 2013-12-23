@@ -1,4 +1,4 @@
-app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore) {
+app.controller('loginCtrl', function ($translate, $scope, Auth, $http, $location) {
 	Auth.clearCredentials();
 
     $scope.loading = 0;

@@ -34,6 +34,7 @@ module.exports = function(grunt) {
                     ,'public/js/angular-route.js'
                     ,'public/js/angular-cookies.js'
                     ,'public/js/angular-animate.js'
+					,'public/js/angular-touch.js'
                     ,'public/js/angular-translate.js'
                     ,'public/js/canvasjs.js'
                     ,'public/js/intouch.js'

@@ -1,4 +1,4 @@
-app.controller('settingsCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout) {
+app.controller('settingsCtrl', function ($translate, $scope, Auth, $http, $location, Helpers, $timeout) {
     $scope.lang = localStorage.config_lang;
     $scope.bot = localStorage.config_bot;
     $scope.title = localStorage.config_title;

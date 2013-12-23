@@ -1,4 +1,4 @@
-app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout, $rootScope) {
+app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location, Helpers, $timeout, $rootScope) {
 	$scope.server_offline = 0;
 
 	Auth.loadCredentials();

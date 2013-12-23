@@ -1,4 +1,4 @@
-app.controller('searchCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout, $routeParams) {
+app.controller('searchCtrl', function ($translate, $scope, Auth, $http, $location, Helpers, $timeout, $routeParams) {
     $scope.type = -1;
     $scope.loading = 0;
 

@@ -1,3 +1,3 @@
-app.controller('logoutCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout) {
+app.controller('logoutCtrl', function ($translate, $scope, Auth) {
     Auth.clearCredentials();
 })

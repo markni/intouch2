@@ -1,5 +1,5 @@
 var app = angular.module('inTouch2', ['ngRoute',
-	'ngCookies', 'ngAnimate', 'pascalprecht.translate']);
+	'ngTouch','ngCookies', 'ngAnimate', 'pascalprecht.translate']);
 
 app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 	$locationProvider.html5Mode(true);
@@ -174,7 +174,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 		otherwise({
 			redirectTo: '/404'
 		});
-}).run(function ($rootScope, $location, $cookieStore, Auth) {
+}).run(function ($rootScope, $location, Auth) {
 
 		$rootScope.$on("$routeChangeStart", function (event, next, current) {
 

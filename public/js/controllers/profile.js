@@ -1,4 +1,4 @@
-app.controller('profileCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout, $routeParams) {
+app.controller('profileCtrl', function ($translate, $scope, Auth, $http, $location, Helpers, $timeout, $routeParams) {
 	$scope.loading = 1;
 
 	$scope.getUserStats = function (username) {
