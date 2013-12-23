@@ -658,388 +658,390 @@
   }
 }
 
-@-webkit-keyframes letitsnow {
-  /* line 572, animations.scss */
-  0% {
-    top: 95%;
+@media (min-width: 992px) {
+  @-webkit-keyframes letitsnow {
+    /* line 574, animations.scss */
+    0% {
+      top: 95%;
+    }
+
+    /* line 577, animations.scss */
+    100% {
+      top: 0%;
+    }
+}
+
+  @-moz-keyframes letitsnow {
+    /* line 574, animations.scss */
+    0% {
+      top: 95%;
+    }
+
+    /* line 577, animations.scss */
+    100% {
+      top: 0%;
+    }
+}
+
+  @-o-keyframes letitsnow {
+    /* line 574, animations.scss */
+    0% {
+      top: 95%;
+    }
+
+    /* line 577, animations.scss */
+    100% {
+      top: 0%;
+    }
+}
+
+  @keyframes letitsnow {
+    /* line 574, animations.scss */
+    0% {
+      top: 95%;
+    }
+
+    /* line 577, animations.scss */
+    100% {
+      top: 0%;
+    }
+}
+
+  /* line 582, animations.scss */
+  .snow {
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    top: -9999px;
   }
 
-  /* line 575, animations.scss */
-  100% {
-    top: 0%;
-  }
-}
-
-@-moz-keyframes letitsnow {
-  /* line 572, animations.scss */
-  0% {
-    top: 95%;
-  }
-
-  /* line 575, animations.scss */
-  100% {
-    top: 0%;
-  }
-}
-
-@-o-keyframes letitsnow {
-  /* line 572, animations.scss */
-  0% {
-    top: 95%;
+  /* line 594, animations.scss */
+  #snow0 {
+    -webkit-animation: letitsnow 14s infinite linear 13.3s;
+    -moz-animation: letitsnow 14s infinite linear 13.3s;
+    -o-animation: letitsnow 14s infinite linear 13.3s;
+    animation: letitsnow 14s infinite linear 13.3s;
+    left: 92%;
+    height: 3px;
+    width: 3px;
   }
 
-  /* line 575, animations.scss */
-  100% {
-    top: 0%;
+  /* line 594, animations.scss */
+  #snow1 {
+    -webkit-animation: letitsnow 18s infinite linear 15.1s;
+    -moz-animation: letitsnow 18s infinite linear 15.1s;
+    -o-animation: letitsnow 18s infinite linear 15.1s;
+    animation: letitsnow 18s infinite linear 15.1s;
+    left: 74%;
+    height: 5px;
+    width: 5px;
   }
-}
 
-@keyframes letitsnow {
-  /* line 572, animations.scss */
-  0% {
-    top: 95%;
+  /* line 594, animations.scss */
+  #snow2 {
+    -webkit-animation: letitsnow 18s infinite linear 7s;
+    -moz-animation: letitsnow 18s infinite linear 7s;
+    -o-animation: letitsnow 18s infinite linear 7s;
+    animation: letitsnow 18s infinite linear 7s;
+    left: 91%;
+    height: 4px;
+    width: 4px;
   }
 
-  /* line 575, animations.scss */
-  100% {
-    top: 0%;
+  /* line 594, animations.scss */
+  #snow3 {
+    -webkit-animation: letitsnow 10s infinite linear 11.85s;
+    -moz-animation: letitsnow 10s infinite linear 11.85s;
+    -o-animation: letitsnow 10s infinite linear 11.85s;
+    animation: letitsnow 10s infinite linear 11.85s;
+    left: 73%;
+    height: 3px;
+    width: 3px;
   }
-}
 
-/* line 580, animations.scss */
-.snow {
-  position: absolute;
-  border-radius: 50%;
-  background-color: white;
-  top: -9999px;
-}
+  /* line 594, animations.scss */
+  #snow4 {
+    -webkit-animation: letitsnow 16s infinite linear 0.75s;
+    -moz-animation: letitsnow 16s infinite linear 0.75s;
+    -o-animation: letitsnow 16s infinite linear 0.75s;
+    animation: letitsnow 16s infinite linear 0.75s;
+    left: 51%;
+    height: 5px;
+    width: 5px;
+  }
 
-/* line 592, animations.scss */
-#snow0 {
-  -webkit-animation: letitsnow 17s infinite linear 15.7s;
-  -moz-animation: letitsnow 17s infinite linear 15.7s;
-  -o-animation: letitsnow 17s infinite linear 15.7s;
-  animation: letitsnow 17s infinite linear 15.7s;
-  left: 69%;
-  height: 5px;
-  width: 5px;
-}
+  /* line 594, animations.scss */
+  #snow5 {
+    -webkit-animation: letitsnow 16s infinite linear 14.05s;
+    -moz-animation: letitsnow 16s infinite linear 14.05s;
+    -o-animation: letitsnow 16s infinite linear 14.05s;
+    animation: letitsnow 16s infinite linear 14.05s;
+    left: 91%;
+    height: 6px;
+    width: 6px;
+  }
 
-/* line 592, animations.scss */
-#snow1 {
-  -webkit-animation: letitsnow 17s infinite linear 9.6s;
-  -moz-animation: letitsnow 17s infinite linear 9.6s;
-  -o-animation: letitsnow 17s infinite linear 9.6s;
-  animation: letitsnow 17s infinite linear 9.6s;
-  left: 32%;
-  height: 5px;
-  width: 5px;
-}
+  /* line 594, animations.scss */
+  #snow6 {
+    -webkit-animation: letitsnow 18s infinite linear 11.8s;
+    -moz-animation: letitsnow 18s infinite linear 11.8s;
+    -o-animation: letitsnow 18s infinite linear 11.8s;
+    animation: letitsnow 18s infinite linear 11.8s;
+    left: 48%;
+    height: 3px;
+    width: 3px;
+  }
 
-/* line 592, animations.scss */
-#snow2 {
-  -webkit-animation: letitsnow 14s infinite linear 1.8s;
-  -moz-animation: letitsnow 14s infinite linear 1.8s;
-  -o-animation: letitsnow 14s infinite linear 1.8s;
-  animation: letitsnow 14s infinite linear 1.8s;
-  left: 18%;
-  height: 3px;
-  width: 3px;
-}
+  /* line 594, animations.scss */
+  #snow7 {
+    -webkit-animation: letitsnow 19s infinite linear 5.15s;
+    -moz-animation: letitsnow 19s infinite linear 5.15s;
+    -o-animation: letitsnow 19s infinite linear 5.15s;
+    animation: letitsnow 19s infinite linear 5.15s;
+    left: 8%;
+    height: 2px;
+    width: 2px;
+  }
 
-/* line 592, animations.scss */
-#snow3 {
-  -webkit-animation: letitsnow 15s infinite linear 4.5s;
-  -moz-animation: letitsnow 15s infinite linear 4.5s;
-  -o-animation: letitsnow 15s infinite linear 4.5s;
-  animation: letitsnow 15s infinite linear 4.5s;
-  left: 52%;
-  height: 6px;
-  width: 6px;
-}
+  /* line 594, animations.scss */
+  #snow8 {
+    -webkit-animation: letitsnow 12s infinite linear 17.75s;
+    -moz-animation: letitsnow 12s infinite linear 17.75s;
+    -o-animation: letitsnow 12s infinite linear 17.75s;
+    animation: letitsnow 12s infinite linear 17.75s;
+    left: 1%;
+    height: 6px;
+    width: 6px;
+  }
 
-/* line 592, animations.scss */
-#snow4 {
-  -webkit-animation: letitsnow 18s infinite linear 11.2s;
-  -moz-animation: letitsnow 18s infinite linear 11.2s;
-  -o-animation: letitsnow 18s infinite linear 11.2s;
-  animation: letitsnow 18s infinite linear 11.2s;
-  left: 4%;
-  height: 2px;
-  width: 2px;
-}
+  /* line 594, animations.scss */
+  #snow9 {
+    -webkit-animation: letitsnow 18s infinite linear 2.25s;
+    -moz-animation: letitsnow 18s infinite linear 2.25s;
+    -o-animation: letitsnow 18s infinite linear 2.25s;
+    animation: letitsnow 18s infinite linear 2.25s;
+    left: 2%;
+    height: 5px;
+    width: 5px;
+  }
 
-/* line 592, animations.scss */
-#snow5 {
-  -webkit-animation: letitsnow 12s infinite linear 5.9s;
-  -moz-animation: letitsnow 12s infinite linear 5.9s;
-  -o-animation: letitsnow 12s infinite linear 5.9s;
-  animation: letitsnow 12s infinite linear 5.9s;
-  left: 86%;
-  height: 2px;
-  width: 2px;
-}
+  /* line 594, animations.scss */
+  #snow10 {
+    -webkit-animation: letitsnow 13s infinite linear 23.7s;
+    -moz-animation: letitsnow 13s infinite linear 23.7s;
+    -o-animation: letitsnow 13s infinite linear 23.7s;
+    animation: letitsnow 13s infinite linear 23.7s;
+    left: 60%;
+    height: 6px;
+    width: 6px;
+  }
 
-/* line 592, animations.scss */
-#snow6 {
-  -webkit-animation: letitsnow 12s infinite linear 8.9s;
-  -moz-animation: letitsnow 12s infinite linear 8.9s;
-  -o-animation: letitsnow 12s infinite linear 8.9s;
-  animation: letitsnow 12s infinite linear 8.9s;
-  left: 29%;
-  height: 4px;
-  width: 4px;
-}
+  /* line 594, animations.scss */
+  #snow11 {
+    -webkit-animation: letitsnow 17s infinite linear 11.45s;
+    -moz-animation: letitsnow 17s infinite linear 11.45s;
+    -o-animation: letitsnow 17s infinite linear 11.45s;
+    animation: letitsnow 17s infinite linear 11.45s;
+    left: 21%;
+    height: 3px;
+    width: 3px;
+  }
 
-/* line 592, animations.scss */
-#snow7 {
-  -webkit-animation: letitsnow 19s infinite linear 1.3s;
-  -moz-animation: letitsnow 19s infinite linear 1.3s;
-  -o-animation: letitsnow 19s infinite linear 1.3s;
-  animation: letitsnow 19s infinite linear 1.3s;
-  left: 7%;
-  height: 5px;
-  width: 5px;
-}
+  /* line 594, animations.scss */
+  #snow12 {
+    -webkit-animation: letitsnow 18s infinite linear 10s;
+    -moz-animation: letitsnow 18s infinite linear 10s;
+    -o-animation: letitsnow 18s infinite linear 10s;
+    animation: letitsnow 18s infinite linear 10s;
+    left: 81%;
+    height: 6px;
+    width: 6px;
+  }
 
-/* line 592, animations.scss */
-#snow8 {
-  -webkit-animation: letitsnow 14s infinite linear 7.05s;
-  -moz-animation: letitsnow 14s infinite linear 7.05s;
-  -o-animation: letitsnow 14s infinite linear 7.05s;
-  animation: letitsnow 14s infinite linear 7.05s;
-  left: 18%;
-  height: 5px;
-  width: 5px;
-}
+  /* line 594, animations.scss */
+  #snow13 {
+    -webkit-animation: letitsnow 10s infinite linear 19.65s;
+    -moz-animation: letitsnow 10s infinite linear 19.65s;
+    -o-animation: letitsnow 10s infinite linear 19.65s;
+    animation: letitsnow 10s infinite linear 19.65s;
+    left: 71%;
+    height: 3px;
+    width: 3px;
+  }
 
-/* line 592, animations.scss */
-#snow9 {
-  -webkit-animation: letitsnow 11s infinite linear 5.05s;
-  -moz-animation: letitsnow 11s infinite linear 5.05s;
-  -o-animation: letitsnow 11s infinite linear 5.05s;
-  animation: letitsnow 11s infinite linear 5.05s;
-  left: 56%;
-  height: 2px;
-  width: 2px;
-}
+  /* line 594, animations.scss */
+  #snow14 {
+    -webkit-animation: letitsnow 16s infinite linear 1.4s;
+    -moz-animation: letitsnow 16s infinite linear 1.4s;
+    -o-animation: letitsnow 16s infinite linear 1.4s;
+    animation: letitsnow 16s infinite linear 1.4s;
+    left: 70%;
+    height: 6px;
+    width: 6px;
+  }
 
-/* line 592, animations.scss */
-#snow10 {
-  -webkit-animation: letitsnow 19s infinite linear 3s;
-  -moz-animation: letitsnow 19s infinite linear 3s;
-  -o-animation: letitsnow 19s infinite linear 3s;
-  animation: letitsnow 19s infinite linear 3s;
-  left: 17%;
-  height: 5px;
-  width: 5px;
-}
+  /* line 594, animations.scss */
+  #snow15 {
+    -webkit-animation: letitsnow 18s infinite linear 4.65s;
+    -moz-animation: letitsnow 18s infinite linear 4.65s;
+    -o-animation: letitsnow 18s infinite linear 4.65s;
+    animation: letitsnow 18s infinite linear 4.65s;
+    left: 38%;
+    height: 5px;
+    width: 5px;
+  }
 
-/* line 592, animations.scss */
-#snow11 {
-  -webkit-animation: letitsnow 11s infinite linear 18.25s;
-  -moz-animation: letitsnow 11s infinite linear 18.25s;
-  -o-animation: letitsnow 11s infinite linear 18.25s;
-  animation: letitsnow 11s infinite linear 18.25s;
-  left: 82%;
-  height: 6px;
-  width: 6px;
-}
+  /* line 594, animations.scss */
+  #snow16 {
+    -webkit-animation: letitsnow 19s infinite linear 8.7s;
+    -moz-animation: letitsnow 19s infinite linear 8.7s;
+    -o-animation: letitsnow 19s infinite linear 8.7s;
+    animation: letitsnow 19s infinite linear 8.7s;
+    left: 79%;
+    height: 3px;
+    width: 3px;
+  }
 
-/* line 592, animations.scss */
-#snow12 {
-  -webkit-animation: letitsnow 11s infinite linear 9.9s;
-  -moz-animation: letitsnow 11s infinite linear 9.9s;
-  -o-animation: letitsnow 11s infinite linear 9.9s;
-  animation: letitsnow 11s infinite linear 9.9s;
-  left: 17%;
-  height: 5px;
-  width: 5px;
-}
+  /* line 594, animations.scss */
+  #snow17 {
+    -webkit-animation: letitsnow 19s infinite linear 0.55s;
+    -moz-animation: letitsnow 19s infinite linear 0.55s;
+    -o-animation: letitsnow 19s infinite linear 0.55s;
+    animation: letitsnow 19s infinite linear 0.55s;
+    left: 75%;
+    height: 6px;
+    width: 6px;
+  }
 
-/* line 592, animations.scss */
-#snow13 {
-  -webkit-animation: letitsnow 10s infinite linear 19.75s;
-  -moz-animation: letitsnow 10s infinite linear 19.75s;
-  -o-animation: letitsnow 10s infinite linear 19.75s;
-  animation: letitsnow 10s infinite linear 19.75s;
-  left: 41%;
-  height: 6px;
-  width: 6px;
-}
+  /* line 594, animations.scss */
+  #snow18 {
+    -webkit-animation: letitsnow 12s infinite linear 14.05s;
+    -moz-animation: letitsnow 12s infinite linear 14.05s;
+    -o-animation: letitsnow 12s infinite linear 14.05s;
+    animation: letitsnow 12s infinite linear 14.05s;
+    left: 87%;
+    height: 2px;
+    width: 2px;
+  }
 
-/* line 592, animations.scss */
-#snow14 {
-  -webkit-animation: letitsnow 16s infinite linear 11.8s;
-  -moz-animation: letitsnow 16s infinite linear 11.8s;
-  -o-animation: letitsnow 16s infinite linear 11.8s;
-  animation: letitsnow 16s infinite linear 11.8s;
-  left: 7%;
-  height: 3px;
-  width: 3px;
-}
+  /* line 594, animations.scss */
+  #snow19 {
+    -webkit-animation: letitsnow 10s infinite linear 0.65s;
+    -moz-animation: letitsnow 10s infinite linear 0.65s;
+    -o-animation: letitsnow 10s infinite linear 0.65s;
+    animation: letitsnow 10s infinite linear 0.65s;
+    left: 51%;
+    height: 4px;
+    width: 4px;
+  }
 
-/* line 592, animations.scss */
-#snow15 {
-  -webkit-animation: letitsnow 15s infinite linear 0.55s;
-  -moz-animation: letitsnow 15s infinite linear 0.55s;
-  -o-animation: letitsnow 15s infinite linear 0.55s;
-  animation: letitsnow 15s infinite linear 0.55s;
-  left: 46%;
-  height: 6px;
-  width: 6px;
-}
+  /* line 594, animations.scss */
+  #snow20 {
+    -webkit-animation: letitsnow 13s infinite linear 0.2s;
+    -moz-animation: letitsnow 13s infinite linear 0.2s;
+    -o-animation: letitsnow 13s infinite linear 0.2s;
+    animation: letitsnow 13s infinite linear 0.2s;
+    left: 23%;
+    height: 5px;
+    width: 5px;
+  }
 
-/* line 592, animations.scss */
-#snow16 {
-  -webkit-animation: letitsnow 15s infinite linear 6.9s;
-  -moz-animation: letitsnow 15s infinite linear 6.9s;
-  -o-animation: letitsnow 15s infinite linear 6.9s;
-  animation: letitsnow 15s infinite linear 6.9s;
-  left: 65%;
-  height: 2px;
-  width: 2px;
-}
+  /* line 594, animations.scss */
+  #snow21 {
+    -webkit-animation: letitsnow 13s infinite linear 14.7s;
+    -moz-animation: letitsnow 13s infinite linear 14.7s;
+    -o-animation: letitsnow 13s infinite linear 14.7s;
+    animation: letitsnow 13s infinite linear 14.7s;
+    left: 85%;
+    height: 2px;
+    width: 2px;
+  }
 
-/* line 592, animations.scss */
-#snow17 {
-  -webkit-animation: letitsnow 14s infinite linear 19.5s;
-  -moz-animation: letitsnow 14s infinite linear 19.5s;
-  -o-animation: letitsnow 14s infinite linear 19.5s;
-  animation: letitsnow 14s infinite linear 19.5s;
-  left: 17%;
-  height: 3px;
-  width: 3px;
-}
+  /* line 594, animations.scss */
+  #snow22 {
+    -webkit-animation: letitsnow 11s infinite linear 11.5s;
+    -moz-animation: letitsnow 11s infinite linear 11.5s;
+    -o-animation: letitsnow 11s infinite linear 11.5s;
+    animation: letitsnow 11s infinite linear 11.5s;
+    left: 37%;
+    height: 3px;
+    width: 3px;
+  }
 
-/* line 592, animations.scss */
-#snow18 {
-  -webkit-animation: letitsnow 15s infinite linear 17.25s;
-  -moz-animation: letitsnow 15s infinite linear 17.25s;
-  -o-animation: letitsnow 15s infinite linear 17.25s;
-  animation: letitsnow 15s infinite linear 17.25s;
-  left: 81%;
-  height: 3px;
-  width: 3px;
-}
+  /* line 594, animations.scss */
+  #snow23 {
+    -webkit-animation: letitsnow 17s infinite linear 4.2s;
+    -moz-animation: letitsnow 17s infinite linear 4.2s;
+    -o-animation: letitsnow 17s infinite linear 4.2s;
+    animation: letitsnow 17s infinite linear 4.2s;
+    left: 28%;
+    height: 2px;
+    width: 2px;
+  }
 
-/* line 592, animations.scss */
-#snow19 {
-  -webkit-animation: letitsnow 13s infinite linear 0.05s;
-  -moz-animation: letitsnow 13s infinite linear 0.05s;
-  -o-animation: letitsnow 13s infinite linear 0.05s;
-  animation: letitsnow 13s infinite linear 0.05s;
-  left: 2%;
-  height: 2px;
-  width: 2px;
-}
+  /* line 594, animations.scss */
+  #snow24 {
+    -webkit-animation: letitsnow 12s infinite linear 9.6s;
+    -moz-animation: letitsnow 12s infinite linear 9.6s;
+    -o-animation: letitsnow 12s infinite linear 9.6s;
+    animation: letitsnow 12s infinite linear 9.6s;
+    left: 58%;
+    height: 2px;
+    width: 2px;
+  }
 
-/* line 592, animations.scss */
-#snow20 {
-  -webkit-animation: letitsnow 18s infinite linear 11.95s;
-  -moz-animation: letitsnow 18s infinite linear 11.95s;
-  -o-animation: letitsnow 18s infinite linear 11.95s;
-  animation: letitsnow 18s infinite linear 11.95s;
-  left: 55%;
-  height: 6px;
-  width: 6px;
-}
+  /* line 594, animations.scss */
+  #snow25 {
+    -webkit-animation: letitsnow 19s infinite linear 19.4s;
+    -moz-animation: letitsnow 19s infinite linear 19.4s;
+    -o-animation: letitsnow 19s infinite linear 19.4s;
+    animation: letitsnow 19s infinite linear 19.4s;
+    left: 92%;
+    height: 5px;
+    width: 5px;
+  }
 
-/* line 592, animations.scss */
-#snow21 {
-  -webkit-animation: letitsnow 19s infinite linear 2.15s;
-  -moz-animation: letitsnow 19s infinite linear 2.15s;
-  -o-animation: letitsnow 19s infinite linear 2.15s;
-  animation: letitsnow 19s infinite linear 2.15s;
-  left: 48%;
-  height: 3px;
-  width: 3px;
-}
+  /* line 594, animations.scss */
+  #snow26 {
+    -webkit-animation: letitsnow 10s infinite linear 24.65s;
+    -moz-animation: letitsnow 10s infinite linear 24.65s;
+    -o-animation: letitsnow 10s infinite linear 24.65s;
+    animation: letitsnow 10s infinite linear 24.65s;
+    left: 66%;
+    height: 2px;
+    width: 2px;
+  }
 
-/* line 592, animations.scss */
-#snow22 {
-  -webkit-animation: letitsnow 11s infinite linear 18.85s;
-  -moz-animation: letitsnow 11s infinite linear 18.85s;
-  -o-animation: letitsnow 11s infinite linear 18.85s;
-  animation: letitsnow 11s infinite linear 18.85s;
-  left: 13%;
-  height: 5px;
-  width: 5px;
-}
+  /* line 594, animations.scss */
+  #snow27 {
+    -webkit-animation: letitsnow 19s infinite linear 2.8s;
+    -moz-animation: letitsnow 19s infinite linear 2.8s;
+    -o-animation: letitsnow 19s infinite linear 2.8s;
+    animation: letitsnow 19s infinite linear 2.8s;
+    left: 68%;
+    height: 6px;
+    width: 6px;
+  }
 
-/* line 592, animations.scss */
-#snow23 {
-  -webkit-animation: letitsnow 14s infinite linear 18.75s;
-  -moz-animation: letitsnow 14s infinite linear 18.75s;
-  -o-animation: letitsnow 14s infinite linear 18.75s;
-  animation: letitsnow 14s infinite linear 18.75s;
-  left: 90%;
-  height: 3px;
-  width: 3px;
-}
+  /* line 594, animations.scss */
+  #snow28 {
+    -webkit-animation: letitsnow 19s infinite linear 6.55s;
+    -moz-animation: letitsnow 19s infinite linear 6.55s;
+    -o-animation: letitsnow 19s infinite linear 6.55s;
+    animation: letitsnow 19s infinite linear 6.55s;
+    left: 33%;
+    height: 6px;
+    width: 6px;
+  }
 
-/* line 592, animations.scss */
-#snow24 {
-  -webkit-animation: letitsnow 13s infinite linear 4.7s;
-  -moz-animation: letitsnow 13s infinite linear 4.7s;
-  -o-animation: letitsnow 13s infinite linear 4.7s;
-  animation: letitsnow 13s infinite linear 4.7s;
-  left: 69%;
-  height: 6px;
-  width: 6px;
-}
-
-/* line 592, animations.scss */
-#snow25 {
-  -webkit-animation: letitsnow 19s infinite linear 13.45s;
-  -moz-animation: letitsnow 19s infinite linear 13.45s;
-  -o-animation: letitsnow 19s infinite linear 13.45s;
-  animation: letitsnow 19s infinite linear 13.45s;
-  left: 10%;
-  height: 2px;
-  width: 2px;
-}
-
-/* line 592, animations.scss */
-#snow26 {
-  -webkit-animation: letitsnow 19s infinite linear 14.4s;
-  -moz-animation: letitsnow 19s infinite linear 14.4s;
-  -o-animation: letitsnow 19s infinite linear 14.4s;
-  animation: letitsnow 19s infinite linear 14.4s;
-  left: 50%;
-  height: 5px;
-  width: 5px;
-}
-
-/* line 592, animations.scss */
-#snow27 {
-  -webkit-animation: letitsnow 12s infinite linear 16.6s;
-  -moz-animation: letitsnow 12s infinite linear 16.6s;
-  -o-animation: letitsnow 12s infinite linear 16.6s;
-  animation: letitsnow 12s infinite linear 16.6s;
-  left: 33%;
-  height: 5px;
-  width: 5px;
-}
-
-/* line 592, animations.scss */
-#snow28 {
-  -webkit-animation: letitsnow 17s infinite linear 13.65s;
-  -moz-animation: letitsnow 17s infinite linear 13.65s;
-  -o-animation: letitsnow 17s infinite linear 13.65s;
-  animation: letitsnow 17s infinite linear 13.65s;
-  left: 22%;
-  height: 4px;
-  width: 4px;
-}
-
-/* line 592, animations.scss */
-#snow29 {
-  -webkit-animation: letitsnow 11s infinite linear 10s;
-  -moz-animation: letitsnow 11s infinite linear 10s;
-  -o-animation: letitsnow 11s infinite linear 10s;
-  animation: letitsnow 11s infinite linear 10s;
-  left: 48%;
-  height: 3px;
-  width: 3px;
+  /* line 594, animations.scss */
+  #snow29 {
+    -webkit-animation: letitsnow 19s infinite linear 11.35s;
+    -moz-animation: letitsnow 19s infinite linear 11.35s;
+    -o-animation: letitsnow 19s infinite linear 11.35s;
+    animation: letitsnow 19s infinite linear 11.35s;
+    left: 93%;
+    height: 3px;
+    width: 3px;
+  }
 }

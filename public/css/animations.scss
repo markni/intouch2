@@ -564,6 +564,8 @@
 
 //let it snow!
 
+@media (min-width: 992px){
+
 $num_of_snow: 30;
 
 
@@ -595,4 +597,5 @@ $num_of_snow: 30;
 	height: $size + px;
 	width: $size + px;
   }
+}
 }
