@@ -4,7 +4,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 	Auth.loadCredentials();
 
 	$scope.timeouts = [];
-	$scope.show_all = false;
+	$scope.show_all = $rootScope.show_all || false;
 	$scope.bot = '/img/shells/' + localStorage.config_bot + '.gif?v=0';
 	$scope.paddy = Helpers.paddy;
 	$scope.showSideMenu = false;
@@ -23,6 +23,10 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 		if ($scope.keywords) {
 			$location.path('/search/' + encodeURI($scope.keywords));
 		}
+	}
+
+	$scope.showAll = function(){
+		$scope.show_all = $rootScope.show_all = true;
 	}
 
 	$scope.cancelSelected = function () {
