@@ -21,7 +21,11 @@ app.controller('profileCtrl', function ($translate, $scope, Auth, $http, $locati
 			$scope.code += $scope.watched_subjects[i].name + ' '+ rate + '\n';
 		}
 		$scope.code += '-------------\n';
-		$scope.code += $location.absUrl()+'/'+$scope.username;
+		$scope.code += $location.absUrl()+'/';
+		if ($routeParams.username == undefined){
+			$scope.code += $scope.username;
+		}
+
 	};
 
 	$scope.getUserStats = function (username) {
