@@ -8,9 +8,10 @@ inTouch 2 is the latest version of popular mobile web app "inTouch", which helps
 
 ### Features
 
-- responsive design that works on *almost* every *modern* device (tested on PS vita, Windows Phone 8)
+- responsive design that works on *almost* every *modern* device 
 - powered by angularjs and node.js with REST api in between to ensure fast performance 
 - i18n support that can easily configured to support multiple languages (English and Chinese build-in)
+- localstorage cache
 
 
 ### Installation
