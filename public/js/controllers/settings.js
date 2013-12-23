@@ -2,6 +2,7 @@ app.controller('settingsCtrl', function ($translate, $scope, Auth, $http, $locat
     $scope.lang = localStorage.config_lang;
     $scope.bot = localStorage.config_bot;
     $scope.title = localStorage.config_title;
+	$scope.iq = localStorage.config_iq;
 
     $scope.setLang = function (lang) {
         localStorage.config_lang = $scope.lang = lang;
@@ -13,10 +14,16 @@ app.controller('settingsCtrl', function ($translate, $scope, Auth, $http, $locat
 
     }
 
-    $scope.setTitle = function (title) {
-        localStorage.config_title = $scope.title = title;
+	$scope.setTitle = function (title) {
+		localStorage.config_title = $scope.title = title;
 
-    }
+	}
+
+	$scope.setImageQuality = function (iq) {
+		localStorage.config_iq = $scope.iq = iq;
+
+	}
+
 
 
 })

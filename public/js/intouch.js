@@ -49,6 +49,10 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 		ACTION_COMPLETED: "You have marked {{x}} subjects, they will be removed from your watching queue.",
 		APPLY_CHANGES: "Apply changes",
 		LOAD_ALL: 'Load all items',
+		HIGH_QUALITY_IMAGE:'High Quality Image',
+		LOW_QUALITY_IMAGE:"Low Quality Image",
+		BOT1:'Default Bot',
+		BOT2:'Bangumi Chan',
 		RAN_MSG_1: "The weather is nice today!"
 
 	})
@@ -97,6 +101,10 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			ACTION_COMPLETED: "你已经成功标记了{{x}}部作品，它们将不再出现在首页列表中 ～☆",
 			APPLY_CHANGES: "保存收藏状态",
 			LOAD_ALL: '显示剩余的条目',
+			HIGH_QUALITY_IMAGE:'使用高清图片',
+		    LOW_QUALITY_IMAGE:"使用低清图片",
+			BOT1:'默认机器人(圈圈)',
+			BOT2:'Bangumi娘',
 			RAN_MSG_1: "今天天气真好啊 ～☆",
 			RAN_MSG_2: "今天天气真好啊 ～☆"
 
@@ -116,6 +124,10 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 	if (localStorage.config_title === undefined) {
 		localStorage.config_title = 'o';
+	}
+
+	if (localStorage.config_iq === undefined) {
+		localStorage.config_iq = 'low';
 	}
 
 	$routeProvider.

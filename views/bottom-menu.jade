@@ -20,6 +20,6 @@ nav.navbar.red-bg.navbar-default.navbar-fixed-bottom.super-nav-bar-bottom(role="
 
             img.img-circle.navbar-menu-bot(src='{{bot}}',ng-click="showRandomMsg()")
         div.col-lg-4.col-xs-4
-            div.col-lg-4.col-xs-4(style="position:relative")
-                span.navbar-menu-btn.glyphicon.icon-flipped(ng-click="toggleSideMenu()",ng-class="{'icon-rotated-180-right':showSideMenu,'glyphicon-align-justify':showSideMenu,'glyphicon-list':!showSideMenu}")
+            div.col-lg-4.col-xs-4.no-href-link(style="position:relative",ng-click="toggleSideMenu()")
+                span.navbar-menu-btn.glyphicon.icon-flipped(ng-class="{'icon-rotated-180-right':showSideMenu,'glyphicon-align-justify':showSideMenu,'glyphicon-list':!showSideMenu}")
 

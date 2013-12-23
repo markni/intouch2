@@ -157,6 +157,14 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
 	}
 
+	$scope.getCover = function(item){
+		if (localStorage.config_iq && localStorage.config_iq === 'high') {
+			//return item.subject.cn
+			return item.subject.images.large;
+		}
+		return item.subject.images.medium;
+	}
+
 	$scope.isAnythingSelected = function () {
 
 		var result = Helpers.isEmpty($scope.selected_items);

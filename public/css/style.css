@@ -738,36 +738,36 @@ a.search-title:hover {
     margin-bottom: 5px;
   }
 
-  /* line 656, style.scss */
+  /* line 657, style.scss */
   .navbar-menu-btn {
     line-height: 50px;
   }
 
-  /* line 662, style.scss */
+  /* line 664, style.scss */
   .super-nav-bar-bottom .action_btns .btn {
     height: 40px;
   }
 
-  /* line 667, style.scss */
+  /* line 669, style.scss */
   .tooltips .inner {
     bottom: 30px;
     min-width: 200px;
     max-width: 250px;
   }
-  /* line 672, style.scss */
+  /* line 674, style.scss */
   .tooltips:before {
     bottom: 15px;
   }
 }
 /*push if it's tablet or phone*/
 @media (max-width: 991px) {
-  /* line 682, style.scss */
+  /* line 684, style.scss */
   .push-aside {
     margin-left: -100px;
     margin-right: 100px;
   }
 
-  /* line 686, style.scss */
+  /* line 688, style.scss */
   .mobile-btn-lg {
     padding: 10px 16px;
     font-size: 18px;
@@ -775,7 +775,7 @@ a.search-title:hover {
   }
 
   /*no hover quick fly out side menu for mobile devices*/
-  /* line 692, style.scss */
+  /* line 694, style.scss */
   .side-menu {
     width: 100px;
   }
