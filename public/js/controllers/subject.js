@@ -104,6 +104,9 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 						if ($scope.subject.eps[i].sort <=max){
 							$scope.subject.eps[i].watched = 1;
 						}
+						else{
+							$scope.subject.eps[i].watched = 0;
+						}
 					}
 				}
 				else{
