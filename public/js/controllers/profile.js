@@ -4,7 +4,8 @@ app.controller('profileCtrl', function ($translate, $scope, Auth, $http, $locati
 	$scope.code = '';
 
 	$scope.getShareCode = function(){
-		$scope.code = $translate('WATCHED2') + ': ' + $scope.watched + '\n';
+		$scope.code = '@'+ $scope.username + '\n\n';
+		$scope.code += $translate('WATCHED2') + ': ' + $scope.watched + '\n';
 		$scope.code += $translate('RATED') + ': ' + $scope.rated + '\n';
 		$scope.code += $translate('AVERAGE') + ': ' + $scope.avg + '\n';
 		$scope.code += $translate('DEVIATION') + ': ' + $scope.deviation + '\n';
