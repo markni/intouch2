@@ -83,7 +83,7 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
 	$scope.showRandomMsg = function () {
 
-		var msg_list = ["RAN_MSG_1"];
+		var msg_list = ["RAN_MSG_1","RAN_MSG_2","RAN_MSG_3","RAN_MSG_4","RAN_MSG_5"];
 		var selected_index = Math.floor(Math.random() * (msg_list.length));
 		if (msg_list[selected_index]) {
 			$scope.displayMsg($translate(msg_list[selected_index]));

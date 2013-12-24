@@ -58,8 +58,20 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 		REMOVE: 'Reset',
 		DEVIATION: 'Deviation',
 		SHARE:'Share your collection',
-		RAN_MSG_1: "The weather is nice today!"
-
+		RAN_MSG_1: "Did you know you can pin your favourite show on mobile desktop?",
+		RAN_MSG_2: "Tap the cover art to open action menu! You can select more than one each time!",
+		RAN_MSG_3: "You can batch update episodes anyway you want. Wanted only ep3, ep5, and ep9? No problem!",
+		RAN_MSG_4: "You can turn on high res images in the settings. Be careful they cost a lot of bandwidth!",
+		RAN_MSG_5: "The weather is nice today, isn't it?",
+		RAN_MSG_6: "今天天气真好啊 ～☆",
+		RAN_MSG_7: "今天天气真好啊 ～☆",
+		RAN_MSG_8: "今天天气真好啊 ～☆",
+		RAN_MSG_9: "今天天气真好啊 ～☆",
+		RAN_MSG_10: "今天天气真好啊 ～☆",
+		RAN_MSG_11: "今天天气真好啊 ～☆",
+		RAN_MSG_12: "今天天气真好啊 ～☆",
+		RAN_MSG_13: "今天天气真好啊 ～☆",
+		RAN_MSG_14: "今天天气真好啊 ～☆"
 	})
 		.translations('zh-cn', {
 			WELCOME: '欢迎回家～☆',
@@ -115,8 +127,20 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			BOT2:'Bangumi娘',
 			DEVIATION: '标准差',
 			SHARE:'向朋友分享你的收藏',
-			RAN_MSG_1: "今天天气真好啊 ～☆",
-			RAN_MSG_2: "今天天气真好啊 ～☆"
+			RAN_MSG_1: "你知道吗，可以单独把条目页面收藏到手机桌面哦 ～☆",
+			RAN_MSG_2: "点击封面图就可以更改收藏状态，一次可以同时选好几个呢 ～☆",
+			RAN_MSG_3: "章节也是可以批量操作的，可以一次看过柯南的ep234，ep523，ep110呢 ～☆",
+			RAN_MSG_4: "在设置里可以开启高清图片，不过要小心流量呀 ～☆",
+			RAN_MSG_5: "今天天气真好啊 ～☆",
+			RAN_MSG_6: "今天天气真好啊 ～☆",
+			RAN_MSG_7: "今天天气真好啊 ～☆",
+			RAN_MSG_8: "今天天气真好啊 ～☆",
+			RAN_MSG_9: "今天天气真好啊 ～☆",
+			RAN_MSG_10: "今天天气真好啊 ～☆",
+			RAN_MSG_11: "今天天气真好啊 ～☆",
+			RAN_MSG_12: "今天天气真好啊 ～☆",
+			RAN_MSG_13: "今天天气真好啊 ～☆",
+			RAN_MSG_14: "今天天气真好啊 ～☆"
 
 		});
 
