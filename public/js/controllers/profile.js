@@ -19,7 +19,7 @@ app.controller('profileCtrl', function ($translate, $scope, Auth, $http, $locati
 			else{
 				rate = $scope.watched_subjects[i].rate
 			}
-			$scope.code += $scope.watched_subjects[i].name + ' '+ rate + '\n';
+			$scope.code += $scope.watched_subjects[i].name + ','+ rate + '\n';
 		}
 		$scope.code += '-------------\n';
 		$scope.code += $location.absUrl()+'/';
