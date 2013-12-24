@@ -42,7 +42,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 		USERNAME: 'username',
 		LOGIN_ERROR: "Incorrect username or password, please try again.",
 		SEARCH: "Search",
-		ENTER_TO_SEARCH: "Enter keywords to find your favourite shows",
+		ENTER_TO_SEARCH: "Find your favourite shows",
 		WATCHED: "watched",
 		WATCHED2: "Watched",
 		FINISHED_UPDATE_WATCHED_TO: "EP. {{x}} of {{y}} has been marked as watched.",
