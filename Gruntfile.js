@@ -12,25 +12,15 @@ module.exports = function(grunt) {
         },
 
 
-        bump: {
-            files: [ 'package.json']
-        },
-
-        version: {
-            // options: {},
-            defaults: {
-                src: ['routes/index.js']
-            }
-        },
 
         concat: {
             options: {
                 separator: ''
             },
             dist: {
-                src: ['public/js/jquery-1.10.2.js'
-                    ,'public/js/bootstrap.js'
-                    ,'public/js/angular.js'
+                src: ['public/js/jquery-1.10.2.min.js'
+                    ,'public/js/bootstrap.min.js'
+                    ,'public/js/angular.min.js'
                     ,'public/js/angular-route.js'
 					,'public/js/angular-touch.js'
                     ,'public/js/angular-translate.js'
@@ -90,13 +80,13 @@ module.exports = function(grunt) {
 
 
     grunt.loadNpmTasks('grunt-mkdir');
-    grunt.loadNpmTasks('grunt-bumpx');
+
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-version');
 
-    grunt.registerTask('default', ['bump','version','copy','concat', 'uglify','mkdir']);
+
+    grunt.registerTask('default', ['copy','concat', 'uglify','mkdir']);
 
 };

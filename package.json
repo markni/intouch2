@@ -1,6 +1,6 @@
 {
     "name": "intouch2",
-    "version": "2.2.0-14",
+    "version": "2.2.0-16",
     "private": true,
     "scripts": {
         "start": "node app.js"
@@ -18,8 +18,6 @@
         "grunt-contrib-uglify": "~0.2.2",
         "grunt-contrib-concat": "~0.3.0",
         "grunt-contrib-copy": "~0.4.1",
-        "grunt-version": "~0.2.2",
-        "grunt-bumpx": "~0.1.5",
         "grunt-mkdir": "~0.1.1"
     }
 }
