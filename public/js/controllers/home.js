@@ -235,7 +235,9 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 							for (var i in _eps) {
 								eps[_eps[i].id] = '1';
 							}
+
 							progress[data[key].subject_id] = eps;
+
 						}
 
 						$rootScope.progress = progress;

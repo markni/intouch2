@@ -5,6 +5,7 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 	$scope.show_all = false;
 
 	$scope.max_hotness = 0;
+	$scope.selected_eps = {};
 
 	$scope.ratings = [
 		{ "value": 0, "text": "n/a" },
@@ -21,7 +22,7 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 
 	];
 
-	$scope.selected_eps = {};
+
 
 	$scope.toggleEdit = function(){
 
@@ -32,6 +33,12 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 		return parseInt($scope.subject)
 
 	};
+
+	$scope.getNextEp = function(){
+
+		return $scope.next_ep_sort;
+
+	}
 
 	$scope.getHotness = function(ep){
 		var p = 0;
@@ -59,7 +66,7 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 	}
 
 	$scope.addToSelected = function(ep){
-		console.log(ep);
+
 		//if already have it , toggle selection
 		if(typeof $scope.selected_eps[ep.id] != "undefined"){
 			delete $scope.selected_eps[ep.id];
@@ -96,6 +103,14 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 
 	}
 
+	$scope.updateToNext = function(){
+		var id =  $scope.next_ep_id;
+		$scope.selected_eps = {};
+		$scope.selected_eps[id] =  $scope.next_ep_sort;
+		$scope.updateEpStatus('batch_update');
+
+	}
+
 	$scope.updateEpStatus = function(cmd){
 		var id = $scope.subject.id;
 		var eps = $scope.selected_eps;
@@ -104,11 +119,13 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 		$http({method: 'POST', url: '/api/subject/'+id+'/eps/'+cmd,data:d}).
 			success(function (data, status) {
 
+				var next= 0;
+
 				if (cmd === "batch_update"){
-					var max =-1;
+					var max  =-1;
 					for (var key in eps){
 						if (eps[key]>=max){
-							max=eps[key];
+							max  =eps[key];
 						}
 					}
 					for (var i=0;i<$scope.subject.eps.length;i++){
@@ -116,6 +133,10 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 							$scope.subject.eps[i].watched = 1;
 						}
 						else{
+							if(!next){
+								next = $scope.next_ep_id = $scope.subject.eps[i].id;
+								$scope.next_ep_sort = $scope.subject.eps[i].sort;
+							}
 							$scope.subject.eps[i].watched = 0;
 						}
 					}
@@ -124,10 +145,16 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 					for (var i=0;i<$scope.subject.eps.length;i++){
 						if(typeof eps[$scope.subject.eps[i].id] != "undefined"){
 							$scope.subject.eps[i].watched = cmd === "remove" ? 0 : 1;
+							if ($scope.subject.eps[i].watched ===0 && !next )  {
+								next = $scope.next_ep_id = $scope.subject.eps[i].id;
+								$scope.next_ep_sort = $scope.subject.eps[i].sort;
+							}
 						}
 					}
 
 				}
+
+
 
 				$scope.selected_eps = {};
 
@@ -251,6 +278,13 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 
 			if (p[id] && p[id][eps[key].id]){
 				eps[key]['watched'] = 1;
+			}
+			else{
+				if (!$scope.next_ep_sort){
+					$scope.next_ep_sort = eps[key].sort;
+					$scope.next_ep_id = eps[key].id;
+
+				}
 			}
 
 			if(eps[key].comment>$scope.max_hotness){
