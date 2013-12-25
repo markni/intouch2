@@ -32,7 +32,7 @@ module.exports = function(grunt) {
                     ,'public/js/bootstrap.js'
                     ,'public/js/angular.js'
                     ,'public/js/angular-route.js'
-                    ,'public/js/angular-cookies.js'
+
                     ,'public/js/angular-animate.js'
 					,'public/js/angular-touch.js'
                     ,'public/js/angular-translate.js'
@@ -54,7 +54,12 @@ module.exports = function(grunt) {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
                 mangle: false,
-				sourceMap: 'dist/public/js/<%= pkg.name %>.min.map'
+				sourceMap: 'dist/public/js/<%= pkg.name %>.min.map',
+
+
+				sourceMappingURL: '<%= pkg.name %>.min.map', //points to the .map file in .min.js
+				sourceMapPrefix: 3
+
             },
             dist: {
                 files: {
