@@ -1,5 +1,5 @@
 var app = angular.module('inTouch2', ['ngRoute',
-	'ngTouch','ngCookies', 'ngAnimate', 'pascalprecht.translate']);
+	'ngTouch', 'ngAnimate', 'pascalprecht.translate']);
 
 app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 	$locationProvider.html5Mode(true);
@@ -49,15 +49,15 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 		ACTION_COMPLETED: "You have marked {{x}} subjects, they will be removed from your watching queue.",
 		APPLY_CHANGES: "Apply changes",
 		LOAD_ALL: 'Load all items',
-		HIGH_QUALITY_IMAGE:'High Quality Image',
-		LOW_QUALITY_IMAGE:"Low Quality Image",
-		BOT1:'Default Bot',
-		BOT2:'Bangumi Chan',
+		HIGH_QUALITY_IMAGE: 'High Quality Image',
+		LOW_QUALITY_IMAGE: "Low Quality Image",
+		BOT1: 'Default Bot',
+		BOT2: 'Bangumi Chan',
 		LOAD_ALL_EPS: 'Show already watched episodes.',
 		WATCHED_TO: 'Watched to',
 		REMOVE: 'Reset',
 		DEVIATION: 'Deviation',
-		SHARE:'Share your collection',
+		SHARE: 'Share your collection',
 		RAN_MSG_1: "Did you know you can pin your favourite show on mobile desktop?",
 		RAN_MSG_2: "Tap the cover art to open action menu! You can select more than one each time!",
 		RAN_MSG_3: "You can batch update episodes anyway you want. Wanted only ep3, ep5, and ep9? No problem!",
@@ -121,12 +121,12 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			LOAD_ALL_EPS: '显示已经看过的章节',
 			WATCHED_TO: '看到',
 			REMOVE: '撤销',
-			HIGH_QUALITY_IMAGE:'使用高清图片',
-		    LOW_QUALITY_IMAGE:"使用低清图片",
-			BOT1:'默认机器人(圈圈)',
-			BOT2:'Bangumi娘',
+			HIGH_QUALITY_IMAGE: '使用高清图片',
+			LOW_QUALITY_IMAGE: "使用低清图片",
+			BOT1: '默认机器人(圈圈)',
+			BOT2: 'Bangumi娘',
 			DEVIATION: '标准差',
-			SHARE:'向朋友分享你的收藏',
+			SHARE: '向朋友分享你的收藏',
 			RAN_MSG_1: "你知道吗，可以单独把条目页面收藏到手机桌面哦 ～☆",
 			RAN_MSG_2: "点击封面图就可以更改收藏状态，一次可以同时选好几个呢 ～☆",
 			RAN_MSG_3: "章节也是可以批量操作的，可以一次看过柯南的ep234，ep523，ep110呢 ～☆",
@@ -144,25 +144,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 		});
 
-	if (localStorage.config_lang !== undefined) {
-		$translateProvider.preferredLanguage(localStorage.config_lang);
-	}
-	else {
-		$translateProvider.preferredLanguage('en-us');
-		localStorage.config_lang = 'en-us';
-	}
 
-	if (localStorage.config_bot === undefined) {
-		localStorage.config_bot = 'x';
-	}
-
-	if (localStorage.config_title === undefined) {
-		localStorage.config_title = 'o';
-	}
-
-	if (localStorage.config_iq === undefined) {
-		localStorage.config_iq = 'low';
-	}
 
 	$routeProvider.
 		when('/', {
@@ -198,7 +180,6 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			controller: 'profileCtrl'
 		}).
 
-
 		when('/schedule', {
 			templateUrl: '/temp/schedule',
 			controller: 'scheduleCtrl'
@@ -213,25 +194,64 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 		otherwise({
 			redirectTo: '/404'
 		});
-}).run(function ($rootScope, $location, Auth) {
+}).run(function ($rootScope, $translate, $location, Auth, Helpers) {
 
-		$rootScope.$on("$routeChangeStart", function (event, next, current) {
-
-			if (localStorage.auth === undefined) {
-
-				console.log(next.templateUrl);
-				// no logged user, we should be going to #login
-				if (next.templateUrl == "/temp/login" || next.templateUrl == "/temp/logout" || next.templateUrl == "/temp/profile" ) {
-					// already going to #login, no redirect needed
-				} else {
-					// not going to #login, we should redirect now
-					$location.path("/login");
-				}
+		if (!Helpers.isLocalStorageNameSupported()) {
+			$location.path("/404");
+		}
+		else {
+			if (localStorage.config_lang !== undefined) {
+				$translate.uses(localStorage.config_lang);
 			}
 			else {
-				Auth.loadCredentials();
+				$translate.uses('en-us');
+				localStorage.config_lang = 'en-us';
 			}
-		})
+
+			$rootScope.config = {};
+			$rootScope.config.lang = localStorage.config_lang;
+
+			if (localStorage.config_bot === undefined) {
+				localStorage.config_bot = $rootScope.config.bot = 'x';
+			}
+			else {
+				$rootScope.config.bot = localStorage.config_bot;
+			}
+
+			if (localStorage.config_title === undefined) {
+				localStorage.config_title = $rootScope.config.title = 'o';
+			}
+			else {
+				$rootScope.config.title = localStorage.config_title;
+			}
+
+			if (localStorage.config_iq === undefined) {
+				localStorage.config_iq = $rootScope.config.iq = 'low';
+			}
+			else {
+				$rootScope.config.iq = localStorage.config_iq;
+			}
+			$rootScope.$on("$routeChangeStart", function (event, next, current) {
+
+				if (localStorage.auth === undefined) {
+
+					console.log(next.templateUrl);
+					// no logged user, we should be going to #login
+					if (next.templateUrl == "/temp/login" || next.templateUrl == "/temp/logout" || next.templateUrl == "/temp/profile" || next.templateUrl == "/temp/error") {
+						// already going to #login, no redirect needed
+					} else {
+						// not going to #login, we should redirect now
+						$location.path("/login");
+					}
+				}
+				else {
+					Auth.loadCredentials();
+				}
+			})
+		}
+
+		//register default settings in localstorage  if not defined
+		//load them if already defined.
 
 	})
 
