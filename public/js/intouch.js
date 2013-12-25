@@ -54,7 +54,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 		BOT1: 'Default Bot',
 		BOT2: 'Bangumi Chan',
 		LOAD_ALL_EPS: 'Show already watched episodes.',
-		WATCHED_TO: 'Watched to',
+		WATCHED_TO: 'Up to',
 		REMOVE: 'Reset',
 		DEVIATION: 'Deviation',
 		SHARE: 'Share your collection',
