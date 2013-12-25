@@ -200,6 +200,10 @@ a, span, div, button {
 }
 /* line 195, style.scss */
 .card .ephotness {
+  -webkit-transition: width 100ms ease-in;
+  -moz-transition: width 100ms ease-in;
+  -o-transition: width 100ms ease-in;
+  transition: width 100ms ease-in;
   background-color: #e6f5fa;
   position: absolute;
   height: 100%;
@@ -209,28 +213,28 @@ a, span, div, button {
   z-index: 0;
   opacity: 0.5;
 }
-/* line 200, style.scss */
+/* line 201, style.scss */
 .card:hover .ephotness {
   opacity: 1;
 }
-/* line 204, style.scss */
+/* line 205, style.scss */
 .card .inner {
   position: relative;
 }
 
-/* line 209, style.scss */
+/* line 210, style.scss */
 .tag {
   color: rgba(80, 80, 80, 0.7);
   padding: 3px 5px 3px 5px;
   font-size: smaller;
   float: left;
 }
-/* line 214, style.scss */
+/* line 215, style.scss */
 .tag .glyphicon {
   padding-right: 17px;
 }
 
-/* line 223, style.scss */
+/* line 224, style.scss */
 .left-triangle {
   -webkit-transition: border-right-width 200ms;
   -moz-transition: border-right-width 200ms;
@@ -244,32 +248,32 @@ a, span, div, button {
   border-bottom: 25px solid transparent;
   position: relative;
 }
-/* line 233, style.scss */
+/* line 234, style.scss */
 .left-triangle:hover {
   border-right-width: 130px;
 }
-/* line 236, style.scss */
+/* line 237, style.scss */
 .left-triangle.cyan-bg {
   background-color: transparent;
   border-right-color: #62afb5;
 }
-/* line 240, style.scss */
+/* line 241, style.scss */
 .left-triangle.red-bg {
   background-color: transparent;
   border-right-color: #d9534f;
 }
-/* line 244, style.scss */
+/* line 245, style.scss */
 .left-triangle.blue-bg {
   border-right-color: #428bca;
   background-color: transparent;
 }
-/* line 248, style.scss */
+/* line 249, style.scss */
 .left-triangle.pink-bg {
   border-right-color: #f96790;
   background-color: transparent;
 }
 
-/* line 256, style.scss */
+/* line 257, style.scss */
 .side_menu_btn {
   letter-spacing: 2px;
   position: absolute;
@@ -283,7 +287,7 @@ a, span, div, button {
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 275, style.scss */
+/* line 276, style.scss */
 .navbar-menu-bot {
   height: 75px;
   width: 75px;
@@ -291,7 +295,7 @@ a, span, div, button {
   margin-bottom: 5px;
 }
 
-/* line 282, style.scss */
+/* line 283, style.scss */
 .navbar-menu-btn {
   -webkit-transition: all 500ms;
   -moz-transition: all 500ms;
@@ -303,26 +307,26 @@ a, span, div, button {
   font-size: x-large;
   display: inline-block;
 }
-/* line 292, style.scss */
+/* line 293, style.scss */
 .navbar-menu-btn:hover, .navbar-menu-btn:focus {
   color: white;
 }
 
-/* line 297, style.scss */
+/* line 298, style.scss */
 .super-nav-bar-bottom .action_btns .btn {
   border-right: 1px solid rgba(80, 80, 80, 0.7);
   height: 85px;
   text-shadow: 1px 1px rgba(80, 80, 80, 0.8);
 }
-/* line 301, style.scss */
+/* line 302, style.scss */
 .super-nav-bar-bottom .action_btns .btn:last-child {
   border-right: 0;
 }
-/* line 304, style.scss */
+/* line 305, style.scss */
 .super-nav-bar-bottom .action_btns .btn:focus {
   color: white;
 }
-/* line 307, style.scss */
+/* line 308, style.scss */
 .super-nav-bar-bottom .action_btns .btn:hover {
   color: #d9534f;
   background-color: white;
@@ -331,17 +335,17 @@ a, span, div, button {
   border-right: 0;
 }
 
-/* line 316, style.scss */
+/* line 317, style.scss */
 .switch-btn {
   cursor: pointer;
   line-height: 40px;
 }
-/* line 319, style.scss */
+/* line 320, style.scss */
 .switch-btn:hover, .switch-btn.active {
   color: #7ccce5;
 }
 
-/* line 324, style.scss */
+/* line 325, style.scss */
 .icon-flipped {
   -webkit-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -349,7 +353,7 @@ a, span, div, button {
   -o-transform: scaleX(-1);
   transform: scaleX(-1);
 }
-/* line 327, style.scss */
+/* line 328, style.scss */
 .icon-flipped.icon-rotated-180-right {
   -webkit-transform: rotate(180deg) scaleX(-1);
   -moz-transform: rotate(180deg) scaleX(-1);
@@ -358,12 +362,12 @@ a, span, div, button {
   transform: rotate(180deg) scaleX(-1);
 }
 
-/* line 332, style.scss */
+/* line 333, style.scss */
 .super-nav-bar-bottom {
   border-top: 1px solid #ac2925;
 }
 
-/* line 336, style.scss */
+/* line 337, style.scss */
 .tooltips {
   display: inline;
   position: relative;
@@ -374,7 +378,7 @@ a, span, div, button {
   /* Safari */
   transition: opacity 800ms;
 }
-/* line 345, style.scss */
+/* line 346, style.scss */
 .tooltips .inner {
   background: #428bca;
   bottom: 55px;
@@ -386,7 +390,7 @@ a, span, div, button {
   position: absolute;
   z-index: 98;
 }
-/* line 357, style.scss */
+/* line 358, style.scss */
 .tooltips:before {
   border: solid;
   border-color: #428bca transparent;
@@ -398,7 +402,7 @@ a, span, div, button {
   z-index: 99;
 }
 
-/* line 370, style.scss */
+/* line 371, style.scss */
 .side-menu {
   -webkit-transition: margin-right 200ms;
   -moz-transition: margin-right 200ms;
@@ -412,17 +416,17 @@ a, span, div, button {
   padding-top: 15px;
   margin-right: -100px;
 }
-/* line 380, style.scss */
+/* line 381, style.scss */
 .side-menu:hover, .side-menu.show {
   margin-right: 0;
 }
 
-/* line 385, style.scss */
+/* line 386, style.scss */
 .progress-total {
   width: 100%;
 }
 
-/* line 389, style.scss */
+/* line 390, style.scss */
 .progress-current {
   -webkit-transition: width 200ms;
   -moz-transition: width 200ms;
@@ -431,12 +435,12 @@ a, span, div, button {
   height: 5px;
 }
 
-/* line 395, style.scss */
+/* line 396, style.scss */
 .navbar-bottom-avatar {
   width: 100px;
 }
 
-/* line 399, style.scss */
+/* line 400, style.scss */
 .absolute-center-block {
   /* must set width */
   display: block;
@@ -445,108 +449,108 @@ a, span, div, button {
   right: 0;
 }
 
-/* line 407, style.scss */
+/* line 408, style.scss */
 .large-quote {
   color: white;
 }
 
-/* line 411, style.scss */
+/* line 412, style.scss */
 .navbar-fixed-bottom .large-quote {
   padding: 20px;
 }
 
-/* line 415, style.scss */
+/* line 416, style.scss */
 .gray-border-top {
   border-top: 3px solid #9d9d9d;
 }
 
-/* line 421, style.scss */
+/* line 422, style.scss */
 .pink-border-top {
   border-top: 3px solid #f96790;
 }
 
-/* line 425, style.scss */
+/* line 426, style.scss */
 .cyan-border-top {
   border-top: 3px solid #62afb5;
 }
 
-/* line 429, style.scss */
+/* line 430, style.scss */
 .blue-border-top {
   border-top: 3px solid #428bca;
 }
 
-/* line 434, style.scss */
+/* line 435, style.scss */
 .orange-border-top {
   border-top: 3px solid #F79B57;
 }
 
-/* line 438, style.scss */
+/* line 439, style.scss */
 .red-border-top {
   border-top: 3px solid #d9534f;
 }
 
-/* line 442, style.scss */
+/* line 443, style.scss */
 .pink-border-left {
   border-left: 3px solid #f96790;
 }
 
-/* line 446, style.scss */
+/* line 447, style.scss */
 .cyan-border-left {
   border-left: 3px solid #62afb5;
 }
 
-/* line 450, style.scss */
+/* line 451, style.scss */
 .blue-border-left {
   border-left: 3px solid #428bca;
 }
 
-/* line 455, style.scss */
+/* line 456, style.scss */
 .orange-border-left {
   border-left: 3px solid #F79B57;
 }
 
-/* line 459, style.scss */
+/* line 460, style.scss */
 .red-border-left {
   border-left: 3px solid #d9534f;
 }
 
-/* line 463, style.scss */
+/* line 464, style.scss */
 .white-text {
   color: white;
 }
 
-/* line 467, style.scss */
+/* line 468, style.scss */
 .faded {
   opacity: 0.5;
 }
-/* line 468, style.scss */
+/* line 469, style.scss */
 .faded:hover {
   opacity: 1;
 }
 
-/* line 474, style.scss */
+/* line 475, style.scss */
 .search-icon {
   width: 14px !important;
   line-height: inherit;
   margin: auto;
 }
 
-/* line 480, style.scss */
+/* line 481, style.scss */
 .subject-link-btn {
   height: 100px;
   /*color: $c-blue;*/
   color: rgba(80, 80, 80, 0.1);
 }
-/* line 484, style.scss */
+/* line 485, style.scss */
 .subject-link-btn:hover {
   color: rgba(80, 80, 80, 0.5);
 }
-/* line 487, style.scss */
+/* line 488, style.scss */
 .subject-link-btn .glyphicon {
   line-height: 100px;
 }
 
-/* line 492, style.scss */
+/* line 493, style.scss */
 .loading-bar {
   height: 35px;
   background-color: #7ccce5;
@@ -560,51 +564,51 @@ a, span, div, button {
   width: 100%;
 }
 
-/* line 503, style.scss */
+/* line 504, style.scss */
 .visually-hidden {
   opacity: 0;
 }
 
-/* line 507, style.scss */
+/* line 508, style.scss */
 .subject-title:hover h1, .subject-title:hover h4 {
   color: #7ccce5;
 }
 
-/* line 512, style.scss */
+/* line 513, style.scss */
 a:link.search-title {
   color: #505050;
 }
-/* line 516, style.scss */
+/* line 517, style.scss */
 a.search-title {
   text-decoration: none;
   color: #505050;
 }
-/* line 519, style.scss */
+/* line 520, style.scss */
 a.search-title h4, a.search-title h6 {
   display: inline-block;
 }
-/* line 522, style.scss */
+/* line 523, style.scss */
 a.search-title h6 {
   line-height: 19px;
   padding-left: 20px;
   color: rgba(80, 80, 80, 0.3);
 }
-/* line 527, style.scss */
+/* line 528, style.scss */
 a.search-title:hover {
   color: #7ccce5;
 }
 
-/* line 534, style.scss */
+/* line 535, style.scss */
 .aired {
   border-left: #62afb5 solid 3px;
 }
 
-/* line 538, style.scss */
+/* line 539, style.scss */
 .onair {
   border-left: #8bb65b solid 3px;
 }
 
-/* line 542, style.scss */
+/* line 543, style.scss */
 .onairtag {
   display: inline-block;
   background-color: rgba(139, 182, 91, 0.9);
@@ -612,69 +616,69 @@ a.search-title:hover {
   padding: 3px 5px;
 }
 
-/* line 550, style.scss */
+/* line 551, style.scss */
 .watched {
   border-left: #428bca solid 3px;
 }
 
 /* adpoted from http://codepen.io/geedmo/pen/InFfd */
-/* line 566, style.scss */
+/* line 567, style.scss */
 .progress-0 {
   background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(90deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 566, style.scss */
+/* line 567, style.scss */
 .progress-10 {
   background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(126deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 566, style.scss */
+/* line 567, style.scss */
 .progress-20 {
   background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(162deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 566, style.scss */
+/* line 567, style.scss */
 .progress-30 {
   background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(198deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 566, style.scss */
+/* line 567, style.scss */
 .progress-40 {
   background-image: linear-gradient(90deg, #d1edf6 50%, transparent 50%, transparent), linear-gradient(234deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 566, style.scss */
+/* line 567, style.scss */
 .progress-50 {
   background-image: linear-gradient(-90deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 566, style.scss */
+/* line 567, style.scss */
 .progress-60 {
   background-image: linear-gradient(-54deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 566, style.scss */
+/* line 567, style.scss */
 .progress-70 {
   background-image: linear-gradient(-18deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 566, style.scss */
+/* line 567, style.scss */
 .progress-80 {
   background-image: linear-gradient(18deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 566, style.scss */
+/* line 567, style.scss */
 .progress-90 {
   background-image: linear-gradient(54deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
-/* line 566, style.scss */
+/* line 567, style.scss */
 .progress-100 {
   background-image: linear-gradient(90deg, #7ccce5 50%, transparent 50%, transparent), linear-gradient(270deg, #7ccce5 50%, #d1edf6 50%, #d1edf6);
 }
 
 /*logo for 404 page*/
-/* line 579, style.scss */
+/* line 580, style.scss */
 .logospin {
   margin: auto;
   height: 100px;
@@ -683,7 +687,7 @@ a.search-title:hover {
   margin-top: 200px;
   margin-bottom: 100px;
 }
-/* line 586, style.scss */
+/* line 587, style.scss */
 .logospin .segment {
   position: absolute;
   top: 0;
@@ -694,7 +698,7 @@ a.search-title:hover {
   -moz-animation: logospin 3s infinite ease-out;
   animation: logospin 3s infinite ease-out;
 }
-/* line 595, style.scss */
+/* line 596, style.scss */
 .logospin .segment:nth-of-type(1) {
   border-width: 100px 25px 50px 33.33333px;
   border-style: solid;
@@ -708,7 +712,7 @@ a.search-title:hover {
   -o-transform-origin: 0 0;
   transform-origin: 0 0;
 }
-/* line 608, style.scss */
+/* line 609, style.scss */
 .logospin .segment:nth-of-type(2) {
   border-width: 100px 25px 50px 33.33333px;
   border-style: solid;
@@ -722,7 +726,7 @@ a.search-title:hover {
   -o-transform-origin: 0 0;
   transform-origin: 0 0;
 }
-/* line 621, style.scss */
+/* line 622, style.scss */
 .logospin .segment:nth-of-type(3) {
   border-width: 100px 25px 50px 33.33333px;
   border-style: solid;
@@ -736,7 +740,7 @@ a.search-title:hover {
   -o-transform-origin: 0 0;
   transform-origin: 0 0;
 }
-/* line 634, style.scss */
+/* line 635, style.scss */
 .logospin .segment:nth-of-type(4) {
   border-width: 100px 25px 50px 33.33333px;
   border-style: solid;
@@ -752,14 +756,14 @@ a.search-title:hover {
 }
 
 @media (max-height: 450px) {
-  /* line 656, style.scss */
+  /* line 657, style.scss */
   .side-menu .red-bg, .side-menu .pink-bg {
     display: none;
   }
 }
 /*xs screen only css*/
 @media (max-width: 767px), (max-height: 450px) {
-  /* line 671, style.scss */
+  /* line 672, style.scss */
   .navbar-menu-bot {
     height: 40px;
     width: 40px;
@@ -767,36 +771,36 @@ a.search-title:hover {
     margin-bottom: 5px;
   }
 
-  /* line 679, style.scss */
+  /* line 680, style.scss */
   .navbar-menu-btn {
     line-height: 50px;
   }
 
-  /* line 686, style.scss */
+  /* line 687, style.scss */
   .super-nav-bar-bottom .action_btns .btn {
     height: 40px;
   }
 
-  /* line 691, style.scss */
+  /* line 692, style.scss */
   .tooltips .inner {
     bottom: 30px;
     min-width: 200px;
     max-width: 250px;
   }
-  /* line 696, style.scss */
+  /* line 697, style.scss */
   .tooltips:before {
     bottom: 15px;
   }
 }
 /*push if it's tablet or phone*/
 @media (max-width: 991px) {
-  /* line 706, style.scss */
+  /* line 707, style.scss */
   .push-aside {
     margin-left: -100px;
     margin-right: 100px;
   }
 
-  /* line 710, style.scss */
+  /* line 711, style.scss */
   .mobile-btn-lg {
     padding: 10px 16px;
     font-size: 18px;
@@ -804,7 +808,7 @@ a.search-title:hover {
   }
 
   /*no hover quick fly out side menu for mobile devices*/
-  /* line 716, style.scss */
+  /* line 717, style.scss */
   .side-menu {
     width: 100px;
   }
