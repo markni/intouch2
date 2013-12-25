@@ -155,15 +155,19 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 		}
 		return item.name;
 
-	}
+	};
 
 	$scope.getCover = function(item){
+		var res;
 		if (localStorage.config_iq && localStorage.config_iq === 'high') {
 			//return item.subject.cn
-			return item.subject.images.large;
+			res = item.subject.images.large;
 		}
-		return item.subject.images.medium;
-	}
+		else{
+			res = item.subject.images.medium;
+		}
+		return {'background-image':'url('+res+')'}
+	};
 
 	$scope.isAnythingSelected = function () {
 

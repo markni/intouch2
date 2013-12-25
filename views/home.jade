@@ -16,7 +16,7 @@ div.row
 
 			div.col-md-10.col-xs-10.col-lg-10.padding-right-0.inner
 
-				div.div-circle.square-100.pull-left.list-item-thumb(ng-click="select($index)",style='background-image:url("{{getCover(item)}}")')
+				div.div-circle.square-100.pull-left.list-item-thumb(ng-click="select($index)",ng-style='getCover(item)')
 					div.square-100.no-href-link(ng-class="{'white-mask':items[$index].selected}")
 						span.glyphicon.glyphicon-ok.checked
 
