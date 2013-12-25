@@ -1,5 +1,5 @@
 var app = angular.module('inTouch2', ['ngRoute',
-	'ngTouch', 'ngAnimate', 'pascalprecht.translate']);
+	'ngTouch', 'pascalprecht.translate']);
 
 app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 	$locationProvider.html5Mode(true);

@@ -32,8 +32,6 @@ module.exports = function(grunt) {
                     ,'public/js/bootstrap.js'
                     ,'public/js/angular.js'
                     ,'public/js/angular-route.js'
-
-                    ,'public/js/angular-animate.js'
 					,'public/js/angular-touch.js'
                     ,'public/js/angular-translate.js'
                     ,'public/js/canvasjs.js'
