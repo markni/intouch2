@@ -18,7 +18,7 @@ nav.navbar.red-bg.navbar-default.navbar-fixed-bottom.super-nav-bar-bottom(role="
             div.tooltips(title="{{msg}}",ng-class="{'hidden':msg==''}")
                 span.inner.text-left{{msg}}
 
-            img.img-circle.navbar-menu-bot.no-href-link(src='{{bot}}',ng-click="showRandomMsg()")
+            img.img-circle.navbar-menu-bot.no-href-link(ng-src='{{bot}}',ng-click="showRandomMsg()")
         div.col-lg-4.col-xs-4
             div.col-lg-4.col-xs-4.no-href-link(style="position:relative",ng-click="toggleSideMenu()")
                 span.navbar-menu-btn.glyphicon.icon-flipped(ng-class="{'icon-rotated-180-right':showSideMenu,'glyphicon-align-justify':showSideMenu,'glyphicon-list':!showSideMenu}")
