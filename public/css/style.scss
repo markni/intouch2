@@ -193,7 +193,7 @@ a, span, div, button {
 	color:white;
   }
   .ephotness{
-	@include transition(width 100ms ease-in);
+	@include transition(width 200ms ease-in);
 	background-color:lighten($c-blue,25%);position:absolute;height:100%;width:0%;top:0;right:0;z-index:0;opacity:0.5;
 
   }
