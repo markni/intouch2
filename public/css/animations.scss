@@ -599,3 +599,21 @@ $num_of_snow: 30;
   }
 }
 }
+
+
+@include keyframes(shiftcover){
+  0%{
+	background-position: 50% 50%;
+
+  }
+
+
+  50%{
+	background-position: 50% 20%;
+  }
+
+
+  100%{
+	background-position: 50% 50%;
+  }
+}

@@ -1,6 +1,5 @@
 @import "compass";
 
-
 @mixin animation($animation) {
 
   -webkit-animation: $animation;
@@ -13,7 +12,7 @@ $c-red: rgba(217, 83, 79, 1);
 
 $c-blue: rgba(124, 204, 229, 1);
 $c-dk-blue: rgba(66, 139, 202, 1);
-$c-green: rgb(139,182,91);
+$c-green: rgb(139, 182, 91);
 
 $c-cyan: rgba(98, 175, 181, 1);
 $c-pink: rgba(249, 103, 144, 1);
@@ -77,11 +76,18 @@ a, span, div, button {
   padding-left: 110px;
 }
 
+
+
 .subject-cover {
-  height:200px;
+  height: 200px;
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
+
+  &:hover{
+	@include animation(shiftcover 10s ease-in-out 1);
+  }
+
 }
 
 .list-item-thumb, .avatar {
@@ -187,24 +193,38 @@ a, span, div, button {
 	box-shadow: rgba($c-dk-blue, 0.8) 1px 2px;
 
   }
-  &.ep.selected{
+  &.ep.selected {
 	background-color: $c-dk-blue;
 
-	color:white;
+	color: white;
   }
-  .ephotness{
+  .ephotness {
 	@include transition(width 200ms ease-in);
-	background-color:lighten($c-blue,25%);position:absolute;height:100%;width:0%;top:0;right:0;z-index:0;opacity:0.5;
+	background-color: lighten($c-blue, 25%);
+	position: absolute;
+	height: 100%;
+	width: 0%;
+	top: 0;
+	right: 0;
+	z-index: 0;
+	opacity: 0.5;
 
   }
-  &:hover{
-	.ephotness{
+  &:hover {
+	.ephotness {
 	  opacity: 1;
 	}
   }
   .inner {
 	position: relative;
   }
+}
+
+.big-score {
+  background-color: white;
+  margin: 120px auto 0 auto;
+  box-shadow: rgba(80, 80, 80, 0.3) 1px 2px;
+  @include transition(all 200ms ease-in);
 }
 
 .tag {
@@ -216,8 +236,6 @@ a, span, div, button {
 	padding-right: 17px;
   }
 }
-
-
 
 //SIDE NAV MENU STYLES
 
@@ -252,8 +270,6 @@ a, span, div, button {
   }
 }
 
-
-
 .side_menu_btn {
   letter-spacing: 2px;
   position: absolute;
@@ -266,7 +282,6 @@ a, span, div, button {
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
 }
-
 
 //BOTTOM NAV MENU STYLES
 
@@ -367,7 +382,6 @@ $bot-margin: 5px;
   }
 }
 
-
 .side-menu {
   @include transition(margin-right 200ms);
 
@@ -413,11 +427,9 @@ $bot-margin: 5px;
   padding: 20px;
 }
 
-.gray-border-top{
-  border-top: 3px solid lighten($c-gray,30%);
+.gray-border-top {
+  border-top: 3px solid lighten($c-gray, 30%);
 }
-
-
 
 .pink-border-top {
   border-top: 3px solid $c-pink;
@@ -430,7 +442,6 @@ $bot-margin: 5px;
 .blue-border-top {
   border-top: 3px solid $c-dk-blue;
 }
-
 
 .orange-border-top {
   border-top: 3px solid #F79B57;
@@ -451,7 +462,6 @@ $bot-margin: 5px;
 .blue-border-left {
   border-left: 3px solid $c-dk-blue;
 }
-
 
 .orange-border-left {
   border-left: 3px solid #F79B57;
@@ -542,8 +552,8 @@ a {
 
 .onairtag {
   display: inline-block;
-  background-color: rgba($c-green,0.9);
-  color:white;
+  background-color: rgba($c-green, 0.9);
+  color: white;
   padding: 3px 5px;
 
 }
@@ -648,19 +658,14 @@ $half: round($loops / 2);
   }
 }
 
-
-
 //not enough height to display full side menu
 @media (max-height: 450px) {
 
-  .side-menu{
-	.red-bg, .pink-bg{
+  .side-menu {
+	.red-bg, .pink-bg {
 	  display: none;
 	}
   }
-
-
-
 
 }
 
@@ -680,7 +685,6 @@ $half: round($loops / 2);
   .navbar-menu-btn {
 
 	line-height: $bot-height + 2 * $bot-margin;
-
 
   }
 
