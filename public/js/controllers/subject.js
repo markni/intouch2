@@ -4,6 +4,8 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 	$scope.rating = 0;
 	$scope.show_all = false;
 
+	$scope.max_hotness = 0;
+
 	$scope.ratings = [
 		{ "value": 0, "text": "n/a" },
 		{ "value": 1, "text": "★" },
@@ -30,6 +32,15 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 		return parseInt($scope.subject)
 
 	};
+
+	$scope.getHotness = function(ep){
+		var p = 0;
+		if($scope.max_hotness && !$scope.isSelected(ep)){
+			p = 83.333333 * (ep.comment /  $scope.max_hotness )
+		}
+
+		return {width:p+'%'};
+	}
 
 	$scope.getProgressClass = function () {
 		return 'progress-' + $scope.rating * 10;
@@ -241,6 +252,11 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 			if (p[id] && p[id][eps[key].id]){
 				eps[key]['watched'] = 1;
 			}
+
+			if(eps[key].comment>$scope.max_hotness){
+				$scope.max_hotness = eps[key].comment;
+
+			};
 
 		}
 

@@ -181,6 +181,7 @@ a, span, div, button {
 
   &.ep {
 	@include transition(all 200ms);
+	position: relative;
   }
   &.selected {
 	box-shadow: rgba($c-dk-blue, 0.8) 1px 2px;
@@ -190,6 +191,15 @@ a, span, div, button {
 	background-color: $c-dk-blue;
 
 	color:white;
+  }
+  .ephotness{
+	background-color:lighten($c-blue,25%);position:absolute;height:100%;width:0%;top:0;right:0;z-index:0;opacity:0.5;
+
+  }
+  &:hover{
+	.ephotness{
+	  opacity: 1;
+	}
   }
   .inner {
 	position: relative;
@@ -205,6 +215,8 @@ a, span, div, button {
 	padding-right: 17px;
   }
 }
+
+
 
 //SIDE NAV MENU STYLES
 
