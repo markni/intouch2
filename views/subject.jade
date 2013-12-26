@@ -16,7 +16,7 @@ div.row
 				h1.no-href-link(style="padding-top:10px",ng-click='toggleEdit()') {{subject.name}}
 				h4 {{subject.name_cn}}
 				botton.btn.btn-danger(ng-click="updateToNext()")
-					span.hidden-xs {{ 'WATCHED' | translate }} EP. {{next_ep_sort}}
+					span {{ 'WATCHED' | translate }} EP. {{next_ep_sort}}
 			div.col-sm-12(ng-class="{hide:editing===0}")
 				form
 					div.form-group.action_btns.input-append
