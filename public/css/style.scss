@@ -1,12 +1,7 @@
 @import "compass";
+@import "mixins";
 
-@mixin animation($animation) {
 
-  -webkit-animation: $animation;
-  -moz-animation: $animation;
-  -o-animation: $animation;
-  animation: $animation;
-}
 
 $c-red: rgba(217, 83, 79, 1);
 
@@ -709,6 +704,7 @@ $half: round($loops / 2);
 
 /*push if it's tablet or phone*/
 @media (max-width: 991px) {
+
   .push-aside {
 	margin-left: -100px;
 	margin-right: 100px;
@@ -721,5 +717,58 @@ $half: round($loops / 2);
 /*no hover quick fly out side menu for mobile devices*/
   .side-menu {
 	width: 100px;
+  }
+}
+
+
+@media (min-width: 992px){
+
+
+  $num_of_snow: 30;
+
+
+
+  @include keyframes(letitsnow) {
+	0% {
+	  top: 95%;
+	}
+	100% {
+	  top: 0%;
+	}
+  }
+
+  .snow {
+	position: absolute;
+	border-radius: 50%;
+	background-color: white;
+	top: -9999px;
+  }
+
+  @for $i from 0 through $num_of_snow - 1 {
+	$size: random(5) + 2; // size 2-7
+	$delay: random(500) * 0.05 + s; //0-25s delay
+	$speed: random(10) + 10 + s;//10-20s finish loop
+
+	#snow#{$i} {
+	  @include animation(letitsnow $speed infinite linear $delay);
+	  left: random(95) * 1%;
+	  height: $size + px;
+	  width: $size + px;
+	}
+  }
+}
+
+
+@include keyframes(shiftcover){
+  0%{
+	background-position: 50% 10%;
+
+  }
+
+
+
+
+  100%{
+	background-position: 50% 90%;
   }
 }
