@@ -18,9 +18,7 @@ module.exports = function(grunt) {
                 separator: ''
             },
             dist: {
-                src: ['public/js/jquery-1.10.2.min.js'
-                    ,'public/js/bootstrap.min.js'
-                    ,'public/js/angular.min.js'
+                src: ['public/js/angular.min.js'
                     ,'public/js/angular-route.js'
 					,'public/js/angular-touch.js'
                     ,'public/js/angular-translate.js'
