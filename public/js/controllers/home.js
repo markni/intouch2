@@ -140,6 +140,9 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 
 				//$cookieStore.set('auth',data.auth);
 
+				//mark dirty, this will need to be re-downloaded.
+				delete $rootScope.progress;
+
 			}).
 			error(function (data, status) {
 				if (status === 401){
