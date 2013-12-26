@@ -2,46 +2,51 @@ div.row
 	div.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3
 		div.loading-bar(ng-class="{hidden:loading<1}")
 
-		div.row.subject-cover(ng-style="{'background-image':'url(' + subject.images.large + ')' }",ng-class="{hidden:loading>0}")
-			div.no-href-link(ng-click='toggleEdit()')
-				div.col-xs-4.col-lg-4
-				div.col-xs-4.col-lg-4.text-center.padding-left-0.padding-right-0
+		div
+			div.row.subject-cover(ng-style="{'background-image':'url(' + subject.images.large + ')' }",ng-class="{hidden:loading>0||editing===1}")
+				div.no-href-link(ng-click='toggleEdit()')
+					div.col-xs-4.col-lg-4
+					div.col-xs-4.col-lg-4.text-center.padding-left-0.padding-right-0
 
-					div.div-circle.square-100.white-border-5.big-score(class="progress-0",ng-class='getProgressClass()')
-						h2.white-text(style="margin:0;font-size:84px;text-shadow: rgba(80, 80, 80, 0.3) 1px 2px;") {{rating}}
-				div.col-xs-4.col-lg-4
+						div.div-circle.square-100.white-border-5.big-score(class="progress-0",ng-class='getProgressClass()')
+							h2.white-text(style="margin:0;font-size:84px;text-shadow: rgba(80, 80, 80, 0.3) 1px 2px;") {{rating}}
+					div.col-xs-4.col-lg-4
 
-		div.form-group.card.text-center.row.subject-title(style="padding-top:0",ng-class="{hidden:loading>0}")
-			div
-				h1.no-href-link(style="padding-top:10px",ng-click='toggleEdit()') {{subject.name}}
-				h4 {{subject.name_cn}}
-				botton.btn.btn-danger(ng-click="updateToNext()")
-					span {{ 'WATCHED' | translate }} EP. {{next_ep_sort}}
-			div.col-sm-12(ng-class="{hide:editing===0}")
-				form
-					div.form-group.action_btns.input-append
-						button.btn.col-lg-2.col-xs-2.white-text.btn-info(ng-click='updateStatus("collect")',ng-class="{'btn-danger':status==='collect','btn-info':status!=='collect'}")
-							h6 {{ 'FINISH' | translate }}
-						button.btn.col-lg-2.col-xs-2.white-text.btn-info(ng-click='updateStatus("on_hold")',ng-class="{'btn-danger':status==='on_hold','btn-info':status!=='on_hold'}")
-							h6 {{ 'HOLD' | translate }}
-						button.btn.col-lg-4.col-xs-4.white-text(ng-click='updateStatus("do")',ng-class="{'btn-danger':status==='do','btn-info':status!=='do'}")
-							h6 {{ 'WATCHING' | translate }}
-						button.btn.col-lg-2.col-xs-2.white-text.btn-info(ng-click='updateStatus("dropped")',ng-class="{'btn-danger':status==='dropped','btn-info':status!=='dropped'}")
-							h6 {{ 'TRASH' | translate }}
-						button.btn.col-lg-2.col-xs-2.white-text.btn-info(ng-click='updateStatus("wish")',ng-class="{'btn-danger':status==='wish','btn-info':status!=='wish'}")
-							h6 {{ 'WISHLIST' | translate }}
+			div.form-group.card.text-center.row.subject-title(style="padding-top:0",ng-class="{hidden:loading>0}")
+				div(ng-class="{hidden:editing===1}")
+					h1.no-href-link(style="padding-top:10px",ng-click='toggleEdit()') {{subject.name}}
+					h4 {{subject.name_cn}}
+					div
+						botton.btn.btn-danger(ng-click="updateToNext()")
+							span {{ 'WATCHED' | translate }} EP. {{next_ep_sort}}
+						botton.btn.btn-info(ng-click='toggleEdit()')
+							span.glyphicon.glyphicon-edit
 
-					div.form-group.clearfix
-						textarea.form-control(placeholder="{{ 'COMMENT_PLACEHOLDER' | translate}}",ng-model="comment")
-					div.form-group
-						input.form-control(type="text",placeholder="{{ 'TAGS_PLACEHOLDER' | translate}}",ng-model="tags")
-					div.form-group
-						select.form-control.input-lg(ng-model="rating",ng-options="rating.value as rating.text for rating in ratings")
+				div.col-sm-12(ng-class="{hidden:editing===0}")
+					form
+						div.form-group.action_btns.input-append
+							button.btn.col-lg-2.col-xs-2.white-text.btn-info(ng-click='updateStatus("collect")',ng-class="{'btn-danger':status==='collect','btn-info':status!=='collect'}")
+								h6 {{ 'FINISH' | translate }}
+							button.btn.col-lg-2.col-xs-2.white-text.btn-info(ng-click='updateStatus("on_hold")',ng-class="{'btn-danger':status==='on_hold','btn-info':status!=='on_hold'}")
+								h6 {{ 'HOLD' | translate }}
+							button.btn.col-lg-4.col-xs-4.white-text(ng-click='updateStatus("do")',ng-class="{'btn-danger':status==='do','btn-info':status!=='do'}")
+								h6 {{ 'WATCHING' | translate }}
+							button.btn.col-lg-2.col-xs-2.white-text.btn-info(ng-click='updateStatus("dropped")',ng-class="{'btn-danger':status==='dropped','btn-info':status!=='dropped'}")
+								h6 {{ 'TRASH' | translate }}
+							button.btn.col-lg-2.col-xs-2.white-text.btn-info(ng-click='updateStatus("wish")',ng-class="{'btn-danger':status==='wish','btn-info':status!=='wish'}")
+								h6 {{ 'WISHLIST' | translate }}
+
+						div.form-group.clearfix
+							textarea.form-control(placeholder="{{ 'COMMENT_PLACEHOLDER' | translate}}",ng-model="comment")
+						div.form-group
+							input.form-control(type="text",placeholder="{{ 'TAGS_PLACEHOLDER' | translate}}",ng-model="tags")
+						div.form-group
+							select.form-control.input-lg(ng-model="rating",ng-options="rating.value as rating.text for rating in ratings")
 
 
-					div.form-group
-						button.btn.btn-block.btn-danger(ng-click="save()",ng-disabled="!status") {{ 'APPLY_CHANGES' | translate }}
-						button.btn.btn-block.btn-default(ng-click="reset()") {{ 'CANCEL' | translate }}
+						div.form-group
+							button.btn.btn-block.btn-danger(ng-click="save()",ng-disabled="!status") {{ 'APPLY_CHANGES' | translate }}
+							button.btn.btn-block.btn-default(ng-click="reset()") {{ 'CANCEL' | translate }}
 
 
 		div.row.form-group(ng-class="{hidden:loading>0||show_all===true}")
