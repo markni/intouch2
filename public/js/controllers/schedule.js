@@ -1,4 +1,4 @@
-app.controller('scheduleCtrl', function ($translate, $scope, Auth, $http, $location, $cookieStore, Helpers, $timeout) {
+app.controller('scheduleCtrl', function ($translate, $scope, Auth, $http, $location,  Helpers, $timeout) {
 
     $scope.day = 0; //default is showing today's show
 
