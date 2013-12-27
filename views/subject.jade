@@ -14,7 +14,7 @@ div.row
 
 			div.form-group.card.text-center.row.subject-title(style="padding-top:0",ng-class="{hidden:loading>0}")
 				div(ng-class="{hidden:editing===1}")
-					h1.no-href-link(style="padding-top:10px",ng-click='toggleEdit()') {{subject.name}}
+					h1.no-href-link(style="padding:10px 10px 0 10px",ng-click='toggleEdit()') {{subject.name}}
 					h4 {{subject.name_cn}}
 					div
 						botton.btn.btn-danger(ng-click="updateToNext()")
