@@ -240,7 +240,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 				if (localStorage.auth === undefined) {
 
-					console.log(next.templateUrl);
+
 					// no logged user, we should be going to #login
 					if (next.templateUrl == "/temp/login" || next.templateUrl == "/temp/logout" || next.templateUrl == "/temp/specials" || next.templateUrl == "/temp/profile" || next.templateUrl == "/temp/error") {
 						// already going to #login, no redirect needed
