@@ -83,7 +83,7 @@ div.row
 
 
 		div.row.form-group(ng-show="!isPinnedEmpty()")
-			a.btn.btn-info.btn-block(ng-click="share=true") 点这里分享一下你要看的2014年1月新番吧！
+			a.btn.btn-info.btn-block(ng-click="getShare()") 点这里分享一下你要看的2014年1月新番吧！
 
 		div.row.form-group(ng-show="!isPinnedEmpty() && isLogin()")
 			a.btn.btn-danger.btn-block(ng-click="addAllToWatchList()") 一键把所有锁定目标加入bangumi在看列表
@@ -91,8 +91,8 @@ div.row
 		div.row.form-group(ng-show='share===true')
 			textarea.form-control(rows=5,ng-bind="getShareText()")
 		div.row.form-group(ng-show='share===true')
-			a.twitter-share-button(href='https://twitter.com/share', data-url='http://netaba.re/2014/winter',  data-dnt='true') Tweet
-			.g-plus(data-action='share',data-annotation="bubble", data-width='120',data-href="http://netaba.re/2014/winter")
+			a.twitter-share-button(href='https://twitter.com/share',data-text="{{getShareText()}}", data-url='{{getAbsUrl()}}',  data-dnt='true') Tweet
+			.g-plus(data-action='share',data-annotation="bubble",data-text="{{getShareText()}}", data-width='120',data-href='{{getAbsUrl()}}')
 
 		div.hidden
 			span(itemprop='name') 2014年冬季新番筛选姬

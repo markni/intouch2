@@ -104,12 +104,9 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 			}
 		}
 
-		if (!flag) {
-			return false;
-		}
-		else {
-			return true;
-		}
+
+		return !!flag;
+
 
 	};
 
@@ -247,14 +244,30 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 
 	}
 
+	$scope.getAbsUrl = function(){
+		return $location.absUrl();
+	}
+
 	$scope.getShareText = function(){
 
 		var prefixs = ['想要成为世界最强的','只有神才知道的','不可能这么可爱的','','',''];
 		var index = parseInt(Math.random() * 5);
 
-		return '1月新番决定先看看：' + $scope.getPinnedToString() + ' via '+ prefixs[index] + '『2014年1月新番筛选姬』 (http://netaba.re/2014/winter)'
+		return '1月新番决定先看看：' + $scope.getPinnedToString() + ' via '+ prefixs[index] + '『2014年1月新番筛选姬』 ('+$location.absUrl()+')'
 
 	}
+
+
+	$scope.getShare = function(){
+		$scope.share = true;
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/platform.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();
+	}
+
+
+
+	//run
+
 
 	$http({method: 'GET', url: '/201401.json'}).
 		success(function (data, status) {
@@ -357,6 +370,7 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 						break;
 					case "原作":
 						originals.push({id: key, name: staff_map[key].name, name_cn: staff_map[key].name_cn});
+						break;
 
 					default:
 						break;
@@ -377,7 +391,6 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 	};
 
 
-	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-	(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/platform.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();
+
 
 });

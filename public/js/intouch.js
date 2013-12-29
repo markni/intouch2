@@ -193,6 +193,12 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			templateUrl: '/temp/specials',
 			controller: 'specialsCtrl'
 		}).
+		when('/newanimes', {
+			title:'2014年冬季新番筛选姬',
+			templateUrl: '/temp/specials',
+			controller: 'specialsCtrl'
+		}).
+
 		when('/404', {
 			templateUrl: '/temp/404'
 		}).
@@ -243,7 +249,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 
 					// no logged user, we should be going to #login
-					if (next.templateUrl == "/temp/login" || next.templateUrl == "/temp/logout" || next.templateUrl == "/temp/specials" || next.templateUrl == "/temp/profile" || next.templateUrl == "/temp/error") {
+					if (next.templateUrl == "/temp/login" || next.templateUrl == "/temp/logout" || next.templateUrl == "/temp/specials" || next.templateUrl == "/temp/profile" || next.templateUrl == "/temp/error" || next.templateUrl == "/temp/404") {
 						// already going to #login, no redirect needed
 					} else {
 						// not going to #login, we should redirect now
