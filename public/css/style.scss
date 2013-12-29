@@ -220,6 +220,13 @@ a, span, div, button {
 }
 
 .specials-col {
+
+  >.pinned{
+	.staff, .summary, .cover{
+	  display: none;
+	}
+
+  }
   .staff {
 	border-top: 1px lighten($c-gray, 40%) dashed;
 	margin-top: 10px;
