@@ -190,7 +190,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 		}).
 		when('/2014/winter', {
 			title:'2014年冬季新番筛选姬',
-			templateUrl: '/temp/specials',
+			templateUrl: '/temp/403',
 			controller: 'specialsCtrl'
 		}).
 		when('/newanimes', {
@@ -243,6 +243,8 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			else {
 				$rootScope.config.iq = localStorage.config_iq;
 			}
+
+
 			$rootScope.$on("$routeChangeStart", function (event, next, current) {
 
 				if (localStorage.auth === undefined) {
@@ -251,7 +253,12 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 					// no logged user, we should be going to #login
 					if (next.templateUrl == "/temp/login" || next.templateUrl == "/temp/logout" || next.templateUrl == "/temp/specials" || next.templateUrl == "/temp/profile" || next.templateUrl == "/temp/error" || next.templateUrl == "/temp/404") {
 						// already going to #login, no redirect needed
-					} else {
+					}
+					else if (next.templateUrl == "/temp/403" ){
+						$location.path("/newanimes");
+
+					}
+					else {
 						// not going to #login, we should redirect now
 						$location.path("/login");
 					}

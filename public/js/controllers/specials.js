@@ -165,21 +165,7 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 		}
 	}
 
-	$scope.getPinnedToString = function () {
-		var arr = [];
-		for (var key in $scope.pinned) {
-			if ($scope.pinned[key].name_cn) {
-				arr.push($scope.pinned[key].name_cn);
-			}
-			else if ($scope.pinned[key].name) {
-				arr.push($scope.pinned[key].name);
 
-			}
-
-		}
-
-		return arr.join('，')
-	}
 
 	$scope.isLogin = function(){
 
@@ -248,12 +234,31 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 		return $location.absUrl();
 	}
 
+
+	$scope.getPinnedToString = function () {
+
+	}
+
 	$scope.getShareText = function(){
 
-		var prefixs = ['想要成为世界最强的','只有神才知道的','不可能这么可爱的','','',''];
+		var arr = [];
+		for (var key in $scope.pinned) {
+			if ($scope.pinned[key].name_cn) {
+				arr.push($scope.pinned[key].name_cn);
+			}
+			else if ($scope.pinned[key].name) {
+				arr.push($scope.pinned[key].name);
+
+			}
+
+		}
+
+
+
+
 		var index = parseInt(Math.random() * 5);
 
-		return '1月新番决定先看看：' + $scope.getPinnedToString() + ' via '+ prefixs[index] + '『2014年1月新番筛选姬』 ('+$location.absUrl()+')'
+		return '1月新番决定先追'+arr.length+'部：' + arr.join('，') + ' via '+ ' 『新番筛选姬』 ('+$location.absUrl()+')';
 
 	}
 
