@@ -10,7 +10,7 @@ div.row
 			a.btn.btn-info.btn-block(ng-click="clear()") 清除所有条件
 
 		div.row.form-group
-			input.form-control(type="text",placeholder="在这里输入新番名称进行查找",ng-model="search")
+			input.form-control(type="text",placeholder="输入新番名称进行查找",ng-model="search")
 
 		//div.row.card.form-group
 			h4.col-xs-12 长度
@@ -52,6 +52,14 @@ div.row
 
 
 	div.col-sm-7.col-sm-offset-1.col-xs-12.specials-col
+		div.row.form-group(ng-show="isPinnedEmpty()")
+			h3.white-text 1. 在左边选择自己感兴趣的制作阵容
+			h3.white-text 2. 点击标题旁的
+				span.glyphicon.glyphicon-pushpin
+				| 图标锁定想看的目标
+			h3.white-text 3. 向你的
+				strike 空气
+				| 朋友们分享
 		div.row.card.form-group(ng-repeat="subject in subjects | filter:filterFn",ng-class="{pinned:isPinned(subject.id)}")
 			div.col-xs-10
 				div.col-xs-12
@@ -74,8 +82,11 @@ div.row
 
 
 
-		div.row.form-group
+		div.row.form-group(ng-show="!isPinnedEmpty()")
 			a.btn.btn-info.btn-block(ng-click="share=true") 点这里分享一下你要看的2014年1月新番吧！
+
+		div.row.form-group(ng-show="!isPinnedEmpty() && isLogin()")
+			a.btn.btn-danger.btn-block(ng-click="addAllToWatchList()") 一键把所有锁定目标加入bangumi在看列表
 
 		div.row.form-group(ng-show='share===true')
 			textarea.form-control(rows=5) 1月新番决定先看看这些：{{getPinnedToString()}} via 想要成为世界最强的『2014年冬季新番筛选器』 (http://netaba.re/2014/winter)

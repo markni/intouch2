@@ -43,8 +43,8 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 
 	}
 
-	$scope.getImage = function(subject){
-		return {'background-image':'url('+subject.images.large+')'};
+	$scope.getImage = function (subject) {
+		return {'background-image': 'url(' + subject.images.large + ')'};
 
 	}
 
@@ -68,13 +68,11 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 			}
 		}
 
-
-		if(typeof $scope.search != 'undefined' && $scope.search !== "" && (subject.name.search($scope.search)>=0 || subject.name_cn.search($scope.search)>=0)){
+		if (typeof $scope.search != 'undefined' && $scope.search !== "" && (subject.name.search($scope.search) >= 0 || subject.name_cn.search($scope.search) >= 0)) {
 			flag = 1;
 		}
 
-
-		if (!flag && $scope.pinned[subject.id]){
+		if (!flag && $scope.pinned[subject.id]) {
 			flag = 1;
 		}
 
@@ -93,10 +91,9 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 			}
 		}
 
-
 		//
-		if (!flag && subject.seiyus && subject.seiyus.length > 0){
-			for (var i=0;i<subject.seiyus.length;i++){
+		if (!flag && subject.seiyus && subject.seiyus.length > 0) {
+			for (var i = 0; i < subject.seiyus.length; i++) {
 				if ($scope.selected[subject.seiyus[i].id]) {
 
 					if (_test_ep_length(subject.eps)) {
@@ -106,8 +103,6 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 				}
 			}
 		}
-
-
 
 		if (!flag) {
 			return false;
@@ -161,7 +156,7 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 
 		}
 		else {
-			$scope.pinned[subject.id] = {name:subject.name,name_cn:subject.name_cn};
+			$scope.pinned[subject.id] = {name: subject.name, name_cn: subject.name_cn};
 		}
 
 		try {
@@ -173,23 +168,65 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 		}
 	}
 
-	$scope.getPinnedToString = function(){
+	$scope.getPinnedToString = function () {
 		var arr = [];
-		for (var key in $scope.pinned){
-			if($scope.pinned[key].name_cn){
+		for (var key in $scope.pinned) {
+			if ($scope.pinned[key].name_cn) {
 				arr.push($scope.pinned[key].name_cn);
 			}
-			else if($scope.pinned[key].name){
+			else if ($scope.pinned[key].name) {
 				arr.push($scope.pinned[key].name);
 
 			}
 
 		}
 
-
 		return arr.join('，')
 	}
 
+	$scope.isLogin = function(){
+
+		var islogin = false;
+		try {
+		   if(localStorage.auth ){
+			   islogin = true;
+		   }
+
+		}catch(err){
+
+		}
+		return islogin;
+	}
+
+	$scope.addAllToWatchList = function () {
+
+		var status = 'do';
+
+		var ids = [];
+		for (var key in $scope.pinned) {
+			ids.push(key);
+		}
+
+
+
+		$http({method: 'POST', url: '/api/subjects/update_status/' + status, data: {"subjects": ids}}).
+			success(function (data, status) {
+				$location.path("/");
+
+			}).
+			error(function (data, status) {
+				if (status === 401) {
+					$location.path("/login");
+				}
+			});
+
+	}
+
+	$scope.isPinnedEmpty = function () {
+
+		return  Helpers.isEmpty($scope.pinned);
+
+	}
 
 	$scope.toggleSelection = function (char_id) {
 		if ($scope.selected[char_id]) {
@@ -213,12 +250,11 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 	$http({method: 'GET', url: '/201401.json'}).
 		success(function (data, status) {
 
-
 			_build_staffs(data);
 			_build_seiyus(data);
 			$scope.subjects = data;
 
-			console.log(data);
+
 
 		}).
 		error(function (data, status) {
@@ -239,14 +275,14 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 		})
 	}
 
-	var _build_seiyus = function(data){
+	var _build_seiyus = function (data) {
 		var seiyu_map = {};
 		data.forEach(function (el) {
 			if (el && el.crt && el.crt.length > 0) {
 				var local_seiyus = [];
 				el.crt.forEach(function (c) {
-					if (c.actors && c.actors.length> 0){
-						c.actors.forEach(function(a){
+					if (c.actors && c.actors.length > 0) {
+						c.actors.forEach(function (a) {
 							seiyu_map[a.id] = {'name': a.name};
 							local_seiyus.push({id: a.id, name: a.name})
 						})
@@ -260,7 +296,7 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 
 		var seiyus = [];
 
-		for (var key in seiyu_map){
+		for (var key in seiyu_map) {
 			seiyus.push({id: key, name: seiyu_map[key].name})
 
 		}
@@ -268,10 +304,7 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 		$scope.seiyus = seiyus;
 
 
-
-		console.log(data);
 	}
-
 
 	var _build_staffs = function (data) {
 		var staff_map = {};
@@ -299,22 +332,22 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 
 				switch (job) {
 					case "导演":
-						directors.push({id: key, name: staff_map[key].name,name_cn: staff_map[key].name_cn});
+						directors.push({id: key, name: staff_map[key].name, name_cn: staff_map[key].name_cn});
 						break;
 					case "人物设定":
-						chardesigners.push({id: key, name: staff_map[key].name,name_cn: staff_map[key].name_cn});
+						chardesigners.push({id: key, name: staff_map[key].name, name_cn: staff_map[key].name_cn});
 						break;
 					case "音乐":
-						composers.push({id: key, name: staff_map[key].name,name_cn: staff_map[key].name_cn});
+						composers.push({id: key, name: staff_map[key].name, name_cn: staff_map[key].name_cn});
 						break;
 					case "系列构成":
-						scriptwriters.push({id: key, name: staff_map[key].name,name_cn: staff_map[key].name_cn});
+						scriptwriters.push({id: key, name: staff_map[key].name, name_cn: staff_map[key].name_cn});
 						break;
 					case "动画制作":
-						productions.push({id: key, name: staff_map[key].name,name_cn: staff_map[key].name_cn});
+						productions.push({id: key, name: staff_map[key].name, name_cn: staff_map[key].name_cn});
 						break;
 					case "原作":
-						originals.push({id: key, name: staff_map[key].name,name_cn: staff_map[key].name_cn});
+						originals.push({id: key, name: staff_map[key].name, name_cn: staff_map[key].name_cn});
 
 					default:
 						break;
