@@ -1,8 +1,6 @@
 @import "compass";
 @import "mixins";
 
-
-
 $c-red: rgba(217, 83, 79, 1);
 
 $c-blue: rgba(124, 204, 229, 1);
@@ -22,7 +20,7 @@ body {
   background: $c-blue;
   -webkit-font-smoothing: antialiased;
   min-width: 320px;
-  color:$c-gray;
+  color: $c-gray;
 }
 
 //reset
@@ -72,15 +70,13 @@ a, span, div, button {
   padding-left: 110px;
 }
 
-
-
 .subject-cover {
   height: 200px;
   background-position: 50% 10%;
   background-size: cover;
   background-repeat: no-repeat;
 
-  &:hover{
+  &:hover {
 	@include animation(shiftcover 10s ease-in-out 1);
   }
 
@@ -223,6 +219,56 @@ a, span, div, button {
   @include transition(all 200ms ease-in);
 }
 
+.specials-col {
+  .staff {
+	border-top: 1px lighten($c-gray, 40%) dashed;
+	margin-top: 10px;
+	margin-left: 15px;
+	margin-right:30px;
+  }
+  .summary {
+	color: lighten($c-gray, 20%);
+	font-size: smaller;
+	padding-top: 10px;
+	margin-top: 10px;
+  }
+  .subtitle{
+	font-size: smaller;
+
+  }
+
+  .cover{
+	min-height: 200px;
+	background-size:cover;
+  }
+  .pin {
+	@include transition(all 200ms);
+	cursor: pointer;
+	padding-left: 10px;
+	color: lighten($c-gray, 40%);
+	&:hover{
+	  color: $c-blue;
+	}
+	&.pinned {
+	  color: $c-blue;
+	}
+  }
+  .tag {
+	margin: 3px 3px 3px 3px;
+	@include transition(all 200ms);
+	cursor: pointer;
+	&.highlighted {
+	  background-color: $c-blue;
+	  color: white;
+	}
+	&:hover{
+	  color: white;
+	  background-color: $c-blue;
+	}
+  }
+
+}
+
 .tag {
   color: rgba($c-gray, 0.7);
   padding: 3px 5px 3px 5px;
@@ -231,6 +277,7 @@ a, span, div, button {
   .glyphicon {
 	padding-right: 17px;
   }
+
 }
 
 //SIDE NAV MENU STYLES
@@ -720,13 +767,9 @@ $half: round($loops / 2);
   }
 }
 
-
-@media (min-width: 992px){
-
+@media (min-width: 992px) {
 
   $num_of_snow: 30;
-
-
 
   @include keyframes(letitsnow) {
 	0% {
@@ -745,9 +788,12 @@ $half: round($loops / 2);
   }
 
   @for $i from 0 through $num_of_snow - 1 {
-	$size: random(5) + 2; // size 2-7
-	$delay: random(500) * 0.05 + s; //0-25s delay
-	$speed: random(10) + 10 + s;//10-20s finish loop
+	$size: random(5) + 2;
+  // size 2-7
+	$delay: random(500) * 0.05 + s;
+  //0-25s delay
+	$speed: random(10) + 10 + s;
+  //10-20s finish loop
 
 	#snow#{$i} {
 	  @include animation(letitsnow $speed infinite linear $delay);
@@ -758,17 +804,13 @@ $half: round($loops / 2);
   }
 }
 
-
-@include keyframes(shiftcover){
-  0%{
+@include keyframes(shiftcover) {
+  0% {
 	background-position: 50% 10%;
 
   }
 
-
-
-
-  100%{
+  100% {
 	background-position: 50% 90%;
   }
 }

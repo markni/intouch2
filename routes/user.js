@@ -50,3 +50,7 @@ exports.searchBar = function(req,res){
 exports.fourofour = function(req,res){
 	res.render('404');
 }
+
+exports.specials = function(req,res){
+	res.render('specials/201401');
+}

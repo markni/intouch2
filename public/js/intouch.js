@@ -188,9 +188,14 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			templateUrl: '/temp/subject',
 			controller: 'subjectCtrl'
 		}).
+		when('/2014/winter', {
+			templateUrl: '/temp/specials',
+			controller: 'specialsCtrl'
+		}).
 		when('/404', {
 			templateUrl: '/temp/404'
 		}).
+
 		otherwise({
 			redirectTo: '/404'
 		});
@@ -237,7 +242,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 					console.log(next.templateUrl);
 					// no logged user, we should be going to #login
-					if (next.templateUrl == "/temp/login" || next.templateUrl == "/temp/logout" || next.templateUrl == "/temp/profile" || next.templateUrl == "/temp/error") {
+					if (next.templateUrl == "/temp/login" || next.templateUrl == "/temp/logout" || next.templateUrl == "/temp/specials" || next.templateUrl == "/temp/profile" || next.templateUrl == "/temp/error") {
 						// already going to #login, no redirect needed
 					} else {
 						// not going to #login, we should redirect now

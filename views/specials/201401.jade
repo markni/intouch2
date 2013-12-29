@@ -1,0 +1,81 @@
+div.row
+
+	div.col-sm-4.col-xs-12.specials-col
+		div.row.form-group
+			h3.white-text 2014年冬季新番筛选器
+			h5
+				a.white-text(href="http://bgm.tv",target="blank") 资料来源: bangumi番组计画
+
+		div.row.form-group
+			a.btn.btn-info.btn-block(ng-click="clear()") 清除所有条件
+
+		div.row.form-group
+			input.form-control(type="text",placeholder="在这里输入新番名称进行查找",ng-model="search")
+
+		//div.row.card.form-group
+			h4.col-xs-12 长度
+			div.col-xs-12
+				span.tag(ng-repeat="ep in eps",ng-click="setEpSelection(ep.id)",ng-class="{highlighted:isEpSelected(ep.id)}")  {{ep.name}}
+
+
+		div.row.card.form-group
+			h4.col-xs-12 声优
+			div.col-xs-12
+				span.tag(ng-repeat="seiyu in seiyus",ng-click="toggleSelection(seiyu.id)",ng-class="{highlighted:isSelected(seiyu.id)}") {{seiyu.name}}
+
+
+		div.row.card.form-group
+			h4.col-xs-12 动画制作
+			div.col-xs-12
+				span.tag(title="{{production.name_cn}}",ng-repeat="production in productions",ng-click="toggleSelection(production.id)",ng-class="{highlighted:isSelected(production.id)}") {{production.name}}
+		div.row.card.form-group
+			h4.col-xs-12 导演
+			div.col-xs-12
+				span.tag(title="{{production.name_cn}}",ng-repeat="director in directors",ng-click="toggleSelection(director.id)",ng-class="{highlighted:isSelected(director.id)}") {{director.name}}
+		div.row.card.form-group
+			h4.col-xs-12 音乐
+			div.col-xs-12
+				span.tag(ng-repeat="composer in composers",ng-click="toggleSelection(composer.id)",ng-class="{highlighted:isSelected(composer.id)}") {{composer.name}}
+		div.row.card.form-group
+			h4.col-xs-12 人物设定
+			div.col-xs-12
+				span.tag(ng-repeat="chardesigner in chardesigners",ng-click="toggleSelection(chardesigner.id)",ng-class="{highlighted:isSelected(chardesigner.id)}")  {{chardesigner.name}}
+		div.row.card.form-group
+			h4.col-xs-12 系列构成
+			div.col-xs-12
+				span.tag(ng-repeat="scriptwriter in scriptwriters",ng-click="toggleSelection(scriptwriter.id)",ng-class="{highlighted:isSelected(scriptwriter.id)}")  {{scriptwriter.name}}
+		div.row.card.form-group
+			h4.col-xs-12 原作
+			div.col-xs-12
+				span.tag(ng-repeat="original in originals",ng-click="toggleSelection(original.id)",ng-class="{highlighted:isSelected(original.id)}")  {{original.name}}
+
+
+
+	div.col-sm-7.col-sm-offset-1.col-xs-12.specials-col
+		div.row.card.form-group(ng-repeat="subject in subjects | filter:filterFn",ng-class="{pinned:isPinned(subject.id)}")
+			div.col-xs-10
+				div.col-xs-12
+					h4
+						a(href="http://bgm.tv/subject/{{subject.id}}",target="blank") {{subject.name}}
+
+						span.glyphicon.glyphicon-pushpin.pin(title="锁定",ng-click="togglePinned(subject)",ng-class="{pinned:isPinned(subject.id)}")
+					h4
+						span.subtitle    {{subject.name_cn}}
+				div.col-xs-12.summary.clearfix {{subject.summary}}
+				div.col-xs-12.staff
+					div.row
+						a(ng-repeat="staff in subject.staff",href="http://bgm.tv/person/{{staff.id}}",target="blank")
+							span.tag {{staff.jobs.join('，')}} : {{staff.name}}
+				div.col-xs-12.staff(ng-show="subject.seiyus.length>0")
+					div.row
+						a(ng-repeat="seiyu in subject.seiyus",href="http://bgm.tv/person/{{seiyu.id}}",target="blank")
+							span.tag  {{seiyu.name}}
+			div.col-xs-2.cover(ng-style="getImage(subject)")
+
+
+
+		div.row.form-group
+			a.btn.btn-info.btn-block(ng-click="share=true") 点这里分享一下你要看的2014年1月新番吧！
+
+		div.row.form-group(ng-show='share===true')
+			textarea.form-control(rows=5) 1月新番决定先看看这些：{{getPinnedToString()}} via 想要成为世界最强的『2014年冬季新番筛选器』 (http://netaba.re/2014/winter)

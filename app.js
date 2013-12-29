@@ -56,6 +56,7 @@ app.get('/temp/search', user.search);
 app.get('/temp/schedule', user.schedule);
 app.get('/temp/profile', user.profile);
 app.get('/temp/subject', user.subject);
+app.get('/temp/specials', user.specials);
 
 //reusable parts
 
@@ -63,6 +64,7 @@ app.get('/temp/bottom-menu', user.bottomMenu);
 app.get('/temp/side-menu', user.sideMenu);
 app.get('/temp/search-bar', user.searchBar);
 app.get('/temp/404', user.fourofour);
+app.get('/temp/unsupported', user.fourofour);
 
 //TODO: change these to post in production
 app.all('/api/login',api.login);
@@ -86,6 +88,8 @@ app.all('/api/user/:username/stats',stats.index);
 
 
 app.all('/api/subject/:id',api.subject);
+
+
 
 app.get('/login', routes.index);
 app.get('/logout',routes.index);
