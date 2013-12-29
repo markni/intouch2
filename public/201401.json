@@ -1,6 +1,7 @@
 [
 	{
 		"id": 52606,
+		"genres": [{"id":1,"name":"体育竞技"},{"id":2,"name":"百合"}],
 		"url": "http://bgm.tv/subject/52606",
 		"type": 2,
 		"name": "咲-Saki- 全国編",

@@ -193,7 +193,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			templateUrl: '/temp/403',
 			controller: 'specialsCtrl'
 		}).
-		when('/newanimes', {
+		when('/new', {
 			title:'2014年冬季新番筛选姬',
 			templateUrl: '/temp/specials',
 			controller: 'specialsCtrl'
@@ -255,7 +255,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 						// already going to #login, no redirect needed
 					}
 					else if (next.templateUrl == "/temp/403" ){
-						$location.path("/newanimes");
+						$location.path("/new");
 
 					}
 					else {
