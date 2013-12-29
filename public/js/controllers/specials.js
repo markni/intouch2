@@ -277,9 +277,15 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 	$http({method: 'GET', url: '/201401.json'}).
 		success(function (data, status) {
 
-			_build_staffs(data);
-			_build_seiyus(data);
-			$scope.subjects = data;
+			$scope.directors = data.directors;
+			$scope.composers = data.composers;
+			$scope.chardesigners = data.chardesigners;
+			$scope.scriptwriters = data.scriptwriters;
+			$scope.productions = data.productions;
+			$scope.originals = data.originals;
+			$scope.seiyus = data.seiyus;
+
+			$scope.subjects = data.subjects;
 
 
 
@@ -288,112 +294,8 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 
 		});
 
-	var _build_eps = function (data) {
-		var eps_map = {};
-		data.forEach(function (el, i, arr) {
-			if (el && el.eps && el.staff.length > 0) {
-				el.staff.forEach(function (s) {
-
-					staff_map[s.id] = {'name': s.name, 'jobs': s.jobs};
-
-				});
-			}
-
-		})
-	}
-
-	var _build_seiyus = function (data) {
-		var seiyu_map = {};
-		data.forEach(function (el) {
-			if (el && el.crt && el.crt.length > 0) {
-				var local_seiyus = [];
-				el.crt.forEach(function (c) {
-					if (c.actors && c.actors.length > 0) {
-						c.actors.forEach(function (a) {
-							seiyu_map[a.id] = {'name': a.name};
-							local_seiyus.push({id: a.id, name: a.name})
-						})
-					}
-
-				});
-				el.seiyus = local_seiyus;
-			}
-
-		})
-
-		var seiyus = [];
-
-		for (var key in seiyu_map) {
-			seiyus.push({id: key, name: seiyu_map[key].name})
-
-		}
-
-		$scope.seiyus = seiyus;
 
 
-	}
-
-	var _build_staffs = function (data) {
-		var staff_map = {};
-		data.forEach(function (el) {
-			if (el && el.staff && el.staff.length > 0) {
-				el.staff.forEach(function (s) {
-					staff_map[s.id] = {'name': s.name, 'name_cn': s.name_cn, 'jobs': s.jobs};
-
-				});
-			}
-
-		})
-
-		//build array for angular repeater
-
-		var directors = [];
-		var chardesigners = [];
-		var composers = [];
-		var scriptwriters = [];
-		var productions = [];
-		var originals = [];
-
-		for (var key in staff_map) {
-			staff_map[key].jobs.forEach(function (job) {
-
-				switch (job) {
-					case "导演":
-						directors.push({id: key, name: staff_map[key].name, name_cn: staff_map[key].name_cn});
-						break;
-					case "人物设定":
-						chardesigners.push({id: key, name: staff_map[key].name, name_cn: staff_map[key].name_cn});
-						break;
-					case "音乐":
-						composers.push({id: key, name: staff_map[key].name, name_cn: staff_map[key].name_cn});
-						break;
-					case "系列构成":
-						scriptwriters.push({id: key, name: staff_map[key].name, name_cn: staff_map[key].name_cn});
-						break;
-					case "动画制作":
-						productions.push({id: key, name: staff_map[key].name, name_cn: staff_map[key].name_cn});
-						break;
-					case "原作":
-						originals.push({id: key, name: staff_map[key].name, name_cn: staff_map[key].name_cn});
-						break;
-
-					default:
-						break;
-				}
-
-			});
-			//arr.push({id:key,name:staff_map[key].name})
-
-		}
-
-		$scope.directors = directors;
-		$scope.composers = composers;
-		$scope.chardesigners = chardesigners;
-		$scope.scriptwriters = scriptwriters;
-		$scope.productions = productions;
-		$scope.originals = originals;
-
-	};
 
 
 
