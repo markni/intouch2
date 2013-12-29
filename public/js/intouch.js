@@ -189,6 +189,7 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			controller: 'subjectCtrl'
 		}).
 		when('/2014/winter', {
+			title:'2014年冬季新番筛选姬',
 			templateUrl: '/temp/specials',
 			controller: 'specialsCtrl'
 		}).
@@ -252,7 +253,16 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 				else {
 					Auth.loadCredentials();
 				}
-			})
+			});
+			$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+				if(current.$$route.title){
+					$rootScope.title = current.$$route.title;
+				}
+				else {
+					$rootScope.title = 'inTouch by Netaba.re';
+				}
+
+			});
 		}
 
 		//register default settings in localstorage  if not defined

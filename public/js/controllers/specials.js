@@ -247,6 +247,12 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 
 	}
 
+	$scope.getShareText = function(){
+
+		return '1月新番决定先看看这些：' + $scope.getPinnedToString() + 'via 想要成为世界最强的『2014年冬季新番筛选器』 (http://netaba.re/2014/winter)'
+
+	}
+
 	$http({method: 'GET', url: '/201401.json'}).
 		success(function (data, status) {
 
@@ -353,7 +359,7 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 						break;
 				}
 
-			})
+			});
 			//arr.push({id:key,name:staff_map[key].name})
 
 		}
@@ -365,6 +371,10 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 		$scope.productions = productions;
 		$scope.originals = originals;
 
-	}
+	};
+
+
+	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+	(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/platform.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();
 
 });

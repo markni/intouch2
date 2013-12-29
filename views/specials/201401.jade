@@ -2,7 +2,7 @@ div.row
 
 	div.col-sm-4.col-xs-12.specials-col
 		div.row.form-group
-			h3.white-text 2014年冬季新番筛选器
+			h3.white-text 2014年冬季新番筛选姬
 			h5
 				a.white-text(href="http://bgm.tv",target="blank") 资料来源: bangumi番组计画
 
@@ -90,5 +90,6 @@ div.row
 
 		div.row.form-group(ng-show='share===true')
 			textarea.form-control(rows=5) 1月新番决定先看看这些：{{getPinnedToString()}} via 想要成为世界最强的『2014年冬季新番筛选器』 (http://netaba.re/2014/winter)
-
-
+		div.row.form-group(ng-show='share===true')
+			a.twitter-share-button(href='https://twitter.com/share', data-url='http://netaba.re/2014/winter',  data-dnt='true') Tweet
+			.g-plus(data-action='share',data-annotation="bubble", data-width='120',data-href="http://netaba.re/2014/winter")
