@@ -249,7 +249,10 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 
 	$scope.getShareText = function(){
 
-		return '1月新番决定先看看这些：' + $scope.getPinnedToString() + 'via 想要成为世界最强的『2014年冬季新番筛选器』 (http://netaba.re/2014/winter)'
+		var prefixs = ['想要成为世界最强的','只有神才知道的','不可能这么可爱的','','',''];
+		var index = parseInt(Math.random() * 5);
+
+		return '1月新番决定先看看：' + $scope.getPinnedToString() + ' via '+ prefixs[index] + '『2014年冬季新番筛选姬』 (http://netaba.re/2014/winter)'
 
 	}
 
