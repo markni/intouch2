@@ -2,7 +2,10 @@ var app = angular.module('inTouch2', ['ngRoute',
 	'ngTouch', 'pascalprecht.translate']);
 
 app.config(function ($translateProvider, $routeProvider, $locationProvider) {
-	$locationProvider.html5Mode(true);
+	$locationProvider.html5Mode(true);    //no hash tag in URL
+
+	//TODO: using asynchronous loading to handle translation text as the file is getting bigger
+	//@see http://pascalprecht.github.io/angular-translate/docs/en/#/guide/10_asynchronous-loading
 
 	$translateProvider.translations('en-us', {
 		WELCOME: 'Welcome back! How are you today?',
@@ -63,15 +66,6 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 		RAN_MSG_3: "You can batch update episodes anyway you want. Wanted only ep3, ep5, and ep9? No problem!",
 		RAN_MSG_4: "You can turn on high res images in the settings. Be careful they cost a lot of bandwidth!",
 		RAN_MSG_5: "The weather is nice today, isn't it?",
-		RAN_MSG_6: "今天天气真好啊 ～☆",
-		RAN_MSG_7: "今天天气真好啊 ～☆",
-		RAN_MSG_8: "今天天气真好啊 ～☆",
-		RAN_MSG_9: "今天天气真好啊 ～☆",
-		RAN_MSG_10: "今天天气真好啊 ～☆",
-		RAN_MSG_11: "今天天气真好啊 ～☆",
-		RAN_MSG_12: "今天天气真好啊 ～☆",
-		RAN_MSG_13: "今天天气真好啊 ～☆",
-		RAN_MSG_14: "今天天气真好啊 ～☆"
 	})
 		.translations('zh-cn', {
 			WELCOME: '欢迎回家～☆',
@@ -132,16 +126,6 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			RAN_MSG_3: "章节也是可以批量操作的，可以一次看过柯南的ep234，ep523，ep110呢 ～☆",
 			RAN_MSG_4: "在设置里可以开启高清图片，不过要小心流量呀 ～☆",
 			RAN_MSG_5: "今天天气真好啊 ～☆",
-			RAN_MSG_6: "今天天气真好啊 ～☆",
-			RAN_MSG_7: "今天天气真好啊 ～☆",
-			RAN_MSG_8: "今天天气真好啊 ～☆",
-			RAN_MSG_9: "今天天气真好啊 ～☆",
-			RAN_MSG_10: "今天天气真好啊 ～☆",
-			RAN_MSG_11: "今天天气真好啊 ～☆",
-			RAN_MSG_12: "今天天气真好啊 ～☆",
-			RAN_MSG_13: "今天天气真好啊 ～☆",
-			RAN_MSG_14: "今天天气真好啊 ～☆"
-
 		});
 
 
@@ -198,20 +182,25 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			templateUrl: '/temp/specials',
 			controller: 'specialsCtrl'
 		}).
-
 		when('/404', {
 			templateUrl: '/temp/404'
 		}).
-
 		otherwise({
-			redirectTo: '/404'
+			redirectTo: '/404' //redirect everything else to 404 page
 		});
 }).run(function ($rootScope, $translate, $location, Auth, Helpers) {
+
+		//test localStorage support, if not supported redirect
 
 		if (!Helpers.isLocalStorageNameSupported()) {
 			$location.path("/404");
 		}
 		else {
+			// load settings from localStorage, build defaults if not found
+
+			$rootScope.config = {}; //global config object, as it's faster to read from localStorage
+
+			// app language setting, default to en-us
 			if (localStorage.config_lang !== undefined) {
 				$translate.uses(localStorage.config_lang);
 			}
@@ -220,8 +209,10 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 				localStorage.config_lang = 'en-us';
 			}
 
-			$rootScope.config = {};
 			$rootScope.config.lang = localStorage.config_lang;
+
+
+			// default notification icon
 
 			if (localStorage.config_bot === undefined) {
 				localStorage.config_bot = $rootScope.config.bot = 'x';
@@ -230,12 +221,18 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 				$rootScope.config.bot = localStorage.config_bot;
 			}
 
+			// default subject title language setting set to show original titles
+			// if it's an US/British show, it's in English; if it's a Japanese show, it's in Japanese.
+
+
 			if (localStorage.config_title === undefined) {
 				localStorage.config_title = $rootScope.config.title = 'o';
 			}
 			else {
 				$rootScope.config.title = localStorage.config_title;
 			}
+
+			// default image quality set to low, to save bandwidth
 
 			if (localStorage.config_iq === undefined) {
 				localStorage.config_iq = $rootScope.config.iq = 'low';
@@ -245,41 +242,52 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 			}
 
 
+			// block users if not login
+
 			$rootScope.$on("$routeChangeStart", function (event, next, current) {
+
+				// if login auth is not found (similar to cookies)
 
 				if (localStorage.auth === undefined) {
 
+					var white_list = [ "/temp/login", "/temp/logout","/temp/specials","/temp/profile","/temp/error","/404" ];
 
-					// no logged user, we should be going to #login
-					if (next.templateUrl == "/temp/login" || next.templateUrl == "/temp/logout" || next.templateUrl == "/temp/specials" || next.templateUrl == "/temp/profile" || next.templateUrl == "/temp/error" || next.templateUrl == "/temp/404") {
-						// already going to #login, no redirect needed
-					}
-					else if (next.templateUrl == "/temp/403" ){
+					if (next.templateUrl == "/temp/403" ){
+
+						//special redirect setting up for an old urls
+
 						$location.path("/new");
 
 					}
-					else {
-						// not going to #login, we should redirect now
+
+					else if (white_list.indexOf(next.templateUrl)<0) {
+
+						// not in the whitelist, redirect to login
 						$location.path("/login");
+
 					}
+
 				}
 				else {
+					//setting up post base64 simple auth header
 					Auth.loadCredentials();
 				}
 			});
+
+
 			$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+				// dynamic page title generation
+
 				if(current.$$route.title){
 					$rootScope.title = current.$$route.title;
 				}
 				else {
-					$rootScope.title = 'inTouch by Netaba.re';
+					$rootScope.title = 'inTouch';
 				}
 
 			});
 		}
 
-		//register default settings in localstorage  if not defined
-		//load them if already defined.
 
 	})
 
