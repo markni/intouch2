@@ -1,3 +1,5 @@
+// Base64 encode and decode services
+
 app.factory('Base64', function () {
 	var keyStr = 'ABCDEFGHIJKLMNOP' +
 		'QRSTUVWXYZabcdef' +
@@ -83,12 +85,16 @@ app.factory('Base64', function () {
 	};
 });
 
+
+// Basic Auth header set up services
+
 app.factory('Auth', ['Base64', '$http', function (Base64, $http) {
 	$http.defaults.headers.common['Authorization'] = 'Basic ';
 
 	return {
 		loadCredentials: function () {
 			if (localStorage.auth !== undefined) {
+				//encode username and auth with base64
 				var encoded = Base64.encode(localStorage.username + ":" + localStorage.auth);
 				$http.defaults.headers.common.Authorization = 'Basic ' + encoded;
 			}
@@ -112,18 +118,21 @@ app.factory('Helpers', function () {
 
 	return {
 		paddy: function (n, p, c) {
+			//pad text to length
 			var pad_char = typeof c !== 'undefined' ? c : '0';
 			var pad = new Array(1 + p).join(pad_char);
 			return (pad + n).slice(-pad.length);
 		},
-		isEmpty: function (object) {
 
+		isEmpty: function (object) {
+			// quick test if an object is empty
 			for (var i in object) {
 				return false;
 			}
 			return true;
 		},
 		isLocalStorageNameSupported: function () {
+			//double check localStorage support, especially for safari private mode
 			try {
 				var testKey = 'test', storage = window.localStorage;
 				storage.setItem(testKey, '1');
