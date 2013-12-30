@@ -85,7 +85,6 @@ app.factory('Base64', function () {
 	};
 });
 
-
 // Basic Auth header set up services
 
 app.factory('Auth', ['Base64', '$http', function (Base64, $http) {
