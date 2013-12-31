@@ -41,6 +41,7 @@ async.map(arr, function (item, callback) {
 	data.originals = originals;
 	data.seiyus = seiyus;
 	data.subjects = results;
+	data.updated = (new Date()).toISOString();
 
 	fs.writeFile('../public/' + '/' + '201401' + '.json', JSON.stringify(data), function (err) {
 

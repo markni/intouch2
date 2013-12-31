@@ -15,7 +15,7 @@ div.row
 					button.btn.btn-danger.btn-block(ng-class='{faded:bot!="bgm"}',ng-click='setBot("bgm")') {{ 'BOT2' | translate}}
 
 
-			div.card.row.form-group
+			div.card.row.form-group(ng-class="{hidden:lang!='zh-cn'}")
 				div.col-sm-6.col-lg-6.col-md-6.col-xs-6
 					button.btn.btn-danger.btn-block(ng-class='{faded:title!="o"}',ng-click='setTitle("o")') {{ 'ORIGINAL_TITLE' | translate}}
 				div.col-sm-6.col-lg-6.col-md-6.col-xs-6
