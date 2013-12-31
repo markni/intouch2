@@ -91,7 +91,7 @@ div.row
 		div.row.form-group(ng-show='share===true')
 			textarea.form-control(rows=5,ng-bind="getShareText()")
 		div.row.form-group(ng-show='share===true')
-			a.twitter-share-button(href='https://twitter.com/share',data-text="{{getShareText()}}", data-url='{{getAbsUrl()}}',  data-dnt='true') Tweet
+			a.twitter-share-button(href='https://twitter.com/share',data-text="{{getShareText('twitter')}}", data-url='{{getAbsUrl()}}',  data-dnt='true') Tweet
 			.g-plus(data-action='share',data-annotation="bubble",data-text="{{getShareText()}}", data-width='120',data-href='{{getAbsUrl()}}')
 
 		div.hidden

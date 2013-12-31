@@ -239,7 +239,7 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 
 	}
 
-	$scope.getShareText = function(){
+	$scope.getShareText = function(type){
 
 		var arr = [];
 		for (var key in $scope.pinned) {
@@ -258,7 +258,14 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 
 		var index = parseInt(Math.random() * 5);
 
-		return '1月新番决定先追'+arr.length+'部：' + arr.join('，') + ' via '+ ' 『新番筛选姬』 ('+$location.absUrl()+')';
+		var str =  '1月新番决定先追'+arr.length+'部：' + arr.join('，') + ' via '+ ' 『新番筛选姬』';
+
+		if (typeof type == "undefined"){
+			str +=  ' ('+$location.absUrl()+')';
+
+		}
+
+		return str
 
 	}
 
