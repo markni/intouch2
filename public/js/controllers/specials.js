@@ -284,6 +284,8 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 	$http({method: 'GET', url: '/201401.json'}).
 		success(function (data, status) {
 
+			console.log('last updated: '+data.updated);
+
 			$scope.directors = data.directors;
 			$scope.composers = data.composers;
 			$scope.chardesigners = data.chardesigners;
