@@ -175,6 +175,15 @@ app.controller('subjectCtrl', function ($translate, $scope, Auth, $http, $locati
 
 	}
 
+	$scope.showTranslatedName = function(){
+		if ($rootScope.config.lang == 'en-us'){
+			return false;
+		}
+		return true;
+
+	}
+
+
 	$scope.reset = function () {
 
 		if ($scope.old_data && $scope.old_data.status){
