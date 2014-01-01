@@ -219,12 +219,75 @@ a, span, div, button {
   @include transition(all 200ms ease-in);
 }
 
+.gridpreview{
+
+
+  margin-top:20px;
+  margin-bottom: 20px;
+  overflow: auto;
+ .grid{
+   cursor: pointer;
+   @include transition(background-position 1100ms);
+   height: 200px;
+   background-size:cover;
+   background-position: 50% 0%;
+   &:hover{
+	 background-position: 50% 100%;
+	 border:$c-pink 5px solid;
+   }
+   &.pinned{
+	 border:$c-pink 5px solid;
+
+   }
+ }
+}
+
+
+
+.special-body{
+  margin-top: 20px;
+  .help{
+	background-color: $c-dk-blue;
+	padding-left: 20px;
+  }
+}
+
+.special-nav{
+  background-color: $c-red;
+
+  h3.white-text.pull-left{
+	margin: 10px;
+  }
+  .btn {
+	@include transition(font-size 200ms);
+	font-size: 25px;
+	color:white;
+	background-color: $c-red;
+	&:hover{
+	  font-size:23px;
+	}
+	&:active{
+	  font-size: 20px;
+	}
+  }
+
+}
+
 .specials-col {
 
   >.pinned{
 	.staff, .summary, .cover{
 	  display: none;
+
 	}
+	&:hover{
+	  .staff, .summary, .cover{
+		display: block;
+
+	  }
+	}
+
+
 
   }
   .staff {

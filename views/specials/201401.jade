@@ -1,8 +1,17 @@
-div.row
+div.special-nav.navbar.navbar-default.navbar-fixed-top
+	h3.white-text.pull-left 2014年冬季新番筛选姬
+	button.btn.pull-right(title="封面党点这里用画风选择",ng-click="toggleGrid()")
+		span.glyphicon.glyphicon-th
+
+div.gridpreview.row(ng-class="{hidden:show_grid===false}")
+	div.grid.col-xs-3.col-sm-2(ng-repeat="subject in subjects",ng-style="getImage(subject)",ng-click="togglePinned(subject)",ng-class="{pinned:isPinned(subject.id)}")
+
+
+div.row.special-body
 
 	div.col-sm-4.col-xs-12.specials-col
 		div.row.form-group
-			h3.white-text 2014年冬季新番筛选姬
+
 			h5
 				a.white-text(href="http://bgm.tv",target="blank") 资料来源: bangumi番组计画
 
@@ -52,12 +61,13 @@ div.row
 
 
 	div.col-sm-7.col-sm-offset-1.col-xs-12.specials-col
-		div.row.form-group(ng-show="isPinnedEmpty()")
-			h3.white-text 1. 在左边选择自己感兴趣的制作阵容
-			h3.white-text 2. 点击标题旁的
+		div.row.card.help.form-group(ng-show="isPinnedEmpty()")
+			h4.white-text 1. 在左边选择自己感兴趣的制作阵容
+			h4.white-text 2. 点击标题旁的
 				span.glyphicon.glyphicon-pushpin
 				| 图标锁定想看的目标
-			h3.white-text 3. 向你的
+			h4.white-text 3. 画风党也可以在顶部菜单打开封面预览选择
+			h4.white-text 4. 向你的
 				strike 空气
 				| 朋友们分享
 		div.row.card.form-group(ng-repeat="subject in subjects | filter:filterFn",ng-class="{pinned:isPinned(subject.id)}")

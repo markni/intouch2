@@ -3,6 +3,7 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 	$scope.selected = {};
 	$scope.share = false;
 	$scope.pinned = {};
+	$scope.show_grid = false;
 	$scope.ep_selected = "dontcare";
 	$scope.eps = [
 		{id: "seasonly", "name": "季番"},
@@ -237,6 +238,10 @@ app.controller('specialsCtrl', function ($translate, $scope, Auth, $http, $locat
 
 	$scope.getPinnedToString = function () {
 
+	}
+
+	$scope.toggleGrid = function(){
+		$scope.show_grid = !$scope.show_grid;
 	}
 
 	$scope.getShareText = function(type){
