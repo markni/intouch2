@@ -11,8 +11,6 @@ module.exports = function(grunt) {
             }
         },
 
-
-
         concat: {
             options: {
                 separator: ''
@@ -63,15 +61,21 @@ module.exports = function(grunt) {
                     {expand: true, src: ['public/**'], dest: 'dist/'},
                     {expand: true, src: ['views/**'], dest: 'dist/'},
                     {expand: true, src: ['routes/**'], dest: 'dist/'},
-                    {expand: true, src: ['app.js'], dest: 'dist/'},
-                    {expand: true, src: ['public/index_production.html'], dest: 'dist/public/', rename:function(dest,src){
-                        return dest+'index.html';
-                    }}
+                    {expand: true, src: ['app.js'], dest: 'dist/'}
 
 
                 ]
             }
-        }
+        },
+
+
+		// Performs rewrites based on rev and the useminPrepare configuration
+		usemin: {
+			html: ['dist/public/index.html'],
+			options: {
+				assetsDirs: ['dist']
+			}
+		}
 
 
     });
@@ -83,8 +87,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
 
     grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-usemin');
 
 
-    grunt.registerTask('default', ['copy','concat', 'uglify','mkdir']);
+    grunt.registerTask('default', ['copy','concat', 'uglify','mkdir','usemin']);
 
 };
