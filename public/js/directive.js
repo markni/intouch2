@@ -1,7 +1,7 @@
 app.directive('bottomMenu', function () {
     return {
         restrict: 'AE',
-        templateUrl: '/temp/bottom-menu',
+        templateUrl: '/views/bottom-menu.html',
         replace: true
 
     };
@@ -11,7 +11,7 @@ app.directive('bottomMenu', function () {
 app.directive('sideMenu', function () {
     return {
         restrict: 'AE',
-        templateUrl: '/temp/side-menu',
+        templateUrl: '/views/side-menu.html',
         replace: true
 
     };
@@ -23,7 +23,7 @@ app.directive('sideMenu', function () {
 app.directive('searchBar', function () {
     return {
         restrict: 'AE',
-        templateUrl: '/temp/search-bar',
+        templateUrl: '/views/search-bar.html',
         replace: true
 
     };

@@ -64,8 +64,8 @@ module.exports = function(grunt) {
                     {expand: true, src: ['views/**'], dest: 'dist/'},
                     {expand: true, src: ['routes/**'], dest: 'dist/'},
                     {expand: true, src: ['app.js'], dest: 'dist/'},
-                    {expand: true, src: ['views/layout_production.jade'], dest: 'dist/views/', rename:function(dest,src){
-                        return dest+'layout.jade';
+                    {expand: true, src: ['public/index_production.html'], dest: 'dist/public/', rename:function(dest,src){
+                        return dest+'index.html';
                     }}
 
 

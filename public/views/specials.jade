@@ -1,7 +1,10 @@
 div.special-nav.navbar.navbar-default.navbar-fixed-top
 	h3.white-text.pull-left 2014年冬季新番筛选姬
+
 	button.btn.pull-right(title="封面党点这里用画风选择",ng-click="toggleGrid()")
 		span.glyphicon.glyphicon-th
+	div.form-group.pull-right(style="margin-top:10px;")
+		input.form-control(type="text",placeholder="输入新番名称进行查找",ng-model="search")
 
 div.gridpreview.row(ng-class="{hidden:show_grid===false}")
 	div.grid.col-xs-3.col-sm-2(ng-repeat="subject in subjects",ng-style="getImage(subject)",ng-click="togglePinned(subject)",ng-class="{pinned:isPinned(subject.id)}")
@@ -18,8 +21,8 @@ div.row.special-body
 		div.row.form-group
 			a.btn.btn-info.btn-block(ng-click="clear()") 清除所有条件
 
-		div.row.form-group
-			input.form-control(type="text",placeholder="输入新番名称进行查找",ng-model="search")
+
+
 
 		//div.row.card.form-group
 			h4.col-xs-12 长度

@@ -132,58 +132,58 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 	$routeProvider.
 		when('/', {
-			templateUrl: '/temp/home',
+			templateUrl: '/views/home.html',
 			controller: 'homeCtrl'
 		}).
 		when('/login', {
-			templateUrl: '/temp/login',
+			templateUrl: '/views/login.html',
 			controller: 'loginCtrl'
 		}).
 		when('/logout', {
-			templateUrl: '/temp/logout',
+			templateUrl: '/views/logout.html',
 			controller: 'logoutCtrl'
 		}).
 		when('/settings', {
-			templateUrl: '/temp/settings',
+			templateUrl: '/views/settings.html',
 			controller: 'settingsCtrl'
 		}).
 		when('/search/:q', {
-			templateUrl: '/temp/search',
+			templateUrl: '/views/search.html',
 			controller: 'searchCtrl'
 		}).
 		when('/profile', {
-			templateUrl: '/temp/profile',
+			templateUrl: '/views/profile.html',
 			controller: 'profileCtrl'
 		}).
 		when('/profile/:username', {
-			templateUrl: '/temp/profile',
+			templateUrl: '/views/profile.html',
 			controller: 'profileCtrl'
 		}).
 		when('/p/:username', {
-			templateUrl: '/temp/profile',
+			templateUrl: '/views/profile.html',
 			controller: 'profileCtrl'
 		}).
 
 		when('/schedule', {
-			templateUrl: '/temp/schedule',
+			templateUrl: '/views/schedule.html',
 			controller: 'scheduleCtrl'
 		}).
 		when('/subject/:id', {
-			templateUrl: '/temp/subject',
+			templateUrl: '/views/subject.html',
 			controller: 'subjectCtrl'
 		}).
 		when('/2014/winter', {
 			title:'2014年冬季新番筛选姬',
-			templateUrl: '/temp/403',
+			templateUrl: '/views/403.html',
 			controller: 'specialsCtrl'
 		}).
 		when('/new', {
 			title:'2014年冬季新番筛选姬',
-			templateUrl: '/temp/specials',
+			templateUrl: '/views/specials.html',
 			controller: 'specialsCtrl'
 		}).
 		when('/404', {
-			templateUrl: '/temp/404'
+			templateUrl: '/views/404.html'
 		}).
 		otherwise({
 			redirectTo: '/404' //redirect everything else to 404 page
@@ -250,9 +250,9 @@ app.config(function ($translateProvider, $routeProvider, $locationProvider) {
 
 				if (localStorage.auth === undefined) {
 
-					var white_list = [ "/temp/login", "/temp/logout","/temp/specials","/temp/profile","/temp/error","/404" ];
+					var white_list = [ "/views/login.html", "/views/logout.html","/views/specials.html","/views/profile.html","/views/error.html","/views/404.html" ];
 
-					if (next.templateUrl == "/temp/403" ){
+					if (next.templateUrl == "/views/403.html" ){
 
 						//special redirect setting up for an old urls
 

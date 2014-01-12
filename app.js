@@ -5,7 +5,6 @@
 
 var express = require('express');
 var routes = require('./routes');
-var user = require('./routes/user');
 var api = require('./routes/api');
 var stats = require('./routes/stats');
 var http = require('http');
@@ -32,13 +31,24 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser('nyancat'));
 app.use(express.session());
+
+//TODO: this breaks in windows phone 8 somehow, need find a FIX
+
 //app.use(express.csrf({value: csrfValue}));
 //app.use(function(req, res, next) {
 //    res.cookie('XSRF-TOKEN', req.csrfToken());
 //    next();
 //});
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
+
+//catch all other requests and send index html to feed angularjs.
+
+app.use(function(req, res) {
+	// Use res.sendfile, as it streams instead of reading the file into memory.
+	res.sendfile(__dirname + '/public/index.html');
+});
 
 
 // development only
@@ -47,24 +57,6 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-
-app.get('/temp/login', user.login);
-app.get('/temp/logout', user.logout);
-app.get('/temp/home', user.home);
-app.get('/temp/settings', user.settings);
-app.get('/temp/search', user.search);
-app.get('/temp/schedule', user.schedule);
-app.get('/temp/profile', user.profile);
-app.get('/temp/subject', user.subject);
-app.get('/temp/specials', user.specials);
-
-//reusable parts
-
-app.get('/temp/bottom-menu', user.bottomMenu);
-app.get('/temp/side-menu', user.sideMenu);
-app.get('/temp/search-bar', user.searchBar);
-app.get('/temp/404', user.fourofour);
-app.get('/temp/unsupported', user.fourofour);
 
 //TODO: change these to post in production
 app.all('/api/login',api.login);
@@ -91,16 +83,11 @@ app.all('/api/subject/:id',api.subject);
 
 
 
-app.get('/login', routes.index);
-app.get('/logout',routes.index);
-app.get('/settings',routes.index);
 
 app.get('/cat',function(req,res){
     res.redirect('http://k.netaba.re/cat');
 
 });
-
-app.get('*',routes.index);
 
 
 http.createServer(app).listen(app.get('port'), function(){

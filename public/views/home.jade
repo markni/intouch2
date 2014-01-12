@@ -41,7 +41,7 @@ div.row
 				span.glyphicon.glyphicon-chevron-right.pull-right
 
 		div.row.form-group(ng-class="{hidden:loading>0||show_all===true||items.length<7}")
-			a.btn.btn-info.btn-block(ng-click="showAll()"){{ 'LOAD_ALL' | translate}}
+			a.btn.btn-info.btn-block(ng-click="showAll()") {{ 'LOAD_ALL' | translate}}
 
 div(side-menu)
 
@@ -49,7 +49,3 @@ div(side-menu)
 div(bottom-menu)
 
 
-num_of_snow = 30
-
-- for (var i=0; i<num_of_snow; i++)
-	.snow(id="snow"+i)

@@ -50,7 +50,7 @@ div.row
 
 
 		div.row.form-group(ng-class="{hidden:loading>0||show_all===true}")
-			a.btn.btn-info.btn-block(ng-click="showAll()"){{ 'LOAD_ALL_EPS' | translate}}
+			a.btn.btn-info.btn-block(ng-click="showAll()") {{ 'LOAD_ALL_EPS' | translate}}
 
 		div.card.ep.no-href-link.form-group.row(ng-click="addToSelected(ep)",ng-repeat="ep in subject.eps",ng-class="{aired: ep.status==='Air', onair: ep.status==='Today',hidden:(ep.watched === 1&&show_all===false), watched:ep.watched === 1, selected:isSelected(ep)}")
 			div.ephotness(ng-style="getHotness(ep)")
@@ -62,7 +62,7 @@ div.row
 
 
 		div.row.form-group(ng-class="{hidden:loading>0}")
-			a.btn.btn-danger.btn-block(href="/"){{ 'RETURN_TO_HOME' | translate}}
+			a.btn.btn-danger.btn-block(href="/") {{ 'RETURN_TO_HOME' | translate}}
 
 div(side-menu)
 
