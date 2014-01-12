@@ -3,7 +3,7 @@
     "version": "2.2.1",
     "private": true,
     "scripts": {
-        "start": "node app.js"
+		"restart": "git pull && grunt && forever restart dist/app.js"
     },
     "dependencies": {
         "express": "3.4.4",
