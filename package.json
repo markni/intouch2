@@ -3,7 +3,6 @@
     "version": "2.2.1",
     "private": true,
     "scripts": {
-		"start": "git pull && npm install && grunt && node dist/app.js",
 		"restart": "git pull && grunt && forever restart dist/app.js"
     },
     "dependencies": {
