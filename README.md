@@ -1,5 +1,7 @@
 inTouch 2
 -------------
+[![Dependency Status](https://david-dm.org/xna2/intouch2.png)](https://david-dm.org/xna2/intouch2)
+[![devDependency Status](https://david-dm.org/xna2/intouch2/dev-status.png)](https://david-dm.org/xna2/intouch2#info=devDependencies)
 
 inTouch 2 is the latest version of popular mobile web app "inTouch", which helps user keep tracking the progress of their favorite TV shows, dramas and animations. 
 
