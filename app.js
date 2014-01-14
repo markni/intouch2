@@ -56,7 +56,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+
 
 //TODO: change these to post in production
 app.all('/api/login',api.login);
