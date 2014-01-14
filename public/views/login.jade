@@ -3,9 +3,9 @@ div.row(style='margin-top:100px')
 
 		form(role="form",ng-submit='login()')
 			div.form-group
-				input(class="form-control",placeholder="{{ 'USERNAME' | translate }}",ng-model="user.username")
+				input.input-lg(class="form-control",placeholder="{{ 'USERNAME' | translate }}",ng-model="user.username")
 			div.form-group
-				input(type="password",class="form-control",placeholder="{{ 'PASSWORD' | translate }}",ng-model="user.password")
+				input.input-lg(type="password",class="form-control",placeholder="{{ 'PASSWORD' | translate }}",ng-model="user.password")
 			button.form-group.btn.btn-danger.btn-block(type="submit") {{login_button_text}}
 			button.form-group.btn.btn-primary.btn-block(type="button",ng-click="demo()") {{demo_button_text}}
 			div.form-group.alert.alert-warning.alert-dismissable.margin-top-10(ng-class="{hidden: !show_login_error}")
