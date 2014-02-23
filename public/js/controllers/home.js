@@ -21,6 +21,10 @@ app.controller('homeCtrl', function ($translate, $scope, Auth, $http, $location,
 		$scope.showSideMenu = !$scope.showSideMenu;
 	}
 
+	$scope.getProgressBar = function (item){
+		return Math.min((item.ep_status / item.subject.eps)*100,100)  +'%';
+	}
+
 
 	//redirect to search page with query in url
 	$scope.search = function () {

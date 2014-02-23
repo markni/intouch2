@@ -25,7 +25,7 @@ div.row
 					h5 {{getTitle(item)}}
 
 					div.blue-bg.progress-total
-						div.red-bg.progress-current(ng-style="{width:(item.ep_status / item.subject.eps)*100 +'%'}")
+						div.red-bg.progress-current(ng-style="{width:getProgressBar(item)}")
 					div.padding-top-10
 						span.tag.hidden-xs
 							span.glyphicon.glyphicon-ok-circle
