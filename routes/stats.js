@@ -64,7 +64,7 @@ exports.index = function (req, response) {
                 var pages = 0;
                 var items = $('#browserItemList>li');
                 nickname = $('h1').text().replace('看过的动画', '').trim();
-                avatar = $('.avatarSize48').attr('style').replace("background-image:url('", "").replace("')", "").replace("/m/", "/l/");
+                avatar = $('.avatarSize75').attr('style').replace("background-image:url('", "").replace("')", "").replace("/m/", "/l/");
 
                 var collection = $('.trinav a');
 
