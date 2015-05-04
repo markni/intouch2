@@ -13,12 +13,9 @@ exports.index = function (req, response) {
 
     var username = req.params.username;
 
-
-
     var today = new Date();
     var directory = 'cache';
     var filename = username + '_' + today.getFullYear() + today.getMonth() + today.getDate();
-
 
     var total = 0;
     var rated = 0;
@@ -35,17 +32,12 @@ exports.index = function (req, response) {
 
     var watched_subjects = [];
 
-
     function loadPage(page_number, callback) {
-
-
 
         var options = {
             host: 'bgm.tv',
             path: '/anime/list/' + username + '/collect?orderby=rate&page=' + page_number
         };
-
-
 
         http.get(options,function (res) {
 
@@ -66,8 +58,9 @@ exports.index = function (req, response) {
                 nickname = $('h1').text().replace('看过的动画', '').trim();
                 avatar = $('.avatarSize75').attr('style').replace("background-image:url('", "").replace("')", "").replace("/m/", "/l/");
 
-                var collection = $('.trinav a');
+                var collection = $('.navSubTabs a');
 
+                console.log(collection.length, 'collection.length');
 
                 for (var i = 0; i < collection.length; i++) {
                     if (i === 0) {
@@ -130,7 +123,7 @@ exports.index = function (req, response) {
 
 
             loadPage(1, function (err, pages) {
-
+                console.log(pages,' pages!!!!!');
                 finish.ordered(function (async) {
                      for (var p = 2; p < pages + 1; p++) {
 

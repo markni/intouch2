@@ -11,13 +11,13 @@ div.row
 		div.row.form-group.card.text-center.switch-btn-group(style="padding-top:80px;padding-bottom:0")
 			div.col-xs-4.col-lg-4
 				p {{ 'WATCHED2' | translate}}
-				h2 {{watched}}
+				h2.big-number {{watched}}
 			div.col-xs-4.col-lg-4
 				p {{ 'RATED' | translate}}
-				h2 {{rated}}
+				h2.big-number {{rated}}
 			div.col-xs-4.col-lg-4
 				p {{ 'AVERAGE' | translate}}
-				h2 {{avg}}
+				h2.big-number {{avg}}
 
 		div.loading-bar(ng-class="{hidden:loading<1}")
 
@@ -25,7 +25,7 @@ div.row
 
 			div#chart(style="height:300px;width:100%;max-width:500px;margin:0 auto")
 
-		//div.row.form-group(ng-class="{hidden:loading>0}")
+		div.row.form-group(ng-class="{hidden:loading>0}")
 			a.btn.btn-info.btn-block(ng-click="getShareCode()") {{ 'SHARE' | translate}}
 
 		div.row.form-group(ng-class="{hidden:code===''}")
